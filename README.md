@@ -1,4 +1,4 @@
-<img src="image/Capture.PNG">
+<img src="image/screenshot.png">
 
 # la bibliothèque en ligne 
 
