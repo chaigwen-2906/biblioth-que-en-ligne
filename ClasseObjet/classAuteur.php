@@ -107,8 +107,8 @@ class auteur{
         $requete->closeCursor();
     }
 
-    // delete : supprime une ligne dans la table auteur
-    public function delete(){
+    // Delete : supprime une ligne dans la table auteur
+    public function Delete(){
         //Préparation de la requête
         $sql = "DELETE FROM auteur WHERE idAuteur = ?";
         $requete = $this->connectBdd->prepare($sql);
