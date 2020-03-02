@@ -1,11 +1,18 @@
-### Instruction de test h3
-## plop h2
-# plop h1
 
-* ceci
-* est 
-* une liste
+# la bibliothèque en ligne 
 
-plop *plop* plop italique
+## note codeClimate
+[![Maintainability](https://api.codeclimate.com/v1/badges/d4cfbe2a4d214b9d2653/maintainability)](https://codeclimate.com/github/chaigwen-2906/bibliotheque-en-ligne/maintainability)
 
-plop _plop_ plop gras
+
+## Langage utilisé
+* html5 
+* css3
+* javaScript
+* php
+* jquery
+
+
+## Description du projet
+Ce projet est une bibliothèque en ligne pour mon projet de fin d'année
+
