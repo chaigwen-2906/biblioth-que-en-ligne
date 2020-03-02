@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="bibliothèque">
+    <meta name="description" content="Réservez vos livres">
+    <meta name="title" content="Notre bibliothèque en ligne">
+    <meta http-equiv="expires" content="43200" />
+
+    <title> Accueil - La bibliothèque en ligne</title>
+
+    <!-- Appel des feuilles de style --/ Calling style sheets-->
+    <link rel="stylesheet" href="style.css/header.css">
+    <link rel="stylesheet" href="style.css/footer.css">
+    <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
+    <link rel="icon" href="image/logo-flavicon/flavicon.jpg" />
+
+</head>
+
+<body>
+    <header>
+        <!------Bandeau (logo, titre, renseignement), Banner (logo, title, information)------->
+        <div class="bandeau">
+            <figure class="headerLogo">
+                <a href="index.html">
+                    <img class="retoucheLogo" src="image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
+                        title="Tout l'univers">
+                </a>
+            </figure>
+            <h1>
+                La bibliothèque en ligne
+            </h1>
+            <div class="logo">
+                <img class="retouchePointIntero" src="image/logo-flavicon/pointIntero1.png">
+            </div>
+        </div>
+        <!-------------------Menu principal, Main Menu--------------------------->
+        <nav class="menu_principal">
+            <div class="btn">
+                <a class="creerCompte" href="#">
+                    Créez-votre compte
+                </a>
+                <a class="identifier" href="#">
+                    S'identifier
+                </a>
+            </div>
+            <div class="btnloupe">
+                <img src="image/bouton/loupe.png">
+            </div>
+            <!-- Bloc déconnexion - s'affiche en mode connecté 
+                    <figure id="bloc_deconnexion">
+                    <p>
+                        Bonjour Madame Lemoine 
+                    </p>
+                    <img id="boutonPanier" src="image/bouton/panier.png" alt="Mon panier" title="Mon panier">    
+                    <a href="index.html">
+                        Se déconnecter
+                    </a>
+                </figure>
+                <figure >
+                    <img id="btnloupe" src="image/bouton/loupe.png">
+                </figure> -->
+            <!----------------------Menu------------------------------>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="index.html"> Accueil </a>
+                    </li>
+                    <li>
+                        <a href="#"> Coups de coeurs</a>
+                    </li>
+                    <li>
+                        <a href="#"> Nouveautés</a>
+                    </li>
+                    <li>
+                        <a href="#"> Ateliers</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--------------Barre de recherche, Search bar-------------------->
+        <form class="selectionLivres">
+            <label>Thèmes</label>
+            <select>
+                <option>
+                    Selectionner...
+                </option>
+                <option>BD</option>
+                <option> jeunesse </option>
+                <option> Littérature </option>
+                <option> Fiction </option>
+                <option> Roman </option>
+                <option> Art </option>
+                <option> Culture </option>
+                <option> Societé </option>
+                <option> Nature </option>
+                <option> loisir </option>
+                <option> Scolaire </option>
+                <option> Université </option>
+                <option> Auteurs </option>
+                <option> Savoirs </option>
+                <option> Genres </option>
+            </select>
+            <div class="btnRecherche">
+                <input type="text" name="search" placeholder="Je cherche...">
+                <button type="submit">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </header>
+    <main class="Accueil">
+        <!--------image de fond fixer pour scroller dessus. et se trouve dessous la barre de recheche--------------->
+        <!-- background image fix to scroll on. and is below the search bar -->
+        <figure>
+            <img class="imgDeFond" src="image/imgFond/livreDeFond.png" alt=" une bibliothèque"
+                title="une bibliothèque">
+        </figure>
+        <h1 class="titreMain">
+            La bibliothèque ou tout est fait pour lire !!!
+        </h1>
+        <!--------------livre coup de coeur, favorite book------------------>
+        <div class="articles">
+            <article class="articleLivres">
+                <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                <h3>
+                    Coup de coeur
+                </h3>
+                <hr separator>
+                <figure class="imgArticleLivre">
+                    <img src="image/img/luluNelson1.jpg">
+                </figure>
+                <h4>
+                    Lulu et Nelson
+                </h4>
+                <hr separator>
+                <a href="#" class="button">
+                    En savoir plus !!
+                </a>
+                <p>
+                    Auteurs : Aurélie Neyret <br>
+                    Date de sortie : 27 novembre 2019
+                </p>
+            </article>
+            <article class="articleLivres">
+                <h3>
+                    Coup de coeur
+                </h3>
+                <hr separator>
+                <figure class="imgArticleLivre">
+                    <img src="image/img/laly.jpg">
+                </figure>
+                <h4>
+                    Lady'S - Tome 14 - Code Vampir
+                </h4>
+                <hr separator>
+                <a href="#" class="button">
+                    En savoir plus !!
+                </a>
+                <p>
+                    Auteurs : Philippe Aymond. <br>
+                    Date de sortie :05/12/2019
+                </p>
+            </article>
+            <article class="articleLivres">
+                <h3>
+                    Coup de coeur
+                </h3>
+                <hr separator>
+                <figure class="imgArticleLivre">
+                    <img src="image/img/guerreDesClans.jpg">
+                </figure>
+                <h4>
+                    La Guerre Des Clans - Tome 4 Eclipse
+                </h4>
+                <hr separator>
+                <a href="#" class="button">
+                    En savoir plus !!
+                </a>
+                <p>
+                    Éditeur : Hunter Erin <br>
+                    Date de publication : 03/10/2019
+                </p>
+            </article>
+            <article class="articleLivres">
+                <h3>
+                    Coup de coeur
+                </h3>
+                <hr separator>
+                <figure class="imgArticleLivre">
+                    <img src="image/img/ki_hi.jpg">
+                </figure>
+                <h4>
+                    Ki et Hi - Tome 5
+                    Le Dragon Céleste
+                </h4>
+                <hr separator>
+                <a href="#" class="button">
+                    En savoir plus !!
+                </a>
+                <p>
+                    Auteurs : Fanny Antigny , Kevin <br>
+                    Date de sortie :05/12/2019
+                </p>
+            </article>
+        </div>
+        <!----------------------les livre Manga, Manga books----------------------->
+        <h1 class="titreMain">
+           Manga !!!
+        </h1>
+    </main>
+    <footer>
+        <div class="contenuFooter">
+            <!-----------Adresse de la boutique, Shop address------------>
+            <div class="adresse">
+                <address>
+                    <h3>
+                        Contactez-nous
+                    </h3>
+                    <div>
+                        <img class="iconAdresse" src="image/icon/adress.png"><a href=""><span>Adresse:</span>45 rue du pleuple</a> <br>
+                        <img class="iconAdresse" src="image/icon/mail.png" ><a href="mailto:contact@fidele.com">mail: contact@fidele.com</a> <br>
+                        <img class="iconAdresse" src="image/icon/telephone.png" ><a href="tel: 01 77 77 77 77">tel: 01 77 77 77 77 </a> <br>
+                        <img class="iconAdresse" src="image/icon/localisation1.png"><a href="">Ou nous trouvez-La map</a>
+                    </div>
+                </address>
+            </div>
+            <!----------lien réseaux sociaux, social media link-------------->
+            <div class="ulReseauxFooter">
+                <h3>
+                    réseaux sociaux
+                </h3>
+                <ul>
+                    <!--target="_blank" => ouvre dans un nouvel onglet-->
+                    <li><a href="https://www.facebook.com/" target="_blank"><img src="image/reseaux/Facebookgd.png"
+                                alt="facebook" title="facebook"></a></li>
+
+                    <li><a href="https://www.instagram.com/" target="_blank"><img src="image/reseaux/Instagramgd.png"
+                                alt="Instagram" title="Instagram"></a></li>
+                </ul>
+                <ul>
+                    <li><a href="https://www.pinterest.com/" target="_blank"><img src="image/reseaux/Pinterestgd.png"
+                                alt="Pinterest" title="Pinterest"> </a></li>
+
+                    <li><a href="https://twitter.com/accueil?lang=fr" target="_blank"><img src="image/reseaux/Twittergd.png"
+                                alt="twitter" title="twitter"> </a></li>
+                </ul>
+            </div>
+            <div  class="copyFooter">
+                <p>
+                    &copy; La bibliothèque en ligne 2020  Développeur web: Lemoine Gwénola
+                </p>
+            </div>
+            <div class="mentionFooter">
+                <!---------toutes les mentions obligatoire d"un site, all obligatory mentions of a site-->
+                <h3>
+                    Allez plus loin
+                </h3>
+                <div><img class="iconMentions" src="image/icon/puce.png"><a href="mentionsLegales.html"><span>Mentions Légales</span></a></div>
+                <div><img class="iconMentions" src="image/icon/puce.png"><a href="ConditionsGénérales.html"><span>Condition générales</span></a></div>
+                <div><img class="iconMentions"  src="image/icon/puce.png"><a href="RGPD.html"><span>RGPD</span></a></div>
+                <div><img class="iconMentions"  src="image/icon/puce.png"><a href="#"><span>Plan du site</span></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!---------- Appel du javascript  / Call of javascript------------>
+    <script type="text/javascript" src="public/js/index.js"></script>
+
+</body>
+
+</html>

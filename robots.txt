@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.les fins gourmets.com/sitemap.xml
