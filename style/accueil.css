@@ -1,0 +1,75 @@
+.imageDeFondAccueil
+{
+    width: 100%;
+    margin-top: 131px;
+}
+.imageDeFondAccueil .imgDeFond
+{
+    width: 100%;
+}
+.Accueil .titreMain
+{
+    background-color: grey;
+    color: white;
+    height: 55px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+.Accueil .articles
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.Accueil .articleLivres
+{  
+    border: 2px solid rgb(209, 201, 201);
+    background-color: white;
+}
+.Accueil .articleLivres h3,
+.Accueil .articleLivres p
+{
+    text-align: center;
+    background-color: rgb(209, 201, 201);
+    padding: 10px;
+}
+.Accueil .imgArticleLivre  
+{
+    text-align: center;
+    padding-top: 10px;
+}
+.Accueil .articles h4
+{
+    text-align: center;
+    padding: 10px;
+}
+.Accueil .button
+{
+    background-color: indigo;
+    width: 80%;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
+.Accueil .articles a
+{
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 150px;
+    background-color: rgb(243, 131, 26);
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .imageDeFondAccueil
+    {
+        margin-top: 103px;
+    }
+}
