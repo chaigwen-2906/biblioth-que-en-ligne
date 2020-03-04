@@ -112,7 +112,7 @@ class atelier{
 
             //Préparation de la requête
             //dans la bdd INSERT la ligne dans la table atelier et je passe les valeur des colonne = 
-            //(idlivre,nom,commentaire)
+            //(nom,date,description,heure,age,capacite)
            $sql= "INSERT INTO atelier(nom,date,description,heure,age,capacite) VALUES (?,?,?,?,?,?)";
            $requete = $this->connectBdd->prepare($sql);
    
