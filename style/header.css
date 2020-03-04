@@ -1,0 +1,239 @@
+*
+{
+    margin: 0;
+    padding:0;
+}
+a
+{
+    list-style-type: none;
+    text-decoration: none;
+}
+body
+{   
+        font-family: verdana, 'Times New Roman', Times, serif;
+        font-size: 1rem;
+        background-color: #92c4f3;
+}
+
+
+header 
+{
+    z-index: 100;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+
+/* -----------------  BANDEAU ----------------*/
+header .bandeau
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #92c4f3;
+    color: white;
+}
+header .bandeau .headerLogo
+{
+    text-align: center;
+    width: 20%;
+}
+
+header .bandeau .retoucheLogo
+{
+    width: 75px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%; 
+}
+
+header .bandeau h1
+{
+    margin: auto;
+    width: 60%;
+    text-align: center;
+}
+
+header .bandeau .logo 
+{
+    margin: auto;
+    width: 20%;
+    text-align: center;
+}
+
+header .bandeau .logo .retouchePointIntero
+{
+    justify-content: flex-end;
+    width: 75px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+/*-------------------------début du nav----------------*/
+header .menu_principal
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #282a36;
+    text-align: right;
+    height: 50px;
+}
+
+header .creerCompte
+{
+    background-color: #92c4f3;
+    border-radius: 7px;
+    color: white;
+    margin-right: 15px;
+    padding: 8px;
+    width: 20%;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+header .identifier
+{
+    background-color: #92c4f3;
+    border-radius: 7px;
+    color: white;
+    padding: 8px;
+    width: 20%;
+}
+
+header .bloc_deconnexion
+{
+    display: flex;
+    color: #92c4f3;
+}
+header .bloc_deconnexion .divBonjour
+{
+    display: flex;
+    align-items: center;
+}
+header .bloc_deconnexion img
+{
+    width: 30px;
+    height: 30px;
+    margin: 0px 15px;
+    cursor: pointer;
+}
+
+header .burger
+{
+    margin: auto;
+    color: #92c4f3;
+    display: none;
+    cursor: pointer;
+    align-items: center;
+}
+header .burger img
+{
+    margin-right: 10px;
+}
+
+header .menu
+{
+    margin: auto;
+}
+header .menu ul
+{
+    display: flex;
+    list-style-type: none; 
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;  
+}
+header .menu a
+{
+    color: white; 
+    margin: 15px;   
+}
+header .navMenuBurger
+{
+    width: 100%;
+    background-color: #282a36;
+    height: 25px;
+    display: none;
+}
+header .navMenuBurger ul
+{
+    display: flex;
+    justify-content: space-around;
+}
+header .navMenuBurger li
+{
+    list-style: none;
+}
+header .navMenuBurger li a
+{
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+header .btnloupe
+{
+    width: 70px; 
+}
+/*---------------------------fin du nav-----------------*/
+.selectionLivres label
+{
+    padding-inline-end: 5px;
+}
+header .selectionLivres
+{
+    background-color: #dc3545;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    padding: 5px;
+}
+header .btnRecherche
+{
+    padding-left: 35px;
+}
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    header .bandeau .headerLogo img {
+        width: 50px;
+    }
+    header .bandeau h1 {
+        font-size: 1.3rem;
+    }
+    header .bandeau .logo .retouchePointIntero{
+        width: 40px;
+    }
+
+    header .burger
+    {
+        display: flex;
+    }
+    header .menu
+    {
+        display: none;
+    }
+}
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px){
+    
+}
