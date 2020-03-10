@@ -127,14 +127,6 @@ class faq{
         $requete->closeCursor();// requête delete 
     }
 
-
-
-
-
-
-
 }
-
-
 
 ?>

@@ -7,27 +7,28 @@ include "./../connexionBDD.php";
 include "./../ClasseObjet/classEditeur.php";
 
 //Test de création/**/
-$objetdetest = new editeur($connectBdd, 63, "MC", "Marie-Claire");
+/*$objetdetest = new editeur($connectbdd, "idEditeur", "MC", "Marie-Claire");
 var_dump($objetdetest);
-$objetdetest->Create();
+$objetdetest->Create();*/
 
 
 //Test de lecture
-/*$objetdetest = new editeur($connectBdd, $idEditeur, $code, $nom);
+/*$objetdetest = new editeur($connectbdd, 62, "", "");
 $objetdetest->Read();
-echo $objetdetest->getNom();*/
+echo $objetdetest->getNom();
+echo $objetdetest->getCode();*/
 
 
 //Test de modification
-/*$objetdetest = new editeur($connectBdd, $idEditeur, $code, $nom);
+$objetdetest = new editeur($connectbdd, 64, "", "");
 $objetdetest->Read();
-$objetdetest->setNom('adulte');
+$objetdetest->setCode("leo");
 var_dump($objetdetest);
-$objetdetest->Update();*/
+$objetdetest->Update();
 
 
-//Test de suppression
-/*$objetdetest = new editeur($connectBdd, $idEditeur, $code, $nom);
+/*//Test de suppression
+$objetdetest = new editeur($connectbdd, 63, "MC", "Marie-Claire");
 $objetdetest->Delete();*/
 
 

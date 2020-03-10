@@ -60,56 +60,56 @@ class editeur{
     /////////////// DECLARATION DES FONCTIONS CRUD ///////////////////////
 
     // Create : crée une ligne dans la table editeur
-        // Create : crée une ligne dans la table editeur
-        public function Create(){
+    // Create : crée une ligne dans la table editeur
+    public function Create(){
 
-            //Préparation de la requête
-            //dans la bdd INSERT la ligne dans la table editeur et je passe les valeur des colonne = 
-            //(editeur,code,nom)
-           $sql= "INSERT INTO editeur(code,nom) VALUES (?,?)";
-           $requete = $this->connectBdd->prepare($sql);
+        //Préparation de la requête
+        //dans la bdd INSERT la ligne dans la table editeur et je passe les valeur des colonne = 
+        //(editeur,code,nom)
+        $sql= "INSERT INTO editeur(code,nom) VALUES (?,?)";
+        $requete = $this->connectBdd->prepare($sql);
 
-           //Execution de la requete
-           $requete->execute([$this->getCode(), $this->getNom()]);
+        //Execution de la requete
+        $requete->execute([$this->getCode(), $this->getNom()]);
 
-            //on recupère l'id de la ligne insérée 
-           //et on le stocke dans l'attribut idEditeur de notre objet
-           $this->setIdEditeur($this->connectBdd->lastInsertId());
+        //on recupère l'id de la ligne insérée 
+        //et on le stocke dans l'attribut idEditeur de notre objet
+        $this->setIdEditeur($this->connectBdd->lastInsertId());
 
         //Fermeture de la requete
         $requete->closeCursor();
+    }
+
+
+    // Read : Lit une ligne dans la table editeur
+    public function Read(){
+        //Préparation de la requête
+        $sql = "SELECT * FROM editeur WHERE idEditeur = ?";
+        $requete = $this->connectBdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$this->getIdEditeur()]);
+
+        //On récupère les données
+        while($resultat = $requete->fetch())
+        {
+            //On modifie l'attibut code, nom de notre objet
+            $this->setCode($resultat['code']);
+            $this->setNom($resultat['nom']); 
         }
-
-
-         // Read : Lit une ligne dans la table editeur
-         public function Read(){
-            //Préparation de la requête
-            $sql = "SELECT * FROM editeur WHERE idEditeur = ?";
-            $requete = $this->connectBdd->prepare($sql);
-
-            //Execution de la requete
-            $requete->execute([$this->getIdEditeur()]);
-
-            //On récupère les données
-            while($resultat = $requete->fetch())
-            {
-                //On modifie l'attibut code, nom de notre objet
-                $this->setCode($resultat['code']);
-                $this->setNom($resultat['nom']); 
-            }
-            
+        
         //Fermeture de la requete
         $requete->closeCursor();
-      }
+    }
 
-          // Update : Modifie les données d'une ligne dans la table editeur
-          public function Update(){
-            //Préparation de la requête
-            $sql = "UPDATE editeur SET code = ?, nom = ? WHERE idEditeur = ?";
-            $requete = $this->connectBdd->prepare($sql);
+    // Update : Modifie les données d'une ligne dans la table editeur
+    public function Update(){
+        //Préparation de la requête
+        $sql = "UPDATE editeur SET code = ?, nom = ? WHERE idEditeur = ?";
+        $requete = $this->connectBdd->prepare($sql);
 
-            //Execution de la requete
-            $requete->execute([$this->getCode(), $this->getNom()]);
+        //Execution de la requete
+        $requete->execute([$this->getCode(), $this->getNom(), $this->getIdEditeur()]);
 
         //Fermeture de la requete
         $requete->closeCursor();
@@ -125,8 +125,8 @@ class editeur{
         //Execution de la requete
         $requete->execute([$this->getIdEditeur()]);
 
-    //Fermeture de la requete
-    $requete->closeCursor();// requête delete 
+        //Fermeture de la requete
+        $requete->closeCursor();// requête delete 
     }
 }
 ?>

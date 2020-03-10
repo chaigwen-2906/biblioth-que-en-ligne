@@ -16,16 +16,4 @@ class Client{
       //Déclaration des ascesseurs
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

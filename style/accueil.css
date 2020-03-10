@@ -2,10 +2,57 @@
 {
     width: 100%;
     margin-top: 131px;
+    position: fixed;
+    z-index: 1;
+    opacity: 0.6;
+    top: 0px;  
 }
 .imageDeFondAccueil .imgDeFond
 {
+    width: 100%; 
+    
+}
+
+/*----------Accueil---*/
+.Accueil
+{
+    position: relative;
+    z-index: 2;
+   
+}
+.Accueil .citation
+{
     width: 100%;
+    /* height: 500px; */
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: crimson;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+.Accueil .citation blockquote
+{
+    padding-bottom: 20px;
+    font-style: italic;
+}
+.Accueil .citation p
+{
+    padding-bottom: 20px;
+    font-style: italic;
+}
+.Accueil .separator
+{
+    width: 55%;
+    border-color: rgb(241, 123, 147);
+}
+.Accueil .blockContenu
+{
+    background-color: #92c4f3;
+    padding-top: 5px;
 }
 .Accueil .titreMain
 {
@@ -71,5 +118,19 @@
     .imageDeFondAccueil
     {
         margin-top: 103px;
+    }
+    .Accueil .citation
+    {
+        width: 55%;
+        padding-top: 103px;
+    }
+    
+}
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px){
+    .Accueil .citation
+    {
+        opacity: 0;
     }
 }

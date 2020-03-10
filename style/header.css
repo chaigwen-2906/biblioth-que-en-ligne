@@ -18,7 +18,7 @@ body
 
 header 
 {
-    z-index: 100;
+    z-index: 3;
     width: 100%;
     position: fixed;
     top: 0px;
@@ -33,6 +33,10 @@ header .bandeau
     justify-content: space-between;
     background-color: #92c4f3;
     color: white;
+}
+header .bandeau h1
+{
+    font-family: 'Libre Baskerville', serif;
 }
 header .bandeau .headerLogo
 {
@@ -76,7 +80,7 @@ header .bandeau .logo .retouchePointIntero
     cursor: pointer;
 }
 
-
+/* -----------------Fin  BANDEAU ----------------*/
 
 /*-------------------------début du nav----------------*/
 header .menu_principal
@@ -180,16 +184,13 @@ header .navMenuBurger li a
     color: white;
     cursor: pointer;
 }
-
-
-
-
-
 header .btnloupe
 {
     width: 70px; 
 }
 /*---------------------------fin du nav-----------------*/
+
+/*------------------------début du conteneur recherche----------*/
 .selectionLivres label
 {
     padding-inline-end: 5px;
@@ -201,12 +202,16 @@ header .selectionLivres
     justify-content: center;
     width: 100%;
     color: white;
-    padding: 5px;
+    padding: 7px 5px;
 }
 header .btnRecherche
 {
     padding-left: 35px;
 }
+/*------------------------Fin du conteneur recherche----------*/
+
+
+
 
 
 /*---------------media querie tablette------------*/

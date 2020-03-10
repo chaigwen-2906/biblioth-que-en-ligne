@@ -296,9 +296,7 @@
         $requete->closeCursor();// requête delete 
     }
   
-     
  }
-
 
 ?>
 
