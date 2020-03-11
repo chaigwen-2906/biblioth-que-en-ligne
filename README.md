@@ -30,3 +30,5 @@ Ajoutez des notes supplémentaires sur la façon de déployer cela sur un systè
 
 # Remerciements
 *inspiration 
+
+<img src="app/public/image/screenshotFooter.png">
