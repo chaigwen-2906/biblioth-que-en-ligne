@@ -1,0 +1,16 @@
+{
+    "name": "Ma bibliotheque en ligne",
+    "description": "project",
+    "authors": [
+        {
+            "name": "Gwénola",
+            "email": "chaigwen@hotmail.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4" :{
+            "Projet\\" : "./app/"
+        }
+    },
+    "require": {}
+}
