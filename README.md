@@ -1,4 +1,4 @@
-<img src="image/screenshot.png">
+<img src="app/public/image/screenshot.png">
 
 # la bibliothèque en ligne 
 
