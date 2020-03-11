@@ -1,0 +1,16 @@
+{
+    "name": "cedric/mvc",
+    "description": "project mvc",
+    "authors": [
+        {
+            "name": "cedricLt",
+            "email": "ced533@msn.com"
+        }
+    ],
+    "autoload": {
+        "psr-4" :{
+            "Projet\\" : "./app/"
+        }
+    },
+    "require": {}
+}
