@@ -153,7 +153,7 @@
         </main>
 
 
-    <?php require_once("footer.php") ?> 
+        <?php require_once("footer.php") ?> 
 
         <!---------------------- jQuery ---------------------------------->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

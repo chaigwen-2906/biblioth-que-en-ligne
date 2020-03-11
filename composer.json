@@ -1,10 +1,10 @@
 {
-    "name": "Ma bibliotheque en ligne",
-    "description": "project",
+    "name": "cedric/mvc",
+    "description": "project mvc",
     "authors": [
         {
-            "name": "Gwénola",
-            "email": "chaigwen@hotmail.fr"
+            "name": "cedricLt",
+            "email": "ced533@msn.com"
         }
     ],
     "autoload": {

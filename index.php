@@ -15,13 +15,6 @@ try {
         if($_GET['action'] == 'home'){
             $controllerFront->homeFront();
         }
-
-        elseif($_GET['action'] == 'header'){
-            $controllerFront->headerFront();
-        }
-        elseif($_GET['action'] == 'footer'){
-            $controllerFront->footerFront();
-        }
         elseif($_GET['action'] == 'coupDeCoeurs'){
             $controllerFront->coupDeCoeursFront();
         }
@@ -46,12 +39,15 @@ try {
         elseif($_GET['action'] == 'planDuSite'){
             $controllerFront->planDuSiteFront();
         }
-        
         else{
             $controllerFront->homeFront();
-            }
+        }
+        
     }   
+    else{
 
+        $controllerFront->homeFront();
+    }
 
 } catch (Exception $e) {
    // require 'app/views/frontend/errorLoading.php';

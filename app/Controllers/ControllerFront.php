@@ -6,22 +6,13 @@ class ControllerFront
 {
     function homeFront()
     {
+        var_dump("coucou");
         //traitement
         $homeFront = new \Projet\Models\FrontManager();
         $accueil = $homeFront->viewFrontHome();
 
         //Appel à la vue : affichage
         require 'app/views/home.php';
-    }
-
-    function headerFront()
-    {
-        require 'app/views/header.php';
-    }
-
-    function footerFront()
-    {
-        require 'app/views/footer.php';
     }
 
     function coupDeCoeursFront()
