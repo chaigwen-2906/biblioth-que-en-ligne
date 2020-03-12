@@ -118,9 +118,11 @@
 </header>
 
 <div id="modalConnection" class="boiteModal">
-    <img src="./app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+<img src="./app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="contenuModal">
-        
+    <img id="fermerModalConnection" src="./app/public/image/bouton/disconnect.png">
+    contenu en mettre en place
+    
     
     </div>
 </div>
