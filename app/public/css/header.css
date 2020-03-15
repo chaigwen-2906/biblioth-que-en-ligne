@@ -208,34 +208,151 @@ header .btnRecherche
 /*------------------------Fin du conteneur recherche----------*/
 
 
-/* Boite modal modalConnection*/
-.boiteModal {
+/* Boite modal modalConnection, creez votre compte*/
+.boiteModal
+{
     position: fixed;
     width:100%;
     height:100%;
     z-index:4;
     overflow: hidden;
     display: none;
+    overflow:auto
 }
-.fondModalDialog{
+.fondModalDialog
+{
     width: 100%;
 }
-.contenuModal {
+.conteneurModal 
+{
     width:60%;
-    height:300px;
-    padding:20px;
+    padding:0;
     position:absolute;
     left:20%;
     top:15%;
     border-radius: 10px;
-    background-color: white;
-    opacity:1;
+    background-color: #92c4f3;
+    opacity: 1;
     border: 1px solid grey;
 }
-.boutonFermerModal{
+.boutonFermerModal
+{
     cursor: pointer;
 }
+.boiteModal .conteneurModal .enteteModal
+{
+    background-color: white;
+    border-radius: 10px;
+    color: #92c4f3;
+    text-align: center;
+}
 
+.boiteModal .conteneurModal .enteteModal img
+{
+    float: right;
+}
+.boiteModal .conteneurModal .contenuModal
+{
+    padding:20px;
+}
+.boiteModal .conteurForm
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.conteurForm .identifier
+{
+    width: 80%;
+    margin:5px;
+    padding-top: 10px;
+   
+}
+.conteurForm .labelAligne 
+{
+    display: inline-block;
+    width: 131px;
+    vertical-align: top; 
+    margin-bottom: 10px;
+}
+.labelAligne
+{
+    width: 40%;
+    min-width: 290px;
+    float: left;
+    text-align: left;
+}
+.labelAligneRight
+{
+    width: 100%;
+    text-align: left;
+}
+.conteurForm .btnConnect 
+{
+    margin-top: 20px;
+    width: 150px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    margin-bottom: 15px;
+}
+.conteurForm .conteneurIdentifiant .motPasseOublier
+{
+    margin: 15px;
+}
+.conteneurIdentifiant
+{
+    padding: 20px;
+}
+
+.monBoutton 
+{
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+	background-color:#88c5db;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	margin: 20px;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.monBoutton:hover
+ {
+	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+}
+.monBoutton:active 
+{
+	position:relative;
+	top:1px;
+}
+.inputAligne
+{
+    width: 40%;
+    height: 100%;
+}
+.inputAligneRight
+{
+    width: 40%;
+    height: 100%;
+}
+.civilite
+{
+    width:100%;
+    margin: 10px;
+    text-align: center;
+}
+/*------------------------Fin du conteneur recherche----------*/
 
 
 /*---------------media querie tablette------------*/
