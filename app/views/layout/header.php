@@ -3,7 +3,7 @@
     <div class="bandeau">
         <figure class="headerLogo">
             <a href="index.php?action=home">
-                <img class="retoucheLogo" src="app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
+                <img class="retoucheLogo" src="./../app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
                     title="Tout l'univers">
             </a>
         </figure>
@@ -12,7 +12,7 @@
         </h1>
         <div class="logo">
             <a href="#" id="boutonFaq">
-                <img class="retouchePointIntero" src="app/public/image/logo-flavicon/pointIntero1.png">
+                <img class="retouchePointIntero" src="./../app/public/image/logo-flavicon/pointIntero1.png">
             </a>
         </div>
     </div>
@@ -30,36 +30,36 @@
         <!-- Bloc déconnexion - s'affiche en mode connecté -->
         <figure class="bloc_deconnexion">
             <a href="#">
-                <img id="boutonCompte" src="app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
+                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
             </a>
             <a href="index.php?action=panier">
-                <img id="boutonPanier" src="app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
+                <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
             </a>
             <a href="index.php?action=home">
-                <img id="boutonDisconnect" src="app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">   
+                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">   
             </a>
         </figure>
         <div class="btnloupe">
-            <img src="app/public/image/bouton/loupe.png">
+            <img src="./../app/public/image/bouton/loupe.png">
         </div>
         <!----------------------Menu------------------------------>
         <div class="burger" id="btnBurger">
-            <img src="app/public/image/icon/burger.png" alt="image burger menu">
+            <img src="./../app/public/image/icon/burger.png" alt="image burger menu">
             Menu
         </div>
         <div class="menu">
             <ul>
                 <li>
-                    <a href="index.php?action=home">Accueil</a>
+                    <a href="./home">Accueil</a>
                 </li>
                 <li>
-                    <a href="index.php?action=coupDeCoeurs">Coups de coeurs</a>
+                    <a href="./coupDeCoeurs">Coups de coeurs</a>
                 </li>
                 <li>
-                    <a href="index.php?action=nouveaute">Nouveautés</a>
+                    <a href="./nouveaute">Nouveautés</a>
                 </li>
                 <li>
-                    <a href="index.php?action=atelier">Ateliers</a>
+                    <a href="./atelier">Ateliers</a>
                 </li>
             </ul>
         </div>
@@ -118,10 +118,10 @@
 </header>
 <!-- BOITE MODAL:S'IDENTIFIER  -->
 <div id="modalConnection" class="boiteModal">
-    <img src="./app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalConnection" src="./app/public/image/bouton/btnFermer1.png">
+            <img id="fermerModalConnection" src="./../app/public/image/bouton/btnFermer1.png">
             <h1>
                 Veuillez vous d'identifier 
             </h1>
@@ -156,10 +156,10 @@
 <!--FIN BOITE MODAL:S'IDENTIFIER  -->
 <!-- BOITE MODAL:CREER VOTRE COMPTE  -->
 <div id="modalCreerCompte" class="boiteModal">
-    <img src="./app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalCreerCompte" src="./app/public/image/bouton/btnFermer1.png">
+            <img id="fermerModalCreerCompte" src="./../app/public/image/bouton/btnFermer1.png">
             <h1>
                 Connectez-vous à votre compte
             </h1>
@@ -247,9 +247,6 @@
                         <a href="#" class="monBoutton" type="reset" >
                             Annuler
                         </a>
-
-                    <!-- <input class="bouton" id="boutonEnvoyerCreez" type="submit" value="envoyer">
-                    <input class="bouton" id="annuler" type="reset" value="Annuler"> -->
                 </div>
             </form>
         </div>
@@ -259,10 +256,10 @@
 
 <!-- BOITE MODAL FAQ  -->
 <div id="modalFaq" class="boiteModal">
-    <img src="./app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalFaq" src="./app/public/image/bouton/btnFermer1.png">
+            <img id="fermerModalFaq" src="./../app/public/image/bouton/btnFermer1.png">
             <h1>
                 Question - Réponse
             </h1>

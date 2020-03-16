@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
 // ON DECLARE LA CLASSE atelier
-class atelier{
+class Atelier extends Manager{
 
     ///////////////DECLARE DES ATTRIBUTS//////////////
     private $connectBdd;
@@ -79,10 +79,10 @@ class atelier{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($connectBdd, $idAtelier, $nom, $date, $description, $heure, $age, $capacite){
+    public function __construct($idAtelier, $nom, $date, $description, $heure, $age, $capacite){
 
         //On stocke la connexion à la base de données
-        $this->connectBdd = $connectBdd;
+        $this->connectBdd = $this->dbConnect();
 
         //on modifie l'attribut idAtelier de l'objet
         $this->setIdAtelier($idAtelier);

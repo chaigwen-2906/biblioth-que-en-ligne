@@ -13,26 +13,26 @@
     <title> Accueil - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="app/public/css/header.css">
-    <link rel="stylesheet" href="app/public/css/footer.css">
-    <link rel="stylesheet" href="app/public/css/accueil.css">
+    <link rel="stylesheet" href="./../app/public/css/header.css">
+    <link rel="stylesheet" href="./../app/public/css/footer.css">
+    <link rel="stylesheet" href="./../app/public/css/accueil.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
 
 </head>
 
     <body>
 
 
-        <?php require_once("header.php"); ?>
+        <?php require_once("./app/views/layout/header.php"); ?>
 
 
         <!--------image de fond fixer pour scroller dessus. et se trouve dessous la barre de recheche--------------->
         <!-- background image fix to scroll on. and is below the search bar -->
         <figure class="imageDeFondAccueil">
-            <img class="imgDeFond" src="app/public/image/imgFond/livreDeFond.png" alt=" une bibliothèque"
+            <img class="imgDeFond" src="./../app/public/image/imgFond/livreDeFond.png" alt=" une bibliothèque"
                 title="une bibliothèque">
         </figure>
 
@@ -49,6 +49,7 @@
                 <hr class="separator">  
             </div>
             <div class="blockContenu">
+                <?php echo $vars;?>
                 <h1 class="titreMain">
                     La bibliothèque ou tout est fait pour lire 
                 </h1>
@@ -61,7 +62,7 @@
                         </h3>
                         <hr separator>
                         <figure class="imgArticleLivre">
-                            <img src="app/public/image/img/luluNelson1.jpg">
+                            <img src="./../app/public/image/img/luluNelson1.jpg">
                         </figure>
                         <h4>
                             Lulu et Nelson
@@ -83,7 +84,7 @@
                         </h3>
                         <hr separator>
                         <figure class="imgArticleLivre">
-                            <img src="app/public/image/img/laly.jpg">
+                            <img src="./../app/public/image/img/laly.jpg">
                         </figure>
                         <h4>
                             Lady'S - Tome 14 - Code Vampir
@@ -105,7 +106,7 @@
                         </h3>
                         <hr separator>
                         <figure class="imgArticleLivre">
-                            <img src="app/public/image/img/guerreDesClans.jpg">
+                            <img src="./../app/public/image/img/guerreDesClans.jpg">
                         </figure>
                         <h4>
                             La Guerre Des Clans - Tome 4 Eclipse
@@ -127,7 +128,7 @@
                         </h3>
                         <hr separator>
                         <figure class="imgArticleLivre">
-                            <img src="app/public/image/img/ki_hi.jpg">
+                            <img src="./../app/public/image/img/ki_hi.jpg">
                         </figure>
                         <h4>
                             Ki et Hi - Tome 5
@@ -153,14 +154,14 @@
         </main>
 
 
-        <?php require_once("footer.php") ?> 
+        <?php require_once("./app/views/layout/footer.php") ?> 
 
         <!---------------------- jQuery ---------------------------------->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="app/public/js/header.js"></script>
-        <script type="text/javascript" src="app/public/js/accueil.js"></script>
+        <script type="text/javascript" src="./../app/public/js/header.js"></script>
+        <script type="text/javascript" src="./../app/public/js/accueil.js"></script>
 
     </body>
 

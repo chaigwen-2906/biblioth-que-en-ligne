@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
 //On déclare la classe Categorie
-class categorie{
+class Categorie extends Manager{
 
     
     /////////////// DECLARATION DES ATTRIBUTS ///////////////////////
@@ -33,9 +33,9 @@ class categorie{
 
 
     /////////////// DECLARATION DES CONSTRUCTEURS ///////////////////////
-    public function __construct($connectbdd, $idCategorie, $nom){
+    public function __construct($idCategorie, $nom){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $connectbdd;
+        $this->connectBdd = $this->dbConnect();
 
         //on modifie l'attribut IdCategorie de l'objet
         $this->setIdCategorie($idCategorie);

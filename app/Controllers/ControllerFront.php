@@ -6,53 +6,52 @@ class ControllerFront
 {
     function homeFront()
     {
-        var_dump("coucou");
         //traitement
-        $homeFront = new \Projet\Models\FrontManager();
-        $accueil = $homeFront->viewFrontHome();
+        $homeFront = new \Projet\Models\ManagerFrontHome();
+        $vars = $homeFront->viewFrontHome();
 
         //Appel à la vue : affichage
-        require 'app/views/home.php';
+        require 'app/views/front/home.php';
     }
 
     function coupDeCoeursFront()
     {
-        require 'app/views/coupDeCoeurs.php';
+        require 'app/views/front/coupDeCoeurs.php';
     }
 
     function nouveauteFront()
     {
-        require 'app/views/nouveaute.php';
+        require 'app/views/front/nouveaute.php';
     }
 
     function atelierFront()
     {
-        require 'app/views/atelier.php';
+        require 'app/views/front/atelier.php';
     }
 
     function panierFront()
     {
-        require 'app/views/panier.php';
+        require 'app/views/front/panier.php';
     }
 
     function conditionsGeneralesFront()
     {
-        require 'app/views/conditionsGenerales.php';
+        require 'app/views/front/conditionsGenerales.php';
     }
 
     function mentionsLegalesFront()
     {
-        require 'app/views/mentionsLegales.php';
+        require 'app/views/front/mentionsLegales.php';
     }
     
     function rgpdFront()
     {
-        require 'app/views/rgpd.php';
+        require 'app/views/front/rgpd.php';
     }
 
     function planDuSiteFront()
     {
-        require 'app/views/planDuSite.php';
+        require 'app/views/front/planDuSite.php';
     }
      
 
