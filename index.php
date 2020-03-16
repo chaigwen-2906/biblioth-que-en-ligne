@@ -8,47 +8,84 @@ session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
 try {
-    $controllerFront = new \Projet\Controllers\ControllerFront(); //objet controler
 
-    if (isset($_GET['action'])) {
+    if ($_GET['action'] != "") {
 
-        if($_GET['action'] == 'home'){
-            $controllerFront->homeFront();
+        $params = explode('/',$_GET['action']);
+    
+        //test du controller
+        // echo "controller : ".$params[0];
+        // echo "<br/>";
+        // echo "page : ".$params[1];
+
+        switch ($params[0]) {
+            case "front":
+                // on appel le controller front
+                $controller = new \Projet\Controllers\ControllerFront();
+
+                switch($params[1])
+                {
+                    case "home":
+                        $controller->homeFront();
+                    break;
+
+                    case "coupDeCoeurs":
+                        $controller->coupDeCoeursFront();
+                    break;
+
+                    case "nouveaute": 
+                        $controller->nouveauteFront();
+                    break;
+
+                    case "atelier":
+                        $controller->atelierFront();
+                    break;
+
+                    case "panier":
+                        $controller->panierFront();
+                    break;
+
+                    case "conditionsGenerales": 
+                        $controller->conditionsGeneralesFront();
+                    break;
+
+                    case "mentionsLegales": 
+                        $controller->mentionsLegalesFront();
+                    break;
+
+                    case "rgpd": 
+                        $controller->rgpdFront();
+                    break;
+
+                    case "planDuSite": 
+                        $controller->planDuSiteFront();
+                    break;
+
+                    default:
+                        $controller->errorFront();
+                    break;
+                }
+            break;
+
+            case "admin":
+                // on appel le contoller admin
+                $controller = new \Projet\Controllers\ControllerAdmin();
+            break;
+
+            default:
+            break;
         }
-        elseif($_GET['action'] == 'coupDeCoeurs'){
-            $controllerFront->coupDeCoeursFront();
-        }
-        elseif($_GET['action'] == 'nouveaute'){
-            $controllerFront->nouveauteFront();
-        }
-        elseif($_GET['action'] == 'atelier'){
-            $controllerFront->atelierFront();
-        }
-        elseif($_GET['action'] == 'panier'){
-            $controllerFront->panierFront();
-        }
-        elseif($_GET['action'] == 'conditionsGenerales'){
-            $controllerFront->conditionsGeneralesFront();
-        }
-        elseif($_GET['action'] == 'mentionsLegales'){
-            $controllerFront->mentionsLegalesFront();
-        }
-        elseif($_GET['action'] == 'rgpd'){
-            $controllerFront->rgpdFront();
-        }
-        elseif($_GET['action'] == 'planDuSite'){
-            $controllerFront->planDuSiteFront();
-        }
-        else{
-            $controllerFront->homeFront();
-        }
-        
-    }   
+    }
     else{
-
-        $controllerFront->homeFront();
+        //Si pas de varaiable action, on redirige vers la page home du front
+        header('Location: front/home');
     }
 
+    
+
+
 } catch (Exception $e) {
+    $controller = new \Projet\Controllers\ControllerFront();
+    $controller->errorFront();
    // require 'app/views/frontend/errorLoading.php';
 }

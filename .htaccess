@@ -1,15 +1,8 @@
-#Redirection du site sans www vers www
+#gestion du routage de page
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^lesfinsgourmets.com [NC]
-RewriteRule ^(.*)$ http://www.lesfinsgourmets.com/$1 [l,r=301]
+#gestion de la réecriture url pour piloter le contoller et la page.
+RewriteRule ^([a-zA-Z0-9\-\/]*)$ index.php?action=$1
 
-
-#Redirection vers HTTPS 
-#RewriteCond %{SERVER_PORT}
-#^80£ RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L?R]
-
-#redirection 404
-ErrorDocument 404 /404.html
 
 #Gestion du cache
 #mod_expires

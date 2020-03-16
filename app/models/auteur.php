@@ -4,7 +4,7 @@ namespace Projet\Models;
 
 // ON DECLARE LA CLASSE auteur
 
-class auteur{
+class Auteur extends Manager{
 
     ///////////////DECLARE DES ATTRIBUTS//////////////
     PRIVATE $connectBdd;
@@ -43,14 +43,14 @@ class auteur{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($connectBdd, $idAuteur, $nom, $prenom){
-         //On stocke la connexion à la base de données
-         $this->connectBdd = $connectBdd;
+    public function __construct($idAuteur, $nom, $prenom){
+        //On stocke la connexion à la base de données
+        $this->connectBdd = $this->dbConnect();
 
-         //on modifie l'attribut idAuteur de l'objet
-         $this->setIdAuteur($idAuteur);
+        //on modifie l'attribut idAuteur de l'objet
+        $this->setIdAuteur($idAuteur);
 
-         //on modifie l'attribut nom de l'objet
+        //on modifie l'attribut nom de l'objet
         $this->setNom($nom);
 
         //on modifie l'attribut prenom de l'objet

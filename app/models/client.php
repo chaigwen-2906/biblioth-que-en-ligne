@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
 //Je declare la classe client
-class client{
+class Client extends Manager{
 
     ///////////// DECLARATION DES ATTRIBUTS //////////////
     private $connectBdd;
@@ -12,7 +12,7 @@ class client{
     private $prenom;
     private $email;
     private $telephone;
-    private $identifiant;
+    private $numeroAbonne;
     private $motDePasse;
 
 
@@ -58,12 +58,12 @@ class client{
       $this->telephone = $valeur;
     }
 
-    //identifiant
-    public function getIdentifiant(){
-      return $this->identifiant;
+    //numeroAbonne    
+    public function getNumeroAbonne(){
+      return $this->numeroAbonne;
     }
-    public function setIdentifiant($valeur){
-      $this->identifiant = $valeur;
+    public function setNumeroAbonne($valeur){
+      $this->numeroAbonne = $valeur;
     }
 
     //motDePasse
@@ -77,10 +77,10 @@ class client{
 
     ////////////DECLARATION DU CONSTRUCTEURS////////////
 
-    public function __construct($connectbdd, $idClient, $nom, $prenom, $email, $telephone, $identifiant, $motDePasse){
+    public function __construct($idClient, $nom, $prenom, $email, $telephone, $numeroAbonne, $motDePasse){
 
       //On stocke la connexion à la base de données
-      $this->connectBdd = $connectbdd;
+      $this->connectBdd = $this->dbConnect();
 
       //on modifie l'attribut IdClient de l'objet
       // j'appel la function setidclient je lui passe en parametre idclient reçu en entrée
@@ -98,8 +98,7 @@ class client{
       //telephone
       $this->setTelephone($telephone);
 
-      //identifiant
-      $this->setIdentifiant($identifiant);
+      //numeroAbonne      $this->setNumeroAbonne($numeroAbonne);
 
       //motDePasse
       $this->setMotDePasse($motDePasse);
@@ -111,13 +110,13 @@ class client{
       // Create : crée une ligne dans la table Client
       public function Create(){
         //Préparation de la requête
-        $sql = "INSERT INTO client(nom,prenom,email,telephone,identifiant,motDePasse) 
+        $sql = "INSERT INTO client(nom,prenom,email,telephone,numeroAbonne,motDePasse) 
         VALUES (?,?,?,?,?,?)";
 
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephone(), $this->getIdentifiant(), $this->getMotDePasse()]);
+        $requete->execute([$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephone(), $this->getNumeroAbonne(), $this->getMotDePasse()]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idClient de notre objet      
@@ -146,7 +145,7 @@ class client{
             $this->setPrenom($resultat['prenom']);
             $this->setEmail($resultat['email']);
             $this->setTelephone($resultat['telephone']);
-            $this->setIdentifiant($resultat['identifiant']);
+            $this->setNumeroAbonne($resultat['numeroAbonne']);
             $this->setMotDePasse($resultat['motDePasse']);
         }
 
@@ -159,12 +158,12 @@ class client{
       // Update : Modifie les données d'une ligne dans la table Client
       public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, identifiant = ?, motDePasse = ? WHERE idClient = ? ";
+        $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, numeroAbonne = ?, motDePasse = ? WHERE idClient = ? ";
 
         $requete = $this->connectBdd->prepare($sql);
 
         ///Execution de la requete
-        $requete->execute([$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephone(), $this->getIdentifiant(),
+        $requete->execute([$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephone(), $this->getNumeroAbonne(),
         $this->getMotDePasse(), $this->getIdClient()]);
 
         //Fermeture de la requete

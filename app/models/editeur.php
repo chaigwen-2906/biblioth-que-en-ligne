@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
 // ON DECLARE LA CLASSE editeur
-class editeur{
+class Editeur extends Manager{
 
     ///////////////DECLARE DES ATTRIBUTS//////////////
     private $connectBdd;
@@ -43,10 +43,10 @@ class editeur{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($connectBdd, $idEditeur, $code, $nom){
+    public function __construct($idEditeur, $code, $nom){
 
         //On stocke la connexion à la base de données
-        $this->connectBdd = $connectBdd;
+        $this->connectBdd = $this->dbConnect();
 
         //on modifie idEditeur 
         $this->setIdEditeur($idEditeur);

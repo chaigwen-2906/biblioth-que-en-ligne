@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
 // ON DECLARE LA CLASSE COUPDECOEUR
-class coupDeCoeur{
+class CoupDeCoeur extends Manager{
 
 
     ///////////////DECLARE DES ATTRIBUTS//////////////
@@ -65,9 +65,9 @@ class coupDeCoeur{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($connectBdd, $idCoupDeCoeur, $IdLivre, $nom, $commentaire, $dateDePublication){
+    public function __construct($idCoupDeCoeur, $IdLivre, $nom, $commentaire, $dateDePublication){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $connectBdd;
+        $this->connectBdd = $this->dbConnect();
 
         //on modifie idcoupDeCoeur
         $this->setIdCoupDeCoeur($idCoupDeCoeur);

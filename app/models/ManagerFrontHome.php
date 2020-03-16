@@ -2,23 +2,18 @@
 
 namespace Projet\Models;
 
-class FrontManager extends Manager
+class ManagerFrontHome extends Manager
 {
     public function viewFrontHome()
     {
-        $bdd = $this->dbConnect();
+        //$bdd = $this->dbConnect();
 
         // Je teste mes classes
         
         //test read
-        // $req = $bdd->prepare("SELECT idClient FROM client");
-        // //Execution de la requete
-        // $req->execute(array());
-        // //On récupère les données
-        // $result = $req->fetchAll()[5]["idClient"];
-        // $unClient = new client($bdd, $result, '', "", "", "", "","");
+        // $unClient = new Client(9, '', "", "", "", "","");
         // $unClient->Read();
-        // $retour = $unClient->getTelephone();
+        // $retour = $unClient->getNom()." -- ".$unClient->getPrenom();
         // return $retour;
 
 

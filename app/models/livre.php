@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
  // JE DECLARE LA CLASS LIVRE
- class livre{
+ class Livre extends Manager{
 
     ///////////////DECLARE DES ATTRIBUTS//////////////
     private $connectBdd;
@@ -151,11 +151,11 @@ namespace Projet\Models;
 
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
-    public function __construct($connectBdd,$idLivre,$idCategorie,$idAuteur,$nom,$image,$enSavoirPlus,$dateDePublication,
+    public function __construct($idLivre,$idCategorie,$idAuteur,$nom,$image,$enSavoirPlus,$dateDePublication,
     $description,$disponible,$editeur,$nbDePage,$dimension,$langue,$ean,$isbn){
     
         //On stocke la connexion à la base de données
-        $this->connectBdd = $connectBdd;
+        $this->connectBdd = $this->dbConnect();
 
         //on modifie l'attribut idLivre de l'objet
         $this->setIdLivre($idLivre);

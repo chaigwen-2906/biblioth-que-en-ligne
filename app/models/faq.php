@@ -3,7 +3,7 @@
 namespace Projet\Models;
 
 // ON DECLARE LA CLASSE Faq
-class faq{
+class Faq extends Manager{
 
      ///////////////DECLARE DES ATTRIBUTS//////////////
      PRIVATE $connectBdd;
@@ -42,9 +42,9 @@ class faq{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($connectBdd, $idFaq, $question, $reponse){
+    public function __construct($idFaq, $question, $reponse){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $connectBdd;
+        $this->connectBdd = $this->dbConnect();
 
         //on modifie l'attribut idFaq de l'objet
         $this->setIdFaq($idFaq);
