@@ -139,12 +139,12 @@
                     <span id=""></span>
                 </div>
                 <div class="conteneurIdentifiant" >
-                    <a href="#"  class="motPasseOublier">
-                        Mot de passe oublié ?  
-                        </a> 
-                    <a href="#" class="motPasseOublier">
-                        Besoins d'un compte ? 
-                    </a>
+                <a href="#" class="monBoutton motPasseOublier" type="submit" >
+                    Mot de passe oublié ? 
+                </a>
+                <a href="#" class="monBoutton motPasseOublier" type="submit" >
+                Besoins d'un compte ? 
+                </a>
                 </div>
                 <a href="#" class="monBoutton">
                     Connectez-vous
@@ -265,14 +265,17 @@
             </h1>
         </div>
         <div class="contenuModal">
-            <div class="conteurForm">
-
+            <div id="divListFAQ" class="conteurForm">
+            <?php
+                foreach($listFAQ AS $uneQuestion)
+                {
+                    //var_dump($uneQuestion);
+                    echo "<h3>".$uneQuestion['question']."</h3>";
+                    echo "<div class='faqReponse'><p>".$uneQuestion['reponse']."</p></div>";
+                }
+            ?>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
 <!--FIN BOITE MODAL FAQ  -->

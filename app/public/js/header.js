@@ -1,3 +1,10 @@
+$( function() {
+    $( "#divListFAQ" ).accordion({
+      heightStyle: "content"
+    });
+});
+
+
 //MenuBurger
 $("#btnBurger").click(function(){
     if($(".navMenuBurger").is(":visible")){

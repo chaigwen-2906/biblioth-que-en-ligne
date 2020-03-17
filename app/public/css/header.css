@@ -234,6 +234,7 @@ header .btnRecherche
     background-color: #92c4f3;
     opacity: 1;
     border: 1px solid grey;
+
 }
 .boutonFermerModal
 {
@@ -255,6 +256,7 @@ header .btnRecherche
 {
     padding:20px;
 }
+
 .boiteModal .conteurForm
 {
     display: flex;
@@ -263,6 +265,7 @@ header .btnRecherche
     line-height: 1.5;
     border: 1px solid #ced4da;
     border-radius: .25rem;
+    padding: 20px 0 20px 0;
 }
 .conteurForm .identifier
 {
@@ -340,6 +343,11 @@ header .btnRecherche
 {
     width: 40%;
     height: 100%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
 .inputAligneRight
 {
@@ -351,6 +359,23 @@ header .btnRecherche
     width:100%;
     margin: 10px;
     text-align: center;
+}
+/* BOITE MODAL FAQ  */
+.contenuModal .conteurForm h3
+{
+    width: 80%;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 5px;
+   
+}
+.contenuModal .conteurForm .faqReponse
+{
+    width: 74%;
+    margin: 4px 0 0 0;
+    background-color: lightgray;
+    border-radius: 5px;
+  
 }
 /*------------------------Fin du conteneur recherche----------*/
 
