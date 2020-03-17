@@ -6,9 +6,10 @@ class ControllerFront
 {
     function homeFront()
     {
-        //traitement
-        $homeFront = new \Projet\Models\ManagerFrontHome();
-        $vars = $homeFront->viewFrontHome();
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
 
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
@@ -16,41 +17,81 @@ class ControllerFront
 
     function coupDeCoeursFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/coupDeCoeurs.php';
     }
 
     function nouveauteFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/nouveaute.php';
     }
 
     function atelierFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/atelier.php';
     }
 
     function panierFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/panier.php';
     }
 
     function conditionsGeneralesFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/conditionsGenerales.php';
     }
 
     function mentionsLegalesFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/mentionsLegales.php';
     }
     
     function rgpdFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+
         require 'app/views/front/rgpd.php';
     }
 
     function planDuSiteFront()
     {
+        //On charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //On récupère la liste des FAQs
+        $listFAQ = $FrontManager->getListFAQ();
+        
         require 'app/views/front/planDuSite.php';
     }
      

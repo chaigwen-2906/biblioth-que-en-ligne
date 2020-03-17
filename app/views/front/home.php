@@ -21,6 +21,9 @@
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
     <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
 
+    <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 </head>
 
     <body>
@@ -49,7 +52,6 @@
                 <hr class="separator">  
             </div>
             <div class="blockContenu">
-                <?php echo $vars;?>
                 <h1 class="titreMain">
                     La bibliothèque ou tout est fait pour lire 
                 </h1>
@@ -158,6 +160,7 @@
 
         <!---------------------- jQuery ---------------------------------->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
