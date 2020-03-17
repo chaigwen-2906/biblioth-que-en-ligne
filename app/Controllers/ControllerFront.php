@@ -11,6 +11,10 @@ class ControllerFront
         //On récupère la liste des FAQs
         $listFAQ = $FrontManager->getListFAQ();
 
+        //on charge le ManagerFrontHome
+        $FrontHomeManager = new \Projet\Models\ManagerFrontHome();
+        $listCdCoeur = $FrontHomeManager->getListCoupDeCoeur();
+
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
     }
