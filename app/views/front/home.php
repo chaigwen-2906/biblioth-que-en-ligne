@@ -56,97 +56,85 @@
                     La bibliothèque ou tout est fait pour lire 
                 </h1>
                 <!--------------livre coup de coeur, favorite book------------------>
-                <div class="articles">
-                    <article class="articleLivres">
-                        <!--ici se trouvent les info sur les livres, here is the info on the books----------->
-                        <h3>
-                            Coup de coeur
-                        </h3>
-                        <hr separator>
-                        <figure class="imgArticleLivre">
-                            <img src="./../app/public/image/img/luluNelson1.jpg">
-                        </figure>
-                        <h4>
-                            Lulu et Nelson
-                        </h4>
-                        <hr separator>
-                        <a href="#" class="button">
-                            En savoir plus !!
-                        </a>
-                        <p>
-                            Auteurs : Aurélie Neyret 
-                        </p>
-                        <p class="dateDeSortie">
-                            Date de sortie : 27/11/2019
-                        </p>
-                    </article>
-                    <article class="articleLivres">
-                        <h3>
-                            Coup de coeur
-                        </h3>
-                        <hr separator>
-                        <figure class="imgArticleLivre">
-                            <img src="./../app/public/image/img/laly.jpg">
-                        </figure>
-                        <h4>
-                            Lady'S - Tome 14 - Code Vampir
-                        </h4>
-                        <hr separator>
-                        <a href="#" class="button">
-                            En savoir plus !!
-                        </a>
-                        <p>
-                            Auteurs : Philippe Aymond.
-                        </p>
-                        <p class="dateDeSortie">
-                            Date de sortie :05/12/2019
-                        </p>
-                    </article>
-                    <article class="articleLivres">
-                        <h3>
-                            Coup de coeur
-                        </h3>
-                        <hr separator>
-                        <figure class="imgArticleLivre">
-                            <img src="./../app/public/image/img/guerreDesClans.jpg">
-                        </figure>
-                        <h4>
-                            La Guerre Des Clans - Tome 4 Eclipse
-                        </h4>
-                        <hr separator>
-                        <a href="#" class="button">
-                            En savoir plus !!
-                        </a>
-                        <p>
-                            Éditeur : Hunter Erin
-                        </p>
-                        <p class="dateDeSortie">
-                            Date de publication : 03/10/2019
-                        </p>
-                    </article>
-                    <article class="articleLivres">
-                        <h3>
-                            Coup de coeur
-                        </h3>
-                        <hr separator>
-                        <figure class="imgArticleLivre">
-                            <img src="./../app/public/image/img/ki_hi.jpg">
-                        </figure>
-                        <h4>
-                            Ki et Hi - Tome 5
-                            Le Dragon Céleste
-                        </h4>
-                        <hr separator>
-                        <a href="#" class="button">
-                            En savoir plus !!
-                        </a>
-                        <p>
-                            Auteurs : Fanny Antigny , Kevin
-                        </p>
-                        <p class="dateDeSortie">
-                            Date de sortie :05/12/2019
-                        </p>
-                    </article>
+                <div class="articles">  
+                    <?php foreach ($listCdCoeur as $unCoupDeCoeur) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Coup de coeur
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unCoupDeCoeur['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $unCoupDeCoeur['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$unCoupDeCoeur['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $unCoupDeCoeur['nomAuteur']." ".$unCoupDeCoeur['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unCoupDeCoeur['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="blockContenu">
+                <h1 class="titreMain">
+                    Les Mangas
+                </h1>
+                <!--------------livre coup de coeur, favorite book------------------>
+                <div class="articles">  
+                    <?php foreach ($listMangas as $unMangas) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Mangas
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unMangas['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $unMangas['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$unMangas['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $unMangas['nomAuteur']." ".$unMangas['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unMangas['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
                 </div>
             </div>
             <!-- --------------------les livre Manga, Manga books----------------------->

@@ -10,7 +10,7 @@ class CoupDeCoeur extends Manager{
     private $connectBdd;
     private $idCoupDeCoeur;
     private $idLivre;
-    private $nom;
+    private $auteur;
     private $commentaire;
     private $dateDePublication;
 
@@ -36,12 +36,12 @@ class CoupDeCoeur extends Manager{
         $this->idLivre = $valeur;
     }
 
-    //$nom
-    public function getNom(){
-        return $this->nom;
+    //$auteur
+    public function getAuteur(){
+        return $this->auteur;
     }
-    public function setNom($valeur){
-        $this->nom = $valeur;
+    public function setAuteur($valeur){
+        $this->auteur = $valeur;
     }
 
     //$commentaire
@@ -65,7 +65,7 @@ class CoupDeCoeur extends Manager{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($idCoupDeCoeur, $IdLivre, $nom, $commentaire, $dateDePublication){
+    public function __construct($idCoupDeCoeur, $IdLivre, $auteur, $commentaire, $dateDePublication){
         //On stocke la connexion à la base de données
         $this->connectBdd = $this->dbConnect();
 
@@ -75,8 +75,8 @@ class CoupDeCoeur extends Manager{
         //on modifie IdLivre 
         $this->setIdLIvre($idLivre);
 
-        //on modifie nom 
-        $this->setNom($nom);
+        //on modifie auteur 
+        $this->setAuteur($auteur);
 
         //on modifie commentaire 
         $this->setCommentaire($commentaire);
@@ -94,12 +94,12 @@ class CoupDeCoeur extends Manager{
 
          //Préparation de la requête
          //dans la bdd INSERT la ligne dans la table coupDeCoeur et je passe les valeur des colonne = 
-         //(idlivre,nom,commentaire,dateDePublication)
-        $sql= "INSERT INTO coupDeCoeur(idLivre,nom,commentaire,dateDePublication) VALUES (?,?,?,?)";
+         //(idlivre,auteur,commentaire,dateDePublication)
+        $sql= "INSERT INTO coupDeCoeur(idLivre,auteur,commentaire,dateDePublication) VALUES (?,?,?,?)";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getIdLivre(), $this->getNom(), $this->getCommentaire(), $this->getDateDePublication()]);
+        $requete->execute([$this->getIdLivre(), $this->getAuteur(), $this->getCommentaire(), $this->getDateDePublication()]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCoupDeCoeur de notre objet
@@ -123,9 +123,9 @@ class CoupDeCoeur extends Manager{
          //On récupère les données
          while($resultat = $requete->fetch())
          {
-            //On modifie l'attibut idLivre, nom, commentaire; de notre objet
+            //On modifie l'attibut idLivre, auteur, commentaire; de notre objet
             $this->setIdLIvre($resultat['idLivre']);
-            $this->setNom($resultat['nom']);
+            $this->setAuteur($resultat['auteur']);
             $this->setCommentaire($resultat['commentaire']);
             $this->setDateDePublication($resultat['dateDePublication']);
          }
@@ -142,11 +142,11 @@ class CoupDeCoeur extends Manager{
     // Update : Modifie les données d'une ligne dans la table Categorie
     public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE coupDeCoeur SET idLivre = ?, nom = ?, commentaire = ?, dateDePublication = ? WHERE idCoupDeCoeur = ?";
+        $sql = "UPDATE coupDeCoeur SET idLivre = ?, auteur = ?, commentaire = ?, dateDePublication = ? WHERE idCoupDeCoeur = ?";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getIdLivre(), $this->getNom(), $this->getCommentaire(), $this->getDateDePublication(), $this->getIdCoupDeCoeur()]);
+        $requete->execute([$this->getIdLivre(), $this->getAuteur(), $this->getCommentaire(), $this->getDateDePublication(), $this->getIdCoupDeCoeur()]);
 
         //Fermeture de la requete
         $requete->closeCursor();
