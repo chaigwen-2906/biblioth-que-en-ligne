@@ -9,7 +9,7 @@ class Categorie extends Manager{
     /////////////// DECLARATION DES ATTRIBUTS ///////////////////////
     private $connectBdd;
     private $idCategorie;
-    private $nom;
+    private $nomCategorie;
 
 
 
@@ -23,25 +23,25 @@ class Categorie extends Manager{
         $this->idCategorie = $valeur;
     }
     //nom
-    public function getNom(){
-        return $this->nom;
+    public function getNomCategorie(){
+        return $this->NomCategorie;
     }
-    public function setNom($valeur){
-        $this->nom = $valeur;
+    public function setNomCategorie($valeur){
+        $this->nomCategorie = $valeur;
     }
 
 
 
     /////////////// DECLARATION DES CONSTRUCTEURS ///////////////////////
-    public function __construct($idCategorie, $nom){
+    public function __construct($idCategorie, $nomCategorie){
         //On stocke la connexion à la base de données
         $this->connectBdd = $this->dbConnect();
 
         //on modifie l'attribut IdCategorie de l'objet
         $this->setIdCategorie($idCategorie);
 
-        //on modifie l'attribut $nom de l'objet
-        $this->setNom($nom);
+        //on modifie l'attribut $nomCategorie de l'objet
+        $this->setNomCategorie($nomCategorie);
     }
 
     
@@ -52,11 +52,11 @@ class Categorie extends Manager{
     // Create : crée une ligne dans la table Categorie
     public function Create(){
         //Préparation de la requête
-        $sql = "INSERT INTO categorie(nom) VALUES (?)";
+        $sql = "INSERT INTO categorie(nomCategorie) VALUES (?)";
         $requete = $this->connectBdd->prepare($sql);
         
         //Execution de la requete
-        $requete->execute([$this->getNom()]);
+        $requete->execute([$this->nomCategorie()]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCategorie de notre objet      
@@ -80,8 +80,8 @@ class Categorie extends Manager{
         //On récupère les données
         while ($resultat = $requete->fetch())
         {
-            //On modifie l'attibut nom de notre objet
-            $this->setNom($resultat['nom']);
+            //On modifie l'attibut nomCategorie de notre objet
+            $this->setNomCategorie($resultat['nomCategorie']);
         }
 
         //Fermeture de la requete
@@ -92,11 +92,11 @@ class Categorie extends Manager{
     // Update : Modifie les données d'une ligne dans la table Categorie
     public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE categorie SET nom = ? WHERE idCategorie = ?";
+        $sql = "UPDATE categorie SET nomCategorie = ? WHERE idCategorie = ?";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNom(),$this->getIdCategorie()]);
+        $requete->execute([$this->nomCategorie(),$this->getIdCategorie()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

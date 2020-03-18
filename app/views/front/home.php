@@ -94,6 +94,49 @@
                     <?php } ?>
                 </div>
             </div>
+            <div class="blockContenu">
+                <h1 class="titreMain">
+                    Les Mangas
+                </h1>
+                <!--------------livre coup de coeur, favorite book------------------>
+                <div class="articles">  
+                    <?php foreach ($listMangas as $unMangas) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Mangas
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unMangas['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $unMangas['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$unMangas['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $unMangas['nomAuteur']." ".$unMangas['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unMangas['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
             <!-- --------------------les livre Manga, Manga books----------------------->
             <!-- <h1 class="titreMain">
                 Manga !!!

@@ -41,7 +41,31 @@ class ManagerFrontHome extends Manager
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        $sql = "SELECT * FROM coupdecoeur LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) ON (coupdecoeur.idLivre = livre.idLivre) ORDER BY coupdecoeur.dateDePublication DESC LIMIT 4";
+        $sql = "SELECT * FROM coupdecoeur LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) ON 
+        (coupdecoeur.idLivre = livre.idLivre) ORDER BY coupdecoeur.dateDePublication DESC LIMIT 4";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+    public function getListMangas()
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        
+        $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) LEFT JOIN categorie ON (livre.idCategorie = categorie.idCategorie)
+        WHERE categorie.idCategorie = 25 limit 4";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
