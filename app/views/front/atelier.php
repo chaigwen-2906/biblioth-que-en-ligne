@@ -15,7 +15,7 @@
     <!-- Appel des feuilles de style --/ Calling style sheets-->
     <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/main.css">
+    <link rel="stylesheet" href="./../app/public/css/atelier.css">
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -32,13 +32,55 @@
 
         <?php require_once("./app/views/layout/header.php"); ?>
 
+        <br><br><br><br><br><br><br>
+        
+        <main class ="atelier">
+            <!-- BLOCK ATELIERS  -->
+            <div class="blockContenu">
+                <h1 class="titreMain">
+                   Les prochains ateliers à venir 
+                </h1>
+                <!-------------- LIVRE ATELIERS------------------>
+                <div class="articles">  
+                    <?php foreach ($listAtelier as $unAtelier) {?>
 
-        <main>
-
-
-            <h1>
-                contenue en cours de constuction
-            </h1>
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                              Atelier
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                               <img src ="../app/public/image/icon/calendrier.png">
+                            </figure>
+                            <h4>
+                                <?= $unAtelier['nom']; ?>
+                            </h4>
+                            <p>
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unAtelier['date']);
+                                ?>
+                                Date : <?= $date->format('d/m/Y'); ?> à  <?= substr($unAtelier["heure"],0,5); ?>
+                            </p>
+                            <p>
+                                Age: <?= $unAtelier["age"]; ?> et +
+                            </p>
+                            <hr separator>
+                        
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailAtelier?id=".$unAtelier['idAtelier']."' class='button'>";
+                            ?>
+                                En savoir plus !!
+                            </a>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
+            <!--FIN BLOCK ATELIERS-->
 
 
         </main>

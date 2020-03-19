@@ -32,6 +32,10 @@ class ControllerFront
         //On récupère la liste des FAQs
         $listFAQ = $FrontManager->getListFAQ();
 
+        //on charge le ManagerFrontcoupDeCoeur
+        $FrontCoupDeCoeurManager = new \Projet\Models\ManagerFrontCoupDeCoeur();
+        $listCdCoeur = $FrontCoupDeCoeurManager-> getListCoupDeCoeur();
+
         require 'app/views/front/coupDeCoeurs.php';
     }
 
@@ -42,6 +46,10 @@ class ControllerFront
         //On récupère la liste des FAQs
         $listFAQ = $FrontManager->getListFAQ();
 
+        //on charge le ManagerFrontAtelier
+        $FrontNouveauteManager = new \Projet\Models\ManagerFrontNouveaute();
+        $listNouveautes = $FrontNouveauteManager-> getListNouveautes();
+       
         require 'app/views/front/nouveaute.php';
     }
 
@@ -51,6 +59,10 @@ class ControllerFront
         $FrontManager = new \Projet\Models\ManagerFront();
         //On récupère la liste des FAQs
         $listFAQ = $FrontManager->getListFAQ();
+
+        //on charge le ManagerFrontAtelier
+        $FrontAtelierManager = new \Projet\Models\ManagerFrontAtelier();
+        $listAtelier = $FrontAtelierManager->getListAtelier();
 
         require 'app/views/front/atelier.php';
     }

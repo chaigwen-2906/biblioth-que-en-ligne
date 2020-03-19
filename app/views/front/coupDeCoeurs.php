@@ -15,7 +15,8 @@
     <!-- Appel des feuilles de style --/ Calling style sheets-->
     <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/main.css">
+    <link rel="stylesheet" href="./../app/public/css/coupDeCoeur.css">
+   
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -30,14 +31,52 @@
 
 
         <?php require_once("./app/views/layout/header.php"); ?>
+        <br><br><br><br><br><br><br><br>
 
+        <main class ="coupDeCoeur">
+            <div class="blockContenu">
+            <h1 class="titreMain">
+                    Nos coup de coeurs du moment 
+                </h1>
+                <!--------------livre coup de coeur, favorite book------------------>
+                <div class="articles">  
+                    <?php foreach ($listCdCoeur as $unCoupDeCoeur) {?>
 
-        <main>
-
-
-            <h1>
-                contenue en cours de constuction
-            </h1>
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Coup de coeur
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unCoupDeCoeur['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $unCoupDeCoeur['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$unCoupDeCoeur['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $unCoupDeCoeur['nomAuteur']." ".$unCoupDeCoeur['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unCoupDeCoeur['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
 
 
         </main>
