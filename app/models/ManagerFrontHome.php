@@ -35,6 +35,7 @@ class ManagerFrontHome extends Manager
         // $unClient->delete();
         
     }
+
     public function getListCoupDeCoeur()
     {
         $bdd = $this->dbConnect();
@@ -57,13 +58,58 @@ class ManagerFrontHome extends Manager
         //On retourne les résultats
         return $resultat;
     }
+
+    public function getListNouveautes()
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
+        ORDER BY dateDePublication desc limit 4 ";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
+    public function getListAtelier()
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM atelier WHERE DATE>NOW() ORDER BY DATE LIMIT 4 ";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
     public function getListMangas()
     {
         $bdd = $this->dbConnect();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        
         $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) LEFT JOIN categorie ON (livre.idCategorie = categorie.idCategorie)
         WHERE categorie.idCategorie = 25 limit 4";
         $requete = $bdd->prepare($sql);
@@ -80,4 +126,56 @@ class ManagerFrontHome extends Manager
         //On retourne les résultats
         return $resultat;
     }
+
+    public function getListBandesDessinees()
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) LEFT JOIN categorie ON (livre.idCategorie = categorie.idCategorie)
+        WHERE categorie.idCategorie = 3 limit 4";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+
+    }
+
+    public function getListCuisine()
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) LEFT JOIN categorie ON (livre.idCategorie = categorie.idCategorie)
+        WHERE categorie.idCategorie = 4 limit 4";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
+   
+
+   
+   
 }

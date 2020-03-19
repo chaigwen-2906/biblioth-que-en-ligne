@@ -13,8 +13,13 @@ class ControllerFront
 
         //on charge le ManagerFrontHome
         $FrontHomeManager = new \Projet\Models\ManagerFrontHome();
-        $listCdCoeur = $FrontHomeManager->getListCoupDeCoeur();
-        $listMangas = $FrontHomeManager->getListMangas();
+        $listCdCoeur = $FrontHomeManager-> getListCoupDeCoeur();
+        $listNouveautes = $FrontHomeManager-> getListNouveautes();
+        $listAtelier = $FrontHomeManager-> getListAtelier();
+        $listMangas = $FrontHomeManager-> getListMangas();
+        $listBandesDessinees = $FrontHomeManager-> getListBandesDessinees();
+        $listCuisine = $FrontHomeManager-> getListCuisine();
+       
 
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
