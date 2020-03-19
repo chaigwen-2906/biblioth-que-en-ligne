@@ -51,9 +51,10 @@
                 </p>
                 <hr class="separator">  
             </div>
+            <!-- BLOCK COUP DE COEURS  -->
             <div class="blockContenu">
                 <h1 class="titreMain">
-                    La bibliothèque ou tout est fait pour lire 
+                    Nos coup de coeurs du moment 
                 </h1>
                 <!--------------livre coup de coeur, favorite book------------------>
                 <div class="articles">  
@@ -94,11 +95,107 @@
                     <?php } ?>
                 </div>
             </div>
+            <!--FIN BLOCK COUP DE COEURS  -->
+
+            <!-- BLOCK NOUVEAUTES -->
+            <div class="blockContenu">
+                <h1 class="titreMain">
+                    Nouveautés
+                </h1>
+                <!--------------LIVRE NOUVEAUTES------------------>
+                <div class="articles">  
+                    <?php foreach ($listNouveautes as $uneNouveaute) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Nouveauté
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneNouveaute['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $uneNouveaute['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$uneNouveaute['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $uneNouveaute['nomAuteur']." ".$uneNouveaute['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($uneNouveaute['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
+            <!--FIN NOUVEAUTES -->
+
+            <!-- BLOCK ATELIERS  -->
+            <div class="blockContenu">
+                <h1 class="titreMain">
+                   Les prochains ateliers à venir 
+                </h1>
+                <!-------------- LIVRE ATELIERS------------------>
+                <div class="articles">  
+                    <?php foreach ($listAtelier as $unAtelier) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                              Atelier
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                               <img src ="../app/public/image/icon/calendrier.png">
+                            </figure>
+                            <h4>
+                                <?= $unAtelier['nom']; ?>
+                            </h4>
+                            <p>
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unAtelier['date']);
+                                ?>
+                                Date : <?= $date->format('d/m/Y'); ?> à  <?= substr($unAtelier["heure"],0,5); ?>
+                            </p>
+                            <p>
+                                Age: <?= $unAtelier["age"]; ?> et +
+                            </p>
+                            <hr separator>
+                        
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailAtelier?id=".$unAtelier['idAtelier']."' class='button'>";
+                            ?>
+                                En savoir plus !!
+                            </a>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
+            <!--FIN BLOCK ATELIERS-->
+
+            <!-- BLOCK MANGAS  -->
             <div class="blockContenu">
                 <h1 class="titreMain">
                     Les Mangas
                 </h1>
-                <!--------------livre coup de coeur, favorite book------------------>
+                <!--------------LIVRE MANGAS ------------------>
                 <div class="articles">  
                     <?php foreach ($listMangas as $unMangas) {?>
 
@@ -137,10 +234,102 @@
                     <?php } ?>
                 </div>
             </div>
-            <!-- --------------------les livre Manga, Manga books----------------------->
-            <!-- <h1 class="titreMain">
-                Manga !!!
-            </h1> -->
+            <!--FIN BLOCK MANGAS  -->
+
+             <!-- BLOCK  BANDES DESSINEES  -->
+             <div class="blockContenu">
+                <h1 class="titreMain">
+                    Les Bandes dessinées
+                </h1>
+                <!-------------- LIVRE  BANDES DESSINEES------------------>
+                <div class="articles">  
+                    <?php foreach ($listBandesDessinees as $uneBandesDessinees ) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Bandes dessinées
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneBandesDessinees['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $uneBandesDessinees['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$uneBandesDessinees['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $uneBandesDessinees['nomAuteur']." ".$uneBandesDessinees['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($uneBandesDessinees['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
+            <!--FIN BLOCK BANDES DESSINEES-->
+
+             <!-- BLOCK  CUISINE  -->
+             <div class="blockContenu">
+                <h1 class="titreMain">
+                    La cuisine
+                </h1>
+                <!-------------- LIVRE  CUISINE------------------>
+                <div class="articles">  
+                    <?php foreach ($listCuisine as $uneCuisine ) {?>
+
+                        <article class="articleLivres">
+                            <!--ici se trouvent les info sur les livres, here is the info on the books----------->
+                            <h3>
+                                Cuisine
+                            </h3>
+                            <hr separator>
+                            <figure class="imgArticleLivre">
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneCuisine['image'])."' />";?>
+                            </figure>
+                            <h4>
+                                <?= $uneCuisine['nom']; ?>
+                            </h4>
+                            <hr separator>
+                            <?php 
+                                //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
+                                // en paramètre
+                                echo "<a href='./detailLivre?id=".$uneCuisine['idLivre']."' class='button'>"; 
+                            ?>
+                                En savoir plus !!
+                            </a>
+                            <p>
+                                Auteurs : <?= $uneCuisine['nomAuteur']." ".$uneCuisine['prenomAuteur']; ?>
+                            </p>
+                            <p class="dateDeSortie">
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($uneCuisine['dateDePublication']);
+                                ?>
+                                Date de publication : <?= $date->format('d/m/Y'); ?>
+                            </p>
+                        </article>
+                    <?php } ?>
+                </div>
+            </div>
+            <!--FIN BLOCK CUISINE-->
+
+            
+
         </main>
 
 
