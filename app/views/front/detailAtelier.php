@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Détail des livres">
-    <meta name="description" content="Détail des livres">
+    <meta name="keywords" content="Détail des atelier">
+    <meta name="description" content="Détail des atelier">
     <meta name="title" content="Notre bibliothèque en ligne">
     <meta http-equiv="expires" content="43200" />
 
-    <title> Détail des livres - Ma bibliothèque en ligne</title>
+    <title> Détail des atelier - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
     <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/detailLivre.css">
+    <link rel="stylesheet" href="./../app/public/css/detailAtelier.css">
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -35,8 +35,50 @@
         <br><br><br><br><br><br><br><br>
         <main class="detailAtelier">
 
+            <!-- NOM DE ATELIER -->
+            <h1>
+                <?= $DetailAtelier['nom']; ?>
+            </h1>
+            
+            <!-- DESCRIPTION ATELIER   -->
+            <section class ="sectionDescriptionAtelier">
+                <article class="descriptionAtelier">
+                    <h2>
+                        Description 
+                    </h2>
+                    <hr separator>
+                    <p>
+                        <?= $DetailAtelier['description']; ?>
+                    </p>
+                    <h2>
+                        Contexte de l'animation
+                    </h2>
+                    <hr separator>
+                    <p>
+                        <?= $DetailAtelier['contexteAnimation']; ?>
+                    </p>
+                </article>
+            </section>
 
+            <!-- RESERVATION ATELIER  -->
+            <section class="sectionReservationAtelier">
+                <article class ="reservationAtelier">
+                        <h2>
+                            Les réservations 
+                        </h2>
+                        <hr separator>
+                        <h3>
+                            <?= $DetailAtelier['jour']; ?> <?= $DetailAtelier['date']; ?> à <?= $DetailAtelier['heure']; ?>
+                            rendez-vous pour l'activité  " <?= $DetailAtelier['nom']; ?>"  d'une capacité 
+                            <?= $DetailAtelier['capacite']; ?> personne et à partir <?= $DetailAtelier['age']; ?> ans.
+                        </h3>
 
+                        <!-- BUTTON RESERVER   -->
+                        <a class="valideReservationAtelier" href="#">
+                            Réserver
+                        </a>
+                </article>
+            </section>
 
         </main>
 

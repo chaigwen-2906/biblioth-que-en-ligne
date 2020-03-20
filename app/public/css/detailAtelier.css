@@ -1,0 +1,105 @@
+/* NOM DE ATELIER  */
+.detailAtelier h1
+{
+    text-align: center;
+    color: white;
+}
+
+/* DESCRIPTION ATELIER  */
+.sectionDescriptionAtelier
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    line-height: 2em;
+}
+.detailAtelier .descriptionAtelier
+{
+    
+    border: 2px solid white;
+    width: 70%;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgb(218, 213, 213);
+    text-align: center;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 35px;
+    padding: 5px;
+}
+.detailAtelier .descriptionAtelier h2
+{
+    color: white;
+    text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* RESERVATION ATELIER  */
+
+.detailAtelier .sectionReservationAtelier
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    line-height: 2em;
+}
+.detailAtelier .reservationAtelier
+{
+    border: 2px solid rgb(218, 213, 213);
+    width: 70%;
+    align-items: center;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    color: rgb(218, 213, 213);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+.detailAtelier .reservationAtelier h2
+{
+    color: rgb(218, 213, 213);
+    text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+
+
+
+
+/* BUTTON RESERVER  */
+
+.detailAtelier .valideReservationAtelier 
+{
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+	background-color:#88c5db;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	margin: 20px;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.detailAtelier .valideReservationAtelier:hover
+{
+	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+} 
+
