@@ -1,7 +1,8 @@
 #gestion du routage de page
 RewriteEngine on
 #gestion de la réecriture url pour piloter le contoller et la page.
-RewriteRule ^([a-zA-Z0-9\-\/]*)$ index.php?action=$1
+#option QSA pour conserver les paramètres GET
+RewriteRule ^([a-zA-Z0-9\-\/]*)$ index.php?action=$1 [L,QSA]
 
 
 #Gestion du cache

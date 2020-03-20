@@ -39,12 +39,11 @@
             <section class ="sectionDescripLivre">
                 <aside class="titreImgReseaux">
                     <h2>
-                        nom du livre 
+                        <?= $DetailLivre['nom']; ?>
                     </h2>
                     <hr separator>
-                    <figure>
-                        <img livres>
-                        img livre
+                    <figure class="reglageImg">
+                        <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($DetailLivre['image'])."' />";?>
                     </figure>
                     <hr separator>
                     <figure class="réglageReseaux">
@@ -71,7 +70,7 @@
                         </h2>
                         <hr separator>
                         <p>
-                            resumé
+                            <?= $DetailLivre['description']; ?>
                         </p>
                     </article>
                     <article class ="infoLivre">
@@ -79,23 +78,44 @@
                             Fiche technique
                         </h2>
                         <hr separator>
-                        <p>
-                            info livre
-                        </p>
+                        <section class ="ficheTecknic">
+                            <ul>
+                                <li>Date de publication : <?= $DetailLivre['dateDePublication']; ?></li>
+                                <li>Disponibilité : <?= $DetailLivre['disponible']; ?></li>
+                                <li>Nombre de pages : <?= $DetailLivre['nbDePage']; ?></li>
+                                <li>Dimension : <?= $DetailLivre['dimension']; ?></li>
+                            </ul>
+                            <ul>
+                                <li>Langue : <?= $DetailLivre['langue']; ?></li>
+                                <li>Isbn : <?= $DetailLivre['isbn']; ?></li>
+                                <li>Ean<?= $DetailLivre['ean']; ?></li>
+                            </ul>  
+                        </section>
                     </article>
                 </div>
             </section>
             <section class="sectionCommentaireLivre">
                 <article class ="commentaireLivre">
                     <h2>
-                        Commentaires sur le livres
+                        Commentaires sur le livre
                     </h2>
                     <hr separator>
-                    <p>
-                        voiici le commentaires
-                    </p>
+                    <h3>
+                        Poster votre commentaire :
+                    </h3>
+                    <figure>
+                        Note : <img src="./../app/public/image/icon/start.png">
+                    </figure>
+                    <div class="commentaire">        
+                        <label  for="commentaire">
+                            Les offres de nos partenaires : 
+                        </label><br>
+                        <textarea class="reglCommentaire" 
+                            name="message"  placeholder="Entrer votre message">
+                        </textarea>
+                    </div>
                     <a class="valideCommentaire" href="#">
-                        validé
+                        Poster !
                     </a>
                 </article>
             </section>

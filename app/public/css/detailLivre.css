@@ -5,27 +5,46 @@
 }
 .detailLivre .sectionDescripLivre
 {
-    border:5px solid black;
     display: flex;
 }
 .detailLivre .sectionDescripLivre h2
 {
     color: rgb(156, 148, 148);
     text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailLivre .titreImgReseaux .reglageImg
+{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
 }
 .detailLivre .titreImgReseaux
 {
     background-color: white;
-    width: 40%;
-    
+    width: 40%;  
+    margin: 15px;
+    border-radius: 5px;
 }
+.detailLivre .titreImgReseaux .réglageReseaux ul
+{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: space-around;
+    padding-top: 30px;
+
+}
+/* DESCRIPTION DU LIVRE  */
 .detailLivre .divDesResum
 {
     width: 100%;
     margin: 5px;
     padding: 5px;
 }
-
 .detailLivre .livreDescription
 {
     background-color: white;
@@ -37,8 +56,19 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    text-align: justify;
+    overflow: auto;
+}
+.detailLivre .livreDescription p
+{
+    line-height: 1.6em;
+    width: 100%;
+    text-align: justify;
+    height: 220px;
+    padding-top: 15px;
 }
 
+/* INFO DU LIVRE  */
 .detailLivre .infoLivre
 {
     background-color: white;
@@ -50,17 +80,29 @@
     -moz-border-radius:5px;
     -ms-border-radius:5px;
     -o-border-radius:5px;
-}
-.detailLivre .sectionCommentaireLivre
-{
     display: flex;
-    justify-content: center;
-    margin: 15px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 175px;
+    Overflow: auto;  
 }
+.detailLivre .ficheTecknic
+{
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.detailLivre .infoLivre ul
+{
+    width: 45%;
+    list-style-type: none;
+}
+/* SECTION COMMENTAIRE  */
 .detailLivre .commentaireLivre
 {
     border: 2px solid white;
-    width: 80%;
+    width: 70%;
     align-items: center;
     border-radius: 5px;
     background-color: rgb(218, 213, 213);
@@ -70,7 +112,54 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
 }
+.detailLivre .commentaireLivre h2
+{
+    color: white;
+    text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailLivre .commentaireLivre h3
+{
+    text-align: initial;
+    line-height: 2em;
+}
+.detailLivre .commentaireLivre figure
+{
+    text-align: initial;
+    padding-left: 5%;
+    line-height: 2em;
+}
+.detailLivre .commentaire 
+{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: initial;
+    padding-left: 5%;
+    line-height: 2em;
+}
+.detailLivre .commentaireLivre img
+{
+    width: 2%;
+}
+.detailLivre .reglCommentaire
+{
+    width: 627px;
+    height: 154px;
+    overflow: auto;
+}
+.detailLivre .sectionCommentaireLivre
+{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
 .detailLivre .valideCommentaire
 {
 	box-shadow: 0px 10px 14px -7px #276873;
@@ -87,12 +176,5 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3d768a;
 }
-.detailLivre .réglageReseaux ul
-{
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    justify-content: space-around;
-    padding-top: 30px;
 
-}
+
