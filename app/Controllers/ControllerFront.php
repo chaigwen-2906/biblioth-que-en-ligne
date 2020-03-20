@@ -124,6 +124,9 @@ class ControllerFront
         //on récupère la liste des FAQs
         $listFAQ = $FrontManager-> getListFAQ();
 
+        $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
+        $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
+
         require 'app/views/front/detailLivre.php';
     }
 
