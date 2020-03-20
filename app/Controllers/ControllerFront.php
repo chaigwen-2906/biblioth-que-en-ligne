@@ -46,7 +46,7 @@ class ControllerFront
         //On récupère la liste des FAQs
         $listFAQ = $FrontManager->getListFAQ();
 
-        //on charge le ManagerFrontAtelier
+        //on charge le ManagerFrontnouveaute
         $FrontNouveauteManager = new \Projet\Models\ManagerFrontNouveaute();
         $listNouveautes = $FrontNouveauteManager-> getListNouveautes();
        
@@ -115,6 +115,26 @@ class ControllerFront
         $listFAQ = $FrontManager->getListFAQ();
         
         require 'app/views/front/planDuSite.php';
+    }
+
+    function detailLivre()
+    {
+        //on charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //on récupère la liste des FAQs
+        $listFAQ = $FrontManager-> getListFAQ();
+
+        require 'app/views/front/detailLivre.php';
+    }
+
+    function detailAtelier()
+    {
+        //on charge le ManagerFront
+        $FrontManager = new \Projet\Models\ManagerFront();
+        //on récupère la liste des FAQs
+        $listFAQ = $FrontManager-> getListFAQ();
+
+        require 'app/views/front/detailAtelier.php';
     }
      
 

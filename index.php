@@ -61,6 +61,14 @@ try {
                         $controller->planDuSiteFront();
                     break;
 
+                    case "detailLivre":
+                        $controller->detailLivre();
+                    break;
+
+                    case "detailAtelier":
+                        $controller->detailAtelier();
+                    break;
+
                     default:
                         $controller->errorFront();
                     break;
