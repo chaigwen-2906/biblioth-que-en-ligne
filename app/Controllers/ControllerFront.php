@@ -137,6 +137,10 @@ class ControllerFront
         //on récupère la liste des FAQs
         $listFAQ = $FrontManager-> getListFAQ();
 
+        // on récupère par id
+        $FrontManagerDetailAtelier = new \Projet\Models\ManagerFrontDetailAtelier();
+        $DetailAtelier = $FrontManagerDetailAtelier->getDetailAtelier($_GET['id']);
+
         require 'app/views/front/detailAtelier.php';
     }
      
