@@ -1,3 +1,4 @@
+/*CONTENU  ARTICLE COUP DE COEUR  */
 .coupDeCoeur .separator
 {
     width: 55%;
@@ -26,6 +27,9 @@
     width: 100%;
     justify-content: space-around;
 }
+/*FIN CONTENU  ARTICLE COUP DE COEUR  */
+
+/* TOUT LES ARTICLES   */
 .coupDeCoeur .articleLivres
 {  
     border: 2px solid rgb(209, 201, 201);
@@ -82,7 +86,9 @@
     justify-content: center;
     border-radius: 5px;
 }
-/* SECTION SLIDER SVG  */
+/*FIN TOUT LES ARTICLES   */
+
+/* SECTION SLIDER */
 .coupDeCoeur .sectionSlider
 {
     width: 80%;
@@ -99,8 +105,6 @@
     top: 40%;
     right: 90px;
     cursor: pointer;
-     /*display: none;
-    opacity: 0.6; */
 }
 .coupDeCoeur .sectionSlider .imgGauche 
 {
@@ -109,6 +113,13 @@
     top: 40%;
     left:90px ;
     cursor: pointer;
-     /* display: none;
-   opacity: 0.6; */
 }
+
+/* TEXT EN SVG */
+svg
+{
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 530px;
+}
+/*FIN TEXT EN SVG */

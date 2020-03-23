@@ -31,9 +31,21 @@
 
 
         <?php require_once("./app/views/layout/header.php"); ?>
-        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
 
         <main class ="coupDeCoeur">
+            <!-- TEXTE EN SVG   -->
+            <svg width="100px" height="50px">
+                <text x="10" y="30" style="
+                    font-family: Times New Roman;
+                    font-size  : 2.2em;
+                    stroke     : #ffffff;
+                    fill       : #dc143c;">
+                    Bienvenue sur nos coup de coeurs  
+                </text>
+            </svg>
+            <!-- FIN TEXTE EN SVG -->
+
             <!-- SLIDER  -->
             <section class="sectionSlider">
                 <img id="imgSlider">
