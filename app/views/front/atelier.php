@@ -36,7 +36,7 @@
         
         <main class ="atelier">
             <!-- BLOCK ATELIERS  -->
-            <div class="blockContenu">
+            <section class="blockContenu">
                 <h1 class="titreMain">
                    Les prochains ateliers à venir 
                 </h1>
@@ -79,8 +79,38 @@
                         </article>
                     <?php } ?>
                 </div>
-            </div>
+            </section>
             <!--FIN BLOCK ATELIERS-->
+
+            <!-- SECTION YOU TUBE API (VIDEO-ATELIER) -->
+            <section class =" sectionYoutube">
+                <article>
+                    <h3>
+                        Nos videos
+                    </h3>
+                </article>
+                <figure class ="figureVideo">
+                    <div>
+                        <h6>bibliobingo!</h6>
+                        <div id="player1"></div>
+                    </div>
+                    <div>
+                        <h6>atelier enfants, "La lune a disparu" !</h6>
+                        <div id="player2"></div>
+                    </div>
+                    <div>
+                        <h6>speed booking</h6>
+                        <div id="player3"></div>
+                    </div>
+                    <div>
+                        <h6>FAIS TON FILM</h6>
+                        <div id="player4"></div>
+                    </div>
+                </figure>
+            </section>
+            <!--FIN SECTION YOU TUBE API (VIDEO-ATELIER) -->
+
+
 
 
         </main>
@@ -96,6 +126,8 @@
 
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
+        <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+        <script type="text/javascript" src="./../app/public/js/atelier.js"></script>
 
     </body>
 

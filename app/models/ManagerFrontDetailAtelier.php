@@ -4,13 +4,13 @@ namespace Projet\Models;
 
 class ManagerFrontDetailAtelier extends Manager
 {
-    public function getDetailAtelier($idLivre)
+    public function getDetailAtelier($idAtelier)
     {
         $bdd = $this->dbConnect();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        $sql = "SELECT * FROM atelier";  
+        $sql = "SELECT * FROM atelier WHERE idAtelier=".$idAtelier;
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete

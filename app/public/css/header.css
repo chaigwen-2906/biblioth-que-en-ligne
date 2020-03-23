@@ -10,11 +10,10 @@ a
 }
 body
 {   
-    font-family: 'Libre Baskerville', serif;
-        /* font-family: verdana, 'Times New Roman', Times, serif; */
+    font-family: 'Libre Baskerville', verdana;
     font-size: 1rem;
     background-color: #92c4f3;
-}
+} 
 
 
 header 
@@ -378,6 +377,8 @@ header .btnRecherche
   
 }
 /*------------------------Fin du conteneur recherche----------*/
+
+
 
 
 /*---------------media querie tablette------------*/
