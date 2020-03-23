@@ -34,14 +34,24 @@
         <br><br><br><br><br><br><br><br>
 
         <main class ="coupDeCoeur">
+            <!-- SLIDER  -->
+            <section class="sectionSlider">
+                <img id="imgSlider">
+                <img id="gauche" class="imgGauche" src="./../app/public/image/bouton/flecheGauche.png">
+                <img id="droite" class="imgDroite" src="./../app/public/image/bouton/flecheDroite.png">
+            </section>
+            <!-- FIN SLIDER  -->
+
+            <!-- ARTICLE COUP DE COEUR  -->
             <div class="blockContenu">
-            <h1 class="titreMain">
+                <h1 class="titreMain">
                     Nos coup de coeurs du moment 
                 </h1>
                 <!--------------livre coup de coeur, favorite book------------------>
                 <div class="articles">  
                     <?php foreach ($listCdCoeur as $unCoupDeCoeur) {?>
 
+                        <!-- TOUT LES ARTICLES  -->
                         <article class="articleLivres">
                             <!--ici se trouvent les info sur les livres, here is the info on the books----------->
                             <h3>
@@ -74,10 +84,12 @@
                                 Date de publication : <?= $date->format('d/m/Y'); ?>
                             </p>
                         </article>
+                        <!--FIN DE TOUT LES ARTICLES  -->
+
                     <?php } ?>
                 </div>
             </div>
-
+            <!--FIN  ARTICLE COUP DE COEUR  -->
 
         </main>
         
@@ -91,6 +103,7 @@
 
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
+        <script type="text/javascript" src="./../app/public/js/sliderCoupDeCoeur.js"></script>
 
     </body>
 
