@@ -1,11 +1,32 @@
 /* COULEUR DE LA PAGE TITRE : GRIS #a59d9d  */
-/* COULEUR DE LA PAGE BOX ET FONDDE VIDEO : BLANC ET GRIS #d1c9c9 */
+/* COULEUR DE LA PAGE BOX ET FOND DE VIDEO : BLANC ET GRIS #d1c9c9 */
 /* COULEUR DE LA PAGE CONTENU : BLEU-CLAIR #d4e6f8  */
 /* COULEUR DE LA PAGE BORDURE AUTOUR DE L'IMAGE BLEU-CLAIR #92c4f3  */
 
+/* MAIN  */
+.atelier
+{
+    padding-top: 145px;
+}
+ /* FIN DU MAIN  */
+
+
+/* FILS D'ARIANE  */
+.atelier .filArianeAtelier
+{
+    padding-left: 25px;
+    margin-top: 30px;
+}
+.atelier .filArianeAtelier
+{
+    color: white;
+    font-weight: bold;
+}
+
+/* FIN  FILS D'ARIANE  */
 .atelier .blockContenu
 {
-    background-color: #be5c1b;
+    background-color: #92c4f3 ;
     padding-top: 5px;
 }
 .atelier .titreMain
@@ -13,7 +34,7 @@
     background-color: #a59d9d;
     color: white;
     height: 55px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 10px;
     display: flex;
     align-items: center;
@@ -71,6 +92,9 @@
     margin-top: 10px;
     color: white;
 }
+
+
+/* BOUTON EN SAVOIR PLUS  */
 .atelier .articles a
 {
     display: flex;
@@ -82,8 +106,10 @@
     justify-content: center;
     border-radius: 5px;
 }
+/*FIN BOUTON EN SAVOIR PLUS   */
 
- /* SECTION YOU TUBE API (VIDEO-ATELIER)  */
+
+/* SECTION YOU TUBE API (VIDEO-ATELIER)  */
  .atelier .sectionYoutube h3, h6
  {
     background-color: #a59d9d;

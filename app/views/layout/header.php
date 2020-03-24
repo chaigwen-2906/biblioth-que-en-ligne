@@ -2,7 +2,7 @@
     <!------Bandeau (logo, titre, renseignement), Banner (logo, title, information)------->
     <div class="bandeau">
         <figure class="headerLogo">
-            <a href="index.php?action=home">
+            <a href="./home">
                 <img class="retoucheLogo" src="./../app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
                     title="Tout l'univers">
             </a>

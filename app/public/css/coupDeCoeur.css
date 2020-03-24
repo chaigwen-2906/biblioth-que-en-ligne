@@ -1,3 +1,23 @@
+
+.coupDeCoeur
+{
+    padding-top: 145px;
+}
+
+/* FILS D'ARIANE  */
+.coupDeCoeur .filArianeCoupDeCoeurs
+{
+    padding-left: 25px;
+    margin-top: 30px;
+}
+.coupDeCoeur .filArianeCoupDeCoeurs
+{
+    color: white;
+    font-weight: bold;
+}
+
+/* FIN  FILS D'ARIANE  */
+
 /*CONTENU  ARTICLE COUP DE COEUR  */
 .coupDeCoeur .separator
 {
@@ -88,8 +108,8 @@
 }
 /*FIN TOUT LES ARTICLES   */
 
-/* SECTION SLIDER */
-.coupDeCoeur .sectionSlider
+/* FIGURE SLIDER */
+.coupDeCoeur .figureSlider
 {
     width: 80%;
     position: relative;
@@ -98,7 +118,7 @@
     border-radius: 10px;
     padding: 10px;
 }
-.coupDeCoeur .sectionSlider .imgDroite 
+.coupDeCoeur .figureSlider .imgDroite 
 {
     width: 5%;
     position: absolute;
@@ -106,7 +126,7 @@
     right: 90px;
     cursor: pointer;
 }
-.coupDeCoeur .sectionSlider .imgGauche 
+.coupDeCoeur .figureSlider .imgGauche 
 {
     width: 5%;
     position: absolute;
@@ -114,6 +134,8 @@
     left:90px ;
     cursor: pointer;
 }
+
+/* FIN FIGURE SLIDER  */
 
 /* TEXT EN SVG */
 svg

@@ -31,10 +31,17 @@
 
 
         <?php require_once("./app/views/layout/header.php"); ?>
-
-        <br><br><br><br><br><br><br>
         
         <main class ="atelier">
+            <!-- FILS D'ARIANE  -->
+            <div class ="filArianeAtelier" >
+                <a href="./home"> 
+                    Accueil >
+                </a>
+                    Nos ateliers
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
+
             <!-- BLOCK ATELIERS  -->
             <section class="blockContenu">
                 <h1 class="titreMain">

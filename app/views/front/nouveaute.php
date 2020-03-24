@@ -32,12 +32,54 @@
 
         <?php require_once("./app/views/layout/header.php"); ?>
 
-        <br><br><br><br><br><br><br><br>
         <main class="nouveaute">
 
+            <!-- FILS D'ARIANE  -->
+            <div class ="filArianeNouveaute" >
+                <a href="./home">
+                    Accueil >
+                </a>
+                    Nos nouveautés
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
 
-               <!-- BLOCK NOUVEAUTES -->
-               <div class="blockContenu">
+            <!-- CAROUSSEL NOUVEAUTE  -->
+            
+            <figure class="figureSlid">
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles:"  onclick="myFunction(this);">
+                </div>
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique:"  onclick="myFunction(this);">
+                </div>
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/guerreDesClans.jpg" alt="éclipse:"  onclick="myFunction(this);">
+                </div>
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat:"  onclick="myFunction(this);">
+                </div>
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/quêteDesOurs.jpg" alt="Les dernières contrées sauvages:"  onclick="myFunction(this);">
+                </div>
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile:"  onclick="myFunction(this);">
+                </div>
+                <div class="divImgSlider">
+                    <img class="imgSlider" src="./../app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours:"  onclick="myFunction(this);">
+                </div>    
+            </figure>
+
+            <div class="fermerSlider">
+                <span onclick="this.parentElement.style.display='none'" class="fermerBtn">&times;</span>
+                <img class="etendreImg">
+                <div class="imgtext"></div>
+            </div>
+           
+
+            <!--FIN CAROUSSEL NOUVEAUTE  -->
+
+            <!-- BLOCK NOUVEAUTES -->
+            <div class="blockContenu">
                 <h1 class="titreMain">
                     Nouveautés
                 </h1>
@@ -95,6 +137,7 @@
 
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
+        <script type="text/javascript" src="./../app/public/js/nouveaute.js"></script>
 
     </body>
 

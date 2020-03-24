@@ -1,3 +1,111 @@
+/* MAIN NOUVEAUTE  */
+.nouveaute
+{
+    padding-top: 145px;
+}
+/*FIN MAIN NOUVEAUTE  */
+
+/* FILS D'ARIANE  */
+.nouveaute .filArianeNouveaute
+{
+    padding-left: 25px;
+    margin-top: 30px;
+}
+.nouveaute .filArianeNouveaute
+{
+    color: white;
+    font-weight: bold;
+}
+
+/* FIN  FILS D'ARIANE  */
+
+/* CAROUSSEL NOUVEAUTE  */
+
+
+  /* The grid: Four equal columns that floats next to each other */
+.divImgSlider 
+{
+    float: left;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.divImgSlider img 
+{
+    opacity: 0.8; 
+    cursor: pointer; 
+    width: 55%;
+}
+
+.divImgSlider img:hover 
+{
+    opacity: 1;
+}
+.figureSlid
+{
+    border: 2px solid brown;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+/* Clear floats after the columns */
+/* .figureSlid:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+} */
+/* The expanding image container */
+.fermerSlider 
+{
+    position: relative;
+    display: none;
+    background-color: brown;
+    padding: 15px;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/* Expanding image text */
+.imgtext 
+{
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 20%;
+    color: white;
+    position: absolute;
+    bottom: 290px;
+    left: 275px;
+    font-size: 20px;
+}
+.etendreImg
+{
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 20%;
+
+}
+/* Closable button inside the expanded image */
+.fermerBtn 
+{
+    position: absolute;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    bottom: 302px;
+}
+/* FIN CAROUSSEL NOUVEAUTE   */
+
 .nouveaute .separator
 {
     width: 55%;
