@@ -31,9 +31,18 @@
 
 
         <?php require_once("./app/views/layout/header.php"); ?>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
 
         <main class ="coupDeCoeur">
+
+            <!-- FILS D'ARIANE  -->
+            <div class ="filArianeCoupDeCoeurs" >
+                <a href="./home">
+                    Accueil >
+                </a>
+                    Nos coup de coeurs
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
+
             <!-- TEXTE EN SVG   -->
             <svg width="100px" height="50px">
                 <text x="10" y="30" style="
@@ -47,11 +56,11 @@
             <!-- FIN TEXTE EN SVG -->
 
             <!-- SLIDER  -->
-            <section class="sectionSlider">
+            <figure class="figureSlider">
                 <img id="imgSlider">
                 <img id="gauche" class="imgGauche" src="./../app/public/image/bouton/flecheGauche.png">
                 <img id="droite" class="imgDroite" src="./../app/public/image/bouton/flecheDroite.png">
-            </section>
+            </figure>
             <!-- FIN SLIDER  -->
 
             <!-- ARTICLE COUP DE COEUR  -->
