@@ -1,7 +1,7 @@
 /* MAIN NOUVEAUTE  */
 .nouveaute
 {
-    padding-top: 145px;
+    padding-top: 170px;
 }
 /*FIN MAIN NOUVEAUTE  */
 
@@ -9,7 +9,7 @@
 .nouveaute .filArianeNouveaute
 {
     padding-left: 25px;
-    margin-top: 30px;
+  
 }
 .nouveaute .filArianeNouveaute
 {
@@ -212,6 +212,17 @@
        
 
 }
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .nouveaute
+    {
+        padding-top: 145px;
+    }
+}
+
 
 
 /*-------------media querie mobile----------------*/

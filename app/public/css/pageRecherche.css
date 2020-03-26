@@ -9,7 +9,6 @@
 .recherche .filArianeRecherche
 {
     padding-left: 25px;
-    margin-top: 30px;
 }
 .recherche .filArianeRecherche
 {
@@ -67,7 +66,7 @@
 .recherche .titreImgReseaux
 {
 	border:2px solid  white;
-	width: 20%;
+	max-width: 20%;
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -146,6 +145,28 @@
 	text-shadow:0px 1px 0px #3d768a;
 	height: 20px;
 }
+.recherche .bouton:hover
+ {
+	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+}
+.recherche .bouton:active 
+{
+	position:relative;
+	top:5px;
+}
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .recherche
+    {
+        padding-top: 145px;
+	}
+}
+
+
 
 
 /*-------------media querie mobile----------------*/
@@ -159,7 +180,7 @@
 	}
 	.recherche .titreImgReseaux
 	{
-		width: 50%;
+		max-width: 50%;
 		margin: 0 auto;
 	}	
 	.recherche .livreDescription

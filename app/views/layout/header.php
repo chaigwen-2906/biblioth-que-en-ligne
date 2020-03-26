@@ -84,10 +84,9 @@
     <!--------------Barre de recherche, Search bar-------------------->
     <div id="barreDeRecherche">
         <form class="selectionLivres" method="post" action="./pageRecherche" onsubmit="return verificationRecherche()">
-            <label>Catégorie :</label>
             <select id="selectCategorie" name="selectCategorie">
                 <option value="0">
-                    Selectionner...
+                    Catégorie...
                 </option>
                 <?php
                     foreach($listCategorie AS $uneCategorie)
@@ -96,12 +95,8 @@
                     }
                 ?>
             </select>
-            <div class="btnRecherche">
-                <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
-                <input id="boutonRechercher" type="submit" value="rechercher" >
-                    
-                
-            </div>
+            <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
+            <input id="boutonRechercher" type="submit" value="rechercher" >
         </form>
     </div>
 </header>

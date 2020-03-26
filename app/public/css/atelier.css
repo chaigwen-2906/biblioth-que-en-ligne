@@ -6,7 +6,7 @@
 /* MAIN  */
 .atelier
 {
-    padding-top: 145px;
+    padding-top: 170px;
 }
  /* FIN DU MAIN  */
 
@@ -15,8 +15,7 @@
 .atelier .filArianeAtelier
 {
     padding-left: 25px;
-    margin-top: 30px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
 }
 .atelier .filArianeAtelier
 {
@@ -129,3 +128,15 @@
      padding: 15px;
  }
 /* FIN SECTION YOU TUBE API (VIDEO-ATELIER)   */
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .atelier
+    {
+        padding-top: 145px;
+     
+    }
+    
+}

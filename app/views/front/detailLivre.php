@@ -71,6 +71,9 @@
                             </a></li>
                         </ul>
                     </figure>
+                    <a class="valideCommentaire" href="#">
+                        Réserver
+                    </a>
                 </aside>
                 <div class="divDesResum">
                     <article class="livreDescription">
