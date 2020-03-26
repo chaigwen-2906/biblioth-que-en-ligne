@@ -108,7 +108,15 @@ class ControllerFront
 
         //on charge le ManagerFrontPageRecherche
         $FrontPageRechercheManager = new \Projet\Models\ManagerFrontPageRecherche();
-        $resultPageRecherche = $FrontPageRechercheManager->getResultPageRecherche($_POST['selectCategorie'], $_POST['champRecherche']);
+        //Test si la page est appelée en tapant directement l'url (sans variable POST)
+        if(isset($_POST['selectCategorie']) && isset($_POST['champRecherche']))
+        {
+            $resultPageRecherche = $FrontPageRechercheManager->getResultPageRecherche($_POST['selectCategorie'], $_POST['champRecherche']);
+        }
+        else{
+            $resultPageRecherche = array();
+        }
+        
 
         
         require 'app/views/front/pageRecherche.php';
