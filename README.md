@@ -1,4 +1,4 @@
-<img src="./blob/app/public/image/screenshot.png">
+<img src="app/public/image/screenshot/screenshot.png">
 
 # la bibliothèque en ligne 
 
@@ -31,4 +31,4 @@ Ajoutez des notes supplémentaires sur la façon de déployer cela sur un systè
 # Remerciements
 *inspiration 
 
-<img src="./../app/public/image/screenshotFooter.png">
+<img src="./../app/public/image/screenshot/screenshotFooter.png">
