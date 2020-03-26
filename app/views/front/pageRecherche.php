@@ -29,8 +29,8 @@
 
     <body>
 
-
         <?php require_once("./app/views/layout/header.php"); ?>
+        
 
         <main class="recherche">
 
@@ -39,7 +39,7 @@
                 <a href="./home"> 
                     Accueil >
                 </a>
-                    Nos Livres
+                    Résultat de la recherche
             </div>
             <!--FIN  FILS D'ARIANE  -->
 
@@ -49,15 +49,17 @@
             </h1>
             <!-- FIN TITRE  -->
 
+            <hr separator class="separateurH1">
+
             <!-- SECTION RECHERCHE -->
             <section class="sectionRecherche">
                 <?php foreach ($resultPageRecherche as $uneRecherche) {?>
                     <div class="descriptionLivre">
                         <!--TITRE, IMAGE DES LIVRE -->
                         <aside class="titreImgReseaux">
-                            <h2>
+                            <h3>
                                 <?= $uneRecherche['nom']; ?>
-                            </h2>
+                            </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
                                 <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneRecherche['image'])."' />";?>
@@ -79,14 +81,11 @@
                                 <?= $descriptionCourte."..."; ?>
                             </p>
                         </article> 
-                        <!--FIN DESCRIPTION DU LIVRE  -->
-                    </div>
+                        
 
-                    <hr separator>
+                        <hr separator>
 
-                    <!-- BOUTON EN SAVOIR PLUS  -->
-                    
-                    
+                        <!-- BOUTON EN SAVOIR PLUS  -->
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
@@ -95,7 +94,10 @@
                                 En savoir plus !!
                             </a>
                     
-                    <!--FIN BOUTON EN SAVOIR PLUS  -->
+                        <!--FIN BOUTON EN SAVOIR PLUS  -->
+
+                    <!--FIN DESCRIPTION DU LIVRE  -->
+                    </div>
                 <?php } ?>
             <!--FIN SECTION RECHERCHE -->
             </section>

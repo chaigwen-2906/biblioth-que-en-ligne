@@ -38,7 +38,7 @@
                 <a href="./home"> 
                     Accueil >
                 </a>
-                    Nos Livres
+                    Résumé du livre
             </div>
             <!--FIN  FILS D'ARIANE  -->
             
