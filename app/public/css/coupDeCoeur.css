@@ -1,14 +1,13 @@
 
 .coupDeCoeur
 {
-    padding-top: 145px;
+    padding-top: 170px;
 }
 
 /* FILS D'ARIANE  */
 .coupDeCoeur .filArianeCoupDeCoeurs
 {
     padding-left: 25px;
-    margin-top: 30px;
 }
 .coupDeCoeur .filArianeCoupDeCoeurs
 {
@@ -147,3 +146,17 @@ svg
     padding-left: 530px;
 }
 /*FIN TEXT EN SVG */
+
+
+
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .coupDeCoeur
+    {
+        padding-top: 145px;
+    }
+    
+}

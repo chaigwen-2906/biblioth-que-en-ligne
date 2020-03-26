@@ -8,7 +8,7 @@ class ManagerFrontDetailLivre extends Manager
     {
         $bdd = $this->dbConnect();
 
-        echo "idLivre:".$_GET['id'];
+        // echo "idLivre:".$_GET['id'];
 
         //On réalise la requete sur la base de données
         //On prépare la requete

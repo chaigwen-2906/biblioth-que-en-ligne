@@ -58,6 +58,7 @@
                     <p>
                         <?= $DetailAtelier['description']; ?>
                     </p>
+                    <hr separator>
                     <h2>
                         Contexte de l'animation
                     </h2>

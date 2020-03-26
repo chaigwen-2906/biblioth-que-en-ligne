@@ -1,7 +1,7 @@
 /* MAIN PANIER SERT A REMONTER LA PAGE   */
 .panier
 {
-    padding-top: 145px;
+    padding-top: 170px;
 }
 /*FIN DETAIL PANIER  */
 
@@ -9,7 +9,6 @@
 .panier .filArianePanier
 {
     padding-left: 25px;
-    margin-top: 30px;
 }
 .panier .filArianePanier
 {
@@ -66,4 +65,26 @@
     padding:12px 32px;
     text-decoration:none;
     text-shadow:0px 1px 0px #3d768a;
+}
+
+
+
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .panier
+    {
+        padding-top: 145px;
+	}
+}
+
+
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+	
 }

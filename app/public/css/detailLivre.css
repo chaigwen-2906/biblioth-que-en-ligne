@@ -1,7 +1,7 @@
 /* MAIN DETAIL LIVRE  */
 .detailLivre
 {
-    padding-top: 145px;
+    padding-top: 170px;
 }
 /*FIN DETAIL LIVRE  */
 
@@ -9,7 +9,6 @@
 .detailLivre .filArianeLivre
 {
     padding-left: 25px;
-    margin-top: 30px;
 }
 .detailLivre .filArianeLivre
 {
@@ -19,6 +18,7 @@
 
 /* FIN  FILS D'ARIANE  */
 
+
 .detailLivre .grosTitre
 {
     text-align: center;
@@ -27,12 +27,14 @@
 .detailLivre .sectionDescripLivre
 {
     display: flex;
+    width: 100%;
+   
 }
 .detailLivre .sectionDescripLivre h2
 {
     color: rgb(156, 148, 148);
     text-align: center;
-    min-height: 55px;
+    min-height:85px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,6 +44,7 @@
     display: flex;
     justify-content: center;
     margin: 15px;
+   
 }
 .detailLivre .titreImgReseaux
 {
@@ -62,7 +65,7 @@
 /* DESCRIPTION DU LIVRE  */
 .detailLivre .divDesResum
 {
-    width: 100%;
+    width: 56%;
     margin: 5px;
     padding: 5px;
 }
@@ -187,30 +190,58 @@
 	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
 	background-color:#88c5db;
 	border-radius:8px;
-	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	margin: 20px;
+	margin: 50px;
 	font-size:16px;
 	font-weight:bold;
 	padding:12px 32px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
+    text-shadow:0px 1px 0px #3d768a;
+    display: flex;
+    justify-content: center;
+}
+.detailLivre .valideCommentaire:hover
+{
+	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+} 
+.detailLivre .valideCommentaire:active 
+{
+	position:relative;
+	top:5px;
 }
 
 /*---------------media querie tablette------------*/
 @media screen and (max-width: 992px)
 {
+    .detailLivre
+    {
+        padding-top: 145px;
+    }
     .detailLivre .ficheTecknic 
     {
         flex-direction: column;
         align-items: center;
     }
+
 }
 
 /*-------------media querie mobile----------------*/
 @media screen and (max-width:530px)
 {
-  
+    .detailLivre .sectionDescripLivre
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .detailLivre .titreImgReseaux
+    {
+        width:80%;
+    }
+    .detailLivre .divDesResum
+    {
+        width:80%;
+    }
 }
 

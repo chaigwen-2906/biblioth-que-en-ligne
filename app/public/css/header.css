@@ -200,9 +200,9 @@ header .selectionLivres
     color: white;
     padding: 7px 5px;
 }
-header .btnRecherche
+header .selectionLivres input
 {
-    padding-left: 35px;
+    margin-left:10px;
 }
 /*------------------------Fin du conteneur recherche----------*/
 
@@ -336,7 +336,7 @@ header .btnRecherche
 .monBoutton:active 
 {
 	position:relative;
-	top:1px;
+	top:5px;
 }
 .inputAligne
 {

@@ -134,6 +134,7 @@
 /*---------------media querie tablette------------*/
 @media screen and (max-width: 992px)
 {
+    
     .imageDeFondAccueil
     {
         margin-top: 103px;
