@@ -32,8 +32,16 @@
 
         <?php require_once("./app/views/layout/header.php"); ?>
 
-        <br><br><br><br><br><br><br><br>
         <main class="detailAtelier">
+
+        <!-- FILS D'ARIANE  -->
+        <div class ="filArianeAtelier" >
+                <a href="./home"> 
+                    Accueil >
+                </a>
+                    L'ateliers
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
 
             <!-- NOM DE ATELIER -->
             <h1>
@@ -59,6 +67,7 @@
                     </p>
                 </article>
             </section>
+            <!--FIN DESCRIPTION ATELIER -->
 
             <!-- RESERVATION ATELIER  -->
             <section class="sectionReservationAtelier">
@@ -77,23 +86,25 @@
                         <a class="valideReservationAtelier" href="#">
                             Réserver
                         </a>
+                        <!--FIN BUTTON RESERVER   -->
                 </article>
             </section>
+            <!--FIN RESERVATION ATELIER  -->
 
         </main>
 
 
 
-        
-<?php require_once("./app/views/layout/footer.php") ?> 
+            
+        <?php require_once("./app/views/layout/footer.php") ?> 
 
-<!---------------------- jQuery ---------------------------------->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!---------------------- jQuery ---------------------------------->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<!---------- Appel du javascript  / Call of javascript------------>
-<script type="text/javascript" src="./../app/public/js/header.js"></script>
+        <!---------- Appel du javascript  / Call of javascript------------>
+        <script type="text/javascript" src="./../app/public/js/header.js"></script>
 
-</body>
+    </body>
 
 </html>

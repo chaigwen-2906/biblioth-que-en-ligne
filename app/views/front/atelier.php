@@ -42,6 +42,34 @@
             </div>
             <!--FIN  FILS D'ARIANE  -->
 
+             <!-- SECTION YOU TUBE API (VIDEO-ATELIER) -->
+             <section class =" sectionYoutube">
+                <article>
+                    <h3>
+                        Nos videos
+                    </h3>
+                </article>
+                <figure class ="figureVideo">
+                    <div>
+                        <h6>bibliobingo!</h6>
+                        <div id="player1"></div>
+                    </div>
+                    <div>
+                        <h6>atelier enfants, "La lune a disparu" !</h6>
+                        <div id="player2"></div>
+                    </div>
+                    <div>
+                        <h6>speed booking</h6>
+                        <div id="player3"></div>
+                    </div>
+                    <div>
+                        <h6>FAIS TON FILM</h6>
+                        <div id="player4"></div>
+                    </div>
+                </figure>
+            </section>
+            <!--FIN SECTION YOU TUBE API (VIDEO-ATELIER) -->
+
             <!-- BLOCK ATELIERS  -->
             <section class="blockContenu">
                 <h1 class="titreMain">
@@ -89,33 +117,7 @@
             </section>
             <!--FIN BLOCK ATELIERS-->
 
-            <!-- SECTION YOU TUBE API (VIDEO-ATELIER) -->
-            <section class =" sectionYoutube">
-                <article>
-                    <h3>
-                        Nos videos
-                    </h3>
-                </article>
-                <figure class ="figureVideo">
-                    <div>
-                        <h6>bibliobingo!</h6>
-                        <div id="player1"></div>
-                    </div>
-                    <div>
-                        <h6>atelier enfants, "La lune a disparu" !</h6>
-                        <div id="player2"></div>
-                    </div>
-                    <div>
-                        <h6>speed booking</h6>
-                        <div id="player3"></div>
-                    </div>
-                    <div>
-                        <h6>FAIS TON FILM</h6>
-                        <div id="player4"></div>
-                    </div>
-                </figure>
-            </section>
-            <!--FIN SECTION YOU TUBE API (VIDEO-ATELIER) -->
+           
 
 
 

@@ -21,46 +21,34 @@
 
 /* CAROUSSEL NOUVEAUTE  */
 
-
-  /* The grid: Four equal columns that floats next to each other */
-.divImgSlider 
+/* The grid: Four equal columns that floats next to each other */
+.nouveaute .divImgSlider 
 {
-    float: left;
-    padding: 10px;
+    padding: 15px;
 }
-
 /* Style the images inside the grid */
-.divImgSlider img 
+.nouveaute .divImgSlider img 
 {
     opacity: 0.8; 
     cursor: pointer; 
-    width: 55%;
+    width: 100px;
 }
-
-.divImgSlider img:hover 
+.nouveaute .divImgSlider img:hover 
 {
     opacity: 1;
 }
-.figureSlid
+.nouveaute .figureSlid
 {
     border: 2px solid brown;
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    width: 80%;
+    justify-content: space-between;
     margin: 0 auto;
     margin-top: 25px;
 }
-
-/* Clear floats after the columns */
-/* .figureSlid:after 
-{
-    content: "";
-    display: table;
-    clear: both;
-} */
 /* The expanding image container */
-.fermerSlider 
+.nouveaute .fermerSlider 
 {
     position: relative;
     display: none;
@@ -70,9 +58,8 @@
     margin: 0 auto;
     margin-top: 10px;
 }
-
 /* Expanding image text */
-.imgtext 
+.nouveaute .imgtext 
 {
     display: flex;
     margin: 0 auto;
@@ -85,7 +72,7 @@
     left: 275px;
     font-size: 20px;
 }
-.etendreImg
+.nouveaute .etendreImg
 {
     display: flex;
     margin: 0 auto;
@@ -95,7 +82,7 @@
 
 }
 /* Closable button inside the expanded image */
-.fermerBtn 
+.nouveaute .fermerBtn 
 {
     position: absolute;
     right: 15px;
@@ -105,6 +92,8 @@
     bottom: 302px;
 }
 /* FIN CAROUSSEL NOUVEAUTE   */
+
+
 
 .nouveaute .separator
 {
@@ -159,17 +148,20 @@
     padding-top: 10px;
     max-width: 55%;
     margin: 0 auto;
+    height: 232px;
 }
 .nouveaute .imgArticleLivre img
 {
+    border: 1px solid #92c4f3;
     max-width: 75%;
     margin: 0 auto;
-    border: 1px solid #92c4f3;
+    margin-top: 25px;
 }
 .nouveaute .articles h4
 {
     text-align: center;
-    padding: 10px;
+    height: 65px;
+    padding-top: 35px;
 }
 .nouveaute .button
 {
@@ -189,4 +181,58 @@
     background-color: rgb(243, 131, 26);
     justify-content: center;
     border-radius: 5px;
+}
+
+
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .nouveaute .divImgSlider img 
+    {
+        width: 80px;
+    }
+
+    .nouveaute .filArianeNouveaute 
+    {
+        padding-left: 25px;
+        margin-top: 0px;
+    }
+    .nouveaute .fermerBtn 
+    {
+        bottom: 200px;
+    }
+    .nouveaute .imgtext 
+    {
+       
+        bottom: 160px;
+        left: 155px;
+    }
+       
+
+}
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .nouveaute .fermerBtn 
+    {
+        bottom: 110px;
+    }
+    .nouveaute .imgtext 
+    {
+        bottom: 50px;
+        left: 55px;
+        text-align: center;
+    } 
+    .nouveaute .divImgSlider img 
+    {
+        width: 120px;
+    }
+    .nouveaute .figureSlid 
+    {
+        justify-content: center;
+    }
 }

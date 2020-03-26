@@ -31,8 +31,17 @@
 
         <?php require_once("./app/views/layout/header.php"); ?>
 
-        <br><br><br><br><br><br><br><br>
         <main class="detailLivre">
+
+            <!-- FILS D'ARIANE  -->
+            <div class ="filArianeLivre" >
+                <a href="./home"> 
+                    Accueil >
+                </a>
+                    Nos Livres
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
+            
             <h1 class ="grosTitre">
                 Résumé du livre
             </h1>
@@ -64,7 +73,7 @@
                     </figure>
                 </aside>
                 <div class="divDesResum">
-                    <article class ="livreDescription">
+                    <article class="livreDescription">
                         <h2>
                             Description
                         </h2>
@@ -73,12 +82,12 @@
                             <?= $DetailLivre['description']; ?>
                         </p>
                     </article>
-                    <article class ="infoLivre">
+                    <article class="infoLivre">
                         <h2>
                             Fiche technique
                         </h2>
                         <hr separator>
-                        <section class ="ficheTecknic">
+                        <section class="ficheTecknic">
                             <ul>
                                 <li>Date de publication : <?= $DetailLivre['dateDePublication']; ?></li>
                                 <li>Disponibilité : <?= $DetailLivre['disponible']; ?></li>
@@ -108,7 +117,7 @@
                     </figure>
                     <div class="commentaire">        
                         <label  for="commentaire">
-                            Les offres de nos partenaires : 
+                            Votre commentaire :
                         </label><br>
                         <textarea class="reglCommentaire" 
                             name="message"  placeholder="Entrer votre message">

@@ -1,0 +1,95 @@
+/* MAIN RECHERCHE SERT A REMONTER LA PAGE   */
+.recherche
+{
+    padding-top: 145px;
+}
+/*FIN DETAIL RECHERCHE  */
+
+/* FILS D'ARIANE  */
+.recherche .filArianeRecherche
+{
+    padding-left: 25px;
+    margin-top: 30px;
+}
+.recherche .filArianeRecherche
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
+/* TITRE PAGE  */
+ .recherche h1 
+ {
+	 background-color: turquoise;
+	 text-align: center;
+ }
+/* FIN TITRE PAGE */
+
+/* SECTION RECHERCHE */
+.recherche .sectionRecherche
+{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+	margin: 15px;
+}
+/*FIN SECTION RECHERCHE */
+
+/* DESCRIPTION LIVRE  */
+.recherche .descriptionLivre
+{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+	margin: 15px;
+}
+
+/* FIN DESCRIPTION LIVRE  */
+
+ /* ASIDE  */
+.recherche .titreImgReseaux
+{
+	border:2px solid  black;
+	width: 30%;
+}
+ /* ASIDE  */
+
+ /* IMAGE  */
+.recherche .reglageImg
+{
+	background-color: goldenrod;
+}
+/*FIN IMAGE  */
+
+ /* DESCRIPTION DU LIVRE  */
+ 
+.recherche .livreDescription
+{
+	border:2px solid red;
+}
+ /* FIN DESCRIPTION DU LIVRE  */
+
+ /* BOUTON EN SAVOIR PLUS  */
+.recherche .bouton
+{
+	text-align: center;
+}
+.recherche .rechercheEnSavoirPlus
+{
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+	background-color:#88c5db;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	margin: 20px;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}

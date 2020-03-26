@@ -16,6 +16,7 @@
 {
     padding-left: 25px;
     margin-top: 30px;
+    padding-bottom: 25px;
 }
 .atelier .filArianeAtelier
 {
@@ -112,7 +113,7 @@
 /* SECTION YOU TUBE API (VIDEO-ATELIER)  */
  .atelier .sectionYoutube h3, h6
  {
-    background-color: #a59d9d;
+    background-color: brown;
     color: white;
     text-align: center;
     padding: 10px;

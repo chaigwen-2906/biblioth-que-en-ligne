@@ -1,0 +1,69 @@
+/* MAIN PANIER SERT A REMONTER LA PAGE   */
+.panier
+{
+    padding-top: 145px;
+}
+/*FIN DETAIL PANIER  */
+
+/* FILS D'ARIANE  */
+.panier .filArianePanier
+{
+    padding-left: 25px;
+    margin-top: 30px;
+}
+.panier .filArianePanier
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
+/* SECTION COMMANDE  */
+.panier .commande
+{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.panier .sectionCommande img
+{
+    text-align: right;
+}
+
+/*FIN SECTION COMMANDE  */
+
+/* SECTION CONFIRMER LA COMMANDE  */
+
+
+.panier .commandeConfirmer
+{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+/*FIN SECTION CONFIRMER LA COMMANDE  */
+
+/* BOUTON CONFIRMER COMMANDE   */
+ .panier .bouton
+ {
+     text-align: center;
+ }
+.panier .rechercheEnSavoirPlus
+{
+    box-shadow: 0px 10px 14px -7px #276873;
+    background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+    background-color:#88c5db;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    margin: 20px;
+    font-size:16px;
+    font-weight:bold;
+    padding:12px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+}

@@ -1,3 +1,23 @@
+/* MAIN DETAIL ATELIER  */
+.detailAtelier
+{
+    padding-top: 145px;
+}
+/*FIN DETAIL ATELIER  */
+
+/* FILS D'ARIANE  */
+.detailAtelier .filArianeAtelier
+{
+    padding-left: 25px;
+    margin-top: 30px;
+}
+.detailAtelier .filArianeAtelier
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
 /* NOM DE ATELIER  */
 .detailAtelier h1
 {

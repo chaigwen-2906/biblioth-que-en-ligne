@@ -41,10 +41,6 @@ try {
                         $controller->atelierFront();
                     break;
 
-                    case "panier":
-                        $controller->panierFront();
-                    break;
-
                     case "conditionsGenerales": 
                         $controller->conditionsGeneralesFront();
                     break;
@@ -62,12 +58,22 @@ try {
                     break;
 
                     case "detailLivre":
-                        $controller->detailLivre();
+                        $controller->detailLivreFront();
                     break;
 
                     case "detailAtelier":
-                        $controller->detailAtelier();
+                        $controller->detailAtelierFront();
                     break;
+
+                    case "pageRecherche":
+                        $controller->pageRechercheFront();
+                    break;
+                    
+                    case "panier":
+                        $controller->panierFront();
+                    break;
+
+
 
                     default:
                         $controller->errorFront();
