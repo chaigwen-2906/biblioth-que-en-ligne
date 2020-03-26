@@ -1,4 +1,4 @@
-<img src="./../app/public/image/screenshot.png">
+<img src="./blob/app/public/image/screenshot.png">
 
 # la bibliothèque en ligne 
 
