@@ -101,11 +101,14 @@
     max-width: 75%;
     margin: 0 auto;
     border: 1px solid #92c4f3;
+    height: 232px;
 }
 .Accueil .articles h4
 {
     text-align: center;
     padding: 10px;
+    height: 55px;
+    
 }
 .Accueil .button
 {
@@ -144,7 +147,8 @@
 }
 
 /*-------------media querie mobile----------------*/
-@media screen and (max-width:530px){
+@media screen and (max-width:530px)
+{
     .Accueil .citation
     {
         opacity: 0;

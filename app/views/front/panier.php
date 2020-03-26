@@ -15,7 +15,7 @@
     <!-- Appel des feuilles de style --/ Calling style sheets-->
     <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/main.css">
+    <link rel="stylesheet" href="./../app/public/css/panier.css">
    
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -32,14 +32,49 @@
 
         <?php require_once("./app/views/layout/header.php"); ?>
 
+        <main class="panier">
 
-        <main>
+            <!-- FILS D'ARIANE  -->
+            <div class ="filArianePanier" >
+                <a href="./home"> 
+                    Accueil >
+                </a>
+                    Votre Panier
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
 
+            <!-- SECTION PANIER -->
+            <section class="sectionCommande">
+                <div class="commande">
+                    <h1>
+                        Mes commandes à confirmer
+                    </h1>
+                    <figure>
+                        <img src="./../app/public/image/bouton/panier.png" alt="">
+                    </figure>
+                </div>
 
-            <h1>
-                contenue en cours de constuction
-            </h1>
+                <!-- BOUTON VALIDER COMMANDE  -->
+                <div class="bouton">
+                    <a href="./detailLivre?id=" class="rechercheEnSavoirPlus">
+                       Valider
+                    </a>
+                </div>
+                <!--FIN BOUTON VALIDER COMMANDE   -->
 
+            </section>
+            <!--FIN SECTION PANIER -->
+
+            <!-- CONFIRMER LES COMMANDE -->
+            <section class="sectionCommandeConfirmer">
+                <div class="commandeConfirmer">
+                    <h1>
+                        Mes demandes validées
+                    </h1>
+                </div>
+                <!--FIN CONFIRMER LES COMMANDE -->
+
+            </section>
 
         </main>
 

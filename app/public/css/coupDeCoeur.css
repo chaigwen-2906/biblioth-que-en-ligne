@@ -78,14 +78,16 @@
 }
 .coupDeCoeur .imgArticleLivre img
 {
+    border: 1px solid #92c4f3;
     max-width: 75%;
     margin: 0 auto;
-    border: 1px solid #92c4f3;
+    height: 232px;
 }
 .coupDeCoeur .articles h4
 {
     text-align: center;
-    padding: 10px;
+    height: 65px;
+    padding-top: 35px;
 }
 .coupDeCoeur .button
 {

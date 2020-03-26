@@ -86,10 +86,38 @@ fermerModalFaq.addEventListener("click",function(e) {
     $("#modalFaq").hide("slow");
 });
 
-
-
-
-
-
-
 //---------------FIN MODAL FAQ---------------------------//
+
+
+// GESTION DU FORMULAIRE DE RECHERCHE 
+// let boutonRechercher = document.getElementById("boutonRechercher");
+
+// boutonRechercher.addEventListener("click",function(e){
+//     alert('test');
+//     let selectCategorie = document.getElementById("selectCategorie");
+//     let choix = selectCategorie.selectedIndex;//récupèration de l'index de l' <option> choisi par l'utilisateur
+//     let valeurCategorie = selectCategorie.options[choix].value;//récuperation de la valeur de  <l'option> d'index "choix" 
+//     alert(valeurCategorie);
+// });
+
+function verificationRecherche()
+{
+    //On récupère l'id de la categorie choisie
+    let selectCategorie = document.getElementById("selectCategorie");
+    let choix = selectCategorie.selectedIndex;//récupèration de l'index de l' <option> choisi par l'utilisateur
+    let valeurCategorie = selectCategorie.options[choix].value;//récuperation de la valeur de  <l'option> d'index "choix" 
+    
+    //On récupère la valeur du champ texte
+    let champRecherche = document.getElementById("champRecherche").value;
+    //on teste 
+    if (valeurCategorie == 0 && champRecherche == "" ){
+        
+        alert ("Veuillez choisir une catégorie et / ou saisir du texte !");
+        return false;
+    }
+    else{
+
+        return true;
+    }
+     
+}

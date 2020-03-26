@@ -67,51 +67,40 @@
     <nav class="navMenuBurger">
         <ul>
             <li>
-                <a href="index.php?action=home"> Accueil </a>
+                <a href="./home"> Accueil </a>
             </li>
             <li>
-                <a href="index.php?action=coupDeCoeurs"> Coups de coeurs</a>
+                <a href="./coupDeCoeurs"> Coups de coeurs</a>
             </li>
             <li>
-                <a href="index.php?action=nouveaute"> Nouveautés</a>
+                <a href="./nouveaute"> Nouveautés</a>
             </li>
             <li>
-                <a href="index.php?action=atelier"> Ateliers</a>
+                <a href="./atelier"> Ateliers</a>
             </li>
         </ul>
     </nav>
     
     <!--------------Barre de recherche, Search bar-------------------->
     <div id="barreDeRecherche">
-        <form class="selectionLivres">
-            <label>Thèmes</label>
-            <select>
-                <option>
+        <form class="selectionLivres" method="post" action="./pageRecherche" onsubmit="return verificationRecherche()">
+            <label>Catégorie :</label>
+            <select id="selectCategorie" name="selectCategorie">
+                <option value="0">
                     Selectionner...
                 </option>
-                <option> Coup de coeurs </option>
-                <option> Nouveautés </option>
-                <option> Art </option>
-                <option> Auteurs </option>
-                <option>BD</option>
-                <option> Culture </option>
-                <option> Fiction </option>
-                <option> Genres </option>
-                <option> jeunesse </option>
-                <option> Littérature </option>
-                <option> Nature </option>
-                <option> loisir </option>
-                <option> Roman </option>
-                <option> Savoirs </option>
-                <option> Societé </option>
-                <option> Scolaire </option>
-                <option> Université </option>  
+                <?php
+                    foreach($listCategorie AS $uneCategorie)
+                    {
+                        echo "<option value='".$uneCategorie['idCategorie']."'>".$uneCategorie['nomCategorie']."</option>";
+                    }
+                ?>
             </select>
             <div class="btnRecherche">
-                <input type="text" name="search" placeholder="Je cherche...">
-                <button type="submit">
-                    Rechercher
-                </button>
+                <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
+                <input id="boutonRechercher" type="submit" value="rechercher" >
+                    
+                
             </div>
         </form>
     </div>
