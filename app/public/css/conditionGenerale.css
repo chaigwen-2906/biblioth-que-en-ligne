@@ -17,6 +17,13 @@
 }
 /* FIN  FILS D'ARIANE  */
 
+/* CONTENEUR CONDITIONS GENERALES  */
+.conteneurCondtGenerale
+{
+    margin: 10px;
+}
+/*FIN CONTENEUR CONDITIONS GENERALES   */
+
 /* MIS EN FORME DE LA SECTION COND  */
 .conditionGenerale .condGeneraleH1
 {
@@ -36,7 +43,9 @@
     color: crimson;
     padding: 15px;
 }
-.conditionGenerale .condGenerale p
+.conditionGenerale .conteneurCondtGenerale p
 {
     text-align: justify;
+    line-height: 1.5em;
+    margin: 10px;
 }

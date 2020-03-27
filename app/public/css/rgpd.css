@@ -1,0 +1,44 @@
+/* MAIN RGPD  */
+.rgpd
+{
+    padding-top: 170px;
+}
+ /* FIN DU MAIN RGPD  */
+
+
+/* FILS D'ARIANE  */
+.rgpd .filArianeRgpd
+{
+    padding-left: 25px;
+    padding-bottom: 15px;
+}
+.rgpd .filArianeRgpd
+{
+    color: white;
+    font-weight: bold;
+}
+
+/* FIN  FILS D'ARIANE  */
+
+/* CONTENEUR RGPD  */
+.contenuRgpd
+{
+    margin: 10px;
+}
+/*FIN CONTENEUR RGPD  */
+
+/* CONTENU H1, P  */
+.rgpd .contenuRgpd h1
+{
+    color: black;
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 15px;
+}
+.rgpd .contenuRgpd p
+{
+    text-align: justify;
+    line-height: 1.5em;
+    margin: 10px;
+}
+/*FIN CONTENU H1, P  */

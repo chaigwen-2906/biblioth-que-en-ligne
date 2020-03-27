@@ -1,0 +1,53 @@
+/* MAIN DETAIL PLAN DU SITE  */
+.planDuSite
+{
+    padding-top: 170px;
+}
+/*FIN DETAIL PLAN DU SITE  */
+
+
+
+/* FILS D'ARIANE  */
+.planDuSite .filArianePlanDuSite
+{
+    padding-left: 25px;
+}
+.planDuSite .filArianePlanDuSite
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
+
+
+/* CONTENEUR PLAN DU SITE  */
+.contenuPlanDuSite h1
+{
+    color: black;
+    text-align: center;   
+}
+.contenuPlanDuSite
+{
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.contenuPlanDuSite ul li
+{
+    margin-left: 50px;
+}
+.contenuPlanDuSite ul li ul li
+{
+    margin-left: 30px;
+}
+.contenuPlanDuSite a
+{
+    color: rgb(66, 105, 128);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/*FIN CONTENEUR PLAN DU SITE  */

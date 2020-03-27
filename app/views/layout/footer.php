@@ -56,7 +56,7 @@
                     Allez plus loin
                 </h3>
                 <div><img class="iconMentions" src="./../app/public/image/icon/puce.png"><a href="./mentionsLegales"><span>Mentions Légales</span></a></div>
-                <div><img class="iconMentions" src="./../app/public/image/icon/puce.png"><a href="./conditionsGenerales"><span>Condition générales</span></a></div>
+                <div><img class="iconMentions" src="./../app/public/image/icon/puce.png"><a href="./conditionsGenerales"><span>Conditions générales</span></a></div>
                 <div><img class="iconMentions" src="./../app/public/image/icon/puce.png"><a href="./rgpd"><span>RGPD</span></a></div>
                 <div><img class="iconMentions" src="./../app/public/image/icon/puce.png"><a href="./planDuSite"><span>Plan du site</span></a></div>
             </div>
