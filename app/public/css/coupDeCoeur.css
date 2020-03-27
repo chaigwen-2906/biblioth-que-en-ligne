@@ -142,11 +142,9 @@
 svg
 {
     width: 100%;
-    margin: 0 auto;
     padding-left: 530px;
 }
 /*FIN TEXT EN SVG */
-
 
 
 
@@ -158,5 +156,25 @@ svg
     {
         padding-top: 145px;
     }
+    svg
+    {
+        display: none;
+    }
     
+    
+}
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .coupDeCoeur .figureSlider
+    {
+        display: none;
+    }
+    .coupDeCoeur .titreMain
+    {
+        font-size: 1.5em;
+        text-align: center;
+    }
 }

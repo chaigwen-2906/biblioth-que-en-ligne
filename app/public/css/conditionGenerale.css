@@ -1,0 +1,42 @@
+/* MAIN DETAIL LIVRE  */
+.conditionGenerale
+{
+    padding-top: 170px;
+}
+/*FIN DETAIL LIVRE  */
+
+/* FILS D'ARIANE  */
+.conditionGenerale .filArianeCondGEnerale
+{
+    padding-left: 25px;
+}
+.conditionGenerale .filArianeCondGenerale
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
+/* MIS EN FORME DE LA SECTION COND  */
+.conditionGenerale .condGeneraleH1
+{
+    color: black;
+    text-align: center;
+    margin: 20px;
+}
+.conditionGenerale .condGeneraleh2
+{
+    color: aliceblue;
+    text-align: center;
+    padding: 15px;
+    margin: 15px; 
+}
+.conditionGenerale .condGeneraleh3
+{
+    color: crimson;
+    padding: 15px;
+}
+.conditionGenerale .condGenerale p
+{
+    text-align: justify;
+}

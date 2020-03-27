@@ -28,7 +28,7 @@
 {
     display: flex;
     width: 100%;
-   
+    justify-content: end;
 }
 .detailLivre .sectionDescripLivre h2
 {
@@ -49,7 +49,7 @@
 .detailLivre .titreImgReseaux
 {
     background-color: white;
-    width: 40%;  
+    width: 30%;  
     margin: 15px;
     border-radius: 5px;
 }
@@ -65,7 +65,7 @@
 /* DESCRIPTION DU LIVRE  */
 .detailLivre .divDesResum
 {
-    width: 56%;
+    width: 66%;
     margin: 5px;
     padding: 5px;
 }
@@ -105,21 +105,20 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    min-height: 200px;
     Overflow: auto;  
+    height: 250px;
 }
 .detailLivre .ficheTecknic
 {
-    padding-top: 15px;
+    padding-top: 35px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-end;
+    padding-left: 95px;
 }
 .detailLivre .infoLivre ul
 {
-    width: 45%;
+    width: 80%;
     list-style-type: none;
 }
 /* SECTION COMMENTAIRE  */
@@ -222,10 +221,14 @@
     .detailLivre .ficheTecknic 
     {
         flex-direction: column;
-        align-items: center;
+        width: 300px;
+        padding-left: 15px;
+        padding-top: 15px;
     }
-
-}
+    .detailLivre .infoLivre 
+    {
+        flex-wrap: nowrap;
+    }
 
 /*-------------media querie mobile----------------*/
 @media screen and (max-width:530px)

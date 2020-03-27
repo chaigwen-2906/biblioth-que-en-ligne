@@ -117,11 +117,6 @@
             </section>
             <!--FIN BLOCK ATELIERS-->
 
-           
-
-
-
-
         </main>
 
 

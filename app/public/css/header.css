@@ -214,9 +214,9 @@ header .selectionLivres input
     width:100%;
     height:100%;
     z-index:4;
-    overflow: hidden;
     display: none;
-    overflow:auto
+    /* overflow: auto; */
+   
 }
 .fondModalDialog
 {
@@ -233,6 +233,7 @@ header .selectionLivres input
     background-color: #92c4f3;
     opacity: 1;
     border: 1px solid grey;
+    
 
 }
 .boutonFermerModal
@@ -254,6 +255,7 @@ header .selectionLivres input
 .boiteModal .conteneurModal .contenuModal
 {
     padding:20px;
+   
 }
 
 .boiteModal .conteurForm
@@ -265,6 +267,7 @@ header .selectionLivres input
     border: 1px solid #ced4da;
     border-radius: .25rem;
     padding: 20px 0 20px 0;
+   
 }
 .conteurForm .identifier
 {
@@ -379,11 +382,14 @@ header .selectionLivres input
 /* FIN CONTENEUR RECHERCHE*/
 
 /*CLASS ACTIVE*/
-.active, .nav-link:hover {
-    background-color: #88c5db;
-    color: gray;
-    border: 1px dotted white;
-  }
+.active
+{
+    border: 1px dotted #cc3086;
+}
+.active a 
+{
+    color: #88c5db !important;
+}
 /*FIN CLASS ACTIVE*/
 
 
