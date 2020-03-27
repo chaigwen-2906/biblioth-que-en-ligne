@@ -42,7 +42,7 @@
     border: 2px solid brown;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    width: 99%;
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 25px;
@@ -238,12 +238,13 @@
         left: 55px;
         text-align: center;
     } 
-    .nouveaute .divImgSlider img 
+    /* .nouveaute .divImgSlider img 
     {
         width: 120px;
-    }
+    } */
     .nouveaute .figureSlid 
     {
-        justify-content: center;
+        display: none;
     }
+    
 }

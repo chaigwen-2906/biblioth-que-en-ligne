@@ -65,7 +65,7 @@
         </div>
     </nav>
     <nav class="navMenuBurger">
-        <ul id="conteneurMenu" >
+        <ul id="conteneurMenuBurger" >
             <li class="nav-item">
                 <a href="./home"> Accueil </a>
             </li>
@@ -114,13 +114,13 @@
             <form class="conteurForm">
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
-                    <input class="inputAligne"  type="email" name="email" id="" placeholder=" Mot de passe" ><br />
-                    <span id=""></span>
+                    <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" ><br />
+                    <span id="errorMailIdentifier"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse"> Mot de passe </label>
-                    <input class="inputAligne" type="password" name="motDePasse" id="" placeholder=" Mot de passe"><br />
-                    <span id=""></span>
+                    <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe"><br />
+                    <span id="errorMotDePasseIdentifier"></span>
                 </div>
                 <div class="conteneurIdentifiant" >
                 <a href="#" class="monBoutton motPasseOublier" type="submit" >
@@ -130,7 +130,7 @@
                 Besoins d'un compte ? 
                 </a>
                 </div>
-                <a href="#" class="monBoutton">
+                <a href="#" id="boutonEnvoyerIdentifier" class="monBoutton">
                     Connectez-vous
                 </a>
             </form>
@@ -159,47 +159,49 @@
                 <div class="identifier">
                     <label class="labelAligne " for="nom">Nom*</label>
                     <input class="inputAligne" type="text" name="nom" id="nomCreez"
-                        placeholder="Entrer votre nom *" >
+                        placeholder="Entrer votre nom *" required="required" >
                     <span id="errorNomCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="prenom">Votre prénom*</label>
                     <input class="inputAligne" type="text" name="prenom" id="prenomCreez"
-                        placeholder="Entrer votre prénom*">
+                        placeholder="Entrer votre prénom*" required="required">
                     <span id="errorPrenomCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="email">Votre email*</label>
                     <input class="inputAligne" type="email" name="email" id="emailCreez"
-                        placeholder="Entrer votre email*">
+                        placeholder="Entrer votre email*" required="required">
                     <span id="errorMailCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre téléphone</label>
                     <input class="inputAligne" type="tel" name="mobile" id="mobileCreez"
-                        placeholder="Entrer votre numéro"/>
+                        placeholder="Entrer votre numéro" required="required">
                     <span id="errorMobileCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse">Votre mot de passe</label>
                     <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreez"
-                        placeholder="Mot de passe"/>
+                        placeholder="Mot de passe" required="required">
                     <span id="errorMotDePasseCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasseConfirm">Confirmer votre mot de passe</label>
                     <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseConfirm"
-                        placeholder=" Confirmation du mot de passe" />
+                        placeholder=" Confirmation du mot de passe" required="required">
                     <span id="errorMotDePasseConfirm"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne "for="adresse"> Votre adresse</label>
-                    <input class="inputAligne" type="text" name="adresse" id="adresse"  placeholder="Entrer votre adresse"  />
+                    <input class="inputAligne" type="text" name="adresse" id="adresse"  
+                    placeholder="Entrer votre adresse" onkeyup="search()" required="required">
                     <span id="errorAdresse"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="date">Votre date de naissance</label>
-                    <input class="inputAligne" type="date" name="date" id="dateCreez" class="form-control" placeholder="Ex: 31/06/2019"/>
+                    <input class="inputAligne" type="text" name="date" id="dateCreez" class="form-control" 
+                    placeholder="Ex: 31/06/2019" required="required">
                     <span id="errorDateCreez"></span>
                 </div>
                 <div class="identifier ">
@@ -225,7 +227,7 @@
                 </div>
                 <div class="conteneurIdentifiant">
                         <!--bouton pour envoyer le formulaire ou annuler-->
-                        <a href="#" class="monBoutton" type="submit" >
+                        <a href="#" id="boutonEnvoyerCreez"  class="monBoutton" type="submit" >
                             Envoyer
                         </a>
                         <a href="#" class="monBoutton" type="reset" >

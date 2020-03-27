@@ -126,15 +126,25 @@ function verificationRecherche()
 /* ------------------------------------------Gestion du menu class Ative--------------------------------- */
 
 function menuActive(indexActive){
+    // traitement pour le menu normal
+        //On récupère le conteneur du menu
+        let conteneurMenu = document.getElementById("conteneurMenu");
 
-    //On récupère le conteneur du menu
-    let conteneurMenu = document.getElementById("conteneurMenu");
+        //On récupère dans un tableau les éléments li qui porte la classe nav-item
+        let tabElementLi = conteneurMenu.getElementsByClassName("nav-item");
 
-    //On récupère dans un tableau les éléments li qui porte la classe nav-item
-    let tabElementLi = conteneurMenu.getElementsByClassName("nav-item");
+        //On ajoute la classe active sur l'élément dont l'index est indexActive
+        tabElementLi[indexActive].className += " active";
 
-    //On ajoute la classe active sur l'élément dont l'index est indexActive
-    tabElementLi[indexActive].className += " active";
+    // traitement pour le menu burger
+        //On récupère le conteneur du menu
+        let conteneurMenuBurger = document.getElementById("conteneurMenuBurger");
+
+        //On récupère dans un tableau les éléments li qui porte la classe nav-item
+        let tabElementLiBurger = conteneurMenuBurger.getElementsByClassName("nav-item");
+
+        //On ajoute la classe active sur l'élément dont l'index est indexActive
+        tabElementLiBurger[indexActive].className += " active";
 }
 
 
@@ -161,4 +171,153 @@ function AfficheBtnHaut(btnHaut) {
     else{
         btnHaut.style.display = "none";
     }
+}
+
+
+
+
+// CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE
+
+//EFFET SUR LE BLOC DATE 
+$(function() {
+    $( "#dateCreez" ).datepicker();
+    $( "#dateCreez" ).datepicker( "option", "showAnim", "clip" );
+    $( "#dateCreez" ).datepicker( "option", "duration", "slow" );
+});
+//FIN EFFET SUR LE BLOC DATE 
+
+let formValidCreez = document.getElementById("boutonEnvoyerCreez");
+
+formValidCreez.addEventListener("click",function(event){
+   
+    validSomething(event, prenomCreez, prenomValidCreez, errorPrenomCreez, "prénom");
+    validSomething(event, nomCreez, nomValidCreez, errorNomCreez, "nom");
+    validSomething(event, emailCreez, mailValidCreez, errorMailCreez, "email");
+    validSomething(event, mobileCreez, MobileValidCreez, errorMobileCreez, "mobile");
+    validSomething(event, motDePasseCreez, PassValidCreez, errorMotDePasseCreez, "mot de passe");
+    validSomething(event, motDePasseConfirm, PassValidConfirm, errorMotDePasseConfirm, "mot de passe");
+    validSomething(event, adresse, adresseValidCreez ,errorAdresse, "adresse");
+    validSomething(event, dateCreez, DateValidCreez, errorDateCreez, "date");
+   
+}) 
+// -----on test le prenom---------
+let prenomValidCreez = /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+// ---- On teste le nom ----------
+let nomValidCreez = /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/ ;
+
+//-----------on test le mail-------
+let mailValidCreez = /^[a-z0-9._-]+@[a-z0-9._-]+com|[a-z0-9._-]+@[a-z0-9._-]+fr$/;
+
+// ---- On teste le Mobile --------
+let MobileValidCreez = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
+
+//-----on teste le password--------
+let PassValidCreez = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
+
+//-----on teste De PasseConfirm----
+let PassValidConfirm = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
+
+//-----on teste la date de naissance---------
+let DateValidCreez = (/^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$/);
+
+//-----on teste l'adresse--------
+let adresseValidCreez = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{30,})$/);
+
+
+
+function validSomething(event, element, nomValid, output, prefix){
+    //si le champs est vide alors il ecrira: prenom manquant en bleu
+    if(element.validity.valueMissing){
+        event.preventDefault();
+        output.textContent = prefix + " manquant";
+        output.style.color = "blue";
+    }
+    // si le format de données est incorrect
+    else if (nomValid.test(element.value)=== false){
+        //stop l'envoie du formulaire 
+        event.preventDefault();
+        output.textContent = "format incorrect";
+        output.style.color = "blue";
+    }
+    else{
+        output.textContent = "";
+    }
+}
+
+//FIN CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE
+
+
+//API AJAX RECUPERATION DE L4ADRESSE DANS LE FORMULAIRE CREEZ VOTRE COMPTE 
+
+/*saisie de l'adresse avec 5 dans l'historique */
+function search(){
+    let adresse = document.getElementById("adresse").value
+
+    if(adresse != "")
+    {
+        //On génère l'autocomplétion sur le champ adresse
+        $("#adresse").autocomplete({
+            //on adapte la source d'autocompletion
+            source: function (request, response) {
+                //On effectue la requete AJAX vers l'API adresse
+                $.ajax({
+                    //url d'appel
+                    url: 'https://api-adresse.data.gouv.fr/search/?', 
+                    //paramètre en entré de la fonction search de l'API adresse
+                    data: { q: adresse}, 
+                    //type de donnée attendu en sortie
+                    dataType: "json", 
+                    //En cas de succès que fait-on?
+                    success: function (data) { 
+                        // on parcours les features de notre réponse
+                        response($.map(data.features, function (item) {
+                            //Pour chaque feature on récupère la propriété  properties.label
+                            console.log(item.properties.label); 
+                            //on retourne l'élément dans la liste d'autocompletion
+                            return { label: item.properties.label, value: item.properties.label}; 
+                        }));
+                    }
+                });
+            }
+        });
+
+    }  
+}
+
+
+// CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER
+
+let testIdentifier= document.getElementById("boutonEnvoyerIdentifier");
+
+testIdentifier.addEventListener("click",function(event){
+
+    validSomething(event, emailIdentifier, mailValidIdentifier, errorMailIdentifier, "email");
+    validSomething(event, motDePasseIdentifier, PassValidIdentifier, errorMotDePasseIdentifier, "mot de passe");
+})
+
+ //-----------on test le mail-------
+ let mailValidIdentifier = /^[a-z0-9._-]+@[a-z0-9._-]+com|[a-z0-9._-]+@[a-z0-9._-]+fr$/;
+
+ //-----on teste le password--------
+let PassValidIdentifier = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
+
+function validSomething(event, element, nomValid, output, prefix){
+    //si le champs est vide alors il ecrira: prenom manquant en bleu
+    if(element.validity.valueMissing){
+        event.preventDefault();
+        output.textContent = prefix + " manquant";
+        output.style.color = "blue";
+    }
+    // si le format de données est incorrect
+    else if (nomValid.test(element.value)=== false){
+        //stop l'envoie du formulaire 
+        event.preventDefault();
+        output.textContent = "format incorrect";
+        output.style.color = "blue";
+    }
+    else{
+        output.textContent = "";
+    }
+
 }
