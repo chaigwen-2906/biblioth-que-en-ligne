@@ -121,3 +121,44 @@ function verificationRecherche()
     }
      
 }
+
+
+/* ------------------------------------------Gestion du menu class Ative--------------------------------- */
+
+function menuActive(indexActive){
+
+    //On récupère le conteneur du menu
+    let conteneurMenu = document.getElementById("conteneurMenu");
+
+    //On récupère dans un tableau les éléments li qui porte la classe nav-item
+    let tabElementLi = conteneurMenu.getElementsByClassName("nav-item");
+
+    //On ajoute la classe active sur l'élément dont l'index est indexActive
+    tabElementLi[indexActive].className += " active";
+}
+
+
+/*----------------------------------------------------gestion du retour en haut -------------------------------------*/
+let btnHaut = document.getElementById("retourHaut");
+
+btnHaut.addEventListener("click",function(){
+    retourneEnHaut();
+});
+function retourneEnHaut(){
+    //scroll 0.0 veut dire: horizon && vertical
+    window.scrollTo(0,0);
+}
+
+/* Affichage du bouton retour en haut*/
+btnHaut.style.display = "none";
+/*Lorsque qu'un scrool est réalisé sur la fenetre, on appelle la fonction AfficheBtnHaut */
+window.onscroll = function() {AfficheBtnHaut(btnHaut)};
+
+function AfficheBtnHaut(btnHaut) {
+    if (document.documentElement.scrollTop > 250) {
+        btnHaut.style.display = "block";
+    }
+    else{
+        btnHaut.style.display = "none";
+    }
+}

@@ -139,6 +139,11 @@
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
         <script type="text/javascript" src="./../app/public/js/nouveaute.js"></script>
 
+        <!--class active-->
+        <script type="text/javascript">
+            menuActive(2);
+        </script>
+
     </body>
 
 </html>

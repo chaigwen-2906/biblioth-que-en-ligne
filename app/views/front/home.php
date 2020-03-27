@@ -32,6 +32,8 @@
 
         <?php require_once("./app/views/layout/header.php"); ?>
 
+        
+
 
         <!--------image de fond fixer pour scroller dessus. et se trouve dessous la barre de recheche--------------->
         <!-- background image fix to scroll on. and is below the search bar -->
@@ -336,6 +338,7 @@
 
         <?php require_once("./app/views/layout/footer.php") ?> 
 
+
         <!---------------------- jQuery ---------------------------------->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -343,6 +346,11 @@
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
         <script type="text/javascript" src="./../app/public/js/accueil.js"></script>
+
+        <!--class active-->
+        <script type="text/javascript">
+            menuActive(0);
+        </script>
 
     </body>
 
