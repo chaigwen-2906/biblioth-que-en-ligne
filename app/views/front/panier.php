@@ -50,7 +50,7 @@
                         Mes commandes à confirmer
                     </h1>
                     <figure>
-                        <img src="./../app/public/image/bouton/panier.png" alt="">
+                        <img src="./../app/public/image/bouton/poubelle.png" alt="">
                     </figure>
                 </div>
 

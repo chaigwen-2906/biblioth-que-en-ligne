@@ -376,7 +376,32 @@ header .selectionLivres input
     border-radius: 5px;
   
 }
-/*------------------------Fin du conteneur recherche----------*/
+/* FIN CONTENEUR RECHERCHE*/
+
+/*CLASS ACTIVE*/
+.active, .nav-link:hover {
+    background-color: #88c5db;
+    color: gray;
+    border: 1px dotted white;
+  }
+/*FIN CLASS ACTIVE*/
+
+
+/*BNT RETOUR HAUT */
+.RetourHautPage
+{
+    position: fixed;
+    bottom:50px;
+    right: 10px;
+    z-index: 50;
+}
+
+.imgRetourHautPage
+{
+    width: 45px;
+    cursor: pointer;
+}
+/*FIN BNT RETOUR HAUT */
 
 
 

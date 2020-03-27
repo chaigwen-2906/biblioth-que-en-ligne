@@ -48,34 +48,34 @@
             Menu
         </div>
         <div class="menu">
-            <ul>
-                <li>
+            <ul id="conteneurMenu" >
+                <li class="nav-item">
                     <a href="./home">Accueil</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="./coupDeCoeurs">Coups de coeurs</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="./nouveaute">Nouveautés</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="./atelier">Ateliers</a>
                 </li>
             </ul>
         </div>
     </nav>
     <nav class="navMenuBurger">
-        <ul>
-            <li>
+        <ul id="conteneurMenu" >
+            <li class="nav-item">
                 <a href="./home"> Accueil </a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="./coupDeCoeurs"> Coups de coeurs</a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="./nouveaute"> Nouveautés</a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="./atelier"> Ateliers</a>
             </li>
         </ul>
@@ -263,3 +263,10 @@
     </div>
 </div>
 <!--FIN BOITE MODAL FAQ  -->
+
+
+<!-- BTN RETOUR HAUT  -->
+<a id="retourHaut" class="RetourHautPage"><img class="imgRetourHautPage"
+    src="./../app/public/image/bouton/boutonHaut.png">
+</a>
+<!-- BTN RETOUR HAUT  -->
