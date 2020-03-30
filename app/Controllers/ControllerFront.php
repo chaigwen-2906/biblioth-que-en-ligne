@@ -219,8 +219,17 @@ class ControllerFront
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        require 'app/views/front/404.php';
+        require 'app/views/front/pageErreur.php';
         
+    }
+
+    function passOublierFront()
+    {
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
+        
+        require 'app/views/front/passOublier.php';
     }
 
      

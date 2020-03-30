@@ -77,19 +77,15 @@ try {
                         $controller->monCompteFront();
                     break;
 
-                    case "pageErreur":
-                        $controller-->pageErreurFront();
-                    break;
-
-                    case "motDePasseOublier":
-                        $controller->motDePasseOublierFront();
+                    case "passOublier":
+                        $controller->passOublierFront();
                     break;                    
 
 
 
 
                     default:
-                        $controller->errorFront();
+                        $controller->pageErreurFront();
                     break;
                 }
             break;

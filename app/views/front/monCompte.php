@@ -55,68 +55,68 @@
                         <input type="radio" name="Civilite" value="madame" id="madame">
                         <label for="madame" class="petit">Mme</label>
                     </div> 
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="nom">Nom*</label>
                         <input type="text" name="nom" id="nom" class="inputAdresse"
                             placeholder="Entrer votre nom *" maxlength="20" required="required">
                         <span id="errorNom"></span>
                     </div>
             
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="prenom">Votre prénom*</label>
                         <input type="text" name="prenom" id="prenom"class="inputAdresse" 
                         placeholder="Entrer votre prénom*" required="required"><br>
                         <span id="errorPrenom"></span> 
                     </div>
                 
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="email">Votre email*</label>
                         <input type="email" name="email" id="e_mail" class="inputAdresse"
                             placeholder="Entrer votre email*" required="required"><br> 
                         <span id="error_Mail"></span>
                     </div>
                     
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="mobile">Votre téléphone mobile</label>
                         <input type="tel" name="mobile" id="Mobile" class="inputAdresse"
                             placeholder="Entrer votre numéro"required/><br> 
                         <span id="errorMobile"></span>
                     </div>
 
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="fixe">Votre téléphone fixe</label>
                         <input type="tel" name="fixe" id="fixe" class="inputAdresse"
                             placeholder="Entrer votre numéro"required/><br> 
                         <span id="errorFixe"></span>
                     </div>
                 
-                    <div id="" class="compteAdresse">
+                    <div id="" class="divContenuCompte">
                         <label class="labelAdresse" for="adresse">Votre adresse</label>
                         <input type="text" name="adresse" id="adresse" class="inputAdresse"
                             placeholder="Entrer votre adresse" required />
                     </div>
                     
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="message">Votre message</label>
                         <textarea  name="message" id="message" class="inputAdresse" 
                             placeholder="Entrer votre message"></textarea>  
                     </div>
 
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="date">Votre date de naissance</label>
                         <textarea  name="date" id="date" class="inputAdresse" 
                             placeholder="Entrer votre date"></textarea>  
                     </div>
-                    <div class="compteAdresse">
+                    <div class="divContenuCompte">
                         <label class="labelAdresse" for="motPasse">Votre mot de passe</label>
                         <textarea  name="motPasse" id="motPasse" class="inputAdresse" 
                             placeholder="Entrer votre mot de passe"></textarea>  
                     </div>
                 
-                    <div class="compteAdresse">
+                    <div class="divcontenuBouton">
                         <p class="bouton" >
-                            <input class="btnContact" id="contact_get" type="submit" value="Envoyer">
-                            <input class="btnContact" id="annuler" type="reset" value="Annuler">
+                            <input class="btnCompteValider" id="compteValider" type="submit" value="Envoyer">
+                            <input class="btnCompteAnnuler" id="compteAnnuler" type="submit" value="Annuler">
                         </p>
                         <p>
                             * champ obligatoire

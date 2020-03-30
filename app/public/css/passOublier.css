@@ -1,0 +1,18 @@
+/* MAIN DETAIL PASSE OUBLIER  */
+.passOublier
+{
+    padding-top: 170px;
+}
+/*FIN DETAIL PASSE OUBLIER   */
+
+/* FILS D'ARIANE  */
+.passOublier .filArianePassOublier
+{
+    padding-left: 25px;
+}
+.passOublier .filArianePassOublier
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */

@@ -17,10 +17,9 @@
 }
 /* FIN  FILS D'ARIANE  */
 
-/* DIV COMPTE ADRESSE  */
+/* DIV CONTENU COMPTE  */
 .monCompte .conteneurMonCompte h1
 {
-    background-color: darkgoldenrod;
     text-align: center;
     color: white;
     margin: 15px;
@@ -28,20 +27,20 @@
 }
 .monCompte .compteCivilite
 {
-    background-color: darkturquoise;
     text-align: center;
+    margin: 5px;
    
 }
-.monCompte .compteAdresse
+.monCompte .divContenuCompte
 {
-    background-color: crimson;
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
 }
 .monCompte .labelAdresse
 {
     display: flex;
     align-items: center;
+    width: 30%;
 }
 .monCompte .inputAdresse
 {
@@ -57,4 +56,66 @@
     border: 1px solid #ced4da;
     border-radius: .25rem;
     margin: 10px;
+}
+.monCompte .divcontenuBouton .bouton
+{
+    text-align: center;   
+}
+/*FIN DIV CONTENU COMPTE  */
+
+/* BOUTON COMPTE VALIDER  */
+.monCompte .btnCompteValider
+{
+    box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+	background-color:#88c5db;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	margin: 20px;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.monCompte .btnCompteValider:hover
+{
+    background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+}
+.monCompte .btnCompteValider:active
+{
+    position:relative;
+	top:5px;
+}
+/*FIN BOUTON COMPTE VALIDER  */
+
+/* BOUTON COMPTE ANNULER  */
+.monCompte .btnCompteAnnuler
+{
+    box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+	background-color:#88c5db;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	margin: 20px;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.monCompte .btnCompteAnnuler:hover
+{
+    background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+}
+.monCompte .btnCompteAnnuler:active
+{
+    position:relative;
+	top:5px;
 }
