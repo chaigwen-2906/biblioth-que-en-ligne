@@ -1,9 +1,32 @@
 $( function() {
+    
     $( "#divListFAQ" ).accordion({
       heightStyle: "content"
     });
+
+    //On récupère la variable de session 'idClient'
+    let idClient = sessionStorage.getItem('idClient');
+    gestionModeConnecteHeader(idClient);
 });
 
+
+function gestionModeConnecteHeader(idClient){
+    if(idClient == null)
+    {
+        //client non connecté
+        //On affiche les boutons de connexion
+        $(".bloc_connexion").show();
+        //On masque les boutons de gestion du compte
+        $(".bloc_deconnexion").hide();
+    }
+    else{
+        //client connecté
+        //On masque les boutons de connexion
+        $(".bloc_connexion").hide();
+        //On affciche les boutons de gestion du compte
+        $(".bloc_deconnexion").show();
+    }
+}
 
 //MenuBurger
 $("#btnBurger").click(function(){
@@ -321,3 +344,14 @@ function validSomething(event, element, nomValid, output, prefix){
     }
 
 }
+
+
+//TRAITEMENT BOUTON BESOIN D'UN COMPTE
+let btnBesoinCompte = document.getElementById("btnBesoinCompte");
+
+btnBesoinCompte.addEventListener("click", function(){
+    //On masque le modal dialog s'identifier
+    $("#modalConnection").hide("slow");
+    //On affiche le modal dialog creer son compte
+    $("#modalCreerCompte").show("slow");
+});

@@ -267,7 +267,8 @@ header .selectionLivres input
     border: 1px solid #ced4da;
     border-radius: .25rem;
     padding: 20px 0 20px 0;
-   
+    overflow: auto;
+    max-height: 500px;
 }
 .conteurForm .identifier
 {
@@ -306,7 +307,7 @@ header .selectionLivres input
     -o-border-radius: 3px;
     margin-bottom: 15px;
 }
-.conteurForm .conteneurIdentifiant .motPasseOublier
+.conteurForm .conteneurIdentifiant a
 {
     margin: 15px;
 }

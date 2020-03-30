@@ -1,0 +1,60 @@
+/* MAIN DETAIL MON COMPTE  */
+.monCompte
+{
+    padding-top: 170px;
+}
+/*FIN DETAIL MON COMPTE   */
+
+/* FILS D'ARIANE  */
+.monCompte .filArianeMonCompte
+{
+    padding-left: 25px;
+}
+.monCompte .filArianeMonCompte
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
+/* DIV COMPTE ADRESSE  */
+.monCompte .conteneurMonCompte h1
+{
+    background-color: darkgoldenrod;
+    text-align: center;
+    color: white;
+    margin: 15px;
+    padding: 5px;
+}
+.monCompte .compteCivilite
+{
+    background-color: darkturquoise;
+    text-align: center;
+   
+}
+.monCompte .compteAdresse
+{
+    background-color: crimson;
+    display: flex;
+    justify-content: space-around;
+}
+.monCompte .labelAdresse
+{
+    display: flex;
+    align-items: center;
+}
+.monCompte .inputAdresse
+{
+    background-color: darkblue;
+    display: block;
+    width: 60%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin: 10px;
+}

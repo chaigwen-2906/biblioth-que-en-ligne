@@ -18,7 +18,7 @@
     </div>
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
-            <div class="bloc_connexion">
+        <div class="bloc_connexion">
             <a id="boutonCreerCompte" class="creerCompte" href="#">
                 Créez-votre compte
             </a>
@@ -29,16 +29,17 @@
             
         <!-- Bloc déconnexion - s'affiche en mode connecté -->
         <figure class="bloc_deconnexion">
-            <a href="#">
+            <a href="./monCompte">
                 <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
             </a>
-            <a href="index.php?action=panier">
+            <a href="./panier">
                 <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
             </a>
-            <a href="index.php?action=home">
+            <a href="?action2=deconnecter">
                 <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">   
             </a>
         </figure>
+
         <div class="btnloupe">
             <img src="./../app/public/image/bouton/loupe.png">
         </div>
@@ -89,7 +90,7 @@
                     Catégorie...
                 </option>
                 <?php
-                    foreach($listCategorie AS $uneCategorie)
+                    foreach($this->listCategorie AS $uneCategorie)
                     {
                         echo "<option value='".$uneCategorie['idCategorie']."'>".$uneCategorie['nomCategorie']."</option>";
                     }
@@ -111,7 +112,7 @@
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteurForm">
+            <form class="conteurForm" method="POST" action="#">
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
                     <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" ><br />
@@ -123,16 +124,14 @@
                     <span id="errorMotDePasseIdentifier"></span>
                 </div>
                 <div class="conteneurIdentifiant" >
-                <a href="#" class="monBoutton motPasseOublier" type="submit" >
+                <a href="#" class="monBoutton">
                     Mot de passe oublié ? 
                 </a>
-                <a href="#" class="monBoutton motPasseOublier" type="submit" >
-                Besoins d'un compte ? 
+                <a id="btnBesoinCompte" class="monBoutton" >
+                    Besoin d'un compte ? 
                 </a>
                 </div>
-                <a href="#" id="boutonEnvoyerIdentifier" class="monBoutton">
-                    Connectez-vous
-                </a>
+                <input type="submit" id="boutonEnvoyerIdentifier" class="monBoutton" value="Me connecter">
             </form>
         </div>
     </div>
@@ -253,7 +252,7 @@
         <div class="contenuModal">
             <div id="divListFAQ" class="conteurForm">
             <?php
-                foreach($listFAQ AS $uneQuestion)
+                foreach($this->listFAQ AS $uneQuestion)
                 {
                     //var_dump($uneQuestion);
                     echo "<h3>".$uneQuestion['question']."</h3>";

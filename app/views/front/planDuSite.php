@@ -15,7 +15,7 @@
     <!-- Appel des feuilles de style --/ Calling style sheets-->
     <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/main.css">
+    <link rel="stylesheet" href="./../app/public/css/planDuSite.css">
    
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -29,19 +29,44 @@
 
     <body>
 
-
         <?php require_once("./app/views/layout/header.php"); ?>
 
+        <main class="planDuSite">
+            <!-- FILS D'ARIANE  -->
+            <div class ="filArianePlanDuSite" >
+                <a href="./home"> 
+                    Accueil >
+                </a>
+                    Plan du site
+            </div>
+            <!--FIN  FILS D'ARIANE  -->
 
-
-        <main>
-
-
-            <h1>
-                contenue en cours de constuction
-            </h1>
-
-
+            <!-- CONTENEUR DE PLAN DU SITE -->
+            <section class="contenuPlanDuSite">
+                <h1>
+                    Le plan du site 
+                </h1>
+                <ul>
+                    <li><a href="./home">Accueil</a>
+                        <ul>
+                            <li><a href="./coupDeCoeurs">Coup de coeurs</a></li>
+                            <li><a href="./nouveaute">Nouveautées</a></li>
+                            <li><a href="./atelier">Nos Ateliers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="creezVotreCompte.html">Creez votre compte</a></li>
+                    <li><a href="#">S'identifier</a></li>
+                    <li><a href="#">adresse</a></li>
+                    <li><a href="#">Téléphone</a></li>
+                    <li><a href="#">Map</a></li>
+                    <li><a href="#">Reseaux sociaux</a></li>
+                    <li><a href="mentionsLegales.html">Mentions Légales</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">RGPD</a></li>
+                    <li><a href="planDuSite.html">Plan du sîte</a></li>
+                </ul>
+            </section>
         </main>
 
 

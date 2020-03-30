@@ -4,18 +4,49 @@ namespace Projet\Controllers;
 
 class ControllerFront
 {
+    private $listFAQ;
+    private $listCategorie;
+    private $FrontManager;
+
+    function gestionHeader()
+    {
+        //On récupère la liste des FAQs
+        $this->listFAQ = $this->FrontManager->getListFAQ();
+        //On récupère la liste des catégorie
+        $this->listCategorie = $this->FrontManager->getListCategorie();
+    }
+
+    function gestionModeConnecte()
+    {
+        //On test si l'utilisateur à cliquer sur "Me connecter"
+        if(isset($_POST["email"]) && isset($_POST["motDePasse"]))
+        {
+            //L'utilisateur essaie de se connecter
+            //on test le couple @/mot de passe
+            $testConnexion = $this->FrontManager->seConnecter($_POST["email"], $_POST["motDePasse"]);
+
+            if($testConnexion != false)
+            {
+                //On stocke dans une variable de session javascript l'idClient
+                echo "<script type='text/javascript'>sessionStorage.setItem('idClient', '$testConnexion');</script>"; 
+            }
+        }
+
+        //On test si l'utilisateur a cliqué sur "se déconnecter"
+        if(isset($_GET['action2']))
+        {
+            if($_GET['action2'] == "deconnecter")
+            {
+                //On déconnecte l'utilisateur
+                echo "<script type='text/javascript'>sessionStorage.removeItem('idClient');</script>";
+            }
+        }
+    }
     function homeFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
         //on charge le ManagerFrontHome
         $FrontHomeManager = new \Projet\Models\ManagerFrontHome();
@@ -33,16 +64,9 @@ class ControllerFront
 
     function coupDeCoeursFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
         //on charge le ManagerFrontcoupDeCoeur
         $FrontCoupDeCoeurManager = new \Projet\Models\ManagerFrontCoupDeCoeur();
@@ -53,16 +77,9 @@ class ControllerFront
 
     function nouveauteFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
         //on charge le ManagerFrontnouveaute
         $FrontNouveauteManager = new \Projet\Models\ManagerFrontNouveaute();
@@ -73,16 +90,9 @@ class ControllerFront
 
     function atelierFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte(); 
 
         //on charge le ManagerFrontAtelier
         $FrontAtelierManager = new \Projet\Models\ManagerFrontAtelier();
@@ -93,18 +103,9 @@ class ControllerFront
 
     function pageRechercheFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-
-        // FIN HEADER 
-
-        //récuperer
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
         //on charge le ManagerFrontPageRecherche
         $FrontPageRechercheManager = new \Projet\Models\ManagerFrontPageRecherche();
@@ -124,16 +125,9 @@ class ControllerFront
 
     function panierFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
          //on charge le ManagerFrontPanier
          $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
@@ -144,80 +138,45 @@ class ControllerFront
 
     function conditionsGeneralesFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
         require 'app/views/front/conditionsGenerales.php';
     }
 
     function mentionsLegalesFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
 
         require 'app/views/front/mentionsLegales.php';
     }
     
     function rgpdFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte(); 
 
         require 'app/views/front/rgpd.php';
     }
 
     function planDuSiteFront()
     {
-      //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
         
         require 'app/views/front/planDuSite.php';
     }
 
     function detailLivreFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte(); 
 
         $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
         $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
@@ -227,16 +186,9 @@ class ControllerFront
 
     function detailAtelierFront()
     {
-        //DEBUT HEADER
-
-        //On charge le ManagerFront
-        $FrontManager = new \Projet\Models\ManagerFront();
-        //On récupère la liste des FAQs
-        $listFAQ = $FrontManager->getListFAQ();
-        //On récupère la liste des catégorie
-        $listCategorie = $FrontManager->getListCategorie();
-        
-        // FIN HEADER 
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte(); 
 
         // on récupère par id
         $FrontManagerDetailAtelier = new \Projet\Models\ManagerFrontDetailAtelier();
@@ -244,6 +196,33 @@ class ControllerFront
 
         require 'app/views/front/detailAtelier.php';
     }
+
+
+   
+    function monCompteFront()
+    {
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte(); 
+
+        // on récupère le compte
+        $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
+        $monCompte = $FrontManagerMonCompte->getMonCompte();
+
+        require 'app/views/front/monCompte.php';
+    }
+
+
+    function pageErreurFront()
+    {
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
+
+        require 'app/views/front/404.php';
+        
+    }
+
      
 
 }

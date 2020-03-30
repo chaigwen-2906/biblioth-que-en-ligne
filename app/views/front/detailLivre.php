@@ -71,7 +71,7 @@
                             </a></li>
                         </ul>
                     </figure>
-                    <a class="valideCommentaire" href="#">
+                    <a class="valideCommentaire" href="./panier">
                         Réserver
                     </a>
                 </aside>

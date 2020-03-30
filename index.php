@@ -73,6 +73,19 @@ try {
                         $controller->panierFront();
                     break;
 
+                    case "monCompte":
+                        $controller->monCompteFront();
+                    break;
+
+                    case "pageErreur":
+                        $controller-->pageErreurFront();
+                    break;
+
+                    case "motDePasseOublier":
+                        $controller->motDePasseOublierFront();
+                    break;                    
+
+
 
 
                     default:
