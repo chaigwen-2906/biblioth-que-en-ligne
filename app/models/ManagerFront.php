@@ -47,4 +47,31 @@ class ManagerFront extends Manager
         //On retourne les résultats
         return $resultat;
     }
+
+    public function seConnecter($adresseMail, $motDePasse)
+    {
+        $bdd = $this->dbConnect();
+
+        // On réalise la requete sur la base de données
+        // On prépare la requete
+        $sql = "SELECT * FROM client WHERE email LIKE ? AND motDePasse LIKE ?";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$adresseMail, $motDePasse]);
+
+        //On regarde si on obtient un résultat
+        $resultat = $requete->fetch();
+
+        //Si resultat = false alors mauvais couple @/mot de passe
+        //Sinon c'est ok
+        if($resultat == false)
+        {
+            return false;
+        }
+        else{
+            return $resultat["idClient"];
+        }
+
+    }
 }

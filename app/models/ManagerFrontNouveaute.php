@@ -11,7 +11,7 @@ class ManagerFrontNouveaute extends Manager
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
-        ORDER BY dateDePublication desc";
+        ORDER BY dateDePublication desc limit 16";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
