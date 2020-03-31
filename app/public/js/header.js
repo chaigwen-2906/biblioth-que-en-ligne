@@ -199,7 +199,7 @@ function AfficheBtnHaut(btnHaut) {
 
 
 
-// CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE
+/*--------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE---------------*/
 
 //EFFET SUR LE BLOC DATE 
 $(function() {
@@ -268,7 +268,7 @@ function validSomething(event, element, nomValid, output, prefix){
     }
 }
 
-//FIN CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE
+/*--------------------FIN CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE----------*/
 
 
 //API AJAX RECUPERATION DE L4ADRESSE DANS LE FORMULAIRE CREEZ VOTRE COMPTE 
@@ -309,7 +309,7 @@ function search(){
 }
 
 
-// CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER
+// -------------------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER--------*/
 
 let testIdentifier= document.getElementById("boutonEnvoyerIdentifier");
 
@@ -346,7 +346,7 @@ function validSomething(event, element, nomValid, output, prefix){
 }
 
 
-//TRAITEMENT BOUTON BESOIN D'UN COMPTE
+/*----------DANS S'IDENTIFIER-----------------------TRAITEMENT BOUTON CREEZ VOTRE COMPTE------------------*/
 let btnBesoinCompte = document.getElementById("btnBesoinCompte");
 
 btnBesoinCompte.addEventListener("click", function(){
@@ -355,3 +355,6 @@ btnBesoinCompte.addEventListener("click", function(){
     //On affiche le modal dialog creer son compte
     $("#modalCreerCompte").show("slow");
 });
+
+
+/**/ 

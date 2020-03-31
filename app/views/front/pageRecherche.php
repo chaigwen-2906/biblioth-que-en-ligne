@@ -62,7 +62,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneRecherche['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneRecherche['image'])."'
+                                alt='".$uneRecherche['nom']."' title='".$uneRecherche['nom']."' />";?>
                             </figure>
                             <!--FIN TITRE, IMAGE DES LIVRE -->
 

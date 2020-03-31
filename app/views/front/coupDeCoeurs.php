@@ -80,7 +80,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unCoupDeCoeur['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unCoupDeCoeur['image'])."'
+                                alt='".$unCoupDeCoeur['nom']."' title='".$unCoupDeCoeur['nom']."' />";?>
                             </figure>
                             <h4>
                                 <?= $unCoupDeCoeur['nom']; ?>

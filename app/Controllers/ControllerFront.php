@@ -181,6 +181,8 @@ class ControllerFront
         $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
         $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
 
+        $listCommentaire = $FrontManagerDetailLivre->getCommentaire($_GET['id']);
+
         require 'app/views/front/detailLivre.php';
     }
 

@@ -106,7 +106,7 @@
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalConnection" src="./../app/public/image/bouton/btnFermer1.png">
+            <img id="fermerModalConnection" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Veuillez vous d'identifier 
             </h1>
@@ -124,7 +124,7 @@
                     <span id="errorMotDePasseIdentifier"></span>
                 </div>
                 <div class="conteneurIdentifiant" >
-                <a href="#" class="monBoutton">
+                <a href="./passOublier" class="monBoutton">
                     Mot de passe oublié ? 
                 </a>
                 <a id="btnBesoinCompte" class="monBoutton" >
@@ -137,14 +137,15 @@
     </div>
 </div>
 <!--FIN BOITE MODAL:S'IDENTIFIER  -->
+
 <!-- BOITE MODAL:CREER VOTRE COMPTE  -->
 <div id="modalCreerCompte" class="boiteModal">
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalCreerCompte" src="./../app/public/image/bouton/btnFermer1.png">
+            <img id="fermerModalCreerCompte" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
-                Connectez-vous à votre compte
+                Créez-votre compte
             </h1>
         </div>
         <div class="contenuModal">
@@ -244,7 +245,7 @@
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalFaq" src="./../app/public/image/bouton/btnFermer1.png">
+            <img id="fermerModalFaq" src="./../app/public/image/bouton/btnFermer1.png"  alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Question - Réponse
             </h1>
@@ -265,9 +266,8 @@
 </div>
 <!--FIN BOITE MODAL FAQ  -->
 
-
 <!-- BTN RETOUR HAUT  -->
 <a id="retourHaut" class="RetourHautPage"><img class="imgRetourHautPage"
-    src="./../app/public/image/bouton/boutonHaut.png">
+    src="./../app/public/image/bouton/boutonHaut.png"  alt="Retour vers le haut" title="Retour vers le haut">
 </a>
 <!-- BTN RETOUR HAUT  -->
