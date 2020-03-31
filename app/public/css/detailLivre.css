@@ -76,10 +76,6 @@
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     text-align: justify;
     overflow: auto;
 }
@@ -100,10 +96,6 @@
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     display: flex;
     flex-direction: column;
     Overflow: auto;  
@@ -122,25 +114,19 @@
     list-style-type: none;
 }
 /* SECTION COMMENTAIRE  */
+
 .detailLivre .commentaireLivre
 {
-    border: 2px solid white;
     width: 70%;
-    align-items: center;
     border-radius: 5px;
     background-color: rgb(218, 213, 213);
-    text-align: center;
-    color: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    margin: 5px;
+    color: black;
     padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 .detailLivre .commentaireLivre h2
 {
-    color: white;
     text-align: center;
     height: 55px;
     display: flex;
@@ -166,6 +152,10 @@
     padding-left: 5%;
     line-height: 2em;
 }
+.detailLivre .commentaire label
+{
+   padding-right: 5px;
+}
 .detailLivre .commentaireLivre img
 {
     width: 2%;
@@ -178,7 +168,6 @@
 }
 .detailLivre .sectionCommentaireLivre
 {
-    display: flex;
     justify-content: center;
     margin: 15px;
 }
@@ -210,6 +199,58 @@
 	position:relative;
 	top:5px;
 }
+/*FIN SECTION COMMENTAIRE  */
+
+/* SECTION DERNIERS COMMENTAIRES POSTER  */
+
+.detailLivre .dernierCommentaire
+{
+    width: 70%;
+    border-radius: 5px;
+    background-color: rgb(218, 213, 213);
+    padding: 5px;
+    margin: 0 auto;
+}
+.detailLivre .dernierCommentaire h2
+{
+    text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailLivre .dernierCommentaire .posterLe
+{
+    text-align: initial;
+    line-height: 2em;
+    color: cadetblue;
+    padding-top: 20px;
+}
+.detailLivre .dernierCommentaire .note
+{
+    text-align: left;
+}
+.detailLivre .dernierCommentaire .commentaire
+{
+    text-align: justify;
+    margin-left: 5%;
+    padding-bottom: 25px;
+}
+.detailLivre .dernierCommentaire .commentaire strong
+{
+    color: crimson;
+}
+.detailLivre .dernierCommentaire .separatorCommentaire 
+{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
 
 /*---------------media querie tablette------------*/
 @media screen and (max-width: 992px)

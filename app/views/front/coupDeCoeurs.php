@@ -69,7 +69,7 @@
                     Nos coup de coeurs du moment 
                 </h1>
                 <!--------------livre coup de coeur, favorite book------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listCdCoeur as $unCoupDeCoeur) {?>
 
                         <!-- TOUT LES ARTICLES  -->
@@ -109,7 +109,7 @@
                         <!--FIN DE TOUT LES ARTICLES  -->
 
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN  ARTICLE COUP DE COEUR  -->
 

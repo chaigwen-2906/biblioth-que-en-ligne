@@ -108,6 +108,7 @@
                 </div>
             </section>
             <section class="sectionCommentaireLivre">
+                <!-- COMMENTAIRE SUR LE LIVRE  -->
                 <article class ="commentaireLivre">
                     <h2>
                         Commentaires sur le livre
@@ -120,7 +121,7 @@
                         Note : <img src="./../app/public/image/icon/start.png" alt="Etoile" title="Etoile">
                     </figure>
                     <div class="commentaire">        
-                        <label  for="commentaire">
+                        <label for="commentaire">
                             Votre commentaire :
                         </label><br>
                         <textarea class="reglCommentaire" 
@@ -131,9 +132,29 @@
                         Poster !
                     </a>
                 </article>
-            </section>
+                <!--FIN COMMENTAIRE SUR LE LIVRE  -->
 
-            <?php print_r($listCommentaire); ?>
+                <!-- DERNIERS COMMENTAIRES  -->
+                <article class="dernierCommentaire">
+                    <h2>
+                        Les derniers commentaires
+                    </h2>
+                    <hr separator>
+                    <?php foreach ($listCommentaire as $unCommentaire) {?>
+                        <h3 class="posterLe">
+                            Posté par : <?= $unCommentaire['nom']." ".$unCommentaire['prenom']; ?> <br> Le : <?= $unCommentaire['date']; ?>
+                        </h3>
+                        <figure>
+                            Note :<?= $unCommentaire['note']; ?>/10
+                        </figure>
+                        <p class="commentaire">
+                            <strong>Commentaire :</strong><?= $unCommentaire['description']; ?>
+                        </p>
+                        <hr class="separatorCommentaire" separator>
+                    <?php } ?>
+                </article>
+               
+            </section>
         </main>
         
         <?php require_once("./app/views/layout/footer.php") ?> 
