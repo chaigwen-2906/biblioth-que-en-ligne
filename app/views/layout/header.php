@@ -35,9 +35,12 @@
             <a href="./panier">
                 <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
             </a>
-            <a href="?action2=deconnecter">
-                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">   
-            </a>
+        
+            <form action="#" method="POST" name="formdeconnect">
+                <input type="hidden" name="action2" value="deconnecter">
+                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter"
+                onclick="window.document.formdeconnect.submit();">
+            </form>
         </figure>
 
         <div class="btnloupe">

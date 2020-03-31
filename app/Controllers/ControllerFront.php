@@ -33,9 +33,9 @@ class ControllerFront
         }
 
         //On test si l'utilisateur a cliqué sur "se déconnecter"
-        if(isset($_GET['action2']))
+        if(isset($_POST['action2']))
         {
-            if($_GET['action2'] == "deconnecter")
+            if($_POST['action2'] == "deconnecter")
             {
                 //On déconnecte l'utilisateur
                 echo "<script type='text/javascript'>sessionStorage.removeItem('idClient');</script>";
@@ -181,10 +181,18 @@ class ControllerFront
         $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
         $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
 
+        //On ajoute le commentaire si on est en situation de post du formulaire
+        if(isset($_POST["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
+        {
+            //on enregistre le commentaire posté par utilisateur
+            $FrontManagerDetailLivre->postCommentaire($_GET['id'],$_POST["idClient"],$_POST["note"],$_POST["description"]);
+        }
+        
+        //On récupère la liste des derniers commentaires
         $listCommentaire = $FrontManagerDetailLivre->getCommentaire($_GET['id']);
 
         require 'app/views/front/detailLivre.php';
-    }
+    } 
 
     function detailAtelierFront()
     {

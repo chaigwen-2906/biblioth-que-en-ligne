@@ -6,11 +6,11 @@ $( function() {
 
     //On récupère la variable de session 'idClient'
     let idClient = sessionStorage.getItem('idClient');
-    gestionModeConnecteHeader(idClient);
+    gestionModeConnecte(idClient);
 });
 
 
-function gestionModeConnecteHeader(idClient){
+function gestionModeConnecte(idClient){
     if(idClient == null)
     {
         //client non connecté
@@ -18,6 +18,11 @@ function gestionModeConnecteHeader(idClient){
         $(".bloc_connexion").show();
         //On masque les boutons de gestion du compte
         $(".bloc_deconnexion").hide();
+
+        //On masque les boutons RESERVER dans la page detailLlivre(les btn sont cacher tant que on est pas connecter)
+        $("#btnReserver").hide();
+        //On masque les boutons POSTE dans la page detailLlivre(les btn sont cacher tant que on est pas connecter)
+        $("#sectionCommentaire").hide();
     }
     else{
         //client connecté
@@ -25,6 +30,9 @@ function gestionModeConnecteHeader(idClient){
         $(".bloc_connexion").hide();
         //On affciche les boutons de gestion du compte
         $(".bloc_deconnexion").show();
+
+        // on modifie la valeur du champs cacher hiddenIdClient 
+        $("#hiddenIdClient").val(idClient);
     }
 }
 
@@ -357,4 +365,18 @@ btnBesoinCompte.addEventListener("click", function(){
 });
 
 
-/**/ 
+// /*GESTION DES BOUTONS RESERVER,  A L'ARRIVER SUR LE SITE */ 
+// let btnCacherConnecter = document.getElementById("boutonEnvoyerIdentifier");
+// // identifier 
+// boutonEnvoyerIdentifier.addEventListener("click", function(){
+//     //on affiche le bouton reserver
+//     $(".valideCommentaire").show();
+// })
+
+// let btnCacherDeconnecter = document.getElementById("boutonDisconnect");
+
+// boutonDisconnect.addEventListener("click", function(){
+//     //on masque le bouton reserver
+//     $(".valideCommentaire").hide();
+// })
+
