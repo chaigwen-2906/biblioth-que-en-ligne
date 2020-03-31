@@ -47,25 +47,25 @@
             
             <figure class="figureSlid">
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles"  onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique"  onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/guerreDesClans.jpg" alt="éclipse:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse"  onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/quêteDesOurs.jpg" alt="Les dernières contrées sauvages:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/quêteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours:"  onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours" onclick="myFunction(this);">
                 </div>    
             </figure>
 
@@ -94,7 +94,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneNouveaute['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneNouveaute['image'])."'
+                                alt='".$uneNouveaute['nom']."' title='".$uneNouveaute['nom']."' />";?>
                             </figure>
                             <h4>
                                 <?= $uneNouveaute['nom']; ?>

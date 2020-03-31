@@ -57,10 +57,10 @@
             <!-- BLOCK COUP DE COEURS  -->
             <div class="blockContenu">
                 <h1 class="titreMain">
-                    Nos coup de coeurs du moment 
+                    Tous nos livres coup de coeurs du moment 
                 </h1>
                 <!--------------livre coup de coeur, favorite book------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listCdCoeur as $unCoupDeCoeur) {?>
 
                         <article class="articleLivres">
@@ -70,7 +70,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unCoupDeCoeur['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unCoupDeCoeur['image'])."' 
+                                alt='".$unCoupDeCoeur['nom']."' title='".$unCoupDeCoeur['nom']."'/>";?>
                             </figure>
                             <h4>
                                 <?= $unCoupDeCoeur['nom']; ?>
@@ -96,7 +97,7 @@
                             </p>
                         </article>
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN BLOCK COUP DE COEURS  -->
 
@@ -106,7 +107,7 @@
                     Nouveautés
                 </h1>
                 <!--------------LIVRE NOUVEAUTES------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listNouveautes as $uneNouveaute) {?>
 
                         <article class="articleLivres">
@@ -116,7 +117,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneNouveaute['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneNouveaute['image'])."'
+                                 alt='".$uneNouveaute['nom']."' title='".$uneNouveaute['nom']."'/>";?>
                             </figure>
                             <h4>
                                 <?= $uneNouveaute['nom']; ?>
@@ -142,7 +144,7 @@
                             </p>
                         </article>
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN NOUVEAUTES -->
 
@@ -152,7 +154,7 @@
                    Les prochains ateliers à venir 
                 </h1>
                 <!-------------- LIVRE ATELIERS------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listAtelier as $unAtelier) {?>
 
                         <article class="articleLivres">
@@ -162,7 +164,7 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                               <img src ="../app/public/image/icon/calendrier.png">
+                               <img src ="../app/public/image/icon/calendrier.png" alt="Calendrier" title="Calendrier">
                             </figure>
                             <h4>
                                 <?= $unAtelier['nom']; ?>
@@ -189,7 +191,7 @@
                             </a>
                         </article>
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN BLOCK ATELIERS-->
 
@@ -199,7 +201,7 @@
                     Les Mangas
                 </h1>
                 <!--------------LIVRE MANGAS ------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listMangas as $unMangas) {?>
 
                         <article class="articleLivres">
@@ -209,7 +211,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unMangas['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($unMangas['image'])."' 
+                                alt='".$unMangas['nom']."' title='".$unMangas['nom']."' />";?>
                             </figure>
                             <h4>
                                 <?= $unMangas['nom']; ?>
@@ -235,7 +238,7 @@
                             </p>
                         </article>
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN BLOCK MANGAS  -->
 
@@ -245,7 +248,7 @@
                     Les Bandes dessinées
                 </h1>
                 <!-------------- LIVRE  BANDES DESSINEES------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listBandesDessinees as $uneBandesDessinees ) {?>
 
                         <article class="articleLivres">
@@ -255,7 +258,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneBandesDessinees['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneBandesDessinees['image'])."' 
+                                alt='".$uneBandesDessinees['nom']."' title='".$uneBandesDessinees['nom']."' />";?>
                             </figure>
                             <h4>
                                 <?= $uneBandesDessinees['nom']; ?>
@@ -281,7 +285,7 @@
                             </p>
                         </article>
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN BLOCK BANDES DESSINEES-->
 
@@ -291,7 +295,7 @@
                     La cuisine
                 </h1>
                 <!-------------- LIVRE  CUISINE------------------>
-                <div class="articles">  
+                <section class="articles">  
                     <?php foreach ($listCuisine as $uneCuisine ) {?>
 
                         <article class="articleLivres">
@@ -301,7 +305,8 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneCuisine['image'])."' />";?>
+                                <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($uneCuisine['image'])."'
+                                alt='".$uneCuisine['nom']."' title='".$uneCuisine['nom']."' />";?>
                             </figure>
                             <h4>
                                 <?= $uneCuisine['nom']; ?>
@@ -327,7 +332,7 @@
                             </p>
                         </article>
                     <?php } ?>
-                </div>
+                </section>
             </div>
             <!--FIN BLOCK CUISINE-->
 

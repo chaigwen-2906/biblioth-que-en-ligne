@@ -43,6 +43,14 @@
             <!--FIN  FILS D'ARIANE  -->
 
             <!-- PAGE MOT DE PASSE OUBLIER-->
+            <h1>
+                Mots de passe oublier ?
+            </h1>
+            <div class="divContenuPassOublier">
+                <label class="labelAdresse" for="motPasse">Votre mot de passe</label>
+                <textarea  name="motPasse" id="motPasse" class="inputAdresse" 
+                    placeholder="Entrer votre mot de passe"></textarea>  
+            </div>
 
 
             

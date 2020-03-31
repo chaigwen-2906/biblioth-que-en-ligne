@@ -52,22 +52,23 @@
                     </h2>
                     <hr separator>
                     <figure class="reglageImg">
-                        <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($DetailLivre['image'])."' />";?>
+                        <?= "<img src='data:image/png|image/jpeg|image/gif|image/jpg;base64,".base64_encode($DetailLivre['image'])."'
+                        alt='".$DetailLivre['nom']."' title='".$DetailLivre['nom']."' />";?>
                     </figure>
                     <hr separator>
                     <figure class="réglageReseaux">
                         <ul>
-                            <li><a href="https://www.facebook.com/" target="_blank"><img src="./../app/public/image/reseaux/FacebookEcusson.png"
-                                alt="facebook" title="facebook">
+                            <li><a href="https://www.facebook.com/" target="_blank"><img src="./../app/public/image/reseaux/FacebookEcusson.png" 
+                                alt="Facebook" title="Facebook">
                             </a></li>
                             <li><a href="https://twitter.com/accueil?lang=fr" target="_blank"><img src="./../app/public/image/reseaux/TwitterEcusson.png"
-                                alt="twitter" title="twitter"> 
+                                alt="Twitter" title="Twitter"> 
                             </a></li>
                             <li><a href="https://www.youtube.com/" target="_blank"><img src="./../app/public/image/reseaux/youtubeEcusson.png"
-                                alt="Instagram" title="Instagram">
+                                alt="Youtube" title="Youtube">
                             </a></li>
                             <li><a href="https://www.linkedin.com/" target="_blank"><img src="./../app/public/image/reseaux/linkedinEcusson.png"
-                                alt="Instagram" title="Instagram">
+                                alt="Linkedin" title="Linkedin">
                             </a></li>
                         </ul>
                     </figure>
@@ -116,7 +117,7 @@
                         Poster votre commentaire :
                     </h3>
                     <figure>
-                        Note : <img src="./../app/public/image/icon/start.png">
+                        Note : <img src="./../app/public/image/icon/start.png" alt="Etoile" title="Etoile">
                     </figure>
                     <div class="commentaire">        
                         <label  for="commentaire">
@@ -131,6 +132,8 @@
                     </a>
                 </article>
             </section>
+
+            <?php print_r($listCommentaire); ?>
         </main>
         
         <?php require_once("./app/views/layout/footer.php") ?> 

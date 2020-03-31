@@ -44,7 +44,7 @@
 
             <!-- PAGE 404 -->
             <figure>
-                <img class="erreur404" src="./../app/public/image/img/erreur404.jpg">
+                <img class="erreur404" src="./../app/public/image/img/erreur404.jpg" alt="Erreur de page " title="Erreur de page">
             </figure>
            
  
