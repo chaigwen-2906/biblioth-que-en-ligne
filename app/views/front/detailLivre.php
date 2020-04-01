@@ -72,7 +72,7 @@
                             </a></li>
                         </ul>
                     </figure>
-                    <a class="valideCommentaire" href="./panier">
+                    <a id="btnReserver" class="valideCommentaire" href="./panier">
                         Réserver
                     </a>
                 </aside>
@@ -93,7 +93,10 @@
                         <hr separator>
                         <section class="ficheTecknic">
                             <ul>
-                                <li>Date de publication : <?= $DetailLivre['dateDePublication']; ?></li>
+                                <?php
+                                    $dateDepublication = new datetime($DetailLivre['dateDePublication']);
+                                ?>
+                                <li>Date de publication : <?= $dateDepublication->format('d/m/Y H:i'); ?></li>
                                 <li>Disponibilité : <?= $DetailLivre['disponible']; ?></li>
                                 <li>Nombre de pages : <?= $DetailLivre['nbDePage']; ?></li>
                                 <li>Dimension : <?= $DetailLivre['dimension']; ?></li>
@@ -109,7 +112,9 @@
             </section>
             <section class="sectionCommentaireLivre">
                 <!-- COMMENTAIRE SUR LE LIVRE  -->
-                <article class ="commentaireLivre">
+                <form method="POST" action="#" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
+                    <!-- CHAMPS CACHER IDCLIENT -->
+                    <input type="hidden" name="idClient" id="hiddenIdClient">
                     <h2>
                         Commentaires sur le livre
                     </h2>
@@ -117,32 +122,37 @@
                     <h3>
                         Poster votre commentaire :
                     </h3>
-                    <figure>
-                        Note : <img src="./../app/public/image/icon/start.png" alt="Etoile" title="Etoile">
-                    </figure>
-                    <div class="commentaire">        
+                    <article>
+                        <label for="note">Note :</label>
+                        <input type="number" name="note">
+                    </article>
+                    <article class="commentaire">        
                         <label for="commentaire">
                             Votre commentaire :
-                        </label><br>
-                        <textarea class="reglCommentaire" 
-                            name="message"  placeholder="Entrer votre message">
-                        </textarea>
-                    </div>
-                    <a class="valideCommentaire" href="#">
-                        Poster !
+                        </label>
+                        <textarea class="reglCommentaire" name="description" placeholder="Entrer votre message" cols="50" rows="3"></textarea>
+                    </article>
+                    <a id="btnPoster" class="valideCommentaire" onclick="window.document.formAjoutCommentaire.submit();">
+                        Posté !
                     </a>
-                </article>
+                </form>
                 <!--FIN COMMENTAIRE SUR LE LIVRE  -->
 
-                <!-- DERNIERS COMMENTAIRES  -->
+                <!-- COMMENTAIRES  -->
                 <article class="dernierCommentaire">
                     <h2>
-                        Les derniers commentaires
+                        Les commentaires
                     </h2>
                     <hr separator>
                     <?php foreach ($listCommentaire as $unCommentaire) {?>
                         <h3 class="posterLe">
-                            Posté par : <?= $unCommentaire['nom']." ".$unCommentaire['prenom']; ?> <br> Le : <?= $unCommentaire['date']; ?>
+                            Posté par : <?= $unCommentaire['nom']." ".$unCommentaire['prenom']; ?> <br> 
+                            <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $date = new DateTime($unCommentaire['date']);
+                                ?>
+                                Le : <?= $date->format('d/m/Y H:i'); ?>
                         </h3>
                         <figure>
                             Note :<?= $unCommentaire['note']; ?>/10

@@ -55,4 +55,22 @@ class ManagerFrontDetailLivre extends Manager
         //On retourne les résultats
         return $resultat;
     }
+
+    public function postCommentaire($idLivre,$idClient,$note,$description)
+    {
+        $bdd = $this->dbConnect();
+
+        // echo "idLivre:".$_GET['id'];
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "INSERT INTO commentaire(idLivre,idClient,date,note,description) VALUES (?,?,NOW(),?,?)";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idLivre,$idClient,$note,$description]);
+
+        //On ferme la requete
+        $requete->closeCursor();
+    }
 }
