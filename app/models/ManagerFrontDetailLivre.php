@@ -60,8 +60,6 @@ class ManagerFrontDetailLivre extends Manager
     {
         $bdd = $this->dbConnect();
 
-        // echo "idLivre:".$_GET['id'];
-
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "INSERT INTO commentaire(idLivre,idClient,date,note,description) VALUES (?,?,NOW(),?,?)";

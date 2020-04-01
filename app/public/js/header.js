@@ -9,7 +9,7 @@ $( function() {
     gestionModeConnecte(idClient);
 });
 
-
+//----------------------------------------- GESTION DU MODE CONNECTER-------------------------------------------------- 
 function gestionModeConnecte(idClient){
     if(idClient == null)
     {
@@ -35,6 +35,10 @@ function gestionModeConnecte(idClient){
         $("#hiddenIdClient").val(idClient);
     }
 }
+//----------------------------------------- GESTION DU MODE CONNECTER-------------------------------------------------- 
+
+
+//-------------------------------------------------- MENU BURGER------------------------------------------------------- 
 
 //MenuBurger
 $("#btnBurger").click(function(){
@@ -45,9 +49,9 @@ $("#btnBurger").click(function(){
         $(".navMenuBurger").show("slow");
     }
 });
+//--------------------------------------------------FIN MENU BURGER------------------------------------------------------- 
 
-
-//-------------------bandeauMenu ---------------------------------
+//-------------------------------------------------BANDEAU RECHERCHER ----------------------------------------------------
 $(".selectionLivres").hide();
 $(".btnloupe").click(function(){
     if($(".selectionLivres").is(":visible")){
@@ -57,8 +61,10 @@ $(".btnloupe").click(function(){
         $(".selectionLivres").show("slow");
     }
 });
+//----------------------------------------------fin BANDEAU RECHERCHER ----------------------------------------------------
 
-//------------------ Modal Connection ---------------//
+
+//------------------------------------------------- Modal Connection ------------------------------------------------------
 let boutonSidentifier = document.getElementById("boutonSidentifier");
 
 boutonSidentifier.addEventListener("click",function(e) {
@@ -77,8 +83,9 @@ boutonFermerModalConnection.addEventListener("click",function(e) {
     //On affiche le modalConnection
     $("#modalConnection").hide("slow");
 });
+//----------------------------------------------FIN Modal Connection ------------------------------------------------------
 
-//------------------ Modal Creer Compte ---------------//
+//--------------------------------------------- Modal Creer Compte---------------------------------------------------------
 let boutonCreerCompte = document.getElementById("boutonCreerCompte");
 boutonCreerCompte.addEventListener("click",function(e) {
     //On désactive le comportement du lien
@@ -96,9 +103,10 @@ fermerModalCreerCompte.addEventListener("click",function(e) {
     //On affiche le modalConnection
     $("#modalCreerCompte").hide("slow");
 });
-//------------------FIN  Modal Creer Compte ---------------//
+//----------------------------------------------FIN  MODAL CREEZ VOTRE COMPTE------------------------------------------------
 
-//--------------------MODAL FAQ---------------------------//
+
+//-----------------------------------------------------MODAL FAQ-------------------------------------------------------------
 let boutonFaq = document.getElementById("boutonFaq");
 boutonFaq.addEventListener("click",function(e) {
     //On désactive le comportement du lien
@@ -117,20 +125,9 @@ fermerModalFaq.addEventListener("click",function(e) {
     $("#modalFaq").hide("slow");
 });
 
-//---------------FIN MODAL FAQ---------------------------//
+//-------------------------------------------------FIN MODAL FAQ---------------------------------------------------------------
 
-
-// GESTION DU FORMULAIRE DE RECHERCHE 
-// let boutonRechercher = document.getElementById("boutonRechercher");
-
-// boutonRechercher.addEventListener("click",function(e){
-//     alert('test');
-//     let selectCategorie = document.getElementById("selectCategorie");
-//     let choix = selectCategorie.selectedIndex;//récupèration de l'index de l' <option> choisi par l'utilisateur
-//     let valeurCategorie = selectCategorie.options[choix].value;//récuperation de la valeur de  <l'option> d'index "choix" 
-//     alert(valeurCategorie);
-// });
-
+//-----------------------------------TEST CHAMPS RECHERCHE (SOIE PAR CATEGORIE || champs de recherhe)--------------------------
 function verificationRecherche()
 {
     //On récupère l'id de la categorie choisie
@@ -152,9 +149,9 @@ function verificationRecherche()
     }
      
 }
+//-----------------------------------TEST CHAMPS RECHERCHE (SOIE PAR CATEGORIE || champs de recherhe)--------------------------
 
-
-/* ------------------------------------------Gestion du menu class Ative--------------------------------- */
+// ------------------------------------------GESTION DU MENU CLASS ACTIVE -----------------------------------------------------
 
 function menuActive(indexActive){
     // traitement pour le menu normal
@@ -177,7 +174,7 @@ function menuActive(indexActive){
         //On ajoute la classe active sur l'élément dont l'index est indexActive
         tabElementLiBurger[indexActive].className += " active";
 }
-
+//----------------------------------------FIN GESTION DU MENU CLASS ACTIVE ----------------------------------
 
 /*----------------------------------------------------gestion du retour en haut -------------------------------------*/
 let btnHaut = document.getElementById("retourHaut");
@@ -203,7 +200,7 @@ function AfficheBtnHaut(btnHaut) {
         btnHaut.style.display = "none";
     }
 }
-
+/*-------------------------------------------------fin gestion du retour en haut -------------------------------------*/
 
 
 
@@ -262,24 +259,22 @@ function validSomething(event, element, nomValid, output, prefix){
     if(element.validity.valueMissing){
         event.preventDefault();
         output.textContent = prefix + " manquant";
-        output.style.color = "blue";
+        output.style.color = "red";
     }
     // si le format de données est incorrect
     else if (nomValid.test(element.value)=== false){
         //stop l'envoie du formulaire 
         event.preventDefault();
         output.textContent = "format incorrect";
-        output.style.color = "blue";
+        output.style.color = "red";
     }
     else{
         output.textContent = "";
     }
 }
 
-/*--------------------FIN CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE----------*/
 
-
-//API AJAX RECUPERATION DE L4ADRESSE DANS LE FORMULAIRE CREEZ VOTRE COMPTE 
+//API AJAX RECUPERATION DE L'ADRESSE DANS LE FORMULAIRE CREEZ VOTRE COMPTE 
 
 /*saisie de l'adresse avec 5 dans l'historique */
 function search(){
@@ -315,6 +310,9 @@ function search(){
 
     }  
 }
+/*--------------------FIN CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE----------*/
+
+
 
 
 // -------------------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER--------*/
@@ -338,14 +336,14 @@ function validSomething(event, element, nomValid, output, prefix){
     if(element.validity.valueMissing){
         event.preventDefault();
         output.textContent = prefix + " manquant";
-        output.style.color = "blue";
+        output.style.color = "red";
     }
     // si le format de données est incorrect
     else if (nomValid.test(element.value)=== false){
         //stop l'envoie du formulaire 
         event.preventDefault();
         output.textContent = "format incorrect";
-        output.style.color = "blue";
+        output.style.color = "red";
     }
     else{
         output.textContent = "";
@@ -365,18 +363,4 @@ btnBesoinCompte.addEventListener("click", function(){
 });
 
 
-// /*GESTION DES BOUTONS RESERVER,  A L'ARRIVER SUR LE SITE */ 
-// let btnCacherConnecter = document.getElementById("boutonEnvoyerIdentifier");
-// // identifier 
-// boutonEnvoyerIdentifier.addEventListener("click", function(){
-//     //on affiche le bouton reserver
-//     $(".valideCommentaire").show();
-// })
-
-// let btnCacherDeconnecter = document.getElementById("boutonDisconnect");
-
-// boutonDisconnect.addEventListener("click", function(){
-//     //on masque le bouton reserver
-//     $(".valideCommentaire").hide();
-// })
 
