@@ -43,87 +43,200 @@
             <!--FIN  FILS D'ARIANE  -->
 
             <!-- MON COMPTE -->
+            <section class="conteneurMonCompte">
+                <h1>
+                    Mon compte 
+                </h1>
+                <h2>
+                    Mes informations personnelle 
+                </h2>
+                <!-- NOM  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre nom
+                    </h3>
+                    <p class="champsCompte">
+                        Lemoine
+                    </p>
+                </article>
+                <!-- PRENOM  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre prénom
+                    </h3>
+                    <p class="champsCompte">
+                        Gwénola
+                    </p>
+                </article>
+                <!-- EMAIL  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre E-mail
+                    </h3>
+                    <p class="champsCompte">
+                        chaigwen@hotmail.fr
+                    </p>
+                </article>
+                <!-- TEL MOBILE  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre téléphone mobile
+                    </h3>
+                    <p class="champsCompte">
+                        06-10-43-32-49
+                    </p>
+                </article>
+                <!-- TEL FIXE  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre téléphone fixe
+                    </h3>
+                    <p class="champsCompte">
+                        09-45-95-87-85
+                    </p>
+                </article>
+                <!-- ADRESSE  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre adresse
+                    </h3>
+                    <p class="champsCompte">
+                        Rue du peuplier
+                    </p>
+                </article>
+                <!-- DATE NAISSANCE  -->
+                <article class="articleCompte">
+                    <h3>
+                        Votre date de naissance 
+                    </h3>
+                    <p class="champsCompte">
+                        13/10/1981
+                    </p>
+                </article>
 
-            <div class="conteneurMonCompte">
-                <form id="formCompte">
+                <!-- BOUTON ENREGISTRE OU RETOUR  -->
+                <div class="divcontenuBouton">
+                    <p class="bouton" >
+                        <input class="btnCompteModifier" id="compteModifier" type="submit" value="Modifier">
+                    </p>
+                </div>
+            </section>
+
+            <!-- MON COMPTE MODIFIER -->
+            <section class="conteneurMonCompteModifier">
+                <form id="formCompte" method="POST" action="#">
                     <h1>
                         Mon compte
                     </h1> 
-                    <div class="compteCivilite">
+                    <h2>
+                        Modifier mes informations personnelle
+                    </h2>
+                    <!-- CIVILITE  -->
+                    <article class="compteCivilite">
                         <input type="radio" name="Civilite" value="monsieur" id="monsieur">
                         <label for="monsieur" class="petit">M</label>
                         <input type="radio" name="Civilite" value="madame" id="madame">
                         <label for="madame" class="petit">Mme</label>
-                    </div> 
-                    <div class="divContenuCompte">
-                        <label class="labelAdresse" for="nom">Nom*</label>
-                        <input type="text" name="nom" id="nom" class="inputAdresse"
-                            placeholder="Entrer votre nom *" maxlength="20" required="required">
-                        <span id="errorNom"></span>
-                    </div>
-            
-                    <div class="divContenuCompte">
+                    </article> 
+                    <!-- NOM  -->
+                    <article class="divContenuCompte">
+                        <label class="labelAdresse" for="nom">Votre nom*</label>
+                        <input type="text" name="nom" id="nom"  class="champsCompteModifier" value="Lemoine" required="required"> 
+                        <span id="erreurNom"></span>
+                    </article>
+
+                    <!-- PRENOM  -->
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="prenom">Votre prénom*</label>
-                        <input type="text" name="prenom" id="prenom"class="inputAdresse" 
-                        placeholder="Entrer votre prénom*" required="required"><br>
-                        <span id="errorPrenom"></span> 
-                    </div>
-                
-                    <div class="divContenuCompte">
+                        <input type="text" name="prenom" id="prenom" class="champsCompteModifier" value="Gwénola" required="required"><br>
+                        <span id="erreurPrenom"></span> 
+                    </article>
+
+                    <!-- E-MAIL  -->
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="email">Votre email*</label>
-                        <input type="email" name="email" id="e_mail" class="inputAdresse"
-                            placeholder="Entrer votre email*" required="required"><br> 
-                        <span id="error_Mail"></span>
-                    </div>
-                    
-                    <div class="divContenuCompte">
+                        <input type="email" name="email" id="email"  class="champsCompteModifier" value="chaigwen@hotmail.fr"  required="required"><br> 
+                        <span id="erreurEMail"></span>
+                    </article>
+
+                    <!-- TELEPHONE MOBILE  -->
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="mobile">Votre téléphone mobile</label>
-                        <input type="tel" name="mobile" id="Mobile" class="inputAdresse"
-                            placeholder="Entrer votre numéro"required/><br> 
+                        <input type="tel" name="mobile" id="Mobile" class="champsCompteModifier" value="06-10-43-32-49" required="required"/><br> 
                         <span id="errorMobile"></span>
-                    </div>
+                    </article>
 
-                    <div class="divContenuCompte">
+                    <!-- TELEPHONE FIXE  -->
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="fixe">Votre téléphone fixe</label>
-                        <input type="tel" name="fixe" id="fixe" class="inputAdresse"
-                            placeholder="Entrer votre numéro"required/><br> 
+                        <input type="tel" name="fixe" id="fixe"  class="champsCompteModifier" value="09-45-95-87-85" required="required"/><br> 
                         <span id="errorFixe"></span>
-                    </div>
-                
-                    <div id="" class="divContenuCompte">
-                        <label class="labelAdresse" for="adresse">Votre adresse</label>
-                        <input type="text" name="adresse" id="adresse" class="inputAdresse"
-                            placeholder="Entrer votre adresse" required />
-                    </div>
-                    
-                    <div class="divContenuCompte">
-                        <label class="labelAdresse" for="message">Votre message</label>
-                        <textarea  name="message" id="message" class="inputAdresse" 
-                            placeholder="Entrer votre message"></textarea>  
-                    </div>
+                    </article>
 
-                    <div class="divContenuCompte">
+                    <!-- ADRESSE  -->
+                    <article id="" class="divContenuCompte">
+                        <label class="labelAdresse" for="adresse">Votre adresse*</label>
+                        <input type="text" name="adresse" id="adresse" class="champsCompteModifier" value="Rue du peulier" required="required" />
+                        <span id="erreurAdresse"></span>
+                    </article>
+
+                    <!-- DATE DE NAISSANCE  -->
+                    <article id="" class="divContenuCompte">
                         <label class="labelAdresse" for="date">Votre date de naissance</label>
-                        <textarea  name="date" id="date" class="inputAdresse" 
-                            placeholder="Entrer votre date"></textarea>  
-                    </div>
-                    <div class="divContenuCompte">
-                        <label class="labelAdresse" for="motPasse">Votre mot de passe</label>
-                        <textarea  name="motPasse" id="motPasse" class="inputAdresse" 
-                            placeholder="Entrer votre mot de passe"></textarea>  
-                    </div>
-                
+                        <input type="text" name="dateNaissance" id="dateNaissance" class="champsCompteModifier" value="13/10/1981" required="required"/>
+                        <span id="erreurDateNaissance"></span>
+                    </article>
+
+                    <!-- BOUTON ENREGISTRER OU RETOUR  -->
                     <div class="divcontenuBouton">
                         <p class="bouton" >
-                            <input class="btnCompteValider" id="compteValider" type="submit" value="Envoyer">
-                            <input class="btnCompteAnnuler" id="compteAnnuler" type="submit" value="Annuler">
+                            <input class="btnCompteEnregistrer" id="compteEnregistrer" type="submit" value="Enregistrer">
+                            <input class="btnCompteRetour" id="compteRetour" type="submit" value="Retour">
                         </p>
                         <p>
                             * champ obligatoire
                         </p>
                     </div>
                 </form>
+            </section>
+            <!-- CONTENEUR MODIFIER LE MOT DE PASSE  -->
+            <section class="conteneurCompteMotPass">
+            <h2>
+                Modifier mon mot de passe
+            </h2>
+
+            <!-- ANCIEN MOT DE PASSE  -->
+            <article id="" class="divContenuCompte">
+                <label class="labelAdresse" for="ancienMotPasse">Entrée votre ancien mot de passe</label>
+                <input type="text" name="ancienMotPasse" id="ancienMotPasse" class="champsCompteModifier" value="Entrée votre ancien mot de passe" required="required"/>
+                <span id="erreurAncienMotPasse"></span>
+            </article>
+
+            <!-- NOUVEAU MOT DE PASSE  -->
+            <article id="" class="divContenuCompte">
+                <label class="labelAdresse" for="nouveauMotPasse">Entrée votre nouveau mot de passe</label>
+                <input type="text" name="nouveauMotPasse" id="nouveauMotPasse" class="champsCompteModifier" value="Entrée votre nouveau mot de passe" required="required"/>
+                <span id="erreurNouveauMotPasse"></span>
+            </article>
+
+            <!-- CONFIRME NOUVEAU MOT DE PASSE  -->
+            <article id="" class="divContenuCompte">
+                <label class="labelAdresse" for="confirNouveauMotPasse">Confirmé votre nouveau mot de passe</label>
+                <input type="text" name="confirNouveauMotPasse" id="confirNouveauMotPasse" class="champsCompteModifier" value="Entrée votre nouveau mot de passe" required="required"/>
+                <span id="erreurConfirNouveauMotPasse"></span>
+            </article>
+
+             <!-- BOUTON ENREGISTRE OU RETOUR  -->
+             <div class="divcontenuBouton">
+                <p class="bouton" >
+                    <input class="btnCompteEnregistrer" id="compteEnregistrer" type="submit" value="Enregistrer">
+                    <input class="btnCompteRetour" id="compteRetour" type="submit" value="Retour">
+                </p>
+                <p>
+                    * champ obligatoire
+                </p>
             </div>
+            </section>
         </main> 
 
        
