@@ -42,6 +42,7 @@ class ControllerFront
             }
         }
     }
+
     function homeFront()
     {
         $this->FrontManager = new \Projet\Models\ManagerFront();
@@ -207,19 +208,30 @@ class ControllerFront
         require 'app/views/front/detailAtelier.php';
     }
 
-
-   
     function monCompteFront()
     {
         $this->FrontManager = new \Projet\Models\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte(); 
 
-        // on récupère le compte
-        $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
-        $monCompte = $FrontManagerMonCompte->getMonCompte();
+        if(isset($_POST['idClient']))
+        {
+            // on récupère le compte
+            $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
+            $monCompte = $FrontManagerMonCompte->getMonCompte($_POST['idClient']);
 
-        require 'app/views/front/monCompte.php';
+            // if ($_POST['action2']=="modifier")
+            // {
+            //     $monCompteModifier =$FrontManagerMonCompte->modifierClient($_POST['idClient']);
+            // }
+
+            require 'app/views/front/monCompte.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+        
     }
 
 

@@ -29,9 +29,12 @@
             
         <!-- Bloc déconnexion - s'affiche en mode connecté -->
         <figure class="bloc_deconnexion">
-            <a href="./monCompte">
-                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
-            </a>
+            <form action="./monCompte" method="POST" name="formMonCompte">
+                <input type="hidden" name="idClient" id="hiddenIdClient">
+                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte"
+                onclick="window.document.formMonCompte.submit();">
+            </form>
+
             <a href="./panier">
                 <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
             </a>

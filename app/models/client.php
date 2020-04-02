@@ -8,12 +8,18 @@ class Client extends Manager{
     ///////////// DECLARATION DES ATTRIBUTS //////////////
     private $connectBdd;
     private $idClient;
+    private $numeroAbonne;
     private $nom;
     private $prenom;
     private $email;
-    private $telephone;
-    private $numeroAbonne;
+    private $telephoneMobile;
+    private $telephoneFixe;
+    private $adresse;
+    private $dateDeNaissance;
     private $motDePasse;
+  
+
+
 
 
     //////Déclaration des ascesseurs////////////////////
@@ -25,6 +31,15 @@ class Client extends Manager{
     public function setIdClient($valeur){
       $this->idClient = $valeur;
     }
+
+    // numero d'abonnée 
+    public function getNumeroAbonne(){
+      return $this->numeroAbonne;
+    }
+    public function setNumeroAbonne($valeur){
+      $this->$numeroAbonne = $valeur;
+    }
+
 
     //nom
     public function getNom(){
@@ -50,34 +65,52 @@ class Client extends Manager{
       $this->email = $valeur;
     }
 
-    //telephone
-    public function getTelephone(){
-      return $this->telephone;
+    //telephoneMobile
+    public function getTelephoneMobile(){
+      return $this->telephoneMobile;
     }
-    public function setTelephone($valeur){
-      $this->telephone = $valeur;
-    }
-
-    //numeroAbonne    
-    public function getNumeroAbonne(){
-      return $this->numeroAbonne;
-    }
-    public function setNumeroAbonne($valeur){
-      $this->numeroAbonne = $valeur;
+    public function setTelephoneMobile($valeur){
+      $this->telephoneMobile = $valeur;
     }
 
-    //motDePasse
+    //telephone fixe
+    public function getTelephoneFixe(){
+      return $this->telephoneFixe;
+    }
+    public function setTelephoneFixe($valeur){
+      $this->telephoneFixe = $valeur;
+    }
+
+    //adresse
+    public function getAdresse(){
+      return $this->adresse;
+    }
+    public function setAdresse($valeur){
+      $this->adresse = $valeur;
+    }
+
+    //date de naissance
+    public function getDateDeNaissance(){
+      return $this->dateDeNaissance;
+    }
+    public function setDateDeNaissance($valeur){
+      $this->dateDeNaissance = $valeur;
+    }
+
+    //ancien mot de passe
     public function getMotDePasse(){
       return $this->motDePasse;
     }
     public function setMotDePasse($valeur){
       $this->motDePasse = $valeur;
     }
+    
+  
 
 
     ////////////DECLARATION DU CONSTRUCTEURS////////////
 
-    public function __construct($idClient, $nom, $prenom, $email, $telephone, $numeroAbonne, $motDePasse){
+    public function __construct($idClient, $numeroAbonne, $nom, $prenom, $email, $telephoneMobile, $telephoneFixe, $adresse, $dateDeNaissance, $motDePasse){
 
       //On stocke la connexion à la base de données
       $this->connectBdd = $this->dbConnect();
@@ -86,7 +119,10 @@ class Client extends Manager{
       // j'appel la function setidclient je lui passe en parametre idclient reçu en entrée
       $this->setIdClient($idClient);
 
-      //on modifie l'attribut $nom de l'objet
+      //numero abonne :on modifie l'attribut $nom de l'objet
+      $this->setNumeroAbonne($numeroAbonne);
+
+      //nom
       $this->setNom($nom);
 
       //prenom
@@ -95,13 +131,22 @@ class Client extends Manager{
       //email
       $this->setEmail($email);
 
-      //telephone
-      $this->setTelephone($telephone);
+      //telephone mobile
+      $this->setTelephoneMobile($telephoneMobile);
 
-      //numeroAbonne      $this->setNumeroAbonne($numeroAbonne);
+      //telephone fixe
+      $this->setTelephoneFixe($telephoneFixe);
 
-      //motDePasse
+      //adresse
+      $this->setAdresse($adresse);
+
+      //date de naissance
+      $this->setDateDeNaissance($dateDeNaissance);
+
+      //ancien mot passe
       $this->setMotDePasse($motDePasse);
+
+
     }
 
     ////////////// DECLARATION DES FONCTIONS CRUD ///////////////////////
@@ -110,13 +155,13 @@ class Client extends Manager{
       // Create : crée une ligne dans la table Client
       public function Create(){
         //Préparation de la requête
-        $sql = "INSERT INTO client(nom,prenom,email,telephone,numeroAbonne,motDePasse) 
-        VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO client(numeroAbonne,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
+        VALUES (?,?,?,?,?,?,?,?,?)";
 
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephone(), $this->getNumeroAbonne(), $this->getMotDePasse()]);
+        $requete->execute([$this->getNumeroAbonne(), $this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getMotDePasse()]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idClient de notre objet      
@@ -140,13 +185,17 @@ class Client extends Manager{
         //On récupère les données
         while ($resultat = $requete->fetch())
         {
-            //On modifie l'attibut nom,prenom etc... de notre objet
+            //On modifie l'attibut numeroAbone,nom,prenom etc... de notre objet
+            $this->setNumeroAbonne($resultat['numeroAbonne']);
             $this->setNom($resultat['nom']);
             $this->setPrenom($resultat['prenom']);
             $this->setEmail($resultat['email']);
-            $this->setTelephone($resultat['telephone']);
-            $this->setNumeroAbonne($resultat['numeroAbonne']);
+            $this->setTelephoneMobile($resultat['telephoneMobile']);
+            $this->setTelephoneFixe($resultat['telephoneFixe']);
+            $this->setAdresse($resultat['adresse']);
+            $this->setDateDeNaissance($resultat['dateDeNaissance']);
             $this->setMotDePasse($resultat['motDePasse']);
+           
         }
 
         //Fermeture de la requete
@@ -158,13 +207,13 @@ class Client extends Manager{
       // Update : Modifie les données d'une ligne dans la table Client
       public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, numeroAbonne = ?, motDePasse = ? WHERE idClient = ? ";
+        $sql = "UPDATE client SET numeroAbonne = ?, nom = ?, prenom = ?, email = ?, telephoneMobile = ?, telephoneFixe = ?, adresse = ?, dateDeNaissance = ?, motDePasse =? = ? WHERE idClient = ? ";
 
         $requete = $this->connectBdd->prepare($sql);
 
         ///Execution de la requete
-        $requete->execute([$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephone(), $this->getNumeroAbonne(),
-        $this->getMotDePasse(), $this->getIdClient()]);
+        $requete->execute([$this->getNumeroAbonne(),$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getDateDeNaissance(), 
+        $this->getMotDePasses(),$this->getIdClient()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

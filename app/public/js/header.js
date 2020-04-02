@@ -33,6 +33,7 @@ function gestionModeConnecte(idClient){
 
         // on modifie la valeur du champs cacher hiddenIdClient 
         $("#hiddenIdClient").val(idClient);
+        $("#hiddenIdClientMonCompteModifier").val(idClient);
     }
 }
 //----------------------------------------- GESTION DU MODE CONNECTER-------------------------------------------------- 
