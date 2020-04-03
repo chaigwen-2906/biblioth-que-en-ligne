@@ -11,40 +11,45 @@
             Ma bibliothèque en ligne
         </h1>
         <div class="logo">
-            <a href="#" id="boutonFaq">
+            <a href="" id="boutonFaq">
                 <img class="retouchePointIntero" src="./../app/public/image/logo-flavicon/pointIntero1.png">
             </a>
         </div>
     </div>
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
-        <div class="bloc_connexion">
-            <a id="boutonCreerCompte" class="creerCompte" href="#">
-                Créez-votre compte
-            </a>
-            <a id="boutonSidentifier" class="identifier" href="#">
-                S'identifier
-            </a>
-        </div>
-            
-        <!-- Bloc déconnexion - s'affiche en mode connecté -->
-        <figure class="bloc_deconnexion">
-            <form action="./monCompte" method="POST" name="formMonCompte">
-                <input type="hidden" name="idClient" id="hiddenIdClient">
-                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte"
-                onclick="window.document.formMonCompte.submit();">
-            </form>
-
-            <a href="./panier">
-                <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
-            </a>
+        <!-- Si il n'existe pas de variable de session idClient (l'utilisateur n'est pas connecté
+        alors on affiche le bloc de connexion -->
+        <?php if(!isset($_SESSION['idClient'])){ ?>
+            <div class="bloc_connexion">
+                <a id="boutonCreerCompte" class="monBouttonBandeau" href="">
+                    Créez-votre compte
+                </a>
+                <a id="boutonSidentifier" class="monBouttonBandeau" href="">
+                    S'identifier
+                </a>
+            </div>
+        <?php } ?>
         
-            <form action="#" method="POST" name="formdeconnect">
-                <input type="hidden" name="action2" value="deconnecter">
-                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter"
-                onclick="window.document.formdeconnect.submit();">
-            </form>
-        </figure>
+        <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
+        <!-- alors on affiche le bloc deconnexion    -->
+        <?php if(isset($_SESSION['idClient'])){ ?>
+            <!-- Bloc déconnexion - s'affiche en mode connecté -->
+            <figure class="bloc_deconnexion">
+                <a href="./monCompte">
+                    <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
+                </a>
+
+                <a href="./panier">
+                    <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
+                </a>
+
+                <a href="./<?= $this->nomPage;?>?action2=deconnecter">
+                    <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
+                </a>
+            </figure>
+        <?php } ?>
+        
 
         <div class="btnloupe">
             <img src="./../app/public/image/bouton/loupe.png">
@@ -112,21 +117,21 @@
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalConnection" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalConnection" class="boutonFermerModal" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Veuillez vous d'identifier 
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteurForm" method="POST" action="#">
+            <form class="conteurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connecter">
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
-                    <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" ><br />
+                    <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" required><br />
                     <span id="errorMailIdentifier"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse"> Mot de passe </label>
-                    <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe"><br />
+                    <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
                     <span id="errorMotDePasseIdentifier"></span>
                 </div>
                 <div class="conteneurIdentifiant" >
@@ -149,94 +154,102 @@
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalCreerCompte" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalCreerCompte" class="boutonFermerModal" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Créez-votre compte
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteurForm">
+            <form class="conteurForm" method="POST" action="./<?= $this->nomPage;?>?action2=creerCompte">
                 <div class="civilite">
                     <label for="monsieur" class="petit">M</label>
-                    <input type="radio" name="Civilite" value="monsieur" id="monsieur">
+                    <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreez">
                     <label for="madame" class="petit">Mme</label>
-                    <input type="radio" name="Civilite" value="madame" id="madame">
+                    <input type="radio" name="civilite" value="madame" id="civiliteMMECreez">
+                    <span id="errorCiviliteCreez"></span>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="nom">Nom*</label>
+                    <label class="labelAligne " for="numeroAbonne">Numéro d'abonnée</label>
+                    <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreez"
+                        placeholder="Entrer votre Numero abonne">
+                </div>
+                <div class="identifier">
+                    <label class="labelAligne " for="nom">Nom</label>
                     <input class="inputAligne" type="text" name="nom" id="nomCreez"
-                        placeholder="Entrer votre nom *" required="required" >
+                        placeholder="Entrer votre nom" required>
                     <span id="errorNomCreez"></span>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="prenom">Votre prénom*</label>
+                    <label class="labelAligne " for="prenom">Votre prénom</label>
                     <input class="inputAligne" type="text" name="prenom" id="prenomCreez"
-                        placeholder="Entrer votre prénom*" required="required">
+                        placeholder="Entrer votre prénom" required>
                     <span id="errorPrenomCreez"></span>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="email">Votre email*</label>
+                    <label class="labelAligne " for="email">Votre email</label>
                     <input class="inputAligne" type="email" name="email" id="emailCreez"
-                        placeholder="Entrer votre email*" required="required">
+                        placeholder="Entrer votre email" required>
                     <span id="errorMailCreez"></span>
                 </div>
+                <div class="identifier note">
+                    Le mail doit comporter un @ et terminé par .fr ou .com
+                </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="mobile">Votre téléphone</label>
+                    <label class="labelAligne " for="mobile">Votre Mobile</label>
                     <input class="inputAligne" type="tel" name="mobile" id="mobileCreez"
-                        placeholder="Entrer votre numéro" required="required">
+                        placeholder="Entrer votre numéro" required>
                     <span id="errorMobileCreez"></span>
+                </div>
+                <div class="identifier">
+                    <label class="labelAligne " for="mobile">Votre Fixe</label>
+                    <input class="inputAligne" type="tel" name="telephone" id="telephoneCreez"
+                        placeholder="Entrer votre numéro" required>
+                    <span id="errorTelephoneCreez"></span>
+                </div>
+                <div class="identifier">
+                    <label class="labelAligne "for="adresse"> Votre adresse</label>
+                    <input class="inputAligne" type="text" name="adresse" id="adresseCreez"  
+                    placeholder="Entrer votre adresse" onkeyup="search()" required>
+                    <span id="errorAdresseCreez"></span>
+                </div>
+                <div class="identifier">
+                    <label class="labelAligne " for="date">Votre date de naissance</label>
+                    <input class="inputAligne" type="text" name="date" id="dateCreez" 
+                    placeholder="Ex: 31/06/2019" required>
+                    <span id="errorDateCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse">Votre mot de passe</label>
                     <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreez"
-                        placeholder="Mot de passe" required="required">
+                        placeholder="Mot de passe" required>
                     <span id="errorMotDePasseCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasseConfirm">Confirmer votre mot de passe</label>
-                    <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseConfirm"
-                        placeholder=" Confirmation du mot de passe" required="required">
-                    <span id="errorMotDePasseConfirm"></span>
+                    <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreezConfirm"
+                        placeholder=" Confirmation du mot de passe" required>
+                    <span id="errorMotDePasseCreezConfirm"></span>
                 </div>
-                <div class="identifier">
-                    <label class="labelAligne "for="adresse"> Votre adresse</label>
-                    <input class="inputAligne" type="text" name="adresse" id="adresse"  
-                    placeholder="Entrer votre adresse" onkeyup="search()" required="required">
-                    <span id="errorAdresse"></span>
+                <div class="identifier note">
+                    Le mot de passe doit comporter au moins 8 caractère(s), au moins 1 chiffre(s), au moins 1 minuscule(s), au moins 1 majuscule(s), au moins 1 caractère(s) non-alphanumérique(s) tels que *, - ou #
                 </div>
-                <div class="identifier">
-                    <label class="labelAligne " for="date">Votre date de naissance</label>
-                    <input class="inputAligne" type="text" name="date" id="dateCreez" class="form-control" 
-                    placeholder="Ex: 31/06/2019" required="required">
-                    <span id="errorDateCreez"></span>
+                <div class="identifier note">
+                    Tous les champs du formulaire sont obligatoires.<br>
+                    Sauf le numéro d'abonnée.
                 </div>
-                <div class="identifier ">
-                    <input class="" type="checkbox" name="offres" id="offres">
-                    <label class="labelAligneRight " for="offres">
-                        Les offres de nos partenaires
-                    </label>
-                </div>
-                <div class="identifier ">
-                    <input class=""  type="checkbox" name=" newsletter" id=" newsletter">
-                    <label class="labelAligneRight " for=" newsletter">
-                        Recevoir notre newsletter
-                        Vous pouvez vous désinscrire à tout moment
-                        par simple demande par mail à chaigwen@hotmail.fr.
-                    </label>
-                </div>
-                <div class="identifier ">
-                    <input class=""  type="checkbox" name="conditionsUtilisation" id="conditionsUtilisation"> 
-                    <label class="labelAligneRight " for="conditionsUtilisation">
+                <div class="identifier ctnCheckBox">
+                    <input class=""  type="checkbox" name="conditionsUtilisation" id="conditionsUtilisation" required> 
+                    <label for="conditionsUtilisation">
                             J'accepte les conditions d'utilisation et la politique de confidentialité
                     </label>
-                    
+                   <span id="errorCheckbox"></span> 
                 </div>
                 <div class="conteneurIdentifiant">
                         <!--bouton pour envoyer le formulaire ou annuler-->
-                        <a href="#" id="boutonEnvoyerCreez"  class="monBoutton" type="submit" >
-                            Envoyer
+                        <input type="submit" id="boutonEnvoyerCreez" value="envoyer" class="monBoutton">
+                            
                         </a>
-                        <a href="#" class="monBoutton" type="reset" >
+                        <a href="./home" class="monBoutton" type="reset" >
                             Annuler
                         </a>
                 </div>

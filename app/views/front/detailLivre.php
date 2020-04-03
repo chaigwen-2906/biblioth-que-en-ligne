@@ -72,9 +72,13 @@
                             </a></li>
                         </ul>
                     </figure>
-                    <a id="btnReserver" class="valideCommentaire" href="./panier">
-                        Réserver
-                    </a>
+                    <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
+                    <!-- alors on affiche le bouton réserver   -->
+                    <?php if(isset($_SESSION['idClient'])){ ?>
+                        <a id="btnReserver" class="monBoutton" href="./panier">
+                            Réserver
+                        </a>
+                    <?php } ?>
                 </aside>
                 <div class="divDesResum">
                     <article class="livreDescription">
@@ -111,32 +115,34 @@
                 </div>
             </section>
             <section class="sectionCommentaireLivre">
-                <!-- COMMENTAIRE SUR LE LIVRE  -->
-                <form method="POST" action="#" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
-                    <!-- CHAMPS CACHER IDCLIENT -->
-                    <input type="hidden" name="idClient" id="hiddenIdClient">
-                    <h2>
-                        Commentaires sur le livre
-                    </h2>
-                    <hr separator>
-                    <h3>
-                        Poster votre commentaire :
-                    </h3>
-                    <article>
-                        <label for="note">Note :</label>
-                        <input type="number" name="note">
-                    </article>
-                    <article class="commentaire">        
-                        <label for="commentaire">
-                            Votre commentaire :
-                        </label>
-                        <textarea class="reglCommentaire" name="description" placeholder="Entrer votre message" cols="50" rows="3"></textarea>
-                    </article>
-                    <a id="btnPoster" class="valideCommentaire" onclick="window.document.formAjoutCommentaire.submit();">
-                        Posté !
-                    </a>
-                </form>
-                <!--FIN COMMENTAIRE SUR LE LIVRE  -->
+                <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
+                <!-- alors on affiche le formulaire qui permet de poster un commentaire  -->
+                <?php if(isset($_SESSION['idClient'])){ ?>
+                    <!-- COMMENTAIRE SUR LE LIVRE  -->
+                    <form method="POST" action="./<?= $this->nomPage;?>" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
+                        <h2>
+                            Commentaires sur le livre
+                        </h2>
+                        <hr separator>
+                        <h3>
+                            Poster votre commentaire :
+                        </h3>
+                        <article>
+                            <label for="note">Note :</label>
+                            <input type="number" name="note">
+                        </article>
+                        <article class="commentaire">        
+                            <label for="commentaire">
+                                Votre commentaire :
+                            </label>
+                            <textarea class="reglCommentaire" name="description" placeholder="Entrer votre message" cols="50" rows="3"></textarea>
+                        </article>
+                        <a id="btnPoster" class="monBoutton" onclick="window.document.formAjoutCommentaire.submit();">
+                            Posté !
+                        </a>
+                    </form>
+                    <!--FIN COMMENTAIRE SUR LE LIVRE  -->
+                <?php } ?>
 
                 <!-- COMMENTAIRES  -->
                 <article class="dernierCommentaire">

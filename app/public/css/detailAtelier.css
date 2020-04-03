@@ -93,39 +93,6 @@
     justify-content: center;
     align-items: center;
 }
- 
-
-
-
-
-/* BUTTON RESERVER  */
-
-.detailAtelier .valideReservationAtelier 
-{
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
-	background-color:#88c5db;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	margin: 20px;
-	font-size:16px;
-	font-weight:bold;
-	padding:12px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
-}
-.detailAtelier .valideReservationAtelier:hover
-{
-	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
-	background-color:#408c99;
-} 
-.detailAtelier .valideReservationAtelier:active 
-{
-	position:relative;
-	top:5px;
-}
 
 /*---------------media querie tablette------------*/
 @media screen and (max-width: 992px)

@@ -54,35 +54,6 @@
 }
 /*FIN DIV CONTENU COMPTE  */
 
-/* BOUTON COMPTE MODIFIER  */
-.monCompte .btnCompteModifier
-{
-    box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
-	background-color:#88c5db;
-	border-radius:8px;
-    display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	margin: 20px;
-	font-size:16px;
-	font-weight:bold;
-	padding:12px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
-}
-.monCompte .btnCompteModifier:hover
-{
-    background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
-	background-color:#408c99;
-}
-.monCompte .btnCompteModifier:active
-{
-    position:relative;
-	top:5px;
-}
-/*FIN BOUTON COMPTE MODIFIER  */
-
 
 /* DIV CONTENU COMPTE  MODIFIER */
 .monCompte .conteneurMonCompteModifier
@@ -136,64 +107,6 @@
     text-align: center;   
 }
 /*FIN DIV CONTENU COMPTE  */
-
-/* BOUTON COMPTE VALIDER  */
-.monCompte .btnCompteEnregistrer
-{
-    box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
-	background-color:#88c5db;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	margin: 20px;
-	font-size:16px;
-	font-weight:bold;
-	padding:12px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
-}
-.monCompte .btnCompteEnregistrer:hover
-{
-    background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
-	background-color:#408c99;
-}
-.monCompte .btnCompteEnregistrer:active
-{
-    position:relative;
-	top:5px;
-}
-/*FIN BOUTON COMPTE VALIDER  */
-
-/* BOUTON COMPTE ANNULER  */
-.monCompte .btnCompteRetour
-{
-    box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
-	background-color:#88c5db;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	margin: 20px;
-	font-size:16px;
-	font-weight:bold;
-	padding:12px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
-}
-.monCompte .btnCompteRetour:hover
-{
-    background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
-	background-color:#408c99;
-}
-.monCompte .btnCompteRetour:active
-{
-    position:relative;
-	top:5px;
-}
-/* BOUTON COMPTE ANNULER  */
 
  /* CONTENEUR MODIFIER LE MOT DE PASSE   */
 

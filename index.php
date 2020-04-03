@@ -22,6 +22,8 @@ try {
             case "front":
                 // on appel le controller front
                 $controller = new \Projet\Controllers\ControllerFront();
+                //On initialise la variable nomPage du controller front avec le nom de la page demandée
+                $controller->nomPage = $params[1];
 
                 switch($params[1])
                 {

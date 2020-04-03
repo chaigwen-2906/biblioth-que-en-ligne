@@ -44,15 +44,15 @@
 
             <?php 
             // SI LA VARIABLE ACTION2 EXISTE ET QU'ELLE EST EGALE A MODIFIER ALORS ON AFFICHE LE FORMULAIRE DE MODIFICATION   
-            if(isset($_POST['action2']))
+            if(isset($_GET['action2']))
             {
-                if ($_POST['action2']=="modifier")
+                if ($_GET['action2']=="modifier")
                 {
                     ?>
                     
                     <!-- MON COMPTE MODIFIER -->
                     <section class="conteneurMonCompteModifier">
-                        <form id="formCompte" method="POST" action="#">
+                        <form id="formCompte" method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerInfosPers">
                             <h1>
                                 Mon compte
                             </h1> 
@@ -118,52 +118,51 @@
                             <!-- BOUTON ENREGISTRER OU RETOUR  -->
                             <div class="divcontenuBouton">
                                 <p class="bouton" >
-                                    <input class="btnCompteEnregistrer" id="compteEnregistrer" type="submit" value="Enregistrer">
-                                    <input class="btnCompteRetour" id="compteRetour" type="submit" value="Retour">
-                                </p>
-                                <p>
-                                    * champ obligatoire
+                                    <input class="monBoutton" id="compteEnregistrer" type="submit" value="Enregistrer">
+                                    <a class="monBoutton" href="./monCompte">Retour</a>
                                 </p>
                             </div>
                         </form>
                     </section>
                     <!-- CONTENEUR MODIFIER LE MOT DE PASSE  -->
                     <section class="conteneurCompteMotPass">
-                        <h2>
-                            Modifier mon mot de passe
-                        </h2>
+                        <form id="formCompte" method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerPassword">
+                            <h2>
+                                Modifier mon mot de passe
+                            </h2>
 
-                        <!-- ANCIEN MOT DE PASSE  -->
-                        <article id="" class="divContenuCompte">
-                            <label class="labelAdresse" for="ancienMotPasse">Entrée votre ancien mot de passe</label>
-                            <input type="text" name="ancienMotPasse" id="ancienMotPasse" class="champsCompteModifier" value="" placeholder= "Entrée votre ancien mot de passe" required="required"/>
-                            <span id="erreurAncienMotPasse"></span>
-                        </article>
+                            <!-- ANCIEN MOT DE PASSE  -->
+                            <article id="" class="divContenuCompte">
+                                <label class="labelAdresse" for="ancienMotPasse">Entrée votre ancien mot de passe</label>
+                                <input type="text" name="ancienMotPasse" id="ancienMotPasse" class="champsCompteModifier" value="" placeholder= "Entrée votre ancien mot de passe" required="required"/>
+                                <span id="erreurAncienMotPasse"></span>
+                            </article>
 
-                        <!-- NOUVEAU MOT DE PASSE  -->
-                        <article id="" class="divContenuCompte">
-                            <label class="labelAdresse" for="nouveauMotPasse">Entrée votre nouveau mot de passe</label>
-                            <input type="text" name="nouveauMotPasse" id="nouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required="required"/>
-                            <span id="erreurNouveauMotPasse"></span>
-                        </article>
+                            <!-- NOUVEAU MOT DE PASSE  -->
+                            <article id="" class="divContenuCompte">
+                                <label class="labelAdresse" for="nouveauMotPasse">Entrée votre nouveau mot de passe</label>
+                                <input type="text" name="nouveauMotPasse" id="nouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required="required"/>
+                                <span id="erreurNouveauMotPasse"></span>
+                            </article>
 
-                        <!-- CONFIRME NOUVEAU MOT DE PASSE  -->
-                        <article id="" class="divContenuCompte">
-                            <label class="labelAdresse" for="confirNouveauMotPasse">Confirmé votre nouveau mot de passe</label>
-                            <input type="text" name="confirNouveauMotPasse" id="confirNouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required="required"/>
-                            <span id="erreurConfirNouveauMotPasse"></span>
-                        </article>
+                            <!-- CONFIRME NOUVEAU MOT DE PASSE  -->
+                            <article id="" class="divContenuCompte">
+                                <label class="labelAdresse" for="confirNouveauMotPasse">Confirmé votre nouveau mot de passe</label>
+                                <input type="text" name="confirNouveauMotPasse" id="confirNouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required="required"/>
+                                <span id="erreurConfirNouveauMotPasse"></span>
+                            </article>
 
-                        <!-- BOUTON ENREGISTRE OU RETOUR  -->
-                        <div class="divcontenuBouton">
-                            <p class="bouton" >
-                                <input class="btnCompteEnregistrer" id="compteEnregistrer" type="submit" value="Enregistrer">
-                                <input class="btnCompteRetour" id="compteRetour" type="submit" value="Retour">
-                            </p>
-                            <p>
-                                * champ obligatoire
-                            </p>
-                        </div>
+                            <!-- BOUTON ENREGISTRE OU RETOUR  -->
+                            <div class="divcontenuBouton">
+                                <p class="bouton" >
+                                    <input class="monBoutton" id="compteEnregistrer" type="submit" value="Enregistrer">
+                                    <a class="monBoutton" href="./monCompte">Retour</a>
+                                </p>
+                                <p>
+                                    * champ obligatoire
+                                </p>
+                            </div>
+                        </form> 
                     </section>
 
                     <?php
@@ -247,13 +246,7 @@
 
                     <!-- BOUTON ENREGISTRE OU RETOUR  -->
                     <div class="divcontenuBouton">
-                        <p class="bouton" >
-
-                        <form action="#" method="POST" name="formbtnModifier">
-                            <input type="hidden" name="action2" value="modifier">
-                            <input type="hidden" name="idClient" value="" id="hiddenIdClientMonCompteModifier">
-                            <input class="btnCompteModifier" id="compteModifier" type="submit" value="Modifier">
-                        </form>
+                        <a href="./<?= $this->nomPage;?>?action2=modifier" class="monBoutton">Modifier</a>
                     </div>
                 </section>
 
@@ -274,11 +267,6 @@
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
         <script type="text/javascript" src="./../app/public/js/sliderCoupDeCoeur.js"></script>
-
-        <!--class active-->
-        <script type="text/javascript">
-            menuActive(1);
-        </script>
 
     </body>
 
