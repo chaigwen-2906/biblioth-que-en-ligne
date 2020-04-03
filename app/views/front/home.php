@@ -357,6 +357,18 @@
             menuActive(0);
         </script>
 
+        <?php echo "test ok"; ?>
+        <?php if(isset($testCreerCompte)){ ?>
+            <?php echo "test ok"; ?>
+            <?php if(!is_int($testCreerCompte)) { ?>
+            <!-- on ré-ouvre le modal dialog créer compte et on remplie les champs avec les précédentes données -->
+            <script>
+                $('#modalCreerCompte').show('slow');
+
+            </script>
+            <?php } ?>
+        <?php } ?>
+
     </body>
 
 </html>

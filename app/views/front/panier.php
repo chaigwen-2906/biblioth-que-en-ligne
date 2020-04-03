@@ -56,7 +56,7 @@
 
                 <!-- BOUTON VALIDER COMMANDE  -->
                 <div class="bouton">
-                    <a href="./detailLivre?id=" class="rechercheEnSavoirPlus">
+                    <a href="./detailLivre?id=" class="monBoutton">
                        Valider
                     </a>
                 </div>

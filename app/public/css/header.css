@@ -24,6 +24,49 @@ header
     top: 0px;
 }
 
+/* CSS DES BOUTONS*/
+.monBoutton 
+{
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
+	background-color:#88c5db;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	margin: 20px;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.monBoutton:hover
+ {
+	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
+	background-color:#408c99;
+}
+.monBoutton:active 
+{
+	position:relative;
+	top:5px;
+}
+
+.boutonFermerModal
+{
+    cursor:pointer;
+}
+
+.monBouttonBandeau
+{
+    background-color: #92c4f3;
+    border-radius: 7px;
+    color: white;
+    margin-right: 15px;
+    padding: 8px;
+    width: 20%;
+}
+
 
 /* -----------------  BANDEAU ----------------*/
 header .bandeau
@@ -87,28 +130,6 @@ header .menu_principal
     background-color: #282a36;
     text-align: right;
     height: 50px;
-}
-
-header .creerCompte
-{
-    background-color: #92c4f3;
-    border-radius: 7px;
-    color: white;
-    margin-right: 15px;
-    padding: 8px;
-    width: 20%;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-}
-header .identifier
-{
-    background-color: #92c4f3;
-    border-radius: 7px;
-    color: white;
-    padding: 8px;
-    width: 20%;
 }
 
 header .bloc_deconnexion
@@ -208,6 +229,18 @@ header .selectionLivres input
 
 
 /* Boite modal modalConnection, creez votre compte*/
+
+.ctnCheckBox
+{
+    display: flex;
+    align-items:center;
+}
+
+.ctnCheckBox label
+{
+    margin-left:10px;
+}
+
 .boiteModal
 {
     position: fixed;
@@ -270,6 +303,12 @@ header .selectionLivres input
     overflow: auto;
     max-height: 500px;
 }
+.conteneurModal .conteurForm span
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 .conteurForm .identifier
 {
     width: 80%;
@@ -277,36 +316,19 @@ header .selectionLivres input
     padding-top: 10px;
    
 }
-.conteurForm .labelAligne 
+.conteurForm .note
 {
-    display: inline-block;
-    width: 131px;
-    vertical-align: top; 
-    margin-bottom: 10px;
+    color:gray;
+    font-size: 0.8em;
 }
-.labelAligne
-{
-    width: 40%;
+
+.conteurForm .labelAligne 
+{ 
+    margin-bottom: 10px;
     min-width: 290px;
     float: left;
-    text-align: left;
 }
-.labelAligneRight
-{
-    width: 100%;
-    text-align: left;
-}
-.conteurForm .btnConnect 
-{
-    margin-top: 20px;
-    width: 150px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    margin-bottom: 15px;
-}
+
 .conteurForm .conteneurIdentifiant a
 {
     margin: 15px;
@@ -316,46 +338,12 @@ header .selectionLivres input
     padding: 20px;
 }
 
-.monBoutton 
-{
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #88c5db 5%, #408c99 100%);
-	background-color:#88c5db;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	margin: 20px;
-	font-size:16px;
-	font-weight:bold;
-	padding:12px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
-}
-.monBoutton:hover
- {
-	background:linear-gradient(to bottom, #408c99 5%, #88c5db 100%);
-	background-color:#408c99;
-}
-.monBoutton:active 
-{
-	position:relative;
-	top:5px;
-}
+
 .inputAligne
 {
     width: 40%;
-    height: 100%;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-}
-.inputAligneRight
-{
-    width: 40%;
-    height: 100%;
+    line-height: 2;
+    border-radius: 5px;
 }
 .civilite
 {

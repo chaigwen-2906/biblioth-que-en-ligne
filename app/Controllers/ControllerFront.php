@@ -7,6 +7,7 @@ class ControllerFront
     private $listFAQ;
     private $listCategorie;
     private $FrontManager;
+    public $nomPage;
 
     function gestionHeader()
     {
@@ -18,27 +19,51 @@ class ControllerFront
 
     function gestionModeConnecte()
     {
-        //On test si l'utilisateur à cliquer sur "Me connecter"
-        if(isset($_POST["email"]) && isset($_POST["motDePasse"]))
+        
+        if(isset($_GET['action2']))
         {
-            //L'utilisateur essaie de se connecter
-            //on test le couple @/mot de passe
-            $testConnexion = $this->FrontManager->seConnecter($_POST["email"], $_POST["motDePasse"]);
-
-            if($testConnexion != false)
+            //On test si l'utilisateur à cliquer sur "Me connecter"
+            if($_GET['action2'] == "connecter")
             {
-                //On stocke dans une variable de session javascript l'idClient
-                echo "<script type='text/javascript'>sessionStorage.setItem('idClient', '$testConnexion');</script>"; 
+                //L'utilisateur essaie de se connecter
+                //on test le couple @/mot de passe
+                //si ok, on récupère l'idClient dans la variable testConnexion
+                $testConnexion = $this->FrontManager->seConnecter($_POST["email"], $_POST["motDePasse"]);
+
+                if($testConnexion != false)
+                {
+                    //On stocke dans une variable de session PHP l'idClient
+                    $_SESSION['idClient'] = $testConnexion;
+                }
+                else{
+                    echo '<script>alert("L\'e-mail ou le mot de passe est incorrecte");</script>';
+                }
             }
-        }
 
-        //On test si l'utilisateur a cliqué sur "se déconnecter"
-        if(isset($_POST['action2']))
-        {
-            if($_POST['action2'] == "deconnecter")
+            //On test si l'utilisateur a cliqué sur "se déconnecter"
+            if($_GET['action2'] == "deconnecter")
             {
-                //On déconnecte l'utilisateur
-                echo "<script type='text/javascript'>sessionStorage.removeItem('idClient');</script>";
+                //On détruit la variable de session
+                unset($_SESSION['idClient']);
+            }
+
+            if($_GET['action2'] == "creerCompte")
+            {
+                //L'utilisateur essaie de creer son compte
+                //on test les champs 
+                //si ok, on récupère l'idClient dans la variable testCreerCompte
+                $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonne"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["mobile"],
+                $_POST["telephone"], $_POST["adresse"], $_POST["date"], $_POST["motDePasse"]);
+                
+                if(is_int($testCreerCompte))
+                {   
+                    //On stocke dans une variable de session PHP l'idClient
+                    $_SESSION['idClient'] = $testCreerCompte;
+                }
+                else
+                {
+                    echo "<script>alert('".addslashes($testCreerCompte)."');</script>";
+                }
             }
         }
     }
@@ -61,6 +86,9 @@ class ControllerFront
 
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
+
+        //on ré-ouvre le modal dialog créer compte et on remplie les champs avec les précédentes données
+        echo "<script>$('#modalCreerCompte').show('slow');</script>";
     }
 
     function coupDeCoeursFront()
@@ -118,23 +146,28 @@ class ControllerFront
         else{
             $resultPageRecherche = array();
         }
-        
-
-        
+    
         require 'app/views/front/pageRecherche.php';
     }
 
     function panierFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
-        $this->gestionHeader();
-        $this->gestionModeConnecte();
+        if(isset($_SESSION['idClient']))
+        {
+            $this->FrontManager = new \Projet\Models\ManagerFront();
+            $this->gestionHeader();
+            $this->gestionModeConnecte();
 
-         //on charge le ManagerFrontPanier
-         $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
-         $resultPanier = $FrontPanierManager->getResultPanier();
+            //on charge le ManagerFrontPanier
+            $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
+            $resultPanier = $FrontPanierManager->getResultPanier();
 
-        require 'app/views/front/panier.php';
+            require 'app/views/front/panier.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
     }
 
     function conditionsGeneralesFront()
@@ -175,50 +208,64 @@ class ControllerFront
 
     function detailLivreFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
-        $this->gestionHeader();
-        $this->gestionModeConnecte(); 
-
-        $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
-        $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
-
-        //On ajoute le commentaire si on est en situation de post du formulaire
-        if(isset($_POST["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
+        if(isset($_GET['id']))
         {
-            //on enregistre le commentaire posté par utilisateur
-            $FrontManagerDetailLivre->postCommentaire($_GET['id'],$_POST["idClient"],$_POST["note"],$_POST["description"]);
-        }
-        
-        //On récupère la liste des derniers commentaires
-        $listCommentaire = $FrontManagerDetailLivre->getCommentaire($_GET['id']);
+            $this->FrontManager = new \Projet\Models\ManagerFront();
+            $this->gestionHeader();
+            $this->gestionModeConnecte(); 
 
-        require 'app/views/front/detailLivre.php';
+            $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
+            $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
+
+            //On ajoute le commentaire si on est en situation de post du formulaire
+            if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
+            {
+                //on enregistre le commentaire posté par utilisateur
+                $FrontManagerDetailLivre->postCommentaire($_GET['id'],$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
+            }
+            
+            //On récupère la liste des derniers commentaires
+            $listCommentaire = $FrontManagerDetailLivre->getCommentaire($_GET['id']);
+
+            require 'app/views/front/detailLivre.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
     } 
 
     function detailAtelierFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
-        $this->gestionHeader();
-        $this->gestionModeConnecte(); 
+        if(isset($_GET['id']))
+        {
+            $this->FrontManager = new \Projet\Models\ManagerFront();
+            $this->gestionHeader();
+            $this->gestionModeConnecte(); 
 
-        // on récupère par id
-        $FrontManagerDetailAtelier = new \Projet\Models\ManagerFrontDetailAtelier();
-        $DetailAtelier = $FrontManagerDetailAtelier->getDetailAtelier($_GET['id']);
+            // on récupère par id
+            $FrontManagerDetailAtelier = new \Projet\Models\ManagerFrontDetailAtelier();
+            $DetailAtelier = $FrontManagerDetailAtelier->getDetailAtelier($_GET['id']);
 
-        require 'app/views/front/detailAtelier.php';
+            require 'app/views/front/detailAtelier.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
     }
 
     function monCompteFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
-        $this->gestionHeader();
-        $this->gestionModeConnecte(); 
-
-        if(isset($_POST['idClient']))
+        if(isset($_SESSION['idClient']))
         {
+            $this->FrontManager = new \Projet\Models\ManagerFront();
+            $this->gestionHeader();
+            $this->gestionModeConnecte(); 
+
             // on récupère le compte
             $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
-            $monCompte = $FrontManagerMonCompte->getMonCompte($_POST['idClient']);
+            $monCompte = $FrontManagerMonCompte->getMonCompte($_SESSION['idClient']);
 
             // if ($_POST['action2']=="modifier")
             // {

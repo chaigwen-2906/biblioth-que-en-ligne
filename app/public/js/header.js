@@ -3,41 +3,7 @@ $( function() {
     $( "#divListFAQ" ).accordion({
       heightStyle: "content"
     });
-
-    //On récupère la variable de session 'idClient'
-    let idClient = sessionStorage.getItem('idClient');
-    gestionModeConnecte(idClient);
 });
-
-//----------------------------------------- GESTION DU MODE CONNECTER-------------------------------------------------- 
-function gestionModeConnecte(idClient){
-    if(idClient == null)
-    {
-        //client non connecté
-        //On affiche les boutons de connexion
-        $(".bloc_connexion").show();
-        //On masque les boutons de gestion du compte
-        $(".bloc_deconnexion").hide();
-
-        //On masque les boutons RESERVER dans la page detailLlivre(les btn sont cacher tant que on est pas connecter)
-        $("#btnReserver").hide();
-        //On masque les boutons POSTE dans la page detailLlivre(les btn sont cacher tant que on est pas connecter)
-        $("#sectionCommentaire").hide();
-    }
-    else{
-        //client connecté
-        //On masque les boutons de connexion
-        $(".bloc_connexion").hide();
-        //On affciche les boutons de gestion du compte
-        $(".bloc_deconnexion").show();
-
-        // on modifie la valeur du champs cacher hiddenIdClient 
-        $("#hiddenIdClient").val(idClient);
-        $("#hiddenIdClientMonCompteModifier").val(idClient);
-    }
-}
-//----------------------------------------- GESTION DU MODE CONNECTER-------------------------------------------------- 
-
 
 //-------------------------------------------------- MENU BURGER------------------------------------------------------- 
 
@@ -72,6 +38,13 @@ boutonSidentifier.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
 
+    
+    //On enlève les erreurs
+    document.getElementById('errorMailIdentifier').textContent = "";
+    document.getElementById('errorMotDePasseIdentifier').textContent = "";
+    //On vide les champs
+    document.getElementById("emailIdentifier").value="";
+    document.getElementById("motDePasseIdentifier").value="";
     //On affiche le modalConnection
     $("#modalConnection").show("slow");
 });
@@ -92,6 +65,30 @@ boutonCreerCompte.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
 
+    //On enlève les erreurs
+    document.getElementById('errorCiviliteCreez').textContent = "";
+    document.getElementById('errorPrenomCreez').textContent = "";
+    document.getElementById('errorNomCreez').textContent = "";
+    document.getElementById('errorMailCreez').textContent = "";
+    document.getElementById('errorMobileCreez').textContent = "";
+    document.getElementById('errorTelephoneCreez').textContent = "";
+    document.getElementById('errorMotDePasseCreez').textContent = "";
+    document.getElementById('errorMotDePasseCreezConfirm').textContent = "";
+    document.getElementById('errorAdresseCreez').textContent = "";
+    document.getElementById('errorDateCreez').textContent = "";
+    //On vide les champs
+    document.getElementById("civiliteMRCreez").checked=false;
+    document.getElementById("civiliteMMECreez").checked=false;
+    document.getElementById("nomCreez").value="";
+    document.getElementById("prenomCreez").value="";
+    document.getElementById("emailCreez").value="";
+    document.getElementById("mobileCreez").value="";
+    document.getElementById("telephoneCreez").value="";
+    document.getElementById("motDePasseCreez").value="";
+    document.getElementById("motDePasseCreezConfirm").value="";
+    document.getElementById("adresseCreez").value="";
+    document.getElementById("dateCreez").value="";
+    document.getElementById("conditionsUtilisation").checked=false;
     //On affiche le modalConnection
     $("#modalCreerCompte").show("slow");
 });
@@ -219,44 +216,59 @@ let formValidCreez = document.getElementById("boutonEnvoyerCreez");
 
 formValidCreez.addEventListener("click",function(event){
    
-    validSomething(event, prenomCreez, prenomValidCreez, errorPrenomCreez, "prénom");
-    validSomething(event, nomCreez, nomValidCreez, errorNomCreez, "nom");
-    validSomething(event, emailCreez, mailValidCreez, errorMailCreez, "email");
-    validSomething(event, mobileCreez, MobileValidCreez, errorMobileCreez, "mobile");
-    validSomething(event, motDePasseCreez, PassValidCreez, errorMotDePasseCreez, "mot de passe");
-    validSomething(event, motDePasseConfirm, PassValidConfirm, errorMotDePasseConfirm, "mot de passe");
-    validSomething(event, adresse, adresseValidCreez ,errorAdresse, "adresse");
-    validSomething(event, dateCreez, DateValidCreez, errorDateCreez, "date");
+    validCivilite(event, civiliteMRCreez, civiliteMMECreez, errorCiviliteCreez, "Civilité");
+
+    
+    validSomething(event, nomCreez, nomprenomValidCreez, errorNomCreez, "Nom");
+    validSomething(event, prenomCreez, nomprenomValidCreez, errorPrenomCreez, "Prénom");
+    validSomething(event, emailCreez, mailValidCreez, errorMailCreez, "Email");
+    validSomething(event, mobileCreez, telephoneValidCreez, errorMobileCreez, "Mobile");
+    validSomething(event, telephoneCreez, telephoneValidCreez, errorTelephoneCreez, "Fixe");
+    validSomething(event, dateCreez, DateValidCreez, errorDateCreez, "Date");
+
+    validSomething(event, motDePasseCreez, PassValidCreez, errorMotDePasseCreez, "Mot de passe");
+    validSomething(event, motDePasseCreezConfirm, PassValidCreez, errorMotDePasseCreezConfirm, "Mot de passe");
+
+    validIdentique(event, motDePasseCreez, motDePasseCreezConfirm, errorMotDePasseCreezConfirm, "Mot de passe saisie");
+    
+    validationCheckbox(event,conditionsUtilisation,errorCheckbox, "Conditions utilisation")
    
 }) 
-// -----on test le prenom---------
-let prenomValidCreez = /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-
-// ---- On teste le nom ----------
-let nomValidCreez = /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/ ;
+// -----on test le nom et prenom---------
+let nomprenomValidCreez = /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 
 //-----------on test le mail-------
 let mailValidCreez = /^[a-z0-9._-]+@[a-z0-9._-]+com|[a-z0-9._-]+@[a-z0-9._-]+fr$/;
 
 // ---- On teste le Mobile --------
-let MobileValidCreez = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
+let telephoneValidCreez = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
 
 //-----on teste le password--------
 let PassValidCreez = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
 
-//-----on teste De PasseConfirm----
-let PassValidConfirm = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
-
 //-----on teste la date de naissance---------
 let DateValidCreez = (/^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$/);
 
-//-----on teste l'adresse--------
-let adresseValidCreez = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{30,})$/);
 
 
 
+//VALIDE LE CHAMPS CIVILITE
+function validCivilite(event, element1, element2, output, prefix){
+    //si le champs est vide alors il ecrira: prenom manquant en rouge
+    if(!element1.checked && !element2.checked){
+        event.preventDefault();
+        output.textContent = prefix + " manquante";
+        output.style.color = "red";
+    }
+    else{
+        output.textContent = "";
+    }
+}
+
+
+// VALIDE TOUT LES CHAMPS DE NOM A CONFIRMER MOT DE PASSE 
 function validSomething(event, element, nomValid, output, prefix){
-    //si le champs est vide alors il ecrira: prenom manquant en bleu
+    //si le champs est vide alors il ecrira: prenom manquant en rouge
     if(element.validity.valueMissing){
         event.preventDefault();
         output.textContent = prefix + " manquant";
@@ -274,17 +286,49 @@ function validSomething(event, element, nomValid, output, prefix){
     }
 }
 
+function validIdentique(event, element1, element2,output, prefix)
+{
+    if(!(element1.value == element2.value)){
+        event.preventDefault();
+        output.textContent = prefix + " différent";
+        output.style.color = "red";
+    }
+    else{
+        output.textContent = "";
+    }
+}
+
+
+// VALIDE LA CHECKBOX CONDITION UTILISATION 
+function validationCheckbox(event,element,output, prefix){
+    //si le champs est vide alors il ecrira: manquant en rouge
+    if(!element.checked){
+        event.preventDefault();
+        output.textContent = prefix + " manquant";
+        output.style.color = "red";
+    }
+    else{
+        output.textContent = "";
+    }
+    
+}
+
+
+
+
+
+
 
 //API AJAX RECUPERATION DE L'ADRESSE DANS LE FORMULAIRE CREEZ VOTRE COMPTE 
 
 /*saisie de l'adresse avec 5 dans l'historique */
 function search(){
-    let adresse = document.getElementById("adresse").value
+    let adresse = document.getElementById("adresseCreez").value
 
     if(adresse != "")
     {
         //On génère l'autocomplétion sur le champ adresse
-        $("#adresse").autocomplete({
+        $("#adresseCreez").autocomplete({
             //on adapte la source d'autocompletion
             source: function (request, response) {
                 //On effectue la requete AJAX vers l'API adresse
@@ -332,25 +376,6 @@ testIdentifier.addEventListener("click",function(event){
  //-----on teste le password--------
 let PassValidIdentifier = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
 
-function validSomething(event, element, nomValid, output, prefix){
-    //si le champs est vide alors il ecrira: prenom manquant en bleu
-    if(element.validity.valueMissing){
-        event.preventDefault();
-        output.textContent = prefix + " manquant";
-        output.style.color = "red";
-    }
-    // si le format de données est incorrect
-    else if (nomValid.test(element.value)=== false){
-        //stop l'envoie du formulaire 
-        event.preventDefault();
-        output.textContent = "format incorrect";
-        output.style.color = "red";
-    }
-    else{
-        output.textContent = "";
-    }
-
-}
 
 
 /*----------DANS S'IDENTIFIER-----------------------TRAITEMENT BOUTON CREEZ VOTRE COMPTE------------------*/
