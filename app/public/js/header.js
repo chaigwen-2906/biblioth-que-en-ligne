@@ -38,10 +38,10 @@ boutonSidentifier.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
 
-    
     //On enlève les erreurs
     document.getElementById('errorMailIdentifier').textContent = "";
     document.getElementById('errorMotDePasseIdentifier').textContent = "";
+    document.getElementById('erreurPostFormulaireConnexion').textContent = "";
     //On vide les champs
     document.getElementById("emailIdentifier").value="";
     document.getElementById("motDePasseIdentifier").value="";
@@ -76,9 +76,11 @@ boutonCreerCompte.addEventListener("click",function(e) {
     document.getElementById('errorMotDePasseCreezConfirm').textContent = "";
     document.getElementById('errorAdresseCreez').textContent = "";
     document.getElementById('errorDateCreez').textContent = "";
+    document.getElementById('erreurPostFormulaireCreer').textContent = "";
     //On vide les champs
     document.getElementById("civiliteMRCreez").checked=false;
     document.getElementById("civiliteMMECreez").checked=false;
+    document.getElementById("numeroAbonneCreez").value="";
     document.getElementById("nomCreez").value="";
     document.getElementById("prenomCreez").value="";
     document.getElementById("emailCreez").value="";
@@ -207,6 +209,7 @@ function AfficheBtnHaut(btnHaut) {
 //EFFET SUR LE BLOC DATE 
 $(function() {
     $( "#dateCreez" ).datepicker();
+    $( "#dateCreez" ).datepicker( "option", "dateFormat", "dd/mm/yy" );
     $( "#dateCreez" ).datepicker( "option", "showAnim", "clip" );
     $( "#dateCreez" ).datepicker( "option", "duration", "slow" );
 });
@@ -223,9 +226,10 @@ formValidCreez.addEventListener("click",function(event){
     validSomething(event, prenomCreez, nomprenomValidCreez, errorPrenomCreez, "Prénom");
     validSomething(event, emailCreez, mailValidCreez, errorMailCreez, "Email");
     validSomething(event, mobileCreez, telephoneValidCreez, errorMobileCreez, "Mobile");
-    validSomething(event, telephoneCreez, telephoneValidCreez, errorTelephoneCreez, "Fixe");
+    // le champs telephone accepte d'être vide 
+    validSomethingVideAutorise(event, telephoneCreez, telephoneValidCreez, errorTelephoneCreez, "Fixe");
+    validSomethingNonVide(event, adresseCreez, errorAdresseCreez, "Adresse")
     validSomething(event, dateCreez, DateValidCreez, errorDateCreez, "Date");
-
     validSomething(event, motDePasseCreez, PassValidCreez, errorMotDePasseCreez, "Mot de passe");
     validSomething(event, motDePasseCreezConfirm, PassValidCreez, errorMotDePasseCreezConfirm, "Mot de passe");
 
@@ -266,12 +270,43 @@ function validCivilite(event, element1, element2, output, prefix){
 }
 
 
+//on verifier le format mais la valeur a le droit d'être vide
+function validSomethingVideAutorise(event, element, nomValid, output, prefix){
+    //si le champs est vide alors il ecrira: prenom manquant en rouge
+    if(element.value != ""){
+        //le champ n'est pas vide
+        if (nomValid.test(element.value)=== false){
+            //stop l'envoie du formulaire 
+            event.preventDefault();
+            output.textContent = "format incorrect";
+            output.style.color = "red";
+        }
+        else{
+            output.textContent = "";
+        }
+    }
+    else{
+        //le champ est vide
+        output.textContent = "";
+    }
+}
+
+function validSomethingNonVide(event, element, output, prefix){
+    //si le champs est vide alors il ecrira: prenom manquant en rouge
+    if(element.validity.valueMissing){
+        event.preventDefault();
+        output.textContent = prefix + " manquant(e)";
+        output.style.color = "red";
+    }
+}
+
+
 // VALIDE TOUT LES CHAMPS DE NOM A CONFIRMER MOT DE PASSE 
 function validSomething(event, element, nomValid, output, prefix){
     //si le champs est vide alors il ecrira: prenom manquant en rouge
     if(element.validity.valueMissing){
         event.preventDefault();
-        output.textContent = prefix + " manquant";
+        output.textContent = prefix + " manquant(e)";
         output.style.color = "red";
     }
     // si le format de données est incorrect
@@ -304,7 +339,7 @@ function validationCheckbox(event,element,output, prefix){
     //si le champs est vide alors il ecrira: manquant en rouge
     if(!element.checked){
         event.preventDefault();
-        output.textContent = prefix + " manquant";
+        output.textContent = prefix + " manquant(e)";
         output.style.color = "red";
     }
     else{

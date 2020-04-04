@@ -123,17 +123,22 @@
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connecter">
+            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connecter">
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
-                    <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" required><br />
-                    <span id="errorMailIdentifier"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" required><br />
+                        <span id="errorMailIdentifier"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse"> Mot de passe </label>
-                    <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
-                    <span id="errorMotDePasseIdentifier"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
+                        <span id="errorMotDePasseIdentifier"></span>
+                    </div>
                 </div>
+                <div id="erreurPostFormulaireConnexion" class="error"></div>
                 <div class="conteneurIdentifiant" >
                 <a href="./passOublier" class="monBoutton">
                     Mot de passe oublié ? 
@@ -160,95 +165,118 @@
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteurForm" method="POST" action="./<?= $this->nomPage;?>?action2=creerCompte">
+            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=creerCompte">
                 <div class="civilite">
-                    <label for="monsieur" class="petit">M</label>
-                    <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreez">
-                    <label for="madame" class="petit">Mme</label>
-                    <input type="radio" name="civilite" value="madame" id="civiliteMMECreez">
+                    <div>
+                        <label for="monsieur" class="petit">M</label>
+                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreez">
+                        <label for="madame" class="petit">Mme</label>
+                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreez">
+                </div>
                     <span id="errorCiviliteCreez"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="numeroAbonne">Numéro d'abonnée</label>
-                    <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreez"
+                    <div class="blocinput">
+                        <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreez"
                         placeholder="Entrer votre Numero abonne">
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="nom">Nom</label>
-                    <input class="inputAligne" type="text" name="nom" id="nomCreez"
-                        placeholder="Entrer votre nom" required>
-                    <span id="errorNomCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="text" name="nom" id="nomCreez"
+                            placeholder="Entrer votre nom" required>
+                        <span id="errorNomCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="prenom">Votre prénom</label>
-                    <input class="inputAligne" type="text" name="prenom" id="prenomCreez"
-                        placeholder="Entrer votre prénom" required>
-                    <span id="errorPrenomCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="text" name="prenom" id="prenomCreez"
+                            placeholder="Entrer votre prénom" required>
+                        <span id="errorPrenomCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="email">Votre email</label>
-                    <input class="inputAligne" type="email" name="email" id="emailCreez"
-                        placeholder="Entrer votre email" required>
-                    <span id="errorMailCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="email" name="email" id="emailCreez"
+                            placeholder="Entrer votre email" required>
+                        <span id="errorMailCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier note">
                     Le mail doit comporter un @ et terminé par .fr ou .com
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Mobile</label>
-                    <input class="inputAligne" type="tel" name="mobile" id="mobileCreez"
-                        placeholder="Entrer votre numéro" required>
-                    <span id="errorMobileCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="tel" name="mobile" id="mobileCreez"
+                            placeholder="Entrer votre numéro" required>
+                        <span id="errorMobileCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Fixe</label>
-                    <input class="inputAligne" type="tel" name="telephone" id="telephoneCreez"
-                        placeholder="Entrer votre numéro" required>
-                    <span id="errorTelephoneCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="tel" name="telephone" id="telephoneCreez"
+                            placeholder="Entrer votre numéro">
+                        <span id="errorTelephoneCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne "for="adresse"> Votre adresse</label>
-                    <input class="inputAligne" type="text" name="adresse" id="adresseCreez"  
-                    placeholder="Entrer votre adresse" onkeyup="search()" required>
-                    <span id="errorAdresseCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="text" name="adresse" id="adresseCreez"  
+                        placeholder="Entrer votre adresse" onkeyup="search()" required>
+                        <span id="errorAdresseCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="date">Votre date de naissance</label>
-                    <input class="inputAligne" type="text" name="date" id="dateCreez" 
-                    placeholder="Ex: 31/06/2019" required>
-                    <span id="errorDateCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="text" name="date" id="dateCreez" 
+                        placeholder="Ex: 31/06/2019" required>
+                        <span id="errorDateCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse">Votre mot de passe</label>
-                    <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreez"
-                        placeholder="Mot de passe" required>
-                    <span id="errorMotDePasseCreez"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreez"
+                            placeholder="Mot de passe" required>
+                        <span id="errorMotDePasseCreez"></span>
+                    </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasseConfirm">Confirmer votre mot de passe</label>
-                    <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreezConfirm"
-                        placeholder=" Confirmation du mot de passe" required>
-                    <span id="errorMotDePasseCreezConfirm"></span>
+                    <div class="blocinput">
+                        <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreezConfirm"
+                            placeholder=" Confirmation du mot de passe" required>
+                        <span id="errorMotDePasseCreezConfirm"></span>
+                    </div>
                 </div>
                 <div class="identifier note">
                     Le mot de passe doit comporter au moins 8 caractère(s), au moins 1 chiffre(s), au moins 1 minuscule(s), au moins 1 majuscule(s), au moins 1 caractère(s) non-alphanumérique(s) tels que *, - ou #
                 </div>
                 <div class="identifier note">
-                    Tous les champs du formulaire sont obligatoires.<br>
-                    Sauf le numéro d'abonnée.
+                    Tous les champs du formulaire sont obligatoires sauf le numéro d'abonnée.
+                    
                 </div>
-                <div class="identifier ctnCheckBox">
-                    <input class=""  type="checkbox" name="conditionsUtilisation" id="conditionsUtilisation" required> 
-                    <label for="conditionsUtilisation">
+                <div class="identifier conteneurCondUtil">
+                    <div class="ctnCheckBox">
+                        <input class=""  type="checkbox" name="conditionsUtilisation" id="conditionsUtilisation" required> 
+                        <label for="conditionsUtilisation">
                             J'accepte les conditions d'utilisation et la politique de confidentialité
-                    </label>
-                   <span id="errorCheckbox"></span> 
+                        </label>
+                    </div>
+                    <span id="errorCheckbox"></span> 
                 </div>
+                <div id="erreurPostFormulaireCreer" class="error"></div>
                 <div class="conteneurIdentifiant">
                         <!--bouton pour envoyer le formulaire ou annuler-->
                         <input type="submit" id="boutonEnvoyerCreez" value="envoyer" class="monBoutton">
-                            
-                        </a>
                         <a href="./home" class="monBoutton" type="reset" >
                             Annuler
                         </a>
@@ -270,7 +298,7 @@
             </h1>
         </div>
         <div class="contenuModal">
-            <div id="divListFAQ" class="conteurForm">
+            <div id="divListFAQ" class="conteneurFaq">
             <?php
                 foreach($this->listFAQ AS $uneQuestion)
                 {

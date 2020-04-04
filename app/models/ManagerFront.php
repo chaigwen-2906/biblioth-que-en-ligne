@@ -72,7 +72,7 @@ class ManagerFront extends Manager
         }
     }
 
-    public function creerCompte($numeroAbonne,$nom, $prenom, $email, $mobile, $telephone, $adresse, $dateDeNaissance, $motDePasse)
+    public function creerCompte($numeroAbonne, $civilite, $nom, $prenom, $email, $mobile, $telephone, $adresse, $dateDeNaissance, $motDePasse)
     {
         $bdd = $this->dbConnect();
 
@@ -108,9 +108,13 @@ class ManagerFront extends Manager
 
         // On réalise la requete sur la base de données
         // On prépare la requete
-        $sql = "INSERT INTO client(numeroAbonne,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
-        VALUES ('$numeroAbonne', '$nom', '$prenom', '$email', '$mobile', '$telephone', '$adresse', '$dateDeNaissanceSQL', '$motDePasse')";
+        $sql = "INSERT INTO client(numeroAbonne,civilite,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
+        VALUES ('$numeroAbonne','$civilite', '$nom', '$prenom', '$email', '$mobile', '$telephone', '$adresse', '$dateDeNaissanceSQL', '$motDePasse')";
         
+        // echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+        // echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+        // echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+        // echo $sql;
         $requete = $bdd->prepare($sql);
 
         $testRequete = $requete->execute();
