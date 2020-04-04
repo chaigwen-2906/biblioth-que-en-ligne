@@ -8,8 +8,12 @@ class ControllerFront
     private $listCategorie;
     private $FrontManager;
     public $nomPage;
+    private $erreurCreationCompte = false;
+    private $libelleErreurCreationCompte;
+    private $erreurConnexionCompte = false;
+    private $libelleErreurConnexionCompte;
 
-    function gestionHeader()
+    private function gestionHeader()
     {
         //On récupère la liste des FAQs
         $this->listFAQ = $this->FrontManager->getListFAQ();
@@ -17,7 +21,7 @@ class ControllerFront
         $this->listCategorie = $this->FrontManager->getListCategorie();
     }
 
-    function gestionModeConnecte()
+    private function gestionModeConnecte()
     {
         
         if(isset($_GET['action2']))
@@ -36,7 +40,8 @@ class ControllerFront
                     $_SESSION['idClient'] = $testConnexion;
                 }
                 else{
-                    echo '<script>alert("L\'e-mail ou le mot de passe est incorrecte");</script>';
+                    $this->erreurConnexionCompte = true;
+                    $this->libelleErreurConnexionCompte = "L'e-mail ou le mot de passe est incorrecte";
                 }
             }
 
@@ -52,7 +57,7 @@ class ControllerFront
                 //L'utilisateur essaie de creer son compte
                 //on test les champs 
                 //si ok, on récupère l'idClient dans la variable testCreerCompte
-                $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonne"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["mobile"],
+                $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonne"],$_POST["civilite"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["mobile"],
                 $_POST["telephone"], $_POST["adresse"], $_POST["date"], $_POST["motDePasse"]);
                 
                 if(is_int($testCreerCompte))
@@ -62,9 +67,59 @@ class ControllerFront
                 }
                 else
                 {
-                    echo "<script>alert('".addslashes($testCreerCompte)."');</script>";
+                    $this->erreurCreationCompte = true;
+                    $this->libelleErreurCreationCompte = $testCreerCompte;
                 }
             }
+        }
+    }
+
+    private function gestionErreurCreerCompte()
+    {
+        if($this->erreurCreationCompte == true)
+        {
+            //on ré-ouvre le modal dialog créer compte et on remplie les champs avec les précédentes données
+            echo "<script>";
+                if($_POST['civilite'] == "monsieur")
+                {
+                    echo "$('#civiliteMRCreez').attr('checked', true);";
+                }
+                else{
+                    echo "$('#civiliteMMECreez').attr('checked', true);";
+                }
+                echo "$('#numeroAbonneCreez').val('".$_POST['numeroAbonne']."');";
+                echo "$('#nomCreez').val('".$_POST['nom']."');";
+                echo "$('#prenomCreez').val('".$_POST['prenom']."');";
+                echo "$('#emailCreez').val('".$_POST['email']."');";
+                echo "$('#mobileCreez').val('".$_POST['mobile']."');";
+                echo "$('#telephoneCreez').val('".$_POST['telephone']."');";
+                echo "$('#adresseCreez').val('".$_POST['adresse']."');";
+                //echo "$('#dateCreez').val('".$_POST['date']."');";
+                //echo "$( '#dateCreez' ).datepicker( 'setDate', '".$_POST['date']."' );";
+                
+                //On affiche l'erreur
+                echo "$('#erreurPostFormulaireCreer').html('".addslashes($this->libelleErreurCreationCompte)."');";
+            echo "</script>";
+            
+
+            //on ouvre la boite modal creer votre compte 
+            echo "<script>$('#modalCreerCompte').show('slow');</script>";
+        }
+    }
+
+    private function gestionErreurConnexionCompte()
+    {
+        if($this->erreurConnexionCompte == true)
+        {
+            //on ré-ouvre le modal dialog connexion
+            echo "<script>";
+                //On affiche l'erreur
+                echo "$('#erreurPostFormulaireConnexion').html('".addslashes($this->libelleErreurConnexionCompte)."');";
+            echo "</script>";
+            
+
+            //on ouvre la boite modal creer votre compte 
+            echo "<script>$('#modalConnection').show('slow');</script>";
         }
     }
 
@@ -87,8 +142,10 @@ class ControllerFront
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
 
-        //on ré-ouvre le modal dialog créer compte et on remplie les champs avec les précédentes données
-        echo "<script>$('#modalCreerCompte').show('slow');</script>";
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function coupDeCoeursFront()
@@ -102,6 +159,11 @@ class ControllerFront
         $listCdCoeur = $FrontCoupDeCoeurManager-> getListCoupDeCoeur();
 
         require 'app/views/front/coupDeCoeurs.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function nouveauteFront()
@@ -115,6 +177,11 @@ class ControllerFront
         $listNouveautes = $FrontNouveauteManager-> getListNouveautes();
        
         require 'app/views/front/nouveaute.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function atelierFront()
@@ -128,6 +195,11 @@ class ControllerFront
         $listAtelier = $FrontAtelierManager->getListAtelier();
 
         require 'app/views/front/atelier.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function pageRechercheFront()
@@ -148,6 +220,11 @@ class ControllerFront
         }
     
         require 'app/views/front/pageRecherche.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function panierFront()
@@ -177,6 +254,11 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/conditionsGenerales.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function mentionsLegalesFront()
@@ -186,6 +268,11 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/mentionsLegales.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
     
     function rgpdFront()
@@ -195,6 +282,11 @@ class ControllerFront
         $this->gestionModeConnecte(); 
 
         require 'app/views/front/rgpd.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function planDuSiteFront()
@@ -204,6 +296,11 @@ class ControllerFront
         $this->gestionModeConnecte();
         
         require 'app/views/front/planDuSite.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
     function detailLivreFront()
@@ -228,6 +325,11 @@ class ControllerFront
             $listCommentaire = $FrontManagerDetailLivre->getCommentaire($_GET['id']);
 
             require 'app/views/front/detailLivre.php';
+
+            //On gère le cas d'erreur sur une création de compte
+            $this->gestionErreurCreerCompte();
+            //On gère le cas d'erreur sur la connexion au compte
+            $this->gestionErreurConnexionCompte();
         }
         else{
             header('Location: ./home');
@@ -248,6 +350,11 @@ class ControllerFront
             $DetailAtelier = $FrontManagerDetailAtelier->getDetailAtelier($_GET['id']);
 
             require 'app/views/front/detailAtelier.php';
+
+            //On gère le cas d'erreur sur une création de compte
+            $this->gestionErreurCreerCompte();
+            //On gère le cas d'erreur sur la connexion au compte
+            $this->gestionErreurConnexionCompte();
         }
         else{
             header('Location: ./home');
@@ -289,6 +396,11 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/pageErreur.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
         
     }
 
@@ -299,6 +411,11 @@ class ControllerFront
         $this->gestionModeConnecte();
         
         require 'app/views/front/passOublier.php';
+
+        //On gère le cas d'erreur sur une création de compte
+        $this->gestionErreurCreerCompte();
+        //On gère le cas d'erreur sur la connexion au compte
+        $this->gestionErreurConnexionCompte();
     }
 
      

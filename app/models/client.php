@@ -9,6 +9,7 @@ class Client extends Manager{
     private $connectBdd;
     private $idClient;
     private $numeroAbonne;
+    private $civilite;
     private $nom;
     private $prenom;
     private $email;
@@ -40,6 +41,13 @@ class Client extends Manager{
       $this->$numeroAbonne = $valeur;
     }
 
+    //civilite
+    public function getCivilite(){
+      return $this->civilite;
+    }
+    public function setCivilite($valeur){
+      $this->$civilite = $valeur;
+    }
 
     //nom
     public function getNom(){
@@ -110,7 +118,7 @@ class Client extends Manager{
 
     ////////////DECLARATION DU CONSTRUCTEURS////////////
 
-    public function __construct($idClient, $numeroAbonne, $nom, $prenom, $email, $telephoneMobile, $telephoneFixe, $adresse, $dateDeNaissance, $motDePasse){
+    public function __construct($idClient, $numeroAbonne,$civilite, $nom, $prenom, $email, $telephoneMobile, $telephoneFixe, $adresse, $dateDeNaissance, $motDePasse){
 
       //On stocke la connexion à la base de données
       $this->connectBdd = $this->dbConnect();
@@ -121,6 +129,9 @@ class Client extends Manager{
 
       //numero abonne :on modifie l'attribut $nom de l'objet
       $this->setNumeroAbonne($numeroAbonne);
+
+      //civilite
+      $this->setCivilite($civilite);
 
       //nom
       $this->setNom($nom);
@@ -155,13 +166,13 @@ class Client extends Manager{
       // Create : crée une ligne dans la table Client
       public function Create(){
         //Préparation de la requête
-        $sql = "INSERT INTO client(numeroAbonne,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
-        VALUES (?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO client(numeroAbonne,civilite,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
+        VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNumeroAbonne(), $this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getMotDePasse()]);
+        $requete->execute([$this->getNumeroAbonne(),$this->getCivilite(), $this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getMotDePasse()]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idClient de notre objet      
@@ -187,6 +198,7 @@ class Client extends Manager{
         {
             //On modifie l'attibut numeroAbone,nom,prenom etc... de notre objet
             $this->setNumeroAbonne($resultat['numeroAbonne']);
+            $this->setCivilite($resultat['civilite']);
             $this->setNom($resultat['nom']);
             $this->setPrenom($resultat['prenom']);
             $this->setEmail($resultat['email']);
@@ -207,12 +219,12 @@ class Client extends Manager{
       // Update : Modifie les données d'une ligne dans la table Client
       public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE client SET numeroAbonne = ?, nom = ?, prenom = ?, email = ?, telephoneMobile = ?, telephoneFixe = ?, adresse = ?, dateDeNaissance = ?, motDePasse =? = ? WHERE idClient = ? ";
+        $sql = "UPDATE client SET numeroAbonne = ?, civilite = ?, nom = ?, prenom = ?, email = ?, telephoneMobile = ?, telephoneFixe = ?, adresse = ?, dateDeNaissance = ?, motDePasse =? = ? WHERE idClient = ? ";
 
         $requete = $this->connectBdd->prepare($sql);
 
         ///Execution de la requete
-        $requete->execute([$this->getNumeroAbonne(),$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getDateDeNaissance(), 
+        $requete->execute([$this->getNumeroAbonne(),$this->getCivilite(),$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getDateDeNaissance(), 
         $this->getMotDePasses(),$this->getIdClient()]);
 
         //Fermeture de la requete

@@ -230,10 +230,15 @@ header .selectionLivres input
 
 /* Boite modal modalConnection, creez votre compte*/
 
+.conteneurCondUtil
+{
+    flex-direction: column;
+}
 .ctnCheckBox
 {
     display: flex;
     align-items:center;
+    width:100%;
 }
 
 .ctnCheckBox label
@@ -291,7 +296,7 @@ header .selectionLivres input
    
 }
 
-.boiteModal .conteurForm
+.boiteModal .conteneurForm
 {
     display: flex;
     flex-direction: column;
@@ -303,56 +308,86 @@ header .selectionLivres input
     overflow: auto;
     max-height: 500px;
 }
-.conteneurModal .conteurForm span
-{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-.conteurForm .identifier
+
+.conteneurForm .identifier
 {
     width: 80%;
+    display:flex;
     margin:5px;
     padding-top: 10px;
-   
-}
-.conteurForm .note
-{
-    color:gray;
-    font-size: 0.8em;
+    justify-content: center;
 }
 
-.conteurForm .labelAligne 
+.conteneurForm .labelAligne 
 { 
     margin-bottom: 10px;
-    min-width: 290px;
-    float: left;
+    width:40%;
 }
 
-.conteurForm .conteneurIdentifiant a
+.identifier .blocinput
 {
-    margin: 15px;
-}
-.conteneurIdentifiant
-{
-    padding: 20px;
+    width:60%;
+    display:flex;
+    flex-direction:column;
 }
 
-
-.inputAligne
+.conteneurForm .inputAligne
 {
-    width: 40%;
+    width: 70%;
     line-height: 2;
     border-radius: 5px;
 }
-.civilite
+
+.conteneurForm span{
+    width: 70%;
+    text-align: left;
+}
+
+.conteneurForm .civilite
 {
     width:100%;
     margin: 10px;
     text-align: center;
 }
+
+.conteneurForm .note
+{
+    color:gray;
+    font-size: 0.8em;
+}
+
+.conteneurForm .error{
+    font-weight: bold;
+    color: red;
+}
+
+.conteneurForm .conteneurIdentifiant
+{
+    padding: 20px;
+}
+
+.conteneurForm .conteneurIdentifiant a
+{
+    margin: 15px;
+}
+
+
+
+
 /* BOITE MODAL FAQ  */
-.contenuModal .conteurForm h3
+.boiteModal .conteneurFaq
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 20px 0 20px 0;
+    overflow: auto;
+    max-height: 500px;
+}
+.contenuModal .conteneurFaq h3
 {
     width: 80%;
     background-color: darkcyan;
@@ -360,7 +395,7 @@ header .selectionLivres input
     border-radius: 5px;
    
 }
-.contenuModal .conteurForm .faqReponse
+.contenuModal .conteneurFaq .faqReponse
 {
     width: 74%;
     margin: 4px 0 0 0;
@@ -368,7 +403,7 @@ header .selectionLivres input
     border-radius: 5px;
   
 }
-/* FIN CONTENEUR RECHERCHE*/
+/* FIN MODAL FAQ*/
 
 /*CLASS ACTIVE*/
 .active
@@ -421,6 +456,22 @@ header .selectionLivres input
     header .menu
     {
         display: none;
+    }
+
+
+    .conteneurForm .identifier
+    {
+        flex-direction: column;
+    
+    }
+    .conteneurForm .labelAligne 
+    { 
+        width:100%;
+    }
+
+    .identifier .blocinput
+    {
+        width:100%;
     }
 }
 
