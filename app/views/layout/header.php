@@ -18,38 +18,30 @@
     </div>
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
-        <!-- Si il n'existe pas de variable de session idClient (l'utilisateur n'est pas connecté
-        alors on affiche le bloc de connexion -->
-        <?php if(!isset($_SESSION['idClient'])){ ?>
-            <div class="bloc_connexion">
-                <a id="boutonCreerCompte" class="monBouttonBandeau" href="">
-                    Créez-votre compte
-                </a>
-                <a id="boutonSidentifier" class="monBouttonBandeau" href="">
-                    S'identifier
-                </a>
-            </div>
-        <?php } ?>
-        
-        <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
-        <!-- alors on affiche le bloc deconnexion    -->
-        <?php if(isset($_SESSION['idClient'])){ ?>
-            <!-- Bloc déconnexion - s'affiche en mode connecté -->
-            <figure class="bloc_deconnexion">
-                <a href="./monCompte">
-                    <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
-                </a>
 
-                <a href="./panier">
-                    <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
-                </a>
+        <div class="bloc_connexion">
+            <a id="boutonCreerCompte" class="monBouttonBandeau" href="">
+                Créez-votre compte
+            </a>
+            <a id="boutonSidentifier" class="monBouttonBandeau" href="">
+                S'identifier
+            </a>
+        </div>
 
-                <a href="./<?= $this->nomPage;?>?action2=deconnecter">
-                    <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
-                </a>
-            </figure>
-        <?php } ?>
-        
+        <!-- Bloc déconnexion - s'affiche en mode connecté -->
+        <figure class="bloc_deconnexion">
+            <a href="./monCompte">
+                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
+            </a>
+
+            <a href="./panier">
+                <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
+            </a>
+
+            <a href="./<?= $this->nomPage;?>?action2=deconnecter">
+                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
+            </a>
+        </figure>
 
         <div class="btnloupe">
             <img src="./../app/public/image/bouton/loupe.png">
@@ -261,7 +253,7 @@
                     Le mot de passe doit comporter au moins 8 caractère(s), au moins 1 chiffre(s), au moins 1 minuscule(s), au moins 1 majuscule(s), au moins 1 caractère(s) non-alphanumérique(s) tels que *, - ou #
                 </div>
                 <div class="identifier note">
-                    Tous les champs du formulaire sont obligatoires sauf le numéro d'abonnée.
+                    Tous les champs du formulaire sont obligatoires sauf le numéro d'abonnée et le téléphone fixe.
                     
                 </div>
                 <div class="identifier conteneurCondUtil">

@@ -52,6 +52,13 @@
     border-radius: .25rem;
     margin: 10px;
 }
+.monCompte .boutonModifier
+{
+    display: flex;
+    width: 5%;
+    margin-top: 25px;
+    margin: 0 auto;
+}
 /*FIN DIV CONTENU COMPTE  */
 
 
@@ -102,10 +109,11 @@
     border-radius: .25rem;
     margin: 10px;
 }
-.monCompte .divcontenuBouton .bouton
+.monCompte .boutonEnregistrer
 {
-    text-align: center;   
+    text-align: center;
 }
+
 /*FIN DIV CONTENU COMPTE  */
 
  /* CONTENEUR MODIFIER LE MOT DE PASSE   */
