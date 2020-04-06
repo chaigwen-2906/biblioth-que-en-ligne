@@ -1,9 +1,31 @@
+//$fonction s'execute au chargement de la page
 $( function() {
     
     $( "#divListFAQ" ).accordion({
       heightStyle: "content"
     });
 });
+
+
+// déclaration de toute les regex 
+
+// -----on test le nom et prenom---------
+let nomprenomValid= /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+//-----------on test le mail-------
+let mailValid = /^[a-z0-9._-]+@[a-z0-9._-]+com|[a-z0-9._-]+@[a-z0-9._-]+fr$/;
+
+// ---- On teste le Mobile --------
+let telephoneValid = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
+
+//-----on teste le password--------
+let PassValid = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
+
+//-----on teste la date de naissance---------
+let DateValid = (/^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$/);
+
+
+
 
 //-------------------------------------------------- MENU BURGER------------------------------------------------------- 
 
@@ -17,6 +39,8 @@ $("#btnBurger").click(function(){
     }
 });
 //--------------------------------------------------FIN MENU BURGER------------------------------------------------------- 
+
+
 
 //-------------------------------------------------BANDEAU RECHERCHER ----------------------------------------------------
 $(".selectionLivres").hide();
@@ -204,7 +228,31 @@ function AfficheBtnHaut(btnHaut) {
 
 
 
-/*--------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE---------------*/
+// -------------------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER----------------------------*/
+
+let testIdentifier= document.getElementById("boutonEnvoyerIdentifier");
+
+testIdentifier.addEventListener("click",function(event){
+
+    validSomething(event, emailIdentifier, mailValid, errorMailIdentifier, "email");
+    validSomething(event, motDePasseIdentifier, PassValid, errorMotDePasseIdentifier, "mot de passe");
+})
+
+
+//DANS S'IDENTIFIER-66TRAITEMENT BOUTON CREEZ VOTRE COMPTE
+let btnBesoinCompte = document.getElementById("btnBesoinCompte");
+
+btnBesoinCompte.addEventListener("click", function(){
+    //On masque le modal dialog s'identifier
+    $("#modalConnection").hide("slow");
+    //On affiche le modal dialog creer son compte
+    $("#modalCreerCompte").show("slow");
+});
+/* ------------------------------FIN CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER--------------------------*/
+
+
+
+/*--------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE CREEZ VOTRE COMPTE----------------------------------*/
 
 //EFFET SUR LE BLOC DATE 
 $(function() {
@@ -218,57 +266,40 @@ $(function() {
 let formValidCreez = document.getElementById("boutonEnvoyerCreez");
 
 formValidCreez.addEventListener("click",function(event){
-   
+    //il doit absoloument cocher un bouton  
     validCivilite(event, civiliteMRCreez, civiliteMMECreez, errorCiviliteCreez, "Civilité");
 
-    
-    validSomething(event, nomCreez, nomprenomValidCreez, errorNomCreez, "Nom");
-    validSomething(event, prenomCreez, nomprenomValidCreez, errorPrenomCreez, "Prénom");
-    validSomething(event, emailCreez, mailValidCreez, errorMailCreez, "Email");
-    validSomething(event, mobileCreez, telephoneValidCreez, errorMobileCreez, "Mobile");
-    // le champs telephone accepte d'être vide 
-    validSomethingVideAutorise(event, telephoneCreez, telephoneValidCreez, errorTelephoneCreez, "Fixe");
+    validSomething(event, nomCreez, nomprenomValid, errorNomCreez, "Nom");
+    validSomething(event, prenomCreez, nomprenomValid, errorPrenomCreez, "Prénom");
+    validSomething(event, emailCreez, mailValid, errorMailCreez, "Email");
+    validSomething(event, mobileCreez, telephoneValid, errorMobileCreez, "Mobile");
+    //on verifier le format mais la valeur a le droit d'être vide
+    validSomethingVideAutorise(event, telephoneCreez, telephoneValid, errorTelephoneCreez, "Fixe");
+    // le champs accepte d'être vide 
     validSomethingNonVide(event, adresseCreez, errorAdresseCreez, "Adresse")
-    validSomething(event, dateCreez, DateValidCreez, errorDateCreez, "Date");
-    validSomething(event, motDePasseCreez, PassValidCreez, errorMotDePasseCreez, "Mot de passe");
-    validSomething(event, motDePasseCreezConfirm, PassValidCreez, errorMotDePasseCreezConfirm, "Mot de passe");
-
+    validSomething(event, dateCreez, DateValid, errorDateCreez, "Date");
+    validSomething(event, motDePasseCreez, PassValid, errorMotDePasseCreez, "Mot de passe");
+    validSomething(event, motDePasseCreezConfirm, PassValid, errorMotDePasseCreezConfirm, "Mot de passe");
+    // on test si les champs sont identique
     validIdentique(event, motDePasseCreez, motDePasseCreezConfirm, errorMotDePasseCreezConfirm, "Mot de passe saisie");
-    
+    //on gére les checkbox
     validationCheckbox(event,conditionsUtilisation,errorCheckbox, "Conditions utilisation")
    
 }) 
-// -----on test le nom et prenom---------
-let nomprenomValidCreez = /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-
-//-----------on test le mail-------
-let mailValidCreez = /^[a-z0-9._-]+@[a-z0-9._-]+com|[a-z0-9._-]+@[a-z0-9._-]+fr$/;
-
-// ---- On teste le Mobile --------
-let telephoneValidCreez = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/;
-
-//-----on teste le password--------
-let PassValidCreez = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
-
-//-----on teste la date de naissance---------
-let DateValidCreez = (/^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$/);
-
-
-
 
 //VALIDE LE CHAMPS CIVILITE
 function validCivilite(event, element1, element2, output, prefix){
-    //si le champs est vide alors il ecrira: prenom manquant en rouge
+        output.textContent = prefix + " manquante";
+        //si le champs est vide alors il ecrira:
     if(!element1.checked && !element2.checked){
         event.preventDefault();
-        output.textContent = prefix + " manquante";
+        output.textContent = prefix + " manquant(e)";
         output.style.color = "red";
     }
     else{
         output.textContent = "";
     }
 }
-
 
 //on verifier le format mais la valeur a le droit d'être vide
 function validSomethingVideAutorise(event, element, nomValid, output, prefix){
@@ -292,7 +323,7 @@ function validSomethingVideAutorise(event, element, nomValid, output, prefix){
 }
 
 function validSomethingNonVide(event, element, output, prefix){
-    //si le champs est vide alors il ecrira: prenom manquant en rouge
+    //le champs telephone accepte d'être vide 
     if(element.validity.valueMissing){
         event.preventDefault();
         output.textContent = prefix + " manquant(e)";
@@ -300,10 +331,9 @@ function validSomethingNonVide(event, element, output, prefix){
     }
 }
 
-
 // VALIDE TOUT LES CHAMPS DE NOM A CONFIRMER MOT DE PASSE 
 function validSomething(event, element, nomValid, output, prefix){
-    //si le champs est vide alors il ecrira: prenom manquant en rouge
+    
     if(element.validity.valueMissing){
         event.preventDefault();
         output.textContent = prefix + " manquant(e)";
@@ -322,7 +352,7 @@ function validSomething(event, element, nomValid, output, prefix){
 }
 
 function validIdentique(event, element1, element2,output, prefix)
-{
+{   // on test si les champs sont identique
     if(!(element1.value == element2.value)){
         event.preventDefault();
         output.textContent = prefix + " différent";
@@ -332,7 +362,6 @@ function validIdentique(event, element1, element2,output, prefix)
         output.textContent = "";
     }
 }
-
 
 // VALIDE LA CHECKBOX CONDITION UTILISATION 
 function validationCheckbox(event,element,output, prefix){
@@ -347,12 +376,6 @@ function validationCheckbox(event,element,output, prefix){
     }
     
 }
-
-
-
-
-
-
 
 //API AJAX RECUPERATION DE L'ADRESSE DANS LE FORMULAIRE CREEZ VOTRE COMPTE 
 
@@ -394,34 +417,6 @@ function search(){
 
 
 
-
-// -------------------------------CREATION DE TEST AVANT ENVOIE DE FORMULAIRE S'IDENTIFIER--------*/
-
-let testIdentifier= document.getElementById("boutonEnvoyerIdentifier");
-
-testIdentifier.addEventListener("click",function(event){
-
-    validSomething(event, emailIdentifier, mailValidIdentifier, errorMailIdentifier, "email");
-    validSomething(event, motDePasseIdentifier, PassValidIdentifier, errorMotDePasseIdentifier, "mot de passe");
-})
-
- //-----------on test le mail-------
- let mailValidIdentifier = /^[a-z0-9._-]+@[a-z0-9._-]+com|[a-z0-9._-]+@[a-z0-9._-]+fr$/;
-
- //-----on teste le password--------
-let PassValidIdentifier = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[éèîï&ÉÈÎÏ])([a-zA-Z0-9éèîï&ÉÈÎÏ]{8,})$/);
-
-
-
-/*----------DANS S'IDENTIFIER-----------------------TRAITEMENT BOUTON CREEZ VOTRE COMPTE------------------*/
-let btnBesoinCompte = document.getElementById("btnBesoinCompte");
-
-btnBesoinCompte.addEventListener("click", function(){
-    //On masque le modal dialog s'identifier
-    $("#modalConnection").hide("slow");
-    //On affiche le modal dialog creer son compte
-    $("#modalCreerCompte").show("slow");
-});
 
 
 

@@ -74,6 +74,22 @@ class ControllerFront
         }
     }
 
+    private function affichageBlocConnexion()
+    {
+        if(isset($_SESSION['idClient'])){
+            echo "<script>";
+                echo "$('.bloc_connexion').hide();";
+                echo "$('.bloc_deconnexion').show();";
+            echo "</script>";
+        }
+        else{
+            echo "<script>";
+                echo "$('.bloc_connexion').show();";
+                echo "$('.bloc_deconnexion').hide();";
+            echo "</script>";
+        }
+    }
+
     private function gestionErreurCreerCompte()
     {
         if($this->erreurCreationCompte == true)
@@ -142,6 +158,9 @@ class ControllerFront
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
 
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
+
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
         //On gère le cas d'erreur sur la connexion au compte
@@ -159,6 +178,9 @@ class ControllerFront
         $listCdCoeur = $FrontCoupDeCoeurManager-> getListCoupDeCoeur();
 
         require 'app/views/front/coupDeCoeurs.php';
+
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
 
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
@@ -178,6 +200,9 @@ class ControllerFront
        
         require 'app/views/front/nouveaute.php';
 
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
+
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
         //On gère le cas d'erreur sur la connexion au compte
@@ -195,6 +220,9 @@ class ControllerFront
         $listAtelier = $FrontAtelierManager->getListAtelier();
 
         require 'app/views/front/atelier.php';
+
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
 
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
@@ -221,6 +249,9 @@ class ControllerFront
     
         require 'app/views/front/pageRecherche.php';
 
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
+
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
         //On gère le cas d'erreur sur la connexion au compte
@@ -240,6 +271,9 @@ class ControllerFront
             $resultPanier = $FrontPanierManager->getResultPanier();
 
             require 'app/views/front/panier.php';
+
+            //On gère l'affichage des blocs connexion / deconnexion
+            $this->affichageBlocConnexion();
         }
         else{
             header('Location: ./home');
@@ -255,6 +289,9 @@ class ControllerFront
 
         require 'app/views/front/conditionsGenerales.php';
 
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
+
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
         //On gère le cas d'erreur sur la connexion au compte
@@ -268,6 +305,9 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/mentionsLegales.php';
+
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
 
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
@@ -283,6 +323,9 @@ class ControllerFront
 
         require 'app/views/front/rgpd.php';
 
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
+
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
         //On gère le cas d'erreur sur la connexion au compte
@@ -296,6 +339,9 @@ class ControllerFront
         $this->gestionModeConnecte();
         
         require 'app/views/front/planDuSite.php';
+
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
 
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
@@ -326,6 +372,9 @@ class ControllerFront
 
             require 'app/views/front/detailLivre.php';
 
+            //On gère l'affichage des blocs connexion / deconnexion
+            $this->affichageBlocConnexion();
+
             //On gère le cas d'erreur sur une création de compte
             $this->gestionErreurCreerCompte();
             //On gère le cas d'erreur sur la connexion au compte
@@ -351,6 +400,9 @@ class ControllerFront
 
             require 'app/views/front/detailAtelier.php';
 
+            //On gère l'affichage des blocs connexion / deconnexion
+            $this->affichageBlocConnexion();
+
             //On gère le cas d'erreur sur une création de compte
             $this->gestionErreurCreerCompte();
             //On gère le cas d'erreur sur la connexion au compte
@@ -368,18 +420,58 @@ class ControllerFront
         {
             $this->FrontManager = new \Projet\Models\ManagerFront();
             $this->gestionHeader();
-            $this->gestionModeConnecte(); 
+            $this->gestionModeConnecte();
+
+            $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
+            
+            //on enregistre avant de charger les informations
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "enregistrerInfosPers"){
+                    
+                    //on appelle la function qui met à jour les informations dans la basse de donnée
+                    //récuperer les variables post
+                    $FrontManagerMonCompte->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
+                    $_POST['mobile'],$_POST['fixe'],$_POST['adresse'],$_POST['dateNaissance']);
+                }
+            }
 
             // on récupère le compte
-            $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
             $monCompte = $FrontManagerMonCompte->getMonCompte($_SESSION['idClient']);
 
-            // if ($_POST['action2']=="modifier")
-            // {
-            //     $monCompteModifier =$FrontManagerMonCompte->modifierClient($_POST['idClient']);
-            // }
-
             require 'app/views/front/monCompte.php';
+
+            //On gère l'affichage des blocs connexion / deconnexion
+            $this->affichageBlocConnexion();
+
+            if(isset($_GET['action2']))
+            {
+                //on test la valeur de action2
+                if ($_GET['action2']=="modifier")
+                {
+                    echo "<script>";
+                        echo "$('.conteneurMonCompte').hide();";
+                        echo "$('.conteneurMonCompteModifier').show();";
+                        echo "$('.conteneurCompteMotPass').show();";
+                    echo "</script>";
+                }
+                else{
+                    //si on tombe pas dans l'un cas au dessus on revient sur l'affichage de compte 
+                    echo "<script>";
+                        echo "$('.conteneurMonCompte').show();";
+                        echo "$('.conteneurMonCompteModifier').hide();";
+                        echo "$('.conteneurCompteMotPass').hide();";
+                    echo "</script>";
+                }
+            }
+            else{
+                //Par défaut si pas d'action2 on revient sur la page mon compte
+                echo "<script>";
+                    echo "$('.conteneurMonCompte').show();";
+                    echo "$('.conteneurMonCompteModifier').hide();";
+                    echo "$('.conteneurCompteMotPass').hide();";
+                echo "</script>";
+            }
         }
         else{
             header('Location: ./home');
@@ -397,6 +489,9 @@ class ControllerFront
 
         require 'app/views/front/pageErreur.php';
 
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
+
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
         //On gère le cas d'erreur sur la connexion au compte
@@ -411,6 +506,9 @@ class ControllerFront
         $this->gestionModeConnecte();
         
         require 'app/views/front/passOublier.php';
+
+        //On gère l'affichage des blocs connexion / deconnexion
+        $this->affichageBlocConnexion();
 
         //On gère le cas d'erreur sur une création de compte
         $this->gestionErreurCreerCompte();
