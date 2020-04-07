@@ -75,7 +75,7 @@
                     <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
                     <!-- alors on affiche le bouton réserver   -->
                     <?php if(isset($_SESSION['idClient'])){ ?>
-                        <a id="btnReserver" class="monBoutton" href="./panier">
+                        <a id="btnReserver" class="monBoutton" href="./<?= $this->nomPage;?>?action2=ajoutePanier&id=<?= $_GET['id'];?>">
                             Réserver
                         </a>
                     <?php } ?>

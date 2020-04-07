@@ -38,6 +38,7 @@ class ControllerFront
                 {
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idClient'] = $testConnexion;
+                    $_SESSION['panier'] = array();
                 }
                 else{
                     $this->erreurConnexionCompte = true;
@@ -50,6 +51,7 @@ class ControllerFront
             {
                 //On détruit la variable de session
                 unset($_SESSION['idClient']);
+                unset($_SESSION['panier']);
             }
 
             if($_GET['action2'] == "creerCompte")
@@ -64,6 +66,7 @@ class ControllerFront
                 {   
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idClient'] = $testCreerCompte;
+                    $_SESSION['panier'] = array();
                 }
                 else
                 {
@@ -359,6 +362,27 @@ class ControllerFront
 
             $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
             $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
+
+            //on test si la variable action2 existe
+            if(isset($_GET["action2"])){
+
+                //je test quel soit bien égale a ajoute panier
+                if($_GET["action2"] == "ajoutePanier")
+                {
+                    if(!in_array($_GET['id'], $_SESSION['panier']))
+                    {
+                        //on ajoute idLivre dans la variable $_SESSION panier 
+                        array_push($_SESSION['panier'], $_GET['id'] );
+
+                        echo "<script>alert('Votre demande de réservation a bien été ajoutée au panier')</script>";
+                    }
+                    else{
+
+                        echo "<script>alert('Ce livre est déjà dans votre panier')</script>";
+                    }
+                }
+            }
+
 
             //On ajoute le commentaire si on est en situation de post du formulaire
             if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
