@@ -44,16 +44,20 @@
 
             <!-- PAGE MOT DE PASSE OUBLIER-->
             <h1>
-                Mots de passe oublier ?
+                Mot de passe oublier ?
             </h1>
-            <div class="divContenuPassOublier">
-                <label class="labelAdresse" for="motPasse">Votre mot de passe</label>
-                <textarea  name="motPasse" id="motPasse" class="inputAdresse" 
-                    placeholder="Entrer votre mot de passe"></textarea>  
-            </div>
-
-
-            
+            <p>
+                Cliquez sur le bouton envoyer, et un nouveau mot de passe vous sera envoyé dans 
+                votre boite e-mail.
+                A bientôt.
+            </p>
+            <section>
+                <form class="conteneurPassOublier" method="POST"  action="./<?= $this->nomPage;?>?action2=motDePasseOublier">
+                    <label class="labelAdresse" for="adresseMail">Votre adresse e-mail : </label>
+                    <input class="champsPass" name="adresseMail" id="adresseMail" placeholder="Entrer votre adresse e-mail">    
+                    <input type="submit" class="monBoutton" name="adresseMailOublier" value="Envoyer">
+                </form>
+            </section>
         </main> 
         
         <?php require_once("./app/views/layout/footer.php") ?> 
@@ -64,12 +68,8 @@
 
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
-        <script type="text/javascript" src="./../app/public/js/sliderCoupDeCoeur.js"></script>
+        <script type="text/javascript" src="./../app/public/js/passOublier.js"></script>
 
-        <!--class active-->
-        <script type="text/javascript">
-            menuActive(1);
-        </script>
 
     </body>
 

@@ -260,12 +260,12 @@ class ControllerFront
 
     function panierFront()
     {
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
+
         if(isset($_SESSION['idClient']))
         {
-            $this->FrontManager = new \Projet\Models\ManagerFront();
-            $this->gestionHeader();
-            $this->gestionModeConnecte();
-
             //on charge le ManagerFrontPanier
             $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
             $resultPanier = $FrontPanierManager->getResultPanier();
@@ -416,14 +416,15 @@ class ControllerFront
 
     function monCompteFront()
     {
+        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
+
+        //TEST de sécurité : on s'assure que le client est connecté (qu'il existe une variable $_SESSION['idClient'])
         if(isset($_SESSION['idClient']))
         {
-            $this->FrontManager = new \Projet\Models\ManagerFront();
-            $this->gestionHeader();
-            $this->gestionModeConnecte();
-
             $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
-            
+  
             //on enregistre avant de charger les informations
             if(isset($_GET['action2']))
             {
@@ -433,6 +434,12 @@ class ControllerFront
                     //récuperer les variables post
                     $FrontManagerMonCompte->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
                     $_POST['mobile'],$_POST['fixe'],$_POST['adresse'],$_POST['dateNaissance']);
+                }
+                if ($_GET['action2'] == "enregistrerPassword"){
+                    
+                    //on appelle la function qui met à jour les informations dans la basse de donnée
+                    //récuperer les variables post
+                    $FrontManagerMonCompte->enregistrerPassword($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
                 }
             }
 
@@ -504,6 +511,53 @@ class ControllerFront
         $this->FrontManager = new \Projet\Models\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
+
+
+        if(isset($_GET["action2"]))
+        {
+            //on test si elle est egale a motDePasseOublier
+            if($_GET["action2"] == "motDePasseOublier"){
+
+                //on génére un mot de passe aleatoire 
+                $nouveuMotPass = "";
+                    //1ere lettre en majuscule
+                $ascii = rand(65,90);
+
+                    // nombre aleatoire
+                $nouveauMotPass = chr($ascii);
+
+                    //2ere lettre &
+                $nouveauMotPass = $nouveauMotPass."&";
+
+                    //3ere lettre chiffre aleatoire
+                $nouveauMotPass = $nouveauMotPass.rand(1,9);
+
+                    //on ajoute 5 lettres minuscules
+                for($i=0; $i<5; $i++){
+                    
+                    $ascii = rand(97,122);
+                    //
+                    $nouveauMotPass = $nouveauMotPass.chr($ascii);
+                }
+                
+                $FrontManagerPassOublier = new \Projet\Models\ManagerFrontPassOublier();
+                //j'appel ma fonction pour enregistrer dans la base de données
+                $FrontManagerPassOublier->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
+
+                //on envoie le mail au client 
+                // Le message
+                $message = "Bonjour, nous vous envoyons ce nouveau mot de passe que vous venez de générer sur notre site. \r\n";
+                $message = $message."On vous invite à personnaliser ce mot de passe en ce rendant sur le site dans la rubrique: Mon compte \r\n";
+                $message = $message."Si vous n'êtes pas à l'origine de cette manipulation, on vous invite à prendre contact avec la bibliothèquaire.\r\n";
+                $message = $message."Nous vous remecions pour votre expérience sur notre site.";
+
+                // Dans le cas où nos lignes comportent plus de 70 caractères, nous les coupons en utilisant wordwrap()
+                $message = wordwrap($message, 70, "\r\n");
+
+                // Envoi du mail
+                mail('chaigwen@hotmail.fr', 'Nouveau mot de passe', $message);   
+            }
+        }
         
         require 'app/views/front/passOublier.php';
 

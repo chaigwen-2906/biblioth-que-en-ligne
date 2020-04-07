@@ -50,6 +50,24 @@ class ManagerFrontMonCompte extends Manager
 
         //On ferme la requete
         $requete->closeCursor();
+    }
 
+
+
+    public function enregistrerPassword($idClient, $nouveauMotPasse)
+    {
+        $bdd = $this->dbConnect();
+
+        //On prépare le mot de passe(hash)
+        $nouveauMotPasse = password_hash($nouveauMotPasse, PASSWORD_DEFAULT);
+        
+        $sql = "UPDATE client  SET motDePasse ='$nouveauMotPasse' WHERE idClient = ?";    
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idClient]);
+
+        //On ferme la requete
+        $requete->closeCursor();
     }
 }
