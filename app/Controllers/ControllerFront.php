@@ -267,11 +267,25 @@ class ControllerFront
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
+        $donnees = array();
         if(isset($_SESSION['idClient']))
         {
             //on charge le ManagerFrontPanier
             $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
-            $resultPanier = $FrontPanierManager->getResultPanier();
+
+            if(!empty($_SESSION['panier']))
+            {
+                foreach($_SESSION['panier'] as $unIdLivre)
+                {
+                    $retour = $FrontPanierManager->getInfoLivre($unIdLivre);
+                    $retour['idlivre'] = $unIdLivre;
+
+                    array_push($donnees,$retour);
+                }
+            }
+
+            $demandeEnAttente = $FrontPanierManager-> getDemandeEnAttente($idClient);
+            
 
             require 'app/views/front/panier.php';
 
