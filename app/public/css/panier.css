@@ -17,8 +17,14 @@
 }
 /* FIN  FILS D'ARIANE  */
 
-/* SECTION COMMANDE  */
-.panier .commande
+/* MES DEMANDE DE RESERVATION NON VALIDEES  */
+.panier .sectionCommande h1
+{
+    color: crimson;
+    margin: 15px;
+}
+/* article */
+.panier .commande 
 {
     display: flex;
     justify-content: space-between;
@@ -30,14 +36,25 @@
 {
     text-align: right;
 }
+/*FIN MES DEMANDE DE RESERVATION NON VALIDEES   */
 
-/*FIN SECTION COMMANDE  */
+/*MES DEMANDE EN ATTENTE DE VALIDATION */
+.panier .commandeAttente
+{
+    color: crimson;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+/* FIN MES DEMANDE EN ATTENTE DE VALIDATION */
+
 
 /* SECTION CONFIRMER LA COMMANDE  */
-
-
 .panier .commandeConfirmer
 {
+    color: crimson;
     display: flex;
     justify-content: space-between;
     width: 90%;

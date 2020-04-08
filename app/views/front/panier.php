@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
     <link rel="stylesheet" href="./../app/public/css/panier.css">
+    
    
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -43,39 +44,70 @@
             </div>
             <!--FIN  FILS D'ARIANE  -->
 
-            <!-- SECTION PANIER -->
+
+            <!-- Mes demandes de réservation non validées.  -->
             <section class="sectionCommande">
-                <div class="commande">
-                    <h1>
-                        Mes commandes à confirmer
-                    </h1>
-                    <figure>
-                        <img src="./../app/public/image/bouton/poubelle.png" alt="Supprimer" title="Supprimer">
-                    </figure>
-                </div>
+                <h1>
+                    Mes demandes de réservation non validées.
+                </h1>
+                <?php foreach ($donnees as $uneDonnees) {?>
+                    <article class="commande">
 
+                        <ul>
+                            <li>
+                                Nom du livre : <strong><?= $uneDonnees['nom']; ?></strong>
+                            </li>
+                            <li>
+                                Nom auteur : <strong><?= $uneDonnees['nomAuteur']; ?></strong>
+                            </li>
+                        </ul>
+                       
+                        <figure>
+                        <a class="monBoutton" href="">
+                            <img src="./../app/public/image/bouton/poubelle.png" alt="Suppression" title="Suppression">
+                        </a>
+                        </figure>
+                    </article>
+                <?php } ?>
                 <!-- BOUTON VALIDER COMMANDE  -->
-                <div class="bouton">
+                <article class="bouton">
                     <a href="./detailLivre?id=" class="monBoutton">
-                       Valider
+                        Valider
                     </a>
-                </div>
-                <!--FIN BOUTON VALIDER COMMANDE   -->
-
+                </article>
             </section>
-            <!--FIN SECTION PANIER -->
+            <!--Mes demandes de réservation non validées. -->
+            
+
+            <!-- MES DEMANDE EN ATTENTE DE VALIDATION  -->
+            <section>
+                <h1>
+                    Mes demande en attente de validation
+                </h1>
+                <article class="commandeAttente">
+                    
+                    <p>
+
+                    </p>
+                </article>
+            
+            </section>
+            <!--FIN MES DEMANDE EN ATTENTE DE VALIDATION    -->
+
 
             <!-- CONFIRMER LES COMMANDE -->
-            <section class="sectionCommandeConfirmer">
-                <div class="commandeConfirmer">
+            <section>
+                <article class="commandeConfirmer">
                     <h1>
                         Mes demandes validées
                     </h1>
-                </div>
+                    <p>
+
+                    </p>
+                </article>
                 <!--FIN CONFIRMER LES COMMANDE -->
 
             </section>
-
         </main>
 
             
