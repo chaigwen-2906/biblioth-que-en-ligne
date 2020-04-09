@@ -273,19 +273,57 @@ class ControllerFront
             //on charge le ManagerFrontPanier
             $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
 
+
+            //on test si la variable action2 existe
+            if(isset($_GET["action2"])){
+
+                //je test quel soit bien égale a ajoute panier
+                if($_GET["action2"] == "suppressionLivre")
+                {
+                    // on test si l' id est dans le tableau 
+                    if(in_array($_GET['id'] , $_SESSION['panier']))
+                    {
+                        //on cherche l'index de l'idLivre dans le tableau $_SESSION panier  
+                        $tablIndex = array_search($_GET['id'], $_SESSION['panier'] );
+                        //supprime dans le tableau la valeur presente a index $tablIndex  
+                        unset($_SESSION['panier'][$tablIndex]);
+
+
+                        echo "<script>alert('Votre demande à bien été supprimer')</script>";
+                    }
+                    else{
+
+                        echo "<script>alert('Ce livre est déjà supprimer')</script>";
+                    }
+                }
+                //action de validation panier
+                if($_GET["action2"] =="validerPanier")
+                {   
+                    // mon panier est un tableau d'idLivre 
+                    foreach ($_SESSION['panier'] as $unIdLivre)
+                    {
+                        $FrontPanierManager->ajoutReservation($unIdLivre, $_SESSION['idClient'] );
+                    }
+                    
+                    //on remet le tableau  $_SESSION ['panier] à vide
+                    $_SESSION['panier'] = array();
+                }
+            }
+
+            // j'affiche le chargement de tt les donnée
             if(!empty($_SESSION['panier']))
             {
                 foreach($_SESSION['panier'] as $unIdLivre)
                 {
                     $retour = $FrontPanierManager->getInfoLivre($unIdLivre);
-                    $retour['idlivre'] = $unIdLivre;
+                    $retour['idLivre'] = $unIdLivre;
 
                     array_push($donnees,$retour);
                 }
             }
 
-            $demandeEnAttente = $FrontPanierManager-> getDemandeEnAttente($idClient);
-            
+            $listDemandeEnAttente = $FrontPanierManager-> getListDemandeEnAttente($_SESSION['idClient']);
+            $listDemandeValider = $FrontPanierManager-> getListDemandeValider($_SESSION['idClient']);
 
             require 'app/views/front/panier.php';
 

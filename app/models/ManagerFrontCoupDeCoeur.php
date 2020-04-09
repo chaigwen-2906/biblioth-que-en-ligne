@@ -13,7 +13,6 @@ class ManagerFrontCoupDeCoeur extends Manager
         $sql = "SELECT * FROM coupdecoeur LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) ON 
         (coupdecoeur.idLivre = livre.idLivre) ORDER BY coupdecoeur.dateDePublication DESC ";
         $requete = $bdd->prepare($sql);
-
         //Execution de la requete
         $requete->execute();
 

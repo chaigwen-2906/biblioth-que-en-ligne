@@ -63,18 +63,27 @@
                         </ul>
                        
                         <figure>
-                        <a class="monBoutton" href="">
-                            <img src="./../app/public/image/bouton/poubelle.png" alt="Suppression" title="Suppression">
-                        </a>
+                            <a class="monBoutton" href="./<?= $this->nomPage;?>?action2=suppressionLivre&id=<?=$uneDonnees['idLivre'];?>">
+                                <img src="./../app/public/image/bouton/poubelle.png" alt="Suppression" title="Suppression">
+                            </a>
+                        
                         </figure>
                     </article>
                 <?php } ?>
+
+
+
                 <!-- BOUTON VALIDER COMMANDE  -->
                 <article class="bouton">
-                    <a href="./detailLivre?id=" class="monBoutton">
+                    <!-- on valide le panier -->
+                    <a href="./<?= $this->nomPage;?>?action2=validerPanier" class="monBoutton">
                         Valider
                     </a>
                 </article>
+
+
+
+
             </section>
             <!--Mes demandes de réservation non validées. -->
             
@@ -84,12 +93,28 @@
                 <h1>
                     Mes demande en attente de validation
                 </h1>
-                <article class="commandeAttente">
-                    
-                    <p>
+                <?php foreach ($listDemandeEnAttente as $uneListDemandeEnAttente) {?>
+                    <article class="commandeAttente">
+                        
+                        <ul>
+                            <li>
+                                Nom du livre : <strong><?= $uneListDemandeEnAttente['nom']; ?></strong>
+                            </li>
+                            <li>
+                                Nom auteur : <strong><?= $uneListDemandeEnAttente['nomAuteur']; ?></strong>
+                            </li>
+                            <li>
+                                <?php 
+                                    //récupération de la date sous forme d'un datetime
+                                    // puis utilisation de la fonction format pour afficher avec le format attendu
+                                    $uneListDemandeEnAttente = new DateTime($uneListDemandeEnAttente['dateDeDebut']);
+                                ?>
+                                Date de début : <strong><?= $uneListDemandeEnAttente->format('d/m/Y'); ?></strong>
+                            </li>
+                        </ul>
 
-                    </p>
-                </article>
+                    </article>
+                <?php }?>
             
             </section>
             <!--FIN MES DEMANDE EN ATTENTE DE VALIDATION    -->
@@ -97,14 +122,29 @@
 
             <!-- CONFIRMER LES COMMANDE -->
             <section>
+            <h1>
+                Mes demandes validées
+            </h1>
+            <?php foreach ($listDemandeValider as $uneListDemandeValider) {?>
                 <article class="commandeConfirmer">
-                    <h1>
-                        Mes demandes validées
-                    </h1>
-                    <p>
-
-                    </p>
+                    <ul>
+                        <li>
+                            Nom du livre : <strong><?= $uneListDemandeValider['nom']; ?></strong>
+                        </li>
+                        <li>
+                            Nom auteur : <strong><?= $uneListDemandeValider['nomAuteur']; ?></strong>
+                        </li>
+                        <li>
+                            <?php 
+                                //récupération de la date sous forme d'un datetime
+                                // puis utilisation de la fonction format pour afficher avec le format attendu
+                                $uneListDemandeValider = new DateTime($uneListDemandeValider['dateDeDebut']);
+                            ?>
+                            Date de début : <strong><?= $uneListDemandeValider->format('d/m/Y'); ?></strong>
+                        </li>
+                    </ul>
                 </article>
+            <?php }?>
                 <!--FIN CONFIRMER LES COMMANDE -->
 
             </section>

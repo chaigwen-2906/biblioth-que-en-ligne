@@ -45,6 +45,7 @@
             <h1 class ="grosTitre">
                 Résumé du livre
             </h1>
+            <!-- INFO DU LIVRE  -->
             <section class ="sectionDescripLivre">
                 <aside class="titreImgReseaux">
                     <h2>
@@ -75,12 +76,19 @@
                     <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
                     <!-- alors on affiche le bouton réserver   -->
                     <?php if(isset($_SESSION['idClient'])){ ?>
-                        <a id="btnReserver" class="monBoutton" href="./<?= $this->nomPage;?>?action2=ajoutePanier&id=<?= $_GET['id'];?>">
-                            Réserver
-                        </a>
+                        <?php if($DetailLivre['disponible'] == "oui"){ ?>
+                            <a id="btnReserver" class="monBoutton" href="./<?= $this->nomPage;?>?action2=ajoutePanier&id=<?= $_GET['id'];?>">
+                                Réserver
+                            </a>
+                        <?php } 
+                        else{ ?>
+                             <p class="livreIndisponible">
+                                Ce livre est actuellement indisponible
+                             </p>   
+                        <?php } ?>
                     <?php } ?>
                 </aside>
-                <div class="divDesResum">
+                <section class="divDesResum">
                     <article class="livreDescription">
                         <h2>
                             Description
@@ -95,7 +103,7 @@
                             Fiche technique
                         </h2>
                         <hr separator>
-                        <section class="ficheTecknic">
+                        <div class="ficheTecknic">
                             <ul>
                                 <?php
                                     $dateDepublication = new datetime($DetailLivre['dateDePublication']);
@@ -110,15 +118,18 @@
                                 <li>Isbn : <?= $DetailLivre['isbn']; ?></li>
                                 <li>Ean<?= $DetailLivre['ean']; ?></li>
                             </ul>  
-                        </section>
+                        </div>
                     </article>
-                </div>
+                </section>
             </section>
+            <!-- FIN INFO DU LIVRE  -->
+
+            <!-- COMMENTAIRE SUR LE LIVRE  -->               
             <section class="sectionCommentaireLivre">
                 <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
                 <!-- alors on affiche le formulaire qui permet de poster un commentaire  -->
                 <?php if(isset($_SESSION['idClient'])){ ?>
-                    <!-- COMMENTAIRE SUR LE LIVRE  -->
+                   
                     <form method="POST" action="./<?= $this->nomPage;?>" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
                         <h2>
                             Commentaires sur le livre
@@ -129,7 +140,7 @@
                         </h3>
                         <article>
                             <label for="note">Note :</label>
-                            <input type="number" name="note">
+                            <input class="inputNote" type="number" name="note" min="0" max= "5"  >
                         </article>
                         <article class="commentaire">        
                             <label for="commentaire">
@@ -141,10 +152,12 @@
                             Posté !
                         </a>
                     </form>
-                    <!--FIN COMMENTAIRE SUR LE LIVRE  -->
+                    
                 <?php } ?>
+                <!--FIN COMMENTAIRE SUR LE LIVRE  -->   
 
-                <!-- COMMENTAIRES  -->
+
+                <!-- DERNIERS COMMENTAIRES POSTER  -->
                 <article class="dernierCommentaire">
                     <h2>
                         Les commentaires
@@ -164,11 +177,12 @@
                             Note :<?= $unCommentaire['note']; ?>/10
                         </figure>
                         <p class="commentaire">
-                            <strong>Commentaire :</strong><?= $unCommentaire['description']; ?>
+                            <strong>Commentaire : </strong> <?= $unCommentaire['description']; ?>
                         </p>
                         <hr class="separatorCommentaire" separator>
                     <?php } ?>
                 </article>
+                <!-- DERNIERS COMMENTAIRES POSTER  -->
                
             </section>
         </main>
