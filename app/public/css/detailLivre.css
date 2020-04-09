@@ -23,6 +23,7 @@
 {
     text-align: center;
     color: white;
+    padding-top: 15px;
 }
 .detailLivre .sectionDescripLivre
 {
@@ -34,7 +35,7 @@
 {
     color: rgb(156, 148, 148);
     text-align: center;
-    min-height:85px;
+    min-height:55px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,6 +63,14 @@
     padding-top: 30px;
 
 }
+/* INFO DISPO OU NON DISPO  */
+.detailLivre .livreIndisponible
+{
+    margin: 25px;
+    text-align: center;
+    color: crimson;
+}
+
 /* DESCRIPTION DU LIVRE  */
 .detailLivre .divDesResum
 {
@@ -86,6 +95,12 @@
     text-align: justify;
     min-height: 220px;
     padding-top: 15px;
+}
+.detailLivre .commentaireLivre figure
+{
+    text-align: initial;
+    padding-left: 5%;
+    line-height: 2em;
 }
 
 /* INFO DU LIVRE  */
@@ -113,7 +128,7 @@
     width: 80%;
     list-style-type: none;
 }
-/* SECTION COMMENTAIRE  */
+/* COMMENTAIRE SUR LE LIVRE  */
 
 .detailLivre .commentaireLivre
 {
@@ -138,18 +153,14 @@
     text-align: initial;
     line-height: 2em;
 }
-.detailLivre .commentaireLivre figure
+.detailLivre .inputNote
 {
-    text-align: initial;
-    padding-left: 5%;
-    line-height: 2em;
+    max-width: 4%;
+    text-align: center
 }
 .detailLivre .commentaire 
 {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: initial;
-    padding-left: 5%;
+    padding-left: 25%;
     line-height: 2em;
 }
 .detailLivre .commentaire label
@@ -162,17 +173,36 @@
 }
 .detailLivre .reglCommentaire
 {
+    display: flex;
     font-size: 1em;
-    margin: 10px;
 }
 .detailLivre .sectionCommentaireLivre
 {
     justify-content: center;
     margin: 15px;
 }
-/*FIN SECTION COMMENTAIRE  */
+/* BOUTON :RESERVER & POSTE  */
+.detailLivre #btnReserver
+{
+    display: flex;
+    width: 10%;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 35px;
+}
+.detailLivre #btnPoster
+{
+    display: flex;
+    width: 10%;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
-/* SECTION DERNIERS COMMENTAIRES POSTER  */
+/*FIN COMMENTAIRE SUR LE LIVRE  */
+
+/*DERNIERS COMMENTAIRES POSTER  */
 
 .detailLivre .dernierCommentaire
 {
@@ -216,7 +246,7 @@
     width: 50%;
     margin: 0 auto;
 }
-
+/*FIN DERNIERS COMMENTAIRES POSTER  */
 
 
 
@@ -240,8 +270,22 @@
     .detailLivre .infoLivre 
     {
         flex-wrap: nowrap;
+        margin-top: 15px;
     }
-
+    .detailLivre #btnPoster 
+    {
+        width: 15%; 
+    }
+    .detailLivre .inputNote
+    {
+    max-width: 8%;
+    }
+    .detailLivre .reglCommentaire
+    { 
+        width: 60%;
+    }
+    
+}
 /*-------------media querie mobile----------------*/
 @media screen and (max-width:530px)
 {
@@ -258,6 +302,30 @@
     {
         width:80%;
     }
-}
+    .detailLivre #btnReserver
+    {
+        margin-bottom: 25px;
+    }
+    .detailLivre .commentaireLivre 
+    {
+        width: 80%; 
+    }
+    .detailLivre .dernierCommentaire 
+    {
+        width: 80%;  
+    }
+    .detailLivre #btnPoster 
+    {
+       width: 18%;
+    }
+    .detailLivre .reglCommentaire 
+    {
+        width: 75%;
+    }
+    .detailLivre .inputNote
+    {
+    max-width: 11%;
+    }
+    
 
 }
