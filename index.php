@@ -95,6 +95,20 @@ try {
             case "admin":
                 // on appel le contoller admin
                 $controller = new \Projet\Controllers\ControllerAdmin();
+                //On initialise la variable nomPage du controller front avec le nom de la page demandée
+                $controller->nomPage = $params[1];
+
+
+                switch($params[1])
+                {
+                    case "home":
+                        $controller->connectionAdministrateurAdmin();
+                    break;
+
+                    default:
+                        $controller->pageErreurFront();
+                    break;
+                }
             break;
 
             default:
