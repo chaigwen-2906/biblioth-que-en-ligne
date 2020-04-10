@@ -205,14 +205,14 @@
                     </h2>
 
                     <!-- NOUVEAU MOT DE PASSE  -->
-                    <article id="" class="divContenuCompte">
+                    <article  class="divContenuCompte">
                         <label class="labelAdresse" for="nouveauMotPasse">Entrée votre nouveau mot de passe</label>
                         <input type="text" name="nouveauMotPasse" id="nouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required/>
                         <span id="erreurNouveauMotPasse"></span>
                     </article>
 
                     <!-- CONFIRME NOUVEAU MOT DE PASSE  -->
-                    <article id="" class="divContenuCompte">
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="confirmNouveauMotPasse">Confirmé votre nouveau mot de passe</label>
                         <input type="text" name="confirNouveauMotPasse" id="confirmNouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required/>
                         <span id="erreurConfirNouveauMotPasse"></span>

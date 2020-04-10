@@ -30,7 +30,6 @@
 
     <body>
 
-
         <?php require_once("./app/views/layout/header.php"); ?>
 
         <main class="panier">
@@ -47,107 +46,155 @@
 
             <!-- Mes demandes de réservation non validées.  -->
             <section class="sectionCommande">
-                <h1>
+                <h1 class="titreCommum">
                     Mes demandes de réservation non validées.
                 </h1>
                 <?php foreach ($donnees as $uneDonnees) {?>
+                    <hr separator class="separateurDeContenue"> 
                     <article class="commande">
 
-                        <ul>
-                            <li>
-                                Nom du livre : <strong><?= $uneDonnees['nom']; ?></strong>
-                            </li>
-                            <li>
-                                Nom auteur : <strong><?= $uneDonnees['nomAuteur']; ?></strong>
-                            </li>
-                        </ul>
-                       
-                        <figure>
+                        <article class="nomDuLivre">
+                            <h2>
+                                Nom du livre 
+                            </h2>
+                            <hr separator>
+                            <p>
+                                <strong><?= $uneDonnees['nom']; ?></strong>
+                            </p>
+                        </article>
+                        
+                        <article class="nomAuteur">
+                            <h2>
+                                Nom auteur  
+                            </h2>
+                            <hr separator>
+                            <p>
+                                <strong><?= $uneDonnees['nomAuteur']; ?></strong>
+                            </p>
+                        </article>
+
+                        <figure class="imgSupprimer">
                             <a class="monBoutton" href="./<?= $this->nomPage;?>?action2=suppressionLivre&id=<?=$uneDonnees['idLivre'];?>">
                                 <img src="./../app/public/image/bouton/poubelle.png" alt="Suppression" title="Suppression">
                             </a>
-                        
                         </figure>
                     </article>
+                    
                 <?php } ?>
 
-
-
                 <!-- BOUTON VALIDER COMMANDE  -->
-                <article class="bouton">
-                    <!-- on valide le panier -->
-                    <a href="./<?= $this->nomPage;?>?action2=validerPanier" class="monBoutton">
-                        Valider
-                    </a>
-                </article>
-
-
-
+                <?php if(count($_SESSION['panier'])>0){ ?>
+                    <article class="bouton">
+                        <!-- on valide le panier -->
+                        <a href="./<?= $this->nomPage;?>?action2=validerPanier" class="monBoutton">
+                            Valider
+                        </a>
+                    </article>
+                <?php } ?>
+                
 
             </section>
             <!--Mes demandes de réservation non validées. -->
             
 
             <!-- MES DEMANDE EN ATTENTE DE VALIDATION  -->
-            <section>
-                <h1>
+            <section class="sectionAttente">
+                <h1 class="titreCommum">
                     Mes demande en attente de validation
                 </h1>
                 <?php foreach ($listDemandeEnAttente as $uneListDemandeEnAttente) {?>
+                    <hr separator class="separateurDeContenue"> 
                     <article class="commandeAttente">
-                        
-                        <ul>
-                            <li>
-                                Nom du livre : <strong><?= $uneListDemandeEnAttente['nom']; ?></strong>
-                            </li>
-                            <li>
-                                Nom auteur : <strong><?= $uneListDemandeEnAttente['nomAuteur']; ?></strong>
-                            </li>
-                            <li>
-                                <?php 
-                                    //récupération de la date sous forme d'un datetime
-                                    // puis utilisation de la fonction format pour afficher avec le format attendu
-                                    $uneListDemandeEnAttente = new DateTime($uneListDemandeEnAttente['dateDeDebut']);
-                                ?>
-                                Date de début : <strong><?= $uneListDemandeEnAttente->format('d/m/Y'); ?></strong>
-                            </li>
-                        </ul>
+                    
+                        <article class="nomDuLivre">
+                            <h2>
+                                Nom du livre 
+                            </h2>
+                            <hr separator>
+                            <p>
+                                <strong><?= $uneListDemandeEnAttente['nom']; ?></strong>
+                            </p>
+                        </article>
 
+                        <article class="nomAuteur">
+                            <h2>
+                                Nom auteur  
+                            </h2>
+                            <hr separator>
+                            <p>
+                                <strong><?= $uneListDemandeEnAttente['nomAuteur']; ?></strong>
+                            </p>
+                        </article>
+
+                        <article class="dateJourValider">
+                            <h2>
+                                Date de début 
+                            </h2>
+                            <hr separator>
+                            <p>
+                            <?php 
+                                //récupération de la date sous forme d'un datetime
+                                // puis utilisation de la fonction format pour afficher avec le format attendu
+                                $uneListDemandeEnAttente = new DateTime($uneListDemandeEnAttente['dateDeDebut']);
+                            ?>
+                                <strong><?= $uneListDemandeEnAttente->format('d/m/Y'); ?></strong>
+                            </p>
+                        </article>    
                     </article>
                 <?php }?>
             
             </section>
             <!--FIN MES DEMANDE EN ATTENTE DE VALIDATION    -->
 
-
+                    
             <!-- CONFIRMER LES COMMANDE -->
-            <section>
-            <h1>
-                Mes demandes validées
-            </h1>
-            <?php foreach ($listDemandeValider as $uneListDemandeValider) {?>
-                <article class="commandeConfirmer">
-                    <ul>
-                        <li>
-                            Nom du livre : <strong><?= $uneListDemandeValider['nom']; ?></strong>
-                        </li>
-                        <li>
-                            Nom auteur : <strong><?= $uneListDemandeValider['nomAuteur']; ?></strong>
-                        </li>
-                        <li>
+            <section class="sectionConfirmeCommande">
+                <h1 class="titreCommum">
+                    Mes demandes validées
+                </h1>
+                <?php foreach ($listDemandeValider as $uneListDemandeValider) {?>
+                    <hr separator class="separateurDeContenue"> 
+                    <article class="commandeConfirmer">
+
+                        <article class="nomDuLivre">
+                            <h2>
+                                Nom du livre 
+                            </h2>
+                            <hr separator>
+                            <p>
+                                <strong><?= $uneListDemandeValider['nom']; ?></strong>
+                            </p>
+                        </article>
+                        
+                        <article class="nomAuteur">
+                            <h2>
+                                Nom auteur  
+                            </h2>
+                            <hr separator>
+                            <p>
+                                <strong><?= $uneListDemandeValider['nomAuteur']; ?></strong>
+                            </p>
+                        </article>
+
+                        <article class="dateJourValider">
+                            <h2>
+                                Date de début 
+                            </h2>
+                            <hr separator>
+                            <p>
                             <?php 
                                 //récupération de la date sous forme d'un datetime
                                 // puis utilisation de la fonction format pour afficher avec le format attendu
                                 $uneListDemandeValider = new DateTime($uneListDemandeValider['dateDeDebut']);
                             ?>
-                            Date de début : <strong><?= $uneListDemandeValider->format('d/m/Y'); ?></strong>
-                        </li>
-                    </ul>
-                </article>
-            <?php }?>
-                <!--FIN CONFIRMER LES COMMANDE -->
-
+                                <strong><?= $uneListDemandeValider->format('d/m/Y'); ?></strong>
+                            </p>
+                        </article>       
+                    </article>
+ 
+                    <?php }?>
             </section>
+            <!--FIN CONFIRMER LES COMMANDE -->
         </main>
 
             
