@@ -11,22 +11,28 @@
             <h1>
                 Connection à l'administration
             </h1>
-            <form method="POST" action="./<?= $this->nomPage;?>?action2=connectionAdministrateur">
+            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connectionAdministrateur">
 
                 <!-- NOM  -->
-                <article class="divContenuCompte">
-                    <label class="labelAdresse" for="nom">Votre nom</label>
-                    <input type="text" name="nom" id="nomCompte"  class="champsCompteModifier" value="" required="required"> 
-                    <span id="erreurNomCompte"></span>
+                <article class="divContenuAdministrateur">
+                    <label class="labelAdministrateur" for="nom"> Nom d'utilisateur </label>
+                    <input type="text" name="nom" class="inputAdministrateur" value="" > 
+                    <span id="erreurNom"></span>
                 </article>
                 <!-- NOUVEAU MOT DE PASSE  -->
-                <article id="" class="divContenuCompte">
-                    <label class="labelAdresse" for="nouveauMotPasse">Entrée votre nouveau mot de passe</label>
-                    <input type="text" name="nouveauMotPasse" id="nouveauMotPasse" class="champsCompteModifier" value="" placeholder="Entrée votre nouveau mot de passe" required/>
-                    <span id="erreurNouveauMotPasse"></span>
+                <article class="divContenuAdministrateur">
+                    <label class="labelAdministrateur" for="motPasse"> mot de passe</label>
+                    <input type="text" name="motPasse" class="inputAdministrateur" value="" placeholder=" mot de passe" required/>
+                    <span id="erreur"></span>
                 </article>
 
             </form>
+            <!-- BOUTON CONNECTER  -->
+            <div>
+                <p class="boutonConnecterAdmisnistrer" >
+                    <input id="btnConnectAdministrateur" class="boutonAdministrer"  type="submit" value="Connecter">
+                </p>
+            </div>
         
         </section>
         

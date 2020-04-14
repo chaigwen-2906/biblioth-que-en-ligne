@@ -1,0 +1,55 @@
+.administrateur h1
+{
+    border: 2px solid crimson;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 85px;
+    margin-top: 25px;
+}
+.administrateur .conteneurForm
+{
+    width: 50%;
+    margin: 0 auto;
+}
+/* LES ARTICLES  */
+.administrateur .divContenuAdministrateur
+{
+    border: 2px solid wheat;
+    background-color: darkgray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px;
+    border-radius: 5px;
+    align-items: center;
+}
+/* CHAMPS LABEL  */
+.administrateur .labelAdministrateur
+{
+    width: 305px;
+}
+/* CHAMPS INPUT  */
+.administrateur .inputAdministrateur
+{
+    width: 210px;
+    height: 22px;
+}
+/* BOUTON CONNECTER ET RETOUR  */
+.administrateur .boutonAdministrer
+{
+    margin: 15px;
+    padding: 5px;
+    font-weight: bold;
+	background:linear-gradient(to bottom, #e4b840 5%, #eb557a 100%);
+	border-radius:8px;
+	display:inline-block;
+    cursor:pointer;
+    width: 10%;
+    height: 40px;
+  
+}
+.administrateur .boutonConnecterAdmisnistrer
+{
+   text-align: center;
+}
