@@ -6,20 +6,31 @@ namespace Projet\Models\admin;
 class ManagerAdmin extends Manager
 {
 
-    public function connectionAdministrateur()
+    public function getConnectionAdministrateur($nom, $motPasse)
     {
         $bdd = $this->dbConnect();
-
-        //On prépare le mot de passe(hash)
-        $nouveauMotPasse = password_hash($nouveauMotPasse, PASSWORD_DEFAULT);
-        
-        $sql = "UPDATE client  SET motDePasse ='$nouveauMotPasse' WHERE idClient = ?";    
+      
+        $sql = "SELECT * FROM admin  WHERE  nomUtilisateur = ?";    
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$idClient]);
+        $requete->execute([$nom]);
+
+        //On récupère le résultat de la requete dans la variable admin
+        $admin = $requete->fetch();
+
+
+        //on compare le mot de passe réçu en paramètre et le mot de passe en base de données
+        if(password_verify($motPasse, $admin["passUtilisateur"])){
+            return $admin["idAdmin"];
+        }
+        else{
+            return false;
+        }
 
         //On ferme la requete
         $requete->closeCursor();
     }
+
+    
 }
