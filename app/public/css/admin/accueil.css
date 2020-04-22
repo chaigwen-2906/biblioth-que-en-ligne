@@ -1,0 +1,82 @@
+/* BOUTON DECONNECTER  */
+.accueil .seDeconnecter
+{
+    text-align: right;
+}
+/* FIN BOUTON DECONNECTER  */
+
+/* TITRE  */
+.accueil h1
+{
+    text-align: center;
+}
+/* FIN TITRE  */
+
+/* SECTION RESERVER  */
+.accueil .gestionReserver a
+{
+    text-decoration: none;
+}
+/* FIN SECTION RESERVER  */
+
+/* SECTION DES ARTICLES  */
+.accueil .gererReservations
+{
+    border: 3px solid blueviolet;
+    background-color: rgb(231, 154, 154);
+    border-radius: 2px;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    font-weight: bold;
+
+}
+
+ .accueil .gestionsDesTables
+{
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 10px;
+}
+.accueil .gestionsDesTables a
+{
+    text-decoration: none;
+}
+.accueil .gererArticle
+{
+    border: 3px solid blueviolet;
+    background-color: rgb(240, 227, 227);
+    border-radius: 2px;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+    font-weight: bold;
+}
+/* FIN SECTION DES ARTICLES  */
+
+/* SECTION DES ARTICLE HOVER  */
+.accueil .gererArticle:hover
+{ 
+    background:linear-gradient(to bottom, #8dabda 5%, #eb557a 100%);
+}
+
+.accueil .gererReservations:hover
+{
+    background:linear-gradient(to bottom, #528feb 5%, #eb557a 100%);
+}
+/*FIN SECTION DES ARTICLE HOVER  */
+
+/* FOOTER  */
+footer p
+{
+    margin: 55px;
+    text-align: center;
+}
+/* FIN FOOTER  */

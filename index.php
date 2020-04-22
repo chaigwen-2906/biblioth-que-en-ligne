@@ -98,11 +98,16 @@ try {
                 //On initialise la variable nomPage du controller front avec le nom de la page demandée
                 $controller->nomPage = $params[1];
 
-
                 switch($params[1])
                 {
                     case "home":
                         $controller->connectionAdministrateurAdmin();
+                    break;
+                    case "accueil":
+                        $controller->accueilAdmin();
+                    break;
+                    case "listeLivres":
+                        $controller->gestionLivreAdmin();
                     break;
 
                     default:

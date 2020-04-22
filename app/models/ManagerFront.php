@@ -70,6 +70,9 @@ class ManagerFront extends Manager
         else{
             return false;
         }
+
+        //On ferme la requete
+        $requete->closeCursor();
     }
 
     public function creerCompte($numeroAbonne, $civilite, $nom, $prenom, $email, $mobile, $telephone, $adresse, $dateDeNaissance, $motDePasse)

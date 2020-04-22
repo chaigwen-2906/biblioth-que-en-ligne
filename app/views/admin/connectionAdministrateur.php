@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- je n'index pas cette pas là  -->
+        <meta name="robots" content="noindex">
 
-    <link rel="stylesheet" href="./../app/public/css/admin/connectionAdministrateur.css">
-</head>
+        <meta name="title" content="Notre bibliothèque en ligne">
+        <title> Connection administrateur - Ma bibliothèque en ligne</title>
+
+        <link rel="stylesheet" href="./../app/public/css/admin/connectionAdministrateur.css">
+    </head>
     <body>
         <section class="administrateur">
             <h1>
@@ -22,19 +29,27 @@
                 <!-- NOUVEAU MOT DE PASSE  -->
                 <article class="divContenuAdministrateur">
                     <label class="labelAdministrateur" for="motPasse"> mot de passe</label>
-                    <input type="text" name="motPasse" class="inputAdministrateur" value="" placeholder=" mot de passe" required/>
+                    <input type="password" name="motPasse" class="inputAdministrateur" value="" placeholder=" mot de passe" required/>
                     <span id="erreur"></span>
                 </article>
 
-            </form>
+            
             <!-- BOUTON CONNECTER  -->
             <div>
                 <p class="boutonConnecterAdmisnistrer" >
                     <input id="btnConnectAdministrateur" class="boutonAdministrer"  type="submit" value="Connecter">
                 </p>
             </div>
+            </form>
         
         </section>
         
     </body>
+
+   <footer>
+    <p>
+        &copy; La bibliothèque en ligne 2020. Développeur web: Lemoine Gwénola
+    </p>
+   </footer>
+
 </html>

@@ -24,17 +24,23 @@
     border-radius: 5px;
     align-items: center;
 }
+/*FIN LES ARTICLES  */
+
 /* CHAMPS LABEL  */
 .administrateur .labelAdministrateur
 {
     width: 305px;
 }
+/*FIN CHAMPS LABEL  */
+
 /* CHAMPS INPUT  */
 .administrateur .inputAdministrateur
 {
     width: 210px;
     height: 22px;
 }
+/*FIN CHAMPS INPUT  */
+
 /* BOUTON CONNECTER ET RETOUR  */
 .administrateur .boutonAdministrer
 {
@@ -45,11 +51,19 @@
 	border-radius:8px;
 	display:inline-block;
     cursor:pointer;
-    width: 10%;
-    height: 40px;
-  
+    width: 15%;
+    height: 40px; 
 }
 .administrateur .boutonConnecterAdmisnistrer
 {
    text-align: center;
 }
+/*FIN BOUTON CONNECTER ET RETOUR  */
+
+/* FOOTER  */
+footer p
+{
+    margin: 55px;
+    text-align: center;
+}
+/* FIN FOOTER  */

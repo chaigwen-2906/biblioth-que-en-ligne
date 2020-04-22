@@ -1,0 +1,85 @@
+/* BOUTON RETOUR  */
+.gestion .retour a
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+/* FIN BOUTON RETOUR  */
+
+/* TITRE PAGE  */
+.gestion h1
+{
+    text-align: center;
+}
+
+/* FIN TITRE PAGE  */
+
+/* AJOUTE LIVRE  */
+.gestion .ajout
+{
+    text-align: center;
+    border: 3px solid gray;
+    background:linear-gradient(to bottom, #a2c1f1 5%, #f796ae 100%);
+    width: 250px;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 45px;
+    font-size: 1.3rem;
+    font-weight: bold; 
+}
+.gestion .ajout a
+{
+    text-decoration: none;
+    color: black;
+}
+
+/* FIN AJOUT LIVRE  */
+
+/* DETAIL SUR LE LIVRE  */
+.gestion .detail
+{
+    border: 3px solid crimson;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 1.3rem;
+}
+.gestion .conteneur1
+{
+    background-color: rgb(240, 150, 195);
+    width: 300px;
+}
+.gestion .conteneur2
+{
+    background-color: rgb(255, 220, 238);
+    width: 300px;
+}
+.gestion .conteneur3
+{
+    background-color: rgb(240, 150, 195);
+    width: 300px;
+}
+.gestion .conteneur4
+{
+    background-color: rgb(255, 220, 238);
+    width: 300px; 
+    display: flex;
+    justify-content: space-around;  
+}
+.gestion .conteneur4 a
+{
+    text-decoration: none;
+    color: black;
+}
+/* FIN DETAIL SUR LE LIVRE  */
+
+/* FOOTER  */
+footer p
+{
+    margin: 55px;
+    text-align: center;
+}
+/* FIN FOOTER  */
