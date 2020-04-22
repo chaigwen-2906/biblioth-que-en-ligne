@@ -1,5 +1,5 @@
 <?php
-namespace Projet\Models;
+namespace Projet\Models\admin\objets;
 class Manager
 {
     protected function dbConnect()

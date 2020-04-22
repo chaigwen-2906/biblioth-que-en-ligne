@@ -35,38 +35,63 @@
     text-decoration: none;
     color: black;
 }
-
 /* FIN AJOUT LIVRE  */
+
+/* RECHERCHE LIVRE  */
+.gestion .rechercheLivre
+{
+    font-size: 1.3rem;
+    margin-left: 15px;
+}
+/*FIN RECHERCHE LIVRE  */
 
 /* DETAIL SUR LE LIVRE  */
 .gestion .detail
 {
-    border: 3px solid crimson;
+    border: 3px solid rgb(183, 189, 206);
+    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     font-size: 1.3rem;
+    margin: 10px;
 }
 .gestion .conteneur1
 {
-    background-color: rgb(240, 150, 195);
+    background-color: rgb(202, 202, 247);
     width: 300px;
+    text-align: center;
+    
 }
+
 .gestion .conteneur2
 {
     background-color: rgb(255, 220, 238);
     width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .gestion .conteneur3
 {
-    background-color: rgb(240, 150, 195);
+    background-color: rgb(202, 202, 247);
     width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+/* CONTENEUR SPAN 1-2-3 */
+.gestion .conteneur1 span, .gestion .conteneur2 span, .gestion .conteneur3 span,.gestion .conteneur4 span
+{
+    color: crimson;
+}
+
 .gestion .conteneur4
 {
-    background-color: rgb(255, 220, 238);
+    background-color: rgb(205, 206, 209);
     width: 300px; 
     display: flex;
+    align-items: center;
     justify-content: space-around;  
 }
 .gestion .conteneur4 a

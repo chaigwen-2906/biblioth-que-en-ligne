@@ -1,23 +1,23 @@
 <?php
 
-namespace Projet\Models;
+namespace Projet\Models\front;
 
-class ManagerFrontCoupDeCoeur extends Manager
+class ManagerFrontDetailAtelier extends Manager
 {
-    public function getListCoupDeCoeur()
+    public function getDetailAtelier($idAtelier)
     {
         $bdd = $this->dbConnect();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        $sql = "SELECT * FROM coupdecoeur LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) ON 
-        (coupdecoeur.idLivre = livre.idLivre) ORDER BY coupdecoeur.dateDePublication DESC ";
+        $sql = "SELECT * FROM atelier WHERE idAtelier=".$idAtelier;
         $requete = $bdd->prepare($sql);
+
         //Execution de la requete
         $requete->execute();
 
         //On récupère le résultat de la requete
-        $resultat = $requete->fetchAll();
+        $resultat = $requete->fetch();
 
         //On ferme la requete
         $requete->closeCursor();

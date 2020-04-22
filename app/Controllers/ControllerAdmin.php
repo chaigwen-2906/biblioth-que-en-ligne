@@ -68,11 +68,71 @@ class ControllerAdmin
         
         if(isset($_SESSION['idAdmin'])){
 
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('Le livre a été enregistré en base de données');</script>";
+                }
+            }
+
+
             $ManagerLivres = new \Projet\Models\admin\ManagerLivres();
             $listeLivres = $ManagerLivres->getListeLivres();
             
             //Appel à la vue : affichage
             require 'app/views/admin/gestionLivres.php';
+        }
+        else{
+            header('Location: ./accueil');
+            exit();
+        }
+    }
+
+    function ajouterUnLivre()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            $ManagerCategorie = new  \Projet\Models\admin\ManagerCategories();
+            //récupères dans un select toutes les catégories
+            $listCategorie = $ManagerCategorie->getListeCategorie();
+
+            $ManagerAuteurs = new  \Projet\Models\admin\ManagerAuteurs();
+            //récupères dans un select toutes les auteurs
+            $listAuteurs = $ManagerAuteurs-> getListeAuteurs();
+
+            $ManagerEditeurs = new  \Projet\Models\admin\ManagerEditeurs();
+            //récupères dans un select toutes les éditeurs
+            $listEditeurs = $ManagerEditeurs->getlisteEditeurs();
+
+            //on envoie les données a la bdd 
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "ajoutLivre")
+                {
+                    //$_FILES : variable superglobal qui permet de récupérer les input type file
+                    $contenuImage = "";
+                    if(isset($_FILES['image']) && ($_FILES['image']['tmp_name'] != ""))
+                    {
+                        $contenuImage = file_get_contents($_FILES['image']['tmp_name']);
+                    }
+                    
+
+                    //On crée un objet de type livre
+                    $unLivre = new \Projet\Models\admin\objets\Livre('',$_POST['selectCategorie'],$_POST['selectAuteurs'],$_POST['nom'],$contenuImage,'',$_POST['date'],
+                    $_POST['description'],$_POST['selectDispo'],$_POST['selectEditeurs'],$_POST['nbPage'],$_POST['dimension'],$_POST['langue'],$_POST['ean'],$_POST['isbn']);
+
+                    //On appelle la fonction Create de l'objet livre pour enregistrer en bdd
+                    $unLivre->Create();
+
+                    header('Location: ./listeLivres?action2=confirmAjout');
+                }
+                
+            }
+
+            
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutLivre.php';
         }
         else{
             header('Location: ./accueil');

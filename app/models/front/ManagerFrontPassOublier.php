@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Projet\Models;
+namespace Projet\Models\front;
 
 class ManagerFrontPassOublier extends Manager
 {

@@ -40,9 +40,15 @@
 
                 <!-- AJOUTE LIVRE  -->
                 <section class="ajout">
-                    <a  href="./<?= $this->nomPage;?>?action2=ajouterLivre">   
+                    <a  href="./ajoutLivre">   
                         Ajouter un livre !!
                     </a>
+                </section> 
+                <!-- FIN AJOUTE LIVRE  -->
+
+                <!-- RECHERCHE  -->
+                <section class="rechercheLivre" >
+                    Recherche sur le nom : <input type="text" id="champRecherche">
                 </section> 
                 <!-- FIN AJOUTE LIVRE  -->
 
@@ -51,20 +57,20 @@
 
                     <section class="detail">
                         <p class=conteneur1>
-                            Nom : <?= $unLivre['nom']; ?>
+                            <span> Nom : </span> <?= $unLivre['nom']; ?>
                         </p>
                         <p class=conteneur2>
-                            Auteur : <?= $unLivre['auteur']; ?>
+                            <span> Auteur : </span> <?= $unLivre['nomAuteur']; ?>
                         </p>
                         <p class=conteneur3>
-                            éditeur : <?= $unLivre['auteur']; ?>
+                            <span> éditeur : </span> <?= $unLivre['nomEditeur']; ?>
                         </p>
                         <p class=conteneur4>
-                            <a  href="./<?= $this->nomPage;?>?action2=modifierLivre">   
-                                Modifier
+                            <a  href="./<?= $this->nomPage;?>?action2=modifierLivre&idLivre=<?= $unLivre['idLivre']; ?>">   
+                                <span> Modifier</span>
                             </a>
-                            <a  href="./<?= $this->nomPage;?>?action2=supprimerLivre">   
-                                Supprimer
+                            <a  href="./<?= $this->nomPage;?>?action2=supprimerLivre&idLivre=<?= $unLivre['idLivre']; ?>">   
+                                <span>Supprimer</span>
                             </a>
                         </p>
                     </section>
@@ -73,10 +79,20 @@
                 <!-- FIN DETAIL SUR LE LIVRE     -->
             
         </main>
+
+        <footer>
+            <p>
+                &copy; La bibliothèque en ligne 2020. Développeur web: Lemoine Gwénola
+            </p>
+        </footer>
+
+        <!---------------------- jQuery ---------------------------------->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <!---------- Appel du javascript  / Call of javascript------------>
+        <script type="text/javascript" src="./../app/public/js/admin/gestionLivres.js"></script>
+
     </body>    
-    <footer>
-        <p>
-            &copy; La bibliothèque en ligne 2020. Développeur web: Lemoine Gwénola
-        </p>
-    </footer>
+    
 </html>

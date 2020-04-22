@@ -1,6 +1,6 @@
 <?php
 
-namespace Projet\Models;
+namespace Projet\Models\admin\objets;
 
 // ON DECLARE LA CLASSE reservation
 class Reservation extends Manager{
