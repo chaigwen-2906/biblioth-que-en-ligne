@@ -1,6 +1,6 @@
 <?php
 
-namespace Projet\Models;
+namespace Projet\Models\front;
 
 class ManagerFrontAtelier extends Manager
 {

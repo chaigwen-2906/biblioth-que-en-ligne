@@ -1,6 +1,6 @@
 <?php
 
-namespace Projet\Models;
+namespace Projet\Models\admin\objets;
 
 // ON DECLARE LA CLASSE COUPDECOEUR
 class CoupDeCoeur extends Manager{

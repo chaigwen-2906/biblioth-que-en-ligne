@@ -144,12 +144,12 @@ class ControllerFront
 
     function homeFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
         //on charge le ManagerFrontHome
-        $FrontHomeManager = new \Projet\Models\ManagerFrontHome();
+        $FrontHomeManager = new \Projet\Models\front\ManagerFrontHome();
         $listCdCoeur = $FrontHomeManager-> getListCoupDeCoeur();
         $listNouveautes = $FrontHomeManager-> getListNouveautes();
         $listAtelier = $FrontHomeManager-> getListAtelier();
@@ -172,12 +172,12 @@ class ControllerFront
 
     function coupDeCoeursFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
         //on charge le ManagerFrontcoupDeCoeur
-        $FrontCoupDeCoeurManager = new \Projet\Models\ManagerFrontCoupDeCoeur();
+        $FrontCoupDeCoeurManager = new \Projet\Models\front\ManagerFrontCoupDeCoeur();
         $listCdCoeur = $FrontCoupDeCoeurManager-> getListCoupDeCoeur();
 
         require 'app/views/front/coupDeCoeurs.php';
@@ -193,12 +193,12 @@ class ControllerFront
 
     function nouveauteFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
         //on charge le ManagerFrontnouveaute
-        $FrontNouveauteManager = new \Projet\Models\ManagerFrontNouveaute();
+        $FrontNouveauteManager = new \Projet\Models\front\ManagerFrontNouveaute();
         $listNouveautes = $FrontNouveauteManager-> getListNouveautes();
        
         require 'app/views/front/nouveaute.php';
@@ -214,12 +214,12 @@ class ControllerFront
 
     function atelierFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte(); 
 
         //on charge le ManagerFrontAtelier
-        $FrontAtelierManager = new \Projet\Models\ManagerFrontAtelier();
+        $FrontAtelierManager = new \Projet\Models\front\ManagerFrontAtelier();
         $listAtelier = $FrontAtelierManager->getListAtelier();
 
         require 'app/views/front/atelier.php';
@@ -235,12 +235,12 @@ class ControllerFront
 
     function pageRechercheFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
         //on charge le ManagerFrontPageRecherche
-        $FrontPageRechercheManager = new \Projet\Models\ManagerFrontPageRecherche();
+        $FrontPageRechercheManager = new \Projet\Models\front\ManagerFrontPageRecherche();
         //Test si la page est appelée en tapant directement l'url (sans variable POST)
         if(isset($_POST['selectCategorie']) && isset($_POST['champRecherche']))
         {
@@ -263,7 +263,7 @@ class ControllerFront
 
     function panierFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
@@ -271,7 +271,7 @@ class ControllerFront
         if(isset($_SESSION['idClient']))
         {
             //on charge le ManagerFrontPanier
-            $FrontPanierManager = new \Projet\Models\ManagerFrontPanier();
+            $FrontPanierManager = new \Projet\Models\front\ManagerFrontPanier();
 
 
             //on test si la variable action2 existe
@@ -338,7 +338,7 @@ class ControllerFront
 
     function conditionsGeneralesFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
@@ -355,7 +355,7 @@ class ControllerFront
 
     function mentionsLegalesFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
@@ -372,7 +372,7 @@ class ControllerFront
     
     function rgpdFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte(); 
 
@@ -389,7 +389,7 @@ class ControllerFront
 
     function planDuSiteFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
         
@@ -408,11 +408,11 @@ class ControllerFront
     {
         if(isset($_GET['id']))
         {
-            $this->FrontManager = new \Projet\Models\ManagerFront();
+            $this->FrontManager = new \Projet\Models\front\ManagerFront();
             $this->gestionHeader();
             $this->gestionModeConnecte(); 
 
-            $FrontManagerDetailLivre = new \Projet\Models\ManagerFrontDetailLivre();
+            $FrontManagerDetailLivre = new \Projet\Models\front\ManagerFrontDetailLivre();
             $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
 
             //on test si la variable action2 existe
@@ -466,12 +466,12 @@ class ControllerFront
     {
         if(isset($_GET['id']))
         {
-            $this->FrontManager = new \Projet\Models\ManagerFront();
+            $this->FrontManager = new \Projet\Models\front\ManagerFront();
             $this->gestionHeader();
             $this->gestionModeConnecte(); 
 
             // on récupère par id
-            $FrontManagerDetailAtelier = new \Projet\Models\ManagerFrontDetailAtelier();
+            $FrontManagerDetailAtelier = new \Projet\Models\front\ManagerFrontDetailAtelier();
             $DetailAtelier = $FrontManagerDetailAtelier->getDetailAtelier($_GET['id']);
 
             require 'app/views/front/detailAtelier.php';
@@ -492,14 +492,14 @@ class ControllerFront
 
     function monCompteFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
         //TEST de sécurité : on s'assure que le client est connecté (qu'il existe une variable $_SESSION['idClient'])
         if(isset($_SESSION['idClient']))
         {
-            $FrontManagerMonCompte = new \Projet\Models\ManagerFrontMonCompte();
+            $FrontManagerMonCompte = new \Projet\Models\front\ManagerFrontMonCompte();
   
             //on enregistre avant de charger les informations
             if(isset($_GET['action2']))
@@ -566,7 +566,7 @@ class ControllerFront
 
     function pageErreurFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
@@ -584,7 +584,7 @@ class ControllerFront
 
     function passOublierFront()
     {
-        $this->FrontManager = new \Projet\Models\ManagerFront();
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
@@ -616,7 +616,7 @@ class ControllerFront
                     $nouveauMotPass = $nouveauMotPass.chr($ascii);
                 }
                 
-                $FrontManagerPassOublier = new \Projet\Models\ManagerFrontPassOublier();
+                $FrontManagerPassOublier = new \Projet\Models\front\ManagerFrontPassOublier();
                 //j'appel ma fonction pour enregistrer dans la base de données
                 $FrontManagerPassOublier->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
 

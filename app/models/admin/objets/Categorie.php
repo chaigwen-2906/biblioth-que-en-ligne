@@ -1,6 +1,6 @@
 <?php
 
-namespace Projet\Models;
+namespace Projet\Models\admin\objets;
 
 //On déclare la classe Categorie
 class Categorie extends Manager{

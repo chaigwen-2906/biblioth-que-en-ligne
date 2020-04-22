@@ -1,6 +1,6 @@
 <?php
 
-namespace Projet\Models;
+namespace Projet\Models\admin\objets;
 
  // JE DECLARE LA CLASS LIVRE
  class Livre extends Manager{
@@ -16,7 +16,7 @@ namespace Projet\Models;
     private $dateDePublication;
     private $description;
     private $disponible;
-    private $editeur;
+    private $idEditeur;
     private $nbDePage;
     private $dimension;
     private $langue;
@@ -102,11 +102,11 @@ namespace Projet\Models;
     }
    
     //editeur
-    public function getEditeur(){
-        return $this->editeur;
+    public function getIdEditeur(){
+        return $this->idEditeur;
     }
-    public function setEditeur($valeur){
-        $this->editeur = $valeur;
+    public function setIdEditeur($valeur){
+        $this->idEditeur = $valeur;
     }
 
     //nbDePage
@@ -152,7 +152,7 @@ namespace Projet\Models;
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
     public function __construct($idLivre,$idCategorie,$idAuteur,$nom,$image,$enSavoirPlus,$dateDePublication,
-    $description,$disponible,$editeur,$nbDePage,$dimension,$langue,$ean,$isbn){
+    $description,$disponible,$idEditeur,$nbDePage,$dimension,$langue,$ean,$isbn){
     
         //On stocke la connexion à la base de données
         $this->connectBdd = $this->dbConnect();
@@ -185,7 +185,7 @@ namespace Projet\Models;
         $this->setDisponible($disponible);
 
         //on modifie editeur
-        $this->setEditeur($editeur);
+        $this->setIdEditeur($idEditeur);
 
         //on modifie nbDePage
         $this->setNbDePage($nbDePage);
@@ -214,14 +214,70 @@ namespace Projet\Models;
         //dans la bdd INSERT la ligne dans la table coupDeCoeur et je passe les valeur des colonne = 
         //(idlivre,nom,commentaire,dateDePublication)
        $sql= "INSERT INTO livre(idCategorie,idAuteur,nom,image,enSavoirPlus,dateDePublication,
-       description,disponible,editeur,nbDePage,
-       dimension,langue,ean,isbn) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+       description,disponible,idEditeur,nbDePage,
+       dimension,langue,ean,isbn) VALUES (";
+       
+       //Le champ idCategorie de la table livre est un entier. Il ne peut donc pas prendre la valeur ''
+       //Si l'idCategorie est null il faut donc lui envoyer le mot null
+       if($this->getIdCategorie() == ''){
+           $sql = $sql."null,";
+       }
+       else{
+            $sql = $sql.$this->getIdCategorie().",";
+       }
+
+       if($this->getIdAuteur() == ''){
+            $sql = $sql."null,";
+        }
+        else{
+            $sql = $sql.$this->getIdAuteur().",";
+        }
+
+        $sql = $sql."'".addslashes($this->getNom())."',";
+
+        $sql = $sql."'".addslashes($this->getImage())."',";
+
+        $sql = $sql."'".addslashes($this->getEnSavoirPlus())."',";
+
+        if($this->getDateDePublication() == ''){
+            $sql = $sql."null,";
+        }
+        else{
+             $sql = $sql."'".$this->getDateDePublication()."',";
+        }
+
+        $sql = $sql."'".addslashes($this->getDescription())."',";
+
+        $sql = $sql."'".addslashes($this->getDisponible())."',";
+
+        if($this->getIdEditeur() == ''){
+            $sql = $sql."null,";
+        }
+        else{
+             $sql = $sql.$this->getIdEditeur().",";
+        }
+
+        if($this->getNbDePage() == ''){
+            $sql = $sql."0,";
+        }
+        else{
+             $sql = $sql.$this->getNbDePage().",";
+        }
+
+        $sql = $sql."'".addslashes($this->getDimension())."',";
+
+        $sql = $sql."'".addslashes($this->getLangue())."',";
+
+        $sql = $sql."'".addslashes($this->getEan())."',";
+
+        $sql = $sql."'".addslashes($this->getIsbn())."'";
+
+        $sql = $sql.")";
+
        $requete = $this->connectBdd->prepare($sql);
     
        //Execution de la requete
-       $requete->execute([$this->getIdCategorie(), $this->getIdAuteur(), $this->getNom(), $this->getImage(), $this->getEnSavoirPlus(),
-       $this->getDateDePublication(),$this->getDescription(),$this->getDisponible(), $this->getEditeur(),
-       $this->getNbDePage(),$this->getDimension(),$this->getLangue(),$this->getEan(), $this->getIsbn()]);
+       $requete->execute();
       
        //on recupère l'id de la ligne insérée 
        //et on le stocke dans l'attribut idCoupDeCoeur de notre objet
@@ -254,7 +310,7 @@ namespace Projet\Models;
             $this->setDateDePublication($resultat['dateDePublication']);
             $this->setDescription($resultat['description']);
             $this->setDisponible($resultat['disponible']);
-            $this->setEditeur($resultat['editeur']);
+            $this->setIdEditeur($resultat['idEditeur']);
             $this->setNbDePage($resultat['nbDePage']);
             $this->setDimension($resultat['dimension']);
             $this->setLangue($resultat['langue']);
@@ -272,7 +328,7 @@ namespace Projet\Models;
     public function Update(){
         //Préparation de la requête
         $sql = "UPDATE livre SET idCategorie = ?, idAuteur = ?, nom = ?, image = ?, enSavoirPlus = ?, dateDePublication = ?,
-        description = ?, disponible = ?, editeur = ?, nbDePage = ?, dimension = ?, 
+        description = ?, disponible = ?, idEditeur = ?, nbDePage = ?, dimension = ?, 
         langue = ?, ean = ?, isbn = ? WHERE idLivre = ?";
         
         $requete = $this->connectBdd->prepare($sql);
@@ -280,7 +336,7 @@ namespace Projet\Models;
         //Execution de la requete
         $requete->execute([$this->getIdCategorie(), $this->getIdAuteur(), $this->getNom(), $this->getImage(),
          $this->getEnSavoirPlus(),$this->getDateDePublication(),$this->getDescription(),
-        $this->getDisponible(),$this->getEditeur(), $this->getNbDePage(),$this->getDimension(),$this->getLangue(),
+        $this->getDisponible(),$this->getIdEditeur(), $this->getNbDePage(),$this->getDimension(),$this->getLangue(),
         $this->getEan(), $this->getIsbn(),$this->getIdLivre()]);
        
         //Fermeture de la requete

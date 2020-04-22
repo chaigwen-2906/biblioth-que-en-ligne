@@ -109,6 +109,9 @@ try {
                     case "listeLivres":
                         $controller->gestionLivreAdmin();
                     break;
+                    case "ajoutLivre":
+                        $controller->ajouterUnLivre();
+                    break;
 
                     default:
                         $controller->pageErreurFront();

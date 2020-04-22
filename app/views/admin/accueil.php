@@ -106,12 +106,13 @@
             <!-- FIN SECTION DES ARTICLES  -->
         </main>
 
+        <footer>
+            <p>
+                &copy; La bibliothèque en ligne 2020. Développeur web: Lemoine Gwénola
+            </p>
+        </footer>
     </body>
 
-    <footer>
-        <p>
-            &copy; La bibliothèque en ligne 2020. Développeur web: Lemoine Gwénola
-        </p>
-    </footer>
+    
 
 </html>
