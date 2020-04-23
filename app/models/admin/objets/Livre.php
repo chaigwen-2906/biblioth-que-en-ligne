@@ -226,7 +226,7 @@ namespace Projet\Models\admin\objets;
             $sql = $sql.$this->getIdCategorie().",";
        }
 
-       if($this->getIdAuteur() == ''){
+        if($this->getIdAuteur() == ''){
             $sql = $sql."null,";
         }
         else{
@@ -327,17 +327,67 @@ namespace Projet\Models\admin\objets;
     // Update : Modifie les données d'une ligne dans la table Categorie
     public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE livre SET idCategorie = ?, idAuteur = ?, nom = ?, image = ?, enSavoirPlus = ?, dateDePublication = ?,
-        description = ?, disponible = ?, idEditeur = ?, nbDePage = ?, dimension = ?, 
-        langue = ?, ean = ?, isbn = ? WHERE idLivre = ?";
+        $sql = "UPDATE livre SET ";
+        
+        if($this->getIdCategorie() == ''){
+            $sql = $sql."idCategorie = null,";
+        }
+        else{
+             $sql = $sql."idCategorie = ".$this->getIdCategorie().",";
+        }
+        
+        if($this->getIdAuteur() == ''){
+            $sql = $sql."idAuteur = null,";
+        }
+        else{
+            $sql = $sql."idAuteur = ".$this->getIdAuteur().",";
+        }
+
+        $sql = $sql."nom = '".addslashes($this->getNom())."',";
+
+        $sql = $sql."image = '".addslashes($this->getImage())."',";
+
+        $sql = $sql."enSavoirPlus = '".addslashes($this->getEnSavoirPlus())."',";
+
+        if($this->getDateDePublication() == ''){
+            $sql = $sql."dateDePublication = null,";
+        }
+        else{
+             $sql = $sql."dateDePublication = '".$this->getDateDePublication()."',";
+        }
+
+        $sql = $sql."description = '".addslashes($this->getDescription())."',";
+
+        $sql = $sql."disponible = '".addslashes($this->getDisponible())."',";
+
+        if($this->getIdEditeur() == ''){
+            $sql = $sql."idEditeur = null,";
+        }
+        else{
+             $sql = $sql."idEditeur = ".$this->getIdEditeur().",";
+        }
+
+        if($this->getNbDePage() == ''){
+            $sql = $sql."nbDePage = 0,";
+        }
+        else{
+             $sql = $sql."nbDePage = ".$this->getNbDePage().",";
+        }
+
+        $sql = $sql."dimension = '".addslashes($this->getDimension())."',";
+
+        $sql = $sql."langue = '".addslashes($this->getLangue())."',";
+
+        $sql = $sql."ean = '".addslashes($this->getEan())."',";
+
+        $sql = $sql."isbn = '".addslashes($this->getIsbn())."'";
+        
+        $sql = $sql." WHERE idLivre = ?";
         
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getIdCategorie(), $this->getIdAuteur(), $this->getNom(), $this->getImage(),
-         $this->getEnSavoirPlus(),$this->getDateDePublication(),$this->getDescription(),
-        $this->getDisponible(),$this->getIdEditeur(), $this->getNbDePage(),$this->getDimension(),$this->getLangue(),
-        $this->getEan(), $this->getIsbn(),$this->getIdLivre()]);
+        $requete->execute([$this->getIdLivre()]);
        
         //Fermeture de la requete
         $requete->closeCursor();

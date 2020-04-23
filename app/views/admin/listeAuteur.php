@@ -10,7 +10,7 @@
 
         <meta name="title" content="Notre bibliothèque en ligne">
         
-        <title> Détail des livres - Ma bibliothèque en ligne</title>
+        <title> Détail des auteurs - Ma bibliothèque en ligne</title>
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
         <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
@@ -34,14 +34,14 @@
 
                 <!-- TITRE PAGE  -->
                 <h1>
-                    Gestion des livres
+                    Gestion des auteurs
                 </h1>
                 <!-- FIN TITRE PAGE  -->
 
                 <!-- AJOUTE LIVRE  -->
                 <section class="ajout">
-                    <a href="./ajoutLivre">   
-                        Ajouter un livre !!
+                    <a href="./ajoutAuteur">   
+                        Ajouter un auteur !!
                     </a>
                 </section> 
                 <!-- FIN AJOUTE LIVRE  -->
@@ -53,23 +53,20 @@
                 <!-- FIN AJOUTE LIVRE  -->
 
                 <!-- DETAIL SUR LE LIVRE  -->
-                <?php foreach ($listeLivres as $unLivre) {?>
+                <?php foreach ($listeAuteur as $unAuteur) {?>
 
                     <section class="detail">
                         <p class="conteneur1">
-                            <span>Nom :&nbsp;</span><?= $unLivre['nom']; ?>
+                            <span>Nom :&nbsp;</span><?= $unAuteur['nomAuteur']; ?>
                         </p>
                         <p class="conteneur2">
-                            <span>Auteur :&nbsp;</span><?= $unLivre['nomAuteur']; ?>
-                        </p>
-                        <p class="conteneur3">
-                            <span>Editeur :&nbsp;</span><?= $unLivre['nomEditeur']; ?>
+                            <span>Prénom :&nbsp;</span><?= $unAuteur['prenomAuteur']; ?>
                         </p>
                         <p class="conteneur4">
-                            <a  href="./modifierLivre?idLivre=<?= $unLivre['idLivre']; ?>">   
+                            <a  href="./modifierLivre?idAuteur=<?= $unAuteur['idAuteur']; ?>">   
                                 <span> Modifier</span>
                             </a>
-                            <a  href="./supprimerLivre?idLivre=<?= $unLivre['idLivre']; ?>">   
+                            <a  href="./supprimerLivre?idAuteur=<?= $unAuteur['idAuteur']; ?>">   
                                 <span>Supprimer</span>
                             </a>
                         </p>

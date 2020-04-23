@@ -51,10 +51,10 @@ class Auteur extends Manager{
         $this->setIdAuteur($idAuteur);
 
         //on modifie l'attribut nomAuteur de l'objet
-        $this->setNom($nomAuteur);
+        $this->setNomAuteur($nomAuteur);
 
         //on modifie l'attribut prenomAuteur de l'objet
-        $this->setPrenom($prenomAuteur);
+        $this->setPrenomAuteur($prenomAuteur);
     }
 
 

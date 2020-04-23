@@ -106,6 +106,7 @@ try {
                     case "accueil":
                         $controller->accueilAdmin();
                     break;
+                    //gestion livres
                     case "listeLivres":
                         $controller->gestionLivreAdmin();
                     break;
@@ -115,6 +116,18 @@ try {
                     case "modifierLivre":
                         $controller->modifierLivre();
                     break;
+                    case "supprimerLivre":
+                        $controller->getSupprimerLivre();
+                    break;
+                    //gestion auteurs
+                    case "listeAuteur":
+                        $controller->gestionAuteurs();
+                    break;
+                    case "ajoutAuteur":
+                        $controller->ajouterUnAuteur();
+                    break;
+
+
 
                     default:
                         $controller->pageErreurFront();

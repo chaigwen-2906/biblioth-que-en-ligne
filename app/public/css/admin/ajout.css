@@ -68,3 +68,24 @@ footer p
 }
 /* FIN FOOTER  */
 
+
+/* ----------------------------------------------------------------------page supprimer ------------------------------------------------- */
+
+/* SUPPRIMER LIVRE  */
+.supprimerLivre h1, .supprimerLivre h2
+{
+    text-align: center;
+}
+
+/* BOUTON  */
+.supprimerLivre .boutonSupprimerLivre
+{
+    border: 2px solid darkgray  ;
+    background:linear-gradient(to bottom, #a2c1f1 5%, #f796ae 100%);
+    border-radius: 5px;
+    display: flex;
+    margin: 0 auto;
+    width: 200px;
+    height: 35px;
+    margin-top: 35px;
+}
