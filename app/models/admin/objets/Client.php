@@ -1,6 +1,6 @@
 <?php 
 
-namespace Projet\Models\admin;
+namespace Projet\Models\admin\objets;
 
 //Je declare la classe client
 class Client extends Manager{

@@ -65,7 +65,7 @@ class CoupDeCoeur extends Manager{
 
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
-    public function __construct($idCoupDeCoeur, $IdLivre, $auteur, $commentaire, $dateDePublication){
+    public function __construct($idCoupDeCoeur, $idLivre, $auteur, $commentaire, $dateDePublication){
         //On stocke la connexion à la base de données
         $this->connectBdd = $this->dbConnect();
 

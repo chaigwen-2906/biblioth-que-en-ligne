@@ -56,7 +56,7 @@
                     </article>
                 </a>
 
-                <a href="">    
+                <a href="./listeAuteur">    
                     <article class="gererArticle">
                         Gérer les auteurs
                     </article>

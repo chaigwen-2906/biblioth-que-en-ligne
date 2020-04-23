@@ -34,7 +34,7 @@
             <h1>
                 Modifier un livre
             </h1>
-            <form enctype="multipart/form-data" method="POST" action="./<?= $this->nomPage;?>?action2=ajoutLivre">
+            <form enctype="multipart/form-data" method="POST" action="./<?= $this->nomPage;?>?action2=modifieLivre&idLivre=<?= $idLivre;?>">
 
                 <!-- CATEGORIES  -->
                 <section class="conteneurSection">
