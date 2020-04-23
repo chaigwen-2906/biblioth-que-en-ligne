@@ -17,9 +17,12 @@ $(document).ready( function() {
 
             //on test si la valeur recherché est contenu dans le nom du livre
             let p = enfantsSection[1];
+
+            let enfantP = p.childNodes;
+
             //on récupère le contenu du p
-            let valeurP = p.firstChild.textContent.toLowerCase();
-            let test = valeurP.indexOf(valeur);
+            let valeurNom = enfantP[2].textContent.toLowerCase();
+            let test = valeurNom.indexOf(valeur);
             if(test == -1)
             {
                 //la chaine n'est pas trouvé

@@ -112,6 +112,9 @@ try {
                     case "ajoutLivre":
                         $controller->ajouterUnLivre();
                     break;
+                    case "modifierLivre":
+                        $controller->modifierLivre();
+                    break;
 
                     default:
                         $controller->pageErreurFront();

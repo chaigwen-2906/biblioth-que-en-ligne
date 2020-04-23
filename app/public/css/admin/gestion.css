@@ -17,7 +17,8 @@
 /* FIN TITRE PAGE  */
 
 /* AJOUTE LIVRE  */
-.gestion .ajout
+.gestion .ajout,
+.conteneur4 a
 {
     text-align: center;
     border: 3px solid gray;
@@ -30,7 +31,8 @@
     font-size: 1.3rem;
     font-weight: bold; 
 }
-.gestion .ajout a
+.gestion .ajout a,
+.conteneur4 a span
 {
     text-decoration: none;
     color: black;
@@ -60,8 +62,11 @@
 {
     background-color: rgb(202, 202, 247);
     width: 300px;
-    text-align: center;
-    
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .gestion .conteneur2
@@ -71,6 +76,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .gestion .conteneur3
 {
@@ -79,25 +85,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 /* CONTENEUR SPAN 1-2-3 */
 .gestion .conteneur1 span, .gestion .conteneur2 span, .gestion .conteneur3 span,.gestion .conteneur4 span
 {
     color: crimson;
-}
-
-.gestion .conteneur4
-{
-    background-color: rgb(205, 206, 209);
-    width: 300px; 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;  
+    font-weight: bold;
 }
 .gestion .conteneur4 a
 {
     text-decoration: none;
     color: black;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    margin-bottom: 15px;
 }
 /* FIN DETAIL SUR LE LIVRE  */
 

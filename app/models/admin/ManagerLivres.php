@@ -10,7 +10,7 @@ class ManagerLivres extends Manager{
         $bdd = $this->dbConnect();
       
         $sql = "SELECT idLivre, livre.nom, nomAuteur, editeur.nom AS 'nomEditeur' 
-        FROM livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur) LEFT JOIN editeur ON (livre.idEditeur = editeur.idEditeur)";  
+        FROM livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur) LEFT JOIN editeur ON (livre.idEditeur = editeur.idEditeur) ORDER BY livre.nom";  
 
         $requete = $bdd->prepare($sql);
 

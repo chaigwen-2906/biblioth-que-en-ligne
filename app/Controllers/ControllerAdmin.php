@@ -84,7 +84,7 @@ class ControllerAdmin
             require 'app/views/admin/gestionLivres.php';
         }
         else{
-            header('Location: ./accueil');
+            header('Location: ./home');
             exit();
         }
     }
@@ -135,9 +135,50 @@ class ControllerAdmin
             require 'app/views/admin/ajoutLivre.php';
         }
         else{
-            header('Location: ./accueil');
+            header('Location: ./home');
             exit();
         }
+    }
+
+    function modifierLivre()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idLivre']))
+            {   
+                //on récupère la var idLivre 
+                $idLivre = $_GET['idLivre'];
+
+                //on récupère les données du livre
+                $unLivre = new \Projet\Models\admin\objets\Livre($idLivre,'','','','','','', '','','','','','','','');
+                $unLivre->Read();
+
+                $ManagerCategorie = new  \Projet\Models\admin\ManagerCategories();
+                //récupères dans un select toutes les catégories
+                $listCategorie = $ManagerCategorie->getListeCategorie();
+
+                $ManagerAuteurs = new  \Projet\Models\admin\ManagerAuteurs();
+                //récupères dans un select toutes les auteurs
+                $listAuteurs = $ManagerAuteurs-> getListeAuteurs();
+
+                $ManagerEditeurs = new  \Projet\Models\admin\ManagerEditeurs();
+                //récupères dans un select toutes les éditeurs
+                $listEditeurs = $ManagerEditeurs->getlisteEditeurs();
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierLivre.php';
+            }
+            else{
+                header('location: ./listeLivres');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+
     }
 
     
