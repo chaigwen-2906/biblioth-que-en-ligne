@@ -40,7 +40,7 @@
 
                 <!-- AJOUTE LIVRE  -->
                 <section class="ajout">
-                    <a  href="./ajoutLivre">   
+                    <a href="./ajoutLivre">   
                         Ajouter un livre !!
                     </a>
                 </section> 
@@ -56,17 +56,17 @@
                 <?php foreach ($listeLivres as $unLivre) {?>
 
                     <section class="detail">
-                        <p class=conteneur1>
-                            <span> Nom : </span> <?= $unLivre['nom']; ?>
+                        <p class="conteneur1">
+                            <span>Nom :&nbsp;</span><?= $unLivre['nom']; ?>
                         </p>
-                        <p class=conteneur2>
-                            <span> Auteur : </span> <?= $unLivre['nomAuteur']; ?>
+                        <p class="conteneur2">
+                            <span>Auteur :&nbsp;</span><?= $unLivre['nomAuteur']; ?>
                         </p>
-                        <p class=conteneur3>
-                            <span> éditeur : </span> <?= $unLivre['nomEditeur']; ?>
+                        <p class="conteneur3">
+                            <span>Editeur :&nbsp;</span><?= $unLivre['nomEditeur']; ?>
                         </p>
-                        <p class=conteneur4>
-                            <a  href="./<?= $this->nomPage;?>?action2=modifierLivre&idLivre=<?= $unLivre['idLivre']; ?>">   
+                        <p class="conteneur4">
+                            <a  href="./modifierLivre?idLivre=<?= $unLivre['idLivre']; ?>">   
                                 <span> Modifier</span>
                             </a>
                             <a  href="./<?= $this->nomPage;?>?action2=supprimerLivre&idLivre=<?= $unLivre['idLivre']; ?>">   
