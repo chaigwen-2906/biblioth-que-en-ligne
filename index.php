@@ -145,6 +145,19 @@ try {
                     case"supprimerAtelier":
                         $controller->supprimerAtelier();
                     break;
+                    //gestion categorie
+                    case"listeCategorie":
+                        $controller->gestionCategorie();
+                    break;
+                    case"ajoutCategorie":
+                        $controller->ajouterUneCategorie();
+                    break;
+                    case"modifierCategorie":
+                        $controller->modifierCategorie();
+                    break;
+                    case"supprimerCategorie":
+                        $controller->supprimerCategorie();
+                    break;
 
 
 

@@ -24,7 +24,7 @@ class Categorie extends Manager{
     }
     //nom
     public function getNomCategorie(){
-        return $this->NomCategorie;
+        return $this->nomCategorie;
     }
     public function setNomCategorie($valeur){
         $this->nomCategorie = $valeur;
@@ -54,9 +54,9 @@ class Categorie extends Manager{
         //Préparation de la requête
         $sql = "INSERT INTO categorie(nomCategorie) VALUES (?)";
         $requete = $this->connectBdd->prepare($sql);
-        
+
         //Execution de la requete
-        $requete->execute([$this->nomCategorie()]);
+        $requete->execute([$this->getNomCategorie()]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCategorie de notre objet      
@@ -96,7 +96,7 @@ class Categorie extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->nomCategorie(),$this->getIdCategorie()]);
+        $requete->execute([$this->getNomCategorie(),$this->getIdCategorie()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

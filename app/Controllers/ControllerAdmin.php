@@ -470,10 +470,10 @@ class ControllerAdmin
                     echo "<script>alert('L\'atelier a été modifié en base de données');</script>";
                 }
 
-                // if($_GET['action2'] == "confirmSupp")
-                // {
-                //     echo "<script>alert('L\'atelier a été supprimé en base de données');</script>";
-                // }
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('L\'atelier a été supprimé en base de données');</script>";
+                }
             }
 
             $ManagerAtelier = new \Projet\Models\admin\ManagerAtelier();
@@ -489,7 +489,6 @@ class ControllerAdmin
         }
 
     }
-
 
 
     function ajouterUnAtelier()
@@ -573,17 +572,198 @@ class ControllerAdmin
     }
 
 
-    function supprimerAtelier(){
+    function supprimerAtelier()
+    {
+        if(isset($_SESSION['idAdmin'])){
 
-        if(isset($_SESSION['idAdmin']))
-        {
+            if(isset($_GET['idAtelier']))
+            {
+                //on récupère la var idLivre 
+                $idAtelier = $_GET['idAtelier'];
 
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerAtelier")
+                    {
+                        // on supprime le auteur
+                        $unAtelier = new \Projet\Models\admin\objets\Atelier($idAtelier,'','','','','','');
+                        $unAtelier->delete();
+
+
+                        // on renvoie vers la page liste auteur
+                        header('location: ./listeAtelier?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerAtelier.php';
+            }
+            else{
+                header('location: ./listeAtelier');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    //----GESTION CATEGORIE : AJOUTER---MODIFIER---SUPPRIMER
+
+    function gestionCategorie()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('La catégorie a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('La catégorie a été modifié en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('La catégorie a été supprimé en base de données');</script>";
+                }
+            }
+
+            $ManagerCategorie = new \Projet\Models\admin\ManagerCategories();
+            $listeCategorie = $ManagerCategorie->getListeCategorie();
+
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/listeCategorie.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
         }
 
     }
 
+
+    function ajouterUneCategorie()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutCategorie")
+                {
+                    //On crée un objet de type atelier 
+                    $uneCategorie = new \Projet\Models\admin\objets\Categorie('',$_POST['nomCategorie']);
+                    
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $uneCategorie->Create();
+
+                    
+                    header('Location: ./listeCategorie?action2=confirmAjout');
+                }
+            }
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutCategorie.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+
+    }
+
+
+    function modifierCategorie()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idCategorie'])){
+
+                $idCategorie = $_GET['idCategorie'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données de l'atelier 
+                $uneCategorie = new \Projet\Models\admin\objets\Categorie($idCategorie,'');
+                $uneCategorie->Read();
+
+
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierCategorie")
+                    {
+                        $uneCategorie->setNomCategorie($_POST['nomCategorie']);
+
+                        //enregistrer en base bdd
+                        $uneCategorie->Update();
+
+                        //on renvoie vers la page listeAuteur
+                        header('Location: ./listeCategorie?action2=confirmModif');
+                    }
+                }
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierCategorie.php';
+            }
+            else{
+                header('location: ./listeCategorie');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+           
+    }
+
+
+    function supprimerCategorie()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idCategorie']))
+            {
+                //on récupère la var idLivre 
+                $idCategorie = $_GET['idCategorie'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerCategorie")
+                    {
+                        // on supprime le auteur
+                        $unCategorie = new \Projet\Models\admin\objets\Categorie($idCategorie,'');
+                        $unCategorie->delete();
+
+
+                        // on renvoie vers la page liste auteur
+                        header('location: ./listeCategorie?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerCategorie.php';
+            }
+            else{
+                header('location: ./listeCategorie');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
         
 }        
+
 
 
 
