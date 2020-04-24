@@ -10,7 +10,7 @@
 
         <meta name="title" content="Notre bibliothèque en ligne">
         
-        <title> Détail des livres - Ma bibliothèque en ligne</title>
+        <title> Modifier des livres - Ma bibliothèque en ligne</title>
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
         <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">

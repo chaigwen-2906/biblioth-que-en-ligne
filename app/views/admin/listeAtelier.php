@@ -10,7 +10,7 @@
 
         <meta name="title" content="Notre bibliothèque en ligne">
         
-        <title> Détail des auteurs - Ma bibliothèque en ligne</title>
+        <title> Détail des ateliers - Ma bibliothèque en ligne</title>
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
         <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
@@ -34,14 +34,14 @@
 
                 <!-- TITRE PAGE  -->
                 <h1>
-                    Gestion des auteurs
+                    Gestion des ateliers
                 </h1>
                 <!-- FIN TITRE PAGE  -->
 
-                <!-- AJOUTE LIVRE  -->
+                <!-- AJOUTE  -->
                 <section class="ajout">
-                    <a href="./ajoutAuteur">   
-                        Ajouter un auteur !!
+                    <a href="./ajoutAtelier">   
+                        Ajouter un atelier !!
                     </a>
                 </section> 
                 <!-- FIN AJOUTE  -->
@@ -52,28 +52,34 @@
                 </section> 
                 <!-- FIN RECHERCHE -->
 
-                <!-- DETAIL -->
-                <?php foreach ($listeAuteur as $unAuteur) {?>
+                <!-- DETAIL   -->
+                <?php foreach ($listeAtelier as $unAtelier) {?>
 
                     <section class="detail">
                         <p class="conteneur1">
-                            <span>Nom :&nbsp;</span><?= $unAuteur['nomAuteur']; ?>
+                            <span>Nom :&nbsp;</span><?= $unAtelier['nom']; ?>
                         </p>
                         <p class="conteneur2">
-                            <span>Prénom :&nbsp;</span><?= $unAuteur['prenomAuteur']; ?>
+                            <?php 
+                                $tempDate = substr($unAtelier['date'],0,10);
+                                $tabdate = explode('-',$tempDate);
+                                $date = $tabdate[2]."/".$tabdate[1]."/".$tabdate[0];
+                            ?>
+                            <span>Date :&nbsp;</span><?= $date; ?>
                         </p>
+                        
                         <p class="conteneur4">
-                            <a  href="./modifierAuteur?idAuteur=<?= $unAuteur['idAuteur']; ?>">   
+                            <a  href="./modifierAtelier?idAtelier=<?= $unAtelier['idAtelier']; ?>">   
                                 <span> Modifier</span>
                             </a>
-                            <a  href="./supprimerAuteur?idAuteur=<?= $unAuteur['idAuteur']; ?>">   
+                            <a  href="./supprimerAtelier?idAtelier=<?= $unAtelier['idAtelier']; ?>">   
                                 <span>Supprimer</span>
                             </a>
                         </p>
                     </section>
 
                 <?php } ?>
-                <!-- FIN DETAIL     -->
+                <!-- FIN DETAIL    -->
             
         </main>
 

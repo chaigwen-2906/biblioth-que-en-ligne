@@ -62,7 +62,7 @@
                     </article>
                 </a>
 
-                <a href="">
+                <a href="./listeAtelier">
                     <article class="gererArticle">
                         Gérer les ateliers
                     </article>
