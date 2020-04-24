@@ -68,7 +68,7 @@
                     </article>
                 </a>
 
-                <a href=""> 
+                <a href="./listeCategorie"> 
                     <article class="gererArticle">
                         Gérer les catégories 
                     </article>
