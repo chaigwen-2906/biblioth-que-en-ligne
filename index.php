@@ -126,6 +126,25 @@ try {
                     case "ajoutAuteur":
                         $controller->ajouterUnAuteur();
                     break;
+                    case "modifierAuteur":
+                        $controller->modifierAuteur();
+                    break;
+                    case"supprimerAuteur":
+                        $controller->getSupprimerAuteur();
+                    break;
+                    //gestion atelier
+                    case"listeAtelier":
+                        $controller->gestionAtelier();
+                    break;
+                    case"ajoutAtelier":
+                        $controller->ajouterUnAtelier();
+                    break;
+                    case"modifierAtelier":
+                        $controller->modifierAtelier();
+                    break;
+                    case"supprimerAtelier":
+                        $controller->supprimerAtelier();
+                    break;
 
 
 

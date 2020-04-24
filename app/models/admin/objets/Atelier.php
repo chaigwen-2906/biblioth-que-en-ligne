@@ -14,6 +14,7 @@ class Atelier extends Manager{
     private $heure;
     private $age;
     private $capacite;
+  
 
     
     //////////////DECLARATION DES ASSESSEURS///////////
@@ -77,6 +78,7 @@ class Atelier extends Manager{
     }
 
 
+
     /////////////DECLARATION DES CONSTRUCTEURS///////////
 
     public function __construct($idAtelier, $nom, $date, $description, $heure, $age, $capacite){
@@ -115,11 +117,34 @@ class Atelier extends Manager{
         //Préparation de la requête
         //dans la bdd INSERT la ligne dans la table atelier et je passe les valeur des colonne = 
         //(nom,date,description,heure,age,capacite)
-        $sql= "INSERT INTO atelier(nom,date,description,heure,age,capacite) VALUES (?,?,?,?,?,?)";
+        $sql= "INSERT INTO atelier(nom,date,description,heure,age,capacite) VALUES (";
+
+        //Le champ idCategorie de la table livre est un entier. Il ne peut donc pas prendre la valeur ''
+       //Si l'idCategorie est null il faut donc lui envoyer le mot null
+       
+        $sql = $sql."'".addslashes($this->getNom())."',";
+
+        if($this->getDate() == ''){
+            $sql = $sql."null,";
+        }
+        else{
+             $sql = $sql."'".$this->getDate()."',";
+        }
+
+        $sql = $sql."'".addslashes($this->getDescription())."',";
+
+        $sql = $sql."'".addslashes($this->getHeure())."',";
+
+        $sql = $sql."'".addslashes($this->getAge())."',";
+
+        $sql = $sql."'".addslashes($this->getCapacite())."'";
+
+        $sql = $sql.")";
+
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNom(), $this->getDate(), $this->getDescription(), $this->getHeure(), $this->getAge(), $this->getCapacite()]);
+        $requete->execute();
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idAtelier de notre objet
@@ -163,7 +188,8 @@ class Atelier extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNom(), $this->getDate(), $this->getDescription(), $this->getHeure(), $this->getAge(), $this->getCapacite(), $this->getidAtelier()]);
+        $requete->execute([$this->getNom(), $this->getDate(), $this->getDescription(), $this->getHeure(), $this->getAge(), $this->getCapacite(),
+         $this->getidAtelier()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

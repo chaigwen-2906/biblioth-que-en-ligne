@@ -62,6 +62,8 @@ class ControllerAdmin
         }
     }
 
+
+
     function gestionLivreAdmin()
     {
         
@@ -97,7 +99,7 @@ class ControllerAdmin
         }
     }
 
-
+//----GESTION LIVRE : AJOUTER---MODIFIER---SUPPRIMER
 
     function ajouterUnLivre()
     {
@@ -229,6 +231,7 @@ class ControllerAdmin
     }
 
 
+
     function getSupprimerLivre()
     {
         if(isset($_SESSION['idAdmin'])){
@@ -293,6 +296,7 @@ class ControllerAdmin
     }
 
 
+//----GESTION AUTEUR : AJOUTER---MODIFIER---SUPPRIMER
 
     function gestionAuteurs()
     {
@@ -306,19 +310,19 @@ class ControllerAdmin
                     echo "<script>alert('L\'auteur a été enregistré en base de données');</script>";
                 }
 
-                // if($_GET['action2'] == "confirmModif")
-                // {
-                //     echo "<script>alert('Le livre a été modifié en base de données');</script>";
-                // }
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('L\'auteur a été modifié en base de données');</script>";
+                }
 
-                // if($_GET['action2'] == "confirmSupp")
-                // {
-                //     echo "<script>alert('Le livre a été supprimé en base de données');</script>";
-                // }
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('L\'auteur a été supprimé en base de données');</script>";
+                }
             }
 
             $ManagerAuteurs = new \Projet\Models\admin\ManagerAuteurs();
-            $listeAuteur = $ManagerAuteurs->getListeAuteur();
+            $listeAuteur = $ManagerAuteurs->getListeAuteurs();
 
 
             //Appel à la vue : affichage
@@ -360,4 +364,228 @@ class ControllerAdmin
             exit();
         }
     }
-}
+
+
+
+    function modifierAuteur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idAuteur']))
+            {
+                 //on récupère la var idLivre 
+                 $idAuteur = $_GET['idAuteur'];
+
+                 //on récupère les données de l'auteur
+                 $unAuteur = new \Projet\Models\admin\objets\Auteur($idAuteur,'','');
+                 $unAuteur->Read();
+
+                 if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifieAuteur")
+                    {
+                        $unAuteur->setNomAuteur($_POST['nom']);
+                        $unAuteur->setPrenomAuteur($_POST['prenom']);
+
+                        //enregistrer en base bdd
+                        $unAuteur->Update();
+
+                        //on renvoie vers la page listeAuteur
+                        header('Location: ./listeAuteur?action2=confirmModif');
+                    }
+
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierAuteur.php';
+            }
+            else{
+                header('location: ./listeAuteur');
+                exit();
+            }
+                 
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+
+    }
+
+
+
+    function getSupprimerAuteur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idAuteur']))
+            {
+                //on récupère la var idLivre 
+                $idAuteur = $_GET['idAuteur'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerAuteur")
+                    {
+                         // on supprime le auteur
+                         $unAuteur = new \Projet\Models\admin\objets\Auteur($idAuteur,'','');
+                         $unAuteur->delete();
+ 
+ 
+                         // on renvoie vers la page liste auteur
+                         header('location: ./listeAuteur?action2=confirmSupp');
+                    }
+                }
+                 //Appel à la vue : affichage
+                 require 'app/views/admin/supprimerAuteur.php';
+            }
+            else{
+                header('location: ./listeAuteur');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+//----GESTION ATELIER : AJOUTER---MODIFIER---SUPPRIMER
+
+    function gestionAtelier()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('L\'atelier a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('L\'atelier a été modifié en base de données');</script>";
+                }
+
+                // if($_GET['action2'] == "confirmSupp")
+                // {
+                //     echo "<script>alert('L\'atelier a été supprimé en base de données');</script>";
+                // }
+            }
+
+            $ManagerAtelier = new \Projet\Models\admin\ManagerAtelier();
+            $listeAtelier = $ManagerAtelier->getListeAtelier();
+
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/listeAtelier.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+
+    }
+
+
+
+    function ajouterUnAtelier()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutAtelier")
+                {
+                    //On crée un objet de type atelier 
+                    $unAtelier = new \Projet\Models\admin\objets\Atelier('',$_POST['nom'],$_POST['date'],$_POST['description'],$_POST['horaire'],
+                    $_POST['age'],$_POST['capacite']);
+                    
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $unAtelier->Create();
+
+                    
+                    header('Location: ./listeAtelier?action2=confirmAjout');
+                }
+            }
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutAtelier.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+
+    }
+
+
+    function modifierAtelier()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idAtelier'])){
+
+                $idAtelier = $_GET['idAtelier'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données de l'atelier 
+                $unAtelier = new \Projet\Models\admin\objets\Atelier($idAtelier,'','','','','','');
+                $unAtelier->Read();
+
+
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierAtelier")
+                    {
+                        $unAtelier->setNom($_POST['nom']);
+                        $unAtelier->setDate($_POST['date']);
+                        $unAtelier->setDescription($_POST['description']);
+                        $unAtelier->setHeure($_POST['horaire']);
+                        $unAtelier->setAge($_POST['age']);
+                        $unAtelier->setCapacite($_POST['capacite']);
+
+                        //enregistrer en base bdd
+                        $unAtelier->Update();
+
+                        //on renvoie vers la page listeAuteur
+                        header('Location: ./listeAtelier?action2=confirmModif');
+                    }
+                }
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierAtelier.php';
+            }
+            else{
+                header('location: ./listeAtelier');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+           
+    }
+
+
+    function supprimerAtelier(){
+
+        if(isset($_SESSION['idAdmin']))
+        {
+
+        }
+
+    }
+
+        
+}        
+
+
+
+
+
