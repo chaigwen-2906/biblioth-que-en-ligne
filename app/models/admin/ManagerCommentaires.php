@@ -19,4 +19,20 @@ class ManagerCommentaires extends Manager{
         //On ferme la requete
         $requete->closeCursor();
     }
+
+
+    function deleteCommentairesByIdClient($idClient)
+    {
+        $bdd = $this->dbConnect();
+      
+        $sql = "DELETE FROM commentaire where idClient =?";
+         
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idClient]);
+
+        //On ferme la requete
+        $requete->closeCursor();
+    }
 }

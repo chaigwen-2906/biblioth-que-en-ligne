@@ -21,6 +21,23 @@ class ManagerReservations extends Manager{
         //On ferme la requete
         $requete->closeCursor();
 
-        return $resultat;
     }
+
+
+     function getListeReservationsByIdClient($idClient)
+     {
+        $bdd = $this->dbConnect();
+      
+        $sql = "SELECT idReservation FROM reservation where idLivre =?";
+         
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idLivre]);
+
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+     }
 }
