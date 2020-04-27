@@ -20,8 +20,6 @@ class ManagerCoupCoeur extends Manager{
 
         //On ferme la requete
         $requete->closeCursor();
-
-        return $resultat;
        
     }
 }

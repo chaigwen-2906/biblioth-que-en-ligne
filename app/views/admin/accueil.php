@@ -74,7 +74,7 @@
                     </article>
                 </a>
 
-                <a href="">
+                <a href="./listeClient">
                     <article class="gererArticle">
                         Gérer les clients
                     </article>

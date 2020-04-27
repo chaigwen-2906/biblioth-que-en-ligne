@@ -38,7 +38,7 @@ class Client extends Manager{
       return $this->numeroAbonne;
     }
     public function setNumeroAbonne($valeur){
-      $this->$numeroAbonne = $valeur;
+      $this->numeroAbonne = $valeur;
     }
 
     //civilite
@@ -46,7 +46,7 @@ class Client extends Manager{
       return $this->civilite;
     }
     public function setCivilite($valeur){
-      $this->$civilite = $valeur;
+      $this->civilite = $valeur;
     }
 
     //nom
@@ -167,10 +167,30 @@ class Client extends Manager{
       public function Create(){
         //Préparation de la requête
         $sql = "INSERT INTO client(numeroAbonne,civilite,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
-        VALUES (?,?,?,?,?,?,?,?,?,?)";
+        VALUES (";
+
+        $sql = $sql."'".addslashes($this->getNumeroAbonne())."',";
+        $sql = $sql."'".addslashes($this->getCivilite())."',";
+        $sql = $sql."'".addslashes($this->getNom())."',";
+        $sql = $sql."'".addslashes($this->getprenom())."',";
+        $sql = $sql."'".addslashes($this->getEmail())."',";
+        $sql = $sql."'".addslashes($this->getTelephoneMobile())."',";
+        $sql = $sql."'".addslashes($this->getTelephoneFixe())."',";
+        $sql = $sql."'".addslashes($this->getAdresse())."',";
+        
+        if($this->getDateDeNaissance() == ''){
+          $sql = $sql."null,";
+        }
+        else{
+            $sql = $sql."'".$this->getDateDeNaissance()."',";
+        }
+
+        $sql = $sql."'".addslashes($this->getMotDePasse())."'";
+
+        $sql = $sql.")";
 
         $requete = $this->connectBdd->prepare($sql);
-
+           
         //Execution de la requete
         $requete->execute([$this->getNumeroAbonne(),$this->getCivilite(), $this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getMotDePasse()]);
 
@@ -219,13 +239,13 @@ class Client extends Manager{
       // Update : Modifie les données d'une ligne dans la table Client
       public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE client SET numeroAbonne = ?, civilite = ?, nom = ?, prenom = ?, email = ?, telephoneMobile = ?, telephoneFixe = ?, adresse = ?, dateDeNaissance = ?, motDePasse =? = ? WHERE idClient = ? ";
+        $sql = "UPDATE client SET numeroAbonne = ?, civilite = ?, nom = ?, prenom = ?, email = ?, telephoneMobile = ?, telephoneFixe = ?, adresse = ?, dateDeNaissance = ?, motDePasse =?  WHERE idClient = ? ";
 
         $requete = $this->connectBdd->prepare($sql);
 
         ///Execution de la requete
         $requete->execute([$this->getNumeroAbonne(),$this->getCivilite(),$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getDateDeNaissance(), 
-        $this->getMotDePasses(),$this->getIdClient()]);
+        $this->getMotDePasse(),$this->getIdClient()]);
 
         //Fermeture de la requete
         $requete->closeCursor();
@@ -238,7 +258,7 @@ class Client extends Manager{
         //Préparation de la requête
         $sql = "DELETE FROM client WHERE idClient = ?";
         $requete = $this->connectBdd->prepare($sql);
-
+      
         //Execution de la requete
         $requete->execute([$this->getIdClient()]);
 

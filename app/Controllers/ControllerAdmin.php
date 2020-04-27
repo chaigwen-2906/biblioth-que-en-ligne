@@ -152,7 +152,6 @@ class ControllerAdmin
     }
 
 
-
     function modifierLivre()
     {
         if(isset($_SESSION['idAdmin'])){
@@ -760,6 +759,185 @@ class ControllerAdmin
             exit();
         }
     }
+
+
+    //----GESTION CLIENTS : AJOUTER---MODIFIER---SUPPRIMER
+
+    function gestionClients()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('Un client a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('Un client a été modifié en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('Un client a été supprimé en base de données');</script>";
+                }
+            }
+                
+                $ManagerClient = new \Projet\Models\admin\ManagerClients();
+                $listeClient = $ManagerClient->getListeClients();
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/listeClient.php';
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function ajouterUnClient()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutClient")
+                {
+                    //On crée un objet de type Client
+                    $unClient = new \Projet\Models\admin\objets\Client('',$_POST['numeroAbonne'],$_POST['civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['telephoneMobile']
+                    ,$_POST['telephoneFixe'],$_POST['adresse'],$_POST['dateDeNaissance'],$_POST['motDePasse']);
+                    
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $unClient->Create();
+
+                    
+                    header('Location: ./listeClient?action2=confirmAjout');
+                }
+            }
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutClient.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function modifierClient()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idClient'])){
+
+                $idClient = $_GET['idClient'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données du client
+                $unClient = new \Projet\Models\admin\objets\Client($idClient, "","", "", "", "", "", "", "", "", "");
+                $unClient->Read();
+
+
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierClient")
+                    {
+                        $unClient->setNumeroAbonne($_POST['numeroAbonne']);
+                        $unClient->setCivilite($_POST['civilite']);
+                        $unClient->setNom($_POST['nom']);
+                        $unClient->setPrenom($_POST['prenom']);
+                        $unClient->setEmail($_POST['email']);
+                        $unClient->setTelephoneMobile($_POST['telephoneMobile']);
+                        $unClient->setTelephoneFixe($_POST['telephoneFixe']);
+                        $unClient->setAdresse($_POST['adresse']);
+                        $unClient->setDateDeNaissance($_POST['dateDeNaissance']);
+                        $unClient->setMotDePasse($_POST['motDePasse']);
+
+                        //enregistrer en base bdd
+                        $unClient->Update();
+
+                        //on renvoie vers la page listeClient
+                        header('Location: ./listeClient?action2=confirmModif');
+                    }
+                }
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierClient.php';
+            }
+            else{
+                header('location: ./listeClient');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function supprimerClient()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idClient']))
+            {
+                //on récupère la var idLivre 
+                $idClient = $_GET['idClient'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerClient")
+                    {
+
+                        //on récupère les commentaires qui sont associés au livre
+                        $ManagerCommentaires = new  \Projet\Models\admin\ManagerCommentaires();
+                        $ManagerCommentaires->deleteCommentairesByIdClient($idClient);
+
+
+                        //on récupère les reservations 
+                        $ManagerReservations = new \Projet\Models\admin\ManagerReservations();
+                        $listeReservations = $ManagerReservations->getListeReservationsByIdClient($idClient);
+                        // on supprime reservations
+                        foreach($listeReservations as $uneReservation)
+                        {
+                            $supUneReservation = new \Projet\Models\admin\objets\reservation($uneReservation['idReservation'],'','','','');
+                            $supUneReservation->delete();  
+                        }
+
+
+                        // on supprime le client
+                        $unClient = new \Projet\Models\admin\objets\Client($idClient,"","", "", "", "", "", "", "", "", "");
+                        $unClient->delete();
+
+
+                        // on renvoie vers la page liste client
+                        header('location: ./listeClient?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerClient.php';
+            }
+            else{
+                header('location: ./listeClient');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
 
         
 }        

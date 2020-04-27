@@ -158,6 +158,20 @@ try {
                     case"supprimerCategorie":
                         $controller->supprimerCategorie();
                     break;
+                    //gestion des clients(abonnés)
+                    case"listeClient":
+                        $controller->gestionClients();
+                    break;
+                    case"ajoutClient":
+                        $controller->ajouterUnClient();
+                    break;
+                    case"modifierClient":
+                        $controller->modifierClient();
+                    break;
+                    case"supprimerClient":
+                        $controller->supprimerClient();
+                    break;
+
 
 
 
