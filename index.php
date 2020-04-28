@@ -207,6 +207,22 @@ try {
                     case"modifierFAQ":
                         $controller->modifierFAQ();
                     break;
+                    case"supprimerFAQ":
+                        $controller->supprimerFAQ();
+                    break;
+                    //gestion des META
+                    case"listeMeta":
+                        $controller->gestionMeta();
+                    break;
+                    case"ajoutMeta":
+                        $controller->ajoutMeta();
+                    break;
+                    case"modifierMeta":
+                        $controller->ModifierMeta();
+                    break;
+                    case"supprimerMeta":
+                        $controller->supprimerMeta();
+                    break;
 
 
 
