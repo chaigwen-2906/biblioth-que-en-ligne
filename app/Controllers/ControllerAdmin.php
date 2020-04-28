@@ -434,6 +434,9 @@ class ControllerAdmin
                          header('location: ./listeAuteur?action2=confirmSupp');
                     }
                 }
+
+                // CONTRAINTE:: TEST AVANT SUPPRESSION V2RIFIER QUE AUTEUR N4EST PAS RATACHER A UN LIVRE !!!!!!!!!!!
+
                  //Appel à la vue : affichage
                  require 'app/views/admin/supprimerAuteur.php';
             }
@@ -1245,6 +1248,9 @@ class ControllerAdmin
                         header('location: ./listeEditeur?action2=confirmSupp');
                     }
                 }
+
+                // CONTRAINTE:: TEST AVANT SUPPRESSION V2RIFIER QUE AUTEUR N4EST PAS RATACHER A UN LIVRE !!!!!!!!!!!
+
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerEditeur.php';
             }
@@ -1270,18 +1276,18 @@ class ControllerAdmin
             {
                 if($_GET['action2'] == "confirmAjout")
                 {
-                    echo "<script>alert('Un client a été enregistré en base de données');</script>";
+                    echo "<script>alert('Une FAQ a été enregistré en base de données');</script>";
                 }
 
                 if($_GET['action2'] == "confirmModif")
                 {
-                    echo "<script>alert('Un client a été modifié en base de données');</script>";
+                    echo "<script>alert('Une FAQ  a été modifié en base de données');</script>";
                 }
 
-                // if($_GET['action2'] == "confirmSupp")
-                // {
-                //     echo "<script>alert('Un client a été supprimé en base de données');</script>";
-                // }
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('Une FAQ  a été supprimé en base de données');</script>";
+                }
             }
                 
                 $ManagerFAQ = new \Projet\Models\admin\ManagerFAQ();
@@ -1313,7 +1319,7 @@ class ControllerAdmin
                     $uneFAQ->Create();
 
                     
-                    header('Location: ./listeEditeur?action2=confirmAjout');
+                    header('Location: ./listeFAQr?action2=confirmAjout');
                 }
             }
 
@@ -1378,6 +1384,205 @@ class ControllerAdmin
     }
 
 
+    function supprimerFAQ()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idFaq']))
+            {
+                //on récupère la var idFaq 
+                $idFaq = $_GET['idFaq'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerFAQ")
+                    {
+
+                        // on supprime le Faq
+                        $uneFAQ = new \Projet\Models\admin\objets\Faq($idFaq,"","");
+                        $uneFAQ->delete();
+
+
+                        // on renvoie vers la page liste client
+                        header('location: ./listeFAQ?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerFAQ.php';
+            }
+            else{
+                header('location: ./listeFAQ');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+  //----GESTION META : AJOUTER---MODIFIER---SUPPRIMER
+
+    function gestionMeta()
+    {
+        
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('Un meta a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('Un meta a été modifié en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('Un meta a été supprimé en base de données');</script>";
+                }
+            }
+                
+                $ManagerMeta= new \Projet\Models\admin\ManagerMeta();
+                $listeMeta = $ManagerMeta->getlisteMeta();
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/listeMeta.php';
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    function ajoutMeta()
+    {
+        
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutMeta")
+                {
+                    //On crée un objet de type Coup de coeur
+                    $unMeta = new \Projet\Models\admin\objets\Meta('',$_POST['nomPage'],$_POST['keywords'],$_POST['description'],$_POST['title']);
+
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $unMeta->Create();
+
+                    
+                    header('Location: ./listeMeta?action2=confirmAjout');
+                }
+            }
+
+
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutMeta.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    function ModifierMeta()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+
+            if(isset($_GET['idMeta'])){
+
     
+                $idMeta = $_GET['idMeta'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données du client  
+                $unMeta = new \Projet\Models\admin\objets\Meta($idMeta, "","","","");
+                $unMeta->Read();
+
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierMeta")
+                    {
+                        $unMeta->setNomPage($_POST['nomPage']);
+                        $unMeta->setKeywords($_POST['keywords']);
+                        $unMeta->setDescription($_POST['description']);
+                        $unMeta->setTitle($_POST['title']);
+                 
+                        
+                        //enregistrer en base bdd
+                        $unMeta->Update();
+
+                        //on renvoie vers la page listeCoupDeCoeur
+                        // header('Location: ./listeMeta?action2=confirmModif');
+                    }
+                }
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierMeta.php';
+            }
+            else{
+                header('location: ./listeMeta');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    function supprimerMeta()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idMeta']))
+            {
+                //on récupère la var idFaq 
+                $idMeta = $_GET['idMeta'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerMeta")
+                    {
+
+                        // on supprime le Faq
+                        $unMeta = new \Projet\Models\admin\objets\Meta($idMeta,"","","","");
+                        $unMeta->delete();
+
+
+                        // on renvoie vers la page liste client
+                        header('location: ./listeMeta?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerMeta.php';
+            }
+            else{
+                header('location: ./listeMeta');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    //----GESTION RESERVATION : AJOUTER---MODIFIER---SUPPRIMER
+    function gestionReservation()
+    {
+        
+    }
 
 }

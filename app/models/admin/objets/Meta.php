@@ -23,7 +23,7 @@ class Meta extends Manager{
     }
     //set : modifie la valeur de l'attribut
     public function setIdMeta($valeur){
-        $this->IdMeta = $valeur;
+        $this->idMeta = $valeur;
     }
 
     //NomPage
@@ -86,7 +86,20 @@ class Meta extends Manager{
 
     // Create : crée une ligne dans la table auteur
     public function Create(){
-        $sql= "INSERT INTO meta(nomPage,keywords,description,title) VALUES(?,?,?)";
+        $sql= "INSERT INTO meta(nomPage,keywords,description,title) VALUES(";
+
+      
+        $sql = $sql."'".addslashes($this->getNomPage())."',";
+
+        $sql = $sql."'".addslashes($this->getKeywords())."',";
+
+        $sql = $sql."'".addslashes($this->getDescription())."',";
+
+        $sql = $sql."'".addslashes($this->getTitle())."'";
+
+        $sql = $sql.")";
+
+
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
@@ -129,11 +142,11 @@ class Meta extends Manager{
     // Update : Modifie les données d'une ligne dans la table auteur
     public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE meta SET nomPage = ?, keywords = ?, description = ?, title = ?  WHERE idMeta = ?,?,?,?";
+        $sql = "UPDATE meta SET nomPage = ?, keywords = ?, description = ?, title = ?  WHERE idMeta = ?";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomPage(), $this->getKeywords(), $this->getDescription(), $this->getTitle(), $this->getIdMeta()]);
+        $requete->execute([$this->getNomPage(), $this->getKeywords(), $this->getDescription(), $this->getTitle(), $this->getidMeta()]);
 
         //Fermeture de la requete
         $requete->closeCursor();
@@ -145,6 +158,7 @@ class Meta extends Manager{
     public function Delete(){
         //Préparation de la requête
         $sql = "DELETE FROM meta WHERE idMeta = ?";
+        echo $sql;
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
