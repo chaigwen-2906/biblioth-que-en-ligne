@@ -10,7 +10,7 @@
 
         <meta name="title" content="Notre bibliothèque en ligne">
         
-        <title> Modifier des auteurs - Ma bibliothèque en ligne</title>
+        <title> Détail des éditeurs - Ma bibliothèque en ligne</title>
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
         <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">
@@ -24,7 +24,7 @@
         <main class="ajoutLivre">
             <!--BOUTON RETOUR  -->
             <figure class="retour">
-                <a href="./listeAuteur">
+                <a href="./listeEditeur">
                     <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                     Retour 
                 </a>
@@ -32,22 +32,21 @@
             <!-- FIN BOUTON RETOUR  -->
 
             <h1>
-                Modifier un auteur
+                Ajouter un éditeur
             </h1>
-            <form enctype="multipart/form-data" method="POST" action="./<?= $this->nomPage;?>?action2=modifierEditeur&idAuteur=<?= $idAuteur;?>">
+            <form method="POST" action="./<?= $this->nomPage;?>?action2=ajoutEditeur">
 
-                <!-- NOM  -->
+                <!-- Code  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom"> Nom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unAuteur->getNomAuteur(); ?>" required>             
+                    <label class="conteneurLabel" for="code">Code :</label>
+                    <input class=conteneurInputAjout type="text" name="code" placeholder="Code">             
                 </section>
 
-                <!-- PRENOM  -->
+                <!-- nom auteur -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="prenom"> Prénom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" value="<?= $unAuteur->getPrenomAuteur(); ?>"  required>             
+                    <label class="conteneurLabel" for="nom">Auteur :</label>
+                    <input class=conteneurInputAjout type="text" name="nom" placeholder="Auteur">             
                 </section>
-
 
                 <!-- BOUTON VALIDER  -->
                 <section>

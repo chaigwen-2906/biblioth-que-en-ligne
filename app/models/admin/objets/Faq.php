@@ -65,7 +65,12 @@ class Faq extends Manager{
         //Préparation de la requête
         //dans la bdd INSERT la ligne dans la table faq et je passe les valeur des colonne = 
         //(idlivre,nom,commentaire,dateDePublication)
-       $sql= "INSERT INTO faq(question,reponse) VALUES (?,?)";
+       $sql= "INSERT INTO faq(question,reponse) VALUES (";
+
+       $sql = $sql."'".addslashes($this->getQuestion())."',";
+       $sql =$sql."'".addslashes($this->getReponse())."'";
+       $sql =$sql.")";
+
        $requete = $this->connectBdd->prepare($sql);
 
        //Execution de la requete

@@ -938,12 +938,446 @@ class ControllerAdmin
     }
 
 
+    //----GESTION COUP DE COEUR : AJOUTER---MODIFIER---SUPPRIMER
 
+    function gestionCoupDeCoeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('Un coup de coeur a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('Un coup de coeur a été modifié en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('Un coup de coeur a été supprimé en base de données');</script>";
+                }
+            }
+                
+                $ManagerCoupDeCoeur = new \Projet\Models\admin\ManagerCoupCoeur();
+                $listeCoupDeCoeur = $ManagerCoupDeCoeur->getListeCoupDeCoeur();
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/listeCoupDeCoeur.php';
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function ajoutUnCoupDeCoeur()
+    {
+
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutCoupDeCoeur")
+                {
+                    //On crée un objet de type Coup de coeur
+                    $unCoupDeCoeur = new \Projet\Models\admin\objets\CoupDeCoeur('',$_POST['selectLivre'],$_POST['auteur'],$_POST['commentaire'],$_POST['dateDePublication']);
+
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $unCoupDeCoeur->Create();
+
+                    
+                    header('Location: ./listeCoupDeCoeur?action2=confirmAjout');
+                }
+            }
+
+            
+            $ManagerLivre = new  \Projet\Models\admin\ManagerLivres();
+            //récupères dans un select toutes les catégories
+            $listLivre = $ManagerLivre->getListeLivres();
+            
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutCoupDeCoeur.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function modifierCoupDeCoeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idCoupDeCoeur'])){
+
+                $idCoupDeCoeur = $_GET['idCoupDeCoeur'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données du client  
+                $unCoupDeCoeur = new \Projet\Models\admin\objets\CoupDeCoeur($idCoupDeCoeur, "","", "", "");
+                $unCoupDeCoeur->Read();
+
+
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierCoupDeCoeur")
+                    {
+                        $unCoupDeCoeur->setIdLIvre($_POST['selectLivre']);
+                        $unCoupDeCoeur->setAuteur($_POST['auteur']);
+                        $unCoupDeCoeur->setCommentaire($_POST['commentaire']);
+                        $unCoupDeCoeur->setDateDePublication($_POST['dateDePublication']);
+                        
+                        //enregistrer en base bdd
+                        $unCoupDeCoeur->Update();
+
+                        //on renvoie vers la page listeCoupDeCoeur
+                        header('Location: ./listeCoupDeCoeur?action2=confirmModif');
+                    }
+                }
+
+                $ManagerLivre = new  \Projet\Models\admin\ManagerLivres();
+                //récupères dans un select toutes les catégories
+                $listLivre = $ManagerLivre->getListeLivres();
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierCoupDeCoeur.php';
+            }
+            else{
+                header('location: ./listeCoupDeCoeur');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function supprimerCoupDeCoeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idCoupDeCoeur']))
+            {
+                //on récupère la var idLivre 
+                $idCoupDeCoeur = $_GET['idCoupDeCoeur'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerCoupDeCoeur")
+                    {
+
+                        // on supprime le client
+                        $unCoupDeCoeur = new \Projet\Models\admin\objets\CoupDeCoeur($idCoupDeCoeur,"","","","");
+                        $unCoupDeCoeur->delete();
+
+
+                        // on renvoie vers la page liste client
+                        header('location: ./listeCoupDeCoeur?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerCoupDeCoeur.php';
+            }
+            else{
+                header('location: ./listeCoupDeCoeur');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    //----GESTION EDITEUR : AJOUTER---MODIFIER---SUPPRIMER
+
+    function gestionEditeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('Un éditeur a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('Un éditeur a été modifié en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmSupp")
+                {
+                    echo "<script>alert('Un éditeur a été supprimé en base de données');</script>";
+                }
+            }
+                
+                $ManagerEditeur= new \Projet\Models\admin\ManagerEditeurs();
+                $listeEditeur = $ManagerEditeur->getlisteEditeurs();
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/listeEditeur.php';
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function ajoutUnEditeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutEditeur")
+                {
+                    //On crée un objet de type Coup de coeur
+                    $unEditeur = new \Projet\Models\admin\objets\Editeur('',$_POST['code'],$_POST['nom']);
+
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $unEditeur->Create();
+
+                    
+                    // header('Location: ./listeEditeur?action2=confirmAjout');
+                }
+            }
+
+
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutEditeur.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function modifierEditeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+
+            if(isset($_GET['idEditeur'])){
+
+    
+                $idEditeur = $_GET['idEditeur'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données du client  
+                $unEditeur = new \Projet\Models\admin\objets\Editeur($idEditeur, "","");
+                $unEditeur->Read();
+
+
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierEditeur")
+                    {
+                        $unEditeur->setCode($_POST['code']);
+                        $unEditeur->setNom($_POST['nom']);
+                 
+                        
+                        //enregistrer en base bdd
+                        $unEditeur->Update();
+
+                        //on renvoie vers la page listeCoupDeCoeur
+                        header('Location: ./listeEditeur?action2=confirmModif');
+                    }
+                }
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierEditeur.php';
+            }
+            else{
+                header('location: ./listeEditeur');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    function supprimerEditeur()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['idEditeur']))
+            {
+                //on récupère la var idLivre 
+                $idEditeur = $_GET['idEditeur'];
+
+                if(isset($_GET['action2']))
+                {
+                    if($_GET['action2'] == "supprimerEditeur")
+                    {
+
+                        // on supprime le client
+                        $unEditeur = new \Projet\Models\admin\objets\Editeur($idEditeur,"","");
+                        $unEditeur->delete();
+
+
+                        // on renvoie vers la page liste client
+                        header('location: ./listeEditeur?action2=confirmSupp');
+                    }
+                }
+                //Appel à la vue : affichage
+                require 'app/views/admin/supprimerEditeur.php';
+            }
+            else{
+                header('location: ./listeEditeur');
+                exit();
+                }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    //----GESTION EDITEUR : AJOUTER---MODIFIER---SUPPRIMER
+
+    function gestionFAQ()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['action2']))
+            {
+                if($_GET['action2'] == "confirmAjout")
+                {
+                    echo "<script>alert('Un client a été enregistré en base de données');</script>";
+                }
+
+                if($_GET['action2'] == "confirmModif")
+                {
+                    echo "<script>alert('Un client a été modifié en base de données');</script>";
+                }
+
+                // if($_GET['action2'] == "confirmSupp")
+                // {
+                //     echo "<script>alert('Un client a été supprimé en base de données');</script>";
+                // }
+            }
+                
+                $ManagerFAQ = new \Projet\Models\admin\ManagerFAQ();
+                $listeFAQ = $ManagerFAQ->getListeFAQ();
+
+
+                //Appel à la vue : affichage
+                require 'app/views/admin/listeFAQ.php';
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    function ajouterUneFAQ()
+    {
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET["action2"]))
+            {
+                if($_GET["action2"] == "ajoutFAQ")
+                {
+                    //On crée un objet de type Coup de coeur
+                    $uneFAQ = new \Projet\Models\admin\objets\Faq('',$_POST['question'],$_POST['reponse']);
+
+                    //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
+                    $uneFAQ->Create();
+
+                    
+                    header('Location: ./listeEditeur?action2=confirmAjout');
+                }
+            }
+
+
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/ajoutFAQ.php';
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+    function modifierFAQ()
+    {
         
-}        
+        if(isset($_SESSION['idAdmin'])){
 
 
+            if(isset($_GET['idFaq'])){
+
+    
+                $idFaq = $_GET['idFaq'];
+
+                //On crée un objet de type Atelier avec l'id et on le lit
+                //on récupère les données du client  
+                $uneFAQ = new \Projet\Models\admin\objets\Faq($idFaq, "","");
+                $uneFAQ->Read();
 
 
+                if(isset($_GET['action2'])){
+
+                    if($_GET['action2'] == "modifierFAQ")
+                    {
+                        $uneFAQ->setQuestion($_POST['question']);
+                        $uneFAQ->setReponse($_POST['reponse']);
+                 
+                        
+                        //enregistrer en base bdd
+                        $uneFAQ->Update();
+
+                        //on renvoie vers la page listeCoupDeCoeur
+                        header('Location: ./listeFAQ?action2=confirmModif');
+                    }
+                }
 
 
+                //Appel à la vue : affichage
+                require 'app/views/admin/modifierFAQ.php';
+            }
+            else{
+                header('location: ./listeFAQ');
+                exit();
+            }
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
+    }
+
+
+    
+
+}
