@@ -10,7 +10,7 @@
 
         <meta name="title" content="Notre bibliothèque en ligne">
         
-        <title> Modifier des auteurs - Ma bibliothèque en ligne</title>
+        <title> Supprimer l'éditeur - Ma bibliothèque en ligne</title>
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
         <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">
@@ -21,10 +21,10 @@
     </head>
 
     <body>
-        <main class="ajoutLivre">
+        <main class="supprimerLivre">
             <!--BOUTON RETOUR  -->
             <figure class="retour">
-                <a href="./listeAuteur">
+                <a href="./listeEditeur">
                     <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                     Retour 
                 </a>
@@ -32,26 +32,17 @@
             <!-- FIN BOUTON RETOUR  -->
 
             <h1>
-                Modifier un auteur
+                Supprimer un éditeur
             </h1>
-            <form enctype="multipart/form-data" method="POST" action="./<?= $this->nomPage;?>?action2=modifierEditeur&idAuteur=<?= $idAuteur;?>">
+            <form method="POST" action="./<?= $this->nomPage;?>?action2=supprimerEditeur&idEditeur=<?= $idEditeur;?>">
 
-                <!-- NOM  -->
-                <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom"> Nom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unAuteur->getNomAuteur(); ?>" required>             
-                </section>
-
-                <!-- PRENOM  -->
-                <section class="conteneurSection">
-                    <label class="conteneurLabel" for="prenom"> Prénom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" value="<?= $unAuteur->getPrenomAuteur(); ?>"  required>             
-                </section>
-
-
+                <h2>
+                    Voulez vous réellement supprimer l'éditeur !  
+                </h2>
+     
                 <!-- BOUTON VALIDER  -->
-                <section>
-                    <input class="boutonValiderAjoutLivre" id="btnValideAjoutLivre"  type="submit" value="Valider">
+                <section >
+                    <input class="boutonSupprimerLivre"  type="submit" value="Valider">
                 </section>
                 
             </form>    

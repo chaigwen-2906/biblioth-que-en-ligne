@@ -69,7 +69,12 @@ class Editeur extends Manager{
         //Préparation de la requête
         //dans la bdd INSERT la ligne dans la table editeur et je passe les valeur des colonne = 
         //(editeur,code,nom)
-        $sql= "INSERT INTO editeur(code,nom) VALUES (?,?)";
+        $sql= "INSERT INTO editeur(code,nom) VALUES (";
+
+        $sql = $sql."'".addslashes($this->getCode())."',";
+        $sql = $sql."'".addslashes($this->getNom())."'";
+        $sql = $sql.")";
+
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete

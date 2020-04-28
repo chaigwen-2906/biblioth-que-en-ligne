@@ -80,24 +80,24 @@
                     </article>
                 </a>
 
-                <a href="">
+                <a href="./listeCoupDeCoeur">
                     <article class="gererArticle">
                         Gérer les coups de coeur
                     </article>
                 </a>
 
-                <a href="">
+                <a href="./listeEditeur">
                     <article class="gererArticle">
                         Gérer les éditeurs
                     </article>
                 </a>
 
-                <a href="">
+                <a href="./listeFAQ">
                     <article class="gererArticle">
                         Gérer les FAQ
                     </article>
                 </a>
-                <a href="">
+                <a href="./listeMeta">
                     <article class="gererArticle">
                     Paramètrage des pages
                     </article>

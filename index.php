@@ -171,6 +171,44 @@ try {
                     case"supprimerClient":
                         $controller->supprimerClient();
                     break;
+                    //gestion des coups de coeur
+                    case"listeCoupDeCoeur": 
+                        $controller->gestionCoupDeCoeur();
+                    break;
+                    case"ajoutCoupDeCoeur":
+                        $controller->ajoutUnCoupDeCoeur();
+                    break;
+                    case"modifierCoupDeCoeur":
+                        $controller->modifierCoupDeCoeur();
+                    break;
+                    case"supprimerCoupDeCoeur":
+                        $controller->supprimerCoupDeCoeur();
+                    break;
+                    //gestion des éditeurs
+                    case"listeEditeur":
+                        $controller->gestionEditeur();
+                    break;
+                    case"ajoutEditeur":
+                        $controller->ajoutUnEditeur();
+                    break;
+                    case"modifierEditeur":
+                        $controller->modifierEditeur();
+                    break;
+                    case"supprimerEditeur":
+                        $controller->supprimerEditeur();
+                    break;
+                    //gestion des FAQ
+                    case"listeFAQ":
+                        $controller->gestionFAQ();
+                    break;
+                    case"ajoutFAQ":
+                        $controller->ajouterUneFAQ();
+                    break;
+                    case"modifierFAQ":
+                        $controller->modifierFAQ();
+                    break;
+
+
 
 
 
