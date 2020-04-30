@@ -1579,10 +1579,69 @@ class ControllerAdmin
         }
     }
 
-    //----GESTION RESERVATION : AJOUTER---MODIFIER---SUPPRIMER
+    //----GESTION RESERVATION :
     function gestionReservation()
     {
         
+        if(isset($_SESSION['idAdmin'])){
+
+            if(isset($_GET['action2']))
+            {
+                if(isset($_GET["action2"]))
+                {
+                    if($_GET["action2"] == "validerReservation")
+                    {
+                        $idReservation = $_GET['idReservation'];
+
+                        //On crée un objet de type Reservation
+                        $uneReservation = new \Projet\Models\admin\objets\Reservation($idReservation,"","","","");
+
+                        //On appelle la fonction Read de l'objet reservation pour enregistrer en bdd
+                        $uneReservation->Read();
+
+                        // on set le statut et date de debut 
+                        $uneReservation->setStatut('validée');
+                        //date du jour
+                        $uneReservation->setDateDeDebut(date("Y-m-d H:i:s"));
+
+                        $uneReservation->Update();
+
+                        // ----------------------------------------------------------------- 
+
+                        //on récupére idlivre  de l'object réservation
+                        $idLivre = $uneReservation->getIdLivre();
+                                                
+                        $unLivreReserver = new \Projet\Models\admin\objets\Livre($idLivre,"","","","","","","","","","","","","","");
+
+                        //On appelle la fonction Read de l'objet reservation pour enregistrer en bdd
+                        $unLivreReserver->Read();
+
+                        // on set le statut et date de debut 
+                        $unLivreReserver->setDisponible('non');
+
+                        //on appel la fonction
+                        $unLivreReserver->Update();
+
+
+                        echo "<script>alert('La réservation a été validée en base de données');</script>";
+                    }
+                }
+            }
+                
+            $ManagerReservation= new \Projet\Models\admin\ManagerReservations();
+            $listeReservationAValider = $ManagerReservation->getListeReservationsByStatut("En attente de validation");
+
+            $listeReservationValidee = $ManagerReservation->getListeReservationsByStatut("Validée");
+
+
+            //Appel à la vue : affichage
+            require 'app/views/admin/listeReservation.php';
+
+        }
+        else{
+            header('Location: ./home');
+            exit();
+        }
     }
 
 }

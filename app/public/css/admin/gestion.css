@@ -12,6 +12,11 @@
 .gestion h1
 {
     text-align: center;
+    color: crimson;
+}
+.gestion h2
+{
+    text-align: center;
 }
 
 /* FIN TITRE PAGE  */

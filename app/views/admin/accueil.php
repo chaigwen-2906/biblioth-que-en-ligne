@@ -39,7 +39,7 @@
 
             <!-- SECTION RESERVER  -->
             <section class="gestionReserver">
-                <a href="">
+                <a href="./listeReservation">
                     <article class="gererReservations">
                         Gérer les reservations
                     </article>
@@ -102,6 +102,7 @@
                     Paramètrage des pages
                     </article>
                 </a>
+            
             </section>
             <!-- FIN SECTION DES ARTICLES  -->
         </main>
