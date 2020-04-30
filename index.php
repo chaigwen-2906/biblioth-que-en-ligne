@@ -223,6 +223,10 @@ try {
                     case"supprimerMeta":
                         $controller->supprimerMeta();
                     break;
+                    //gestion des reservations
+                    case"listeReservation":
+                        $controller->gestionReservation();
+                    break;
 
 
 
