@@ -45,31 +45,31 @@
                 <!-- DATE DU JOUR  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="date">Date de l'atelier :</label>
-                    <input class=conteneurInputAjout type="date" name="date">             
+                    <input class=conteneurInputAjout type="date" name="date" required>             
                 </section>
 
                 <!-- DESCRIPTION  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="description">Description de l'atelier  :</label>
-                    <textarea class=conteneurInputAjout name="description" placeholder="Entrer votre description"></textarea>            
+                    <textarea class=conteneurInputAjout name="description" placeholder="Entrer votre description" required></textarea>            
                 </section>
 
                 <!-- HORAIRE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="horaire">Horaire de l'atelier  :</label>
-                    <input class=conteneurInputAjout type="time" name="horaire">             
+                    <input class=conteneurInputAjout type="time" name="horaire" required>             
                 </section>
 
                 <!-- AGE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="age">Age pour l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="age" placeholder="Age pour l'atelier">             
+                    <input class=conteneurInputAjout type="number" name="age" placeholder="Age pour l'atelier" required>             
                 </section>
 
                 <!-- CAPACITE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="capacite">Capacité de l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="capacite" placeholder="Capacité de l'atelier">             
+                    <input class=conteneurInputAjout type="number" name="capacite" placeholder="Capacité de l'atelier" required>             
                 </section>
 
 

@@ -51,25 +51,25 @@
                         Les réservations à validées.
                     </h2>
 
-                    <?php foreach ($listeReservationAValider as $uneReservationValide) {?>
+                    <?php foreach ($listeReservationAValider as $uneReservationAValide) {?>
 
                         <section class="detail">
                             <p class="conteneur1">
-                                <span> Nom et prénom du client :&nbsp;</span><?= $uneReservationValide['nomClient']." ".$uneReservationValide['prenomClient']; ?>
+                                <span> Nom et prénom du client :&nbsp;</span><?= $uneReservationAValide['nomClient']." ".$uneReservationAValide['prenomClient']; ?>
                             </p>
                             <p class="conteneur2">
-                                <span>Nom du livre :&nbsp;</span><?= $uneReservationValide['nomLivre']; ?>
+                                <span>Nom du livre :&nbsp;</span><?= $uneReservationAValide['nomLivre']; ?>
                             </p>
                             <p class="conteneur3">
-                                <span>La disponibilitée :&nbsp;</span><?= $uneReservationValide['disponible']; ?>
+                                <span>La disponibilitée :&nbsp;</span><?= $uneReservationAValide['disponible']; ?>
                             </p>
                             <p class="conteneur4">
-                            <?php if($uneReservationValide['disponible'] == "oui" ) {   ?>
-                                <a   href="./<?= $this->nomPage;?>?action2=validerReservation&idReservation=<?=$uneReservationValide['idReservation'];?>">   
+                            <?php if($uneReservationAValide['disponible'] == "oui" ) {   ?>
+                                <a   href="./<?= $this->nomPage;?>?action2=validerReservation&idReservation=<?=$uneReservationAValide['idReservation'];?>">   
                                     <span> Validée</span>
                                 </a>
                             <?php }?>
-                                <a href="./<?= $this->nomPage;?>?action2=supprimerReservation&idReservation=<?=$uneReservationValide['idReservation'];?>"   >   
+                                <a href="./<?= $this->nomPage;?>?action2=supprimerReservation&idReservation=<?=$uneReservationAValide['idReservation'];?>"   >   
                                     <span>Supprimer</span>
                                 </a>
                             </p>
@@ -104,7 +104,7 @@
                                 <span>La date de début :&nbsp;</span><?= $date; ?>
                             </p>
                             <p class="conteneur4">
-                                <a href="./<?= $this->nomPage;?>?action2=supprimerReservation&idReservation=<?=$uneReservationValide['idReservation'];?>"   >   
+                                <a href="./<?= $this->nomPage;?>?action2=stopperReservation&idReservation=<?=$uneReservationValide['idReservation'];?>"   >   
                                     <span>Stopper</span>
                                 </a>
                             </p>
@@ -119,22 +119,22 @@
                 <!-- SUPPRIMER LES RESERVATION  -->
                 <section>
                 <h2 class="titreCommum">
-                    Les réservations terminer
+                    Les réservations terminées
                 </h2>
             
                     <!-- DETAIL SUR LEs reservation  -->
-                    <?php foreach ($listeReservationAValider as $uneReservationValide) {?>
+                    <?php foreach ($listeReservationTerminee as $uneReservationTerminee) {?>
 
                         <section class="detail">
                             <p class="conteneur1">
-                                <span> Nom et prénom du client :&nbsp;</span><?= $uneReservationValide['nomClient']." ".$uneReservationValide['prenomClient']; ?>
+                                <span> Nom et prénom du client :&nbsp;</span><?= $uneReservationTerminee['nomClient']." ".$uneReservationTerminee['prenomClient']; ?>
                             </p>
                             <p class="conteneur2">
-                                <span>Nom du livre :&nbsp;</span><?= $uneReservationValide['nomLivre']; ?>
+                                <span>Nom du livre :&nbsp;</span><?= $uneReservationTerminee['nomLivre']; ?>
                             </p>
                             <p class="conteneur3">
                                 <?php 
-                                    $tempDate = substr($uneReservationValide['dateDeDebut'],0,10);
+                                    $tempDate = substr($uneReservationTerminee['dateDeDebut'],0,10);
                                     $tabdate = explode('-',$tempDate);
                                     $date = $tabdate[2]."/".$tabdate[1]."/".$tabdate[0];
                                 ?>

@@ -34,18 +34,18 @@
             <h1>
                 Modifier un auteur
             </h1>
-            <form enctype="multipart/form-data" method="POST" action="./<?= $this->nomPage;?>?action2=modifierEditeur&idAuteur=<?= $idAuteur;?>">
+            <form  method="POST" action="./<?= $this->nomPage;?>?action2=modifierAuteur&idAuteur=<?= $idAuteur;?>">
 
                 <!-- NOM  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="nom"> Nom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unAuteur->getNomAuteur(); ?>" required>             
+                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unAuteur->getNomAuteur(); ?>">             
                 </section>
 
                 <!-- PRENOM  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="prenom"> Prénom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" value="<?= $unAuteur->getPrenomAuteur(); ?>"  required>             
+                    <input class=conteneurInputAjout type="text" name="prenom" value="<?= $unAuteur->getPrenomAuteur(); ?>">             
                 </section>
 
 

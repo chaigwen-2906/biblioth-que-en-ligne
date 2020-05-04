@@ -113,8 +113,7 @@ class ControllerFront
                 echo "$('#mobileCreez').val('".$_POST['mobile']."');";
                 echo "$('#telephoneCreez').val('".$_POST['telephone']."');";
                 echo "$('#adresseCreez').val('".$_POST['adresse']."');";
-                //echo "$('#dateCreez').val('".$_POST['date']."');";
-                //echo "$( '#dateCreez' ).datepicker( 'setDate', '".$_POST['date']."' );";
+               
                 
                 //On affiche l'erreur
                 echo "$('#erreurPostFormulaireCreer').html('".addslashes($this->libelleErreurCreationCompte)."');";

@@ -27,5 +27,25 @@ class ManagerLivres extends Manager{
 
     }
 
+    function getListeLivreByIdAuteur($idAuteur)
+    {
+        $bdd = $this->dbConnect();
+    
+        $sql = "SELECT idLivre FROM livre where idAuteur=?";
+            
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idAuteur]);
+
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        return $resultat;
+    }
+    
+
     
 }

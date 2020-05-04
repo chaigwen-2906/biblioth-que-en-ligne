@@ -39,13 +39,13 @@
                  <!-- Code  -->
                  <section class="conteneurSection">
                     <label class="conteneurLabel" for="code">Code :</label>
-                    <input class=conteneurInputAjout type="text" name="code" placeholder="Code">             
+                    <input class=conteneurInputAjout type="text" name="code" value="<?= $unEditeur->getCode(); ?>">             
                 </section>
 
                 <!-- nom auteur -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="nom">Auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" placeholder="Auteur" required>             
+                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unEditeur->getNom(); ?>">             
                 </section>
 
 

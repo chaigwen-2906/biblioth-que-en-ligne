@@ -45,31 +45,31 @@
                 <!-- DATE DU JOUR  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="date"> Date du jour de l'atelier :</label>
-                    <input class=conteneurInputAjout type="date" name="date" value="<?= substr($unAtelier->getDate(),0,10); ?>">             
+                    <input class=conteneurInputAjout type="date" name="date" value="<?= substr($unAtelier->getDate(),0,10); ?>" required>             
                 </section>
 
                 <!-- DESCRIPTION  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="description">Description de l'atelier  :</label>
-                    <textarea class=conteneurInputAjout name="description"><?= $unAtelier->getDescription(); ?></textarea>            
+                    <textarea class=conteneurInputAjout name="description"><?= $unAtelier->getDescription(); ?></textarea required>            
                 </section>
 
                 <!-- HORAIRE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="horaire">  Horaire de l'atelier  :</label>
-                    <input class=conteneurInputAjout type="time" name="horaire" value="<?= substr($unAtelier->getHeure(),0,5); ?>">             
+                    <input class=conteneurInputAjout type="time" name="horaire" value="<?= substr($unAtelier->getHeure(),0,5); ?>" required>             
                 </section>
 
                 <!-- AGE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="age"> Age pour l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="age" value="<?= $unAtelier->getAge(); ?>">             
+                    <input class=conteneurInputAjout type="number" name="age" value="<?= $unAtelier->getAge(); ?>" required>             
                 </section>
 
                 <!-- CAPACITE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="capacite"> Capacité de l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="capacite" value="<?= $unAtelier->getCapacite(); ?>">             
+                    <input class=conteneurInputAjout type="number" name="capacite" value="<?= $unAtelier->getCapacite(); ?>" required>             
                 </section>
 
 
