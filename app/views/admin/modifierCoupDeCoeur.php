@@ -52,19 +52,19 @@
                 <!-- auteur  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="auteur">Auteur :</label>
-                    <input class="conteneurInputAjout" type="text" name="auteur" placeholder="auteur" required >             
+                    <input class="conteneurInputAjout" type="text" name="auteur" value="<?= $unCoupDeCoeur->getAuteur(); ?>">             
                 </section>
 
                 <!-- commentaire  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="commentaire">Commentaire :</label>
-                    <input class="conteneurInputAjout" type="text" name="commentaire" placeholder="commentaire">             
+                    <input class="conteneurInputAjout" type="text" name="commentaire" value="<?= $unCoupDeCoeur->getCommentaire(); ?>">             
                 </section>
 
                 <!-- dateDePublication -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="dateDePublication">Date de publication :</label>
-                    <input class="conteneurInputAjout" type="date" name="dateDePublication" placeholder="dateDePublication " required>             
+                    <input class="conteneurInputAjout" type="date" name="dateDePublication" value="<?= substr($unCoupDeCoeur->getDateDePublication(),0,10); ?>">             
                 </section>
 
 

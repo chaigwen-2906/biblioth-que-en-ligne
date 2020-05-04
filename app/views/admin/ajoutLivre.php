@@ -26,7 +26,10 @@
             <figure class="retour">
                 <a href="./listeLivres">
                     <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
-                    Retour 
+                    <p>
+                    Retour
+                    </p>
+                    <!-- Retour  -->
                 </a>
             </figure>
             <!-- FIN BOUTON RETOUR  -->
@@ -126,7 +129,7 @@
                 <!-- DIMENSION  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="dimension"> Dimension du livre :</label>
-                    <input class=conteneurInputAjout type="text" name="dimension" placeholder="Dimension du livre">             
+                    <input class=conteneurInputAjout type="text" name="dimension" placeholder="21,5 cm × 29,2 cm × 1,2 cm">             
                 </section>
 
                 <!-- LANGUE  -->

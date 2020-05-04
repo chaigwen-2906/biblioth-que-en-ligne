@@ -4,6 +4,7 @@ namespace Projet\Controllers;
 
 class ControllerAdmin
 {
+
     function connectionAdministrateurAdmin()
     {
         $adminManager = new \Projet\Models\admin\ManagerAdmin();
@@ -37,7 +38,6 @@ class ControllerAdmin
     }
 
 
-
     function accueilAdmin()
     {
 
@@ -61,7 +61,6 @@ class ControllerAdmin
             exit();
         }
     }
-
 
 
     function gestionLivreAdmin()
@@ -318,6 +317,11 @@ class ControllerAdmin
                 {
                     echo "<script>alert('L\'auteur a été supprimé en base de données');</script>";
                 }
+
+                if($_GET['action2'] == "errorSupp")
+                {
+                    echo "<script>alert('L\'auteur n\'a pas été supprimé en base de données car il est rattaché à un livre');</script>";
+                }
             }
 
             $ManagerAuteurs = new \Projet\Models\admin\ManagerAuteurs();
@@ -381,7 +385,7 @@ class ControllerAdmin
 
                  if(isset($_GET['action2'])){
 
-                    if($_GET['action2'] == "modifieAuteur")
+                    if($_GET['action2'] == "modifierAuteur")
                     {
                         $unAuteur->setNomAuteur($_POST['nom']);
                         $unAuteur->setPrenomAuteur($_POST['prenom']);
@@ -425,17 +429,29 @@ class ControllerAdmin
                 {
                     if($_GET['action2'] == "supprimerAuteur")
                     {
-                         // on supprime le auteur
-                         $unAuteur = new \Projet\Models\admin\objets\Auteur($idAuteur,'','');
-                         $unAuteur->delete();
- 
- 
-                         // on renvoie vers la page liste auteur
-                         header('location: ./listeAuteur?action2=confirmSupp');
+                        $ManagerLivres= new \Projet\Models\admin\ManagerLivres();
+                        $listeLivres = $ManagerLivres->getListeLivreByIdAuteur($idAuteur);
+
+                        if($listeLivres == null)
+                        {
+                            // on supprime le auteur
+                            $unAuteur = new \Projet\Models\admin\objets\Auteur($idAuteur,'','');
+                            $unAuteur->delete();
+
+                            // on renvoie vers la page liste auteur
+                            header('location: ./listeAuteur?action2=confirmSupp');
+                        }
+                        else{
+
+                            // on renvoie vers la page liste auteur
+                            header('location: ./listeAuteur?action2=errorSupp');
+                        }
+
+                         
                     }
                 }
 
-                // CONTRAINTE:: TEST AVANT SUPPRESSION V2RIFIER QUE AUTEUR N4EST PAS RATACHER A UN LIVRE !!!!!!!!!!!
+                
 
                  //Appel à la vue : affichage
                  require 'app/views/admin/supprimerAuteur.php';
@@ -1128,6 +1144,12 @@ class ControllerAdmin
                 {
                     echo "<script>alert('Un éditeur a été supprimé en base de données');</script>";
                 }
+
+                if($_GET['action2'] == "errorSupp")
+                {
+                    echo "<script>alert('L\' éditeur n\'a pas été supprimé en base de données car il est rattaché à un éditeur');</script>";
+                }
+
             }
                 
                 $ManagerEditeur= new \Projet\Models\admin\ManagerEditeurs();
@@ -1160,7 +1182,7 @@ class ControllerAdmin
                     $unEditeur->Create();
 
                     
-                    // header('Location: ./listeEditeur?action2=confirmAjout');
+                    header('Location: ./listeEditeur?action2=confirmAjout');
                 }
             }
 
@@ -1198,8 +1220,7 @@ class ControllerAdmin
                     {
                         $unEditeur->setCode($_POST['code']);
                         $unEditeur->setNom($_POST['nom']);
-                 
-                        
+                   
                         //enregistrer en base bdd
                         $unEditeur->Update();
 
@@ -1239,13 +1260,23 @@ class ControllerAdmin
                     if($_GET['action2'] == "supprimerEditeur")
                     {
 
-                        // on supprime le client
-                        $unEditeur = new \Projet\Models\admin\objets\Editeur($idEditeur,"","");
-                        $unEditeur->delete();
+                        $ManagerEditeurs= new \Projet\Models\admin\ManagerEditeurs();
+                        $listeEditeur = $ManagerEditeurs->getListeLivreByIdEditeur($idEditeur);
 
+                        if($listeEditeur == null)
+                        {
+                            // on supprime le client
+                            $unEditeur = new \Projet\Models\admin\objets\Editeur($idEditeur,"","");
+                            $unEditeur->delete();
 
-                        // on renvoie vers la page liste client
-                        header('location: ./listeEditeur?action2=confirmSupp');
+                            // on renvoie vers la page liste client
+                            header('location: ./listeEditeur?action2=confirmSupp');
+                        }
+                        else{
+                            // on renvoie vers la page liste client
+                            header('location: ./listeEditeur?action2=errorSupp');
+                        }
+                        
                     }
                 }
 
@@ -1319,7 +1350,7 @@ class ControllerAdmin
                     $uneFAQ->Create();
 
                     
-                    header('Location: ./listeFAQr?action2=confirmAjout');
+                    header('Location: ./listeFAQ?action2=confirmAjout');
                 }
             }
 
@@ -1521,7 +1552,7 @@ class ControllerAdmin
                         $unMeta->Update();
 
                         //on renvoie vers la page listeCoupDeCoeur
-                        // header('Location: ./listeMeta?action2=confirmModif');
+                        header('Location: ./listeMeta?action2=confirmModif');
                     }
                 }
 
@@ -1579,7 +1610,9 @@ class ControllerAdmin
         }
     }
 
-    //----GESTION RESERVATION :
+
+
+    //----GESTION RESERVATION A VALIDEE, RESERVATION VALIDEE, RESERVATION TERMINEE:
     function gestionReservation()
     {
         
@@ -1625,13 +1658,65 @@ class ControllerAdmin
 
                         echo "<script>alert('La réservation a été validée en base de données');</script>";
                     }
+
+                    if($_GET["action2"] == "supprimerReservation")
+                    {
+                        $idReservation = $_GET['idReservation'];
+
+                        //On crée un objet de type Reservation
+                        $uneReservation = new \Projet\Models\admin\objets\Reservation($idReservation,"","","","");
+
+                        //on appel la fonction
+                        $uneReservation->delete();
+
+                    }
+
+
+                    if($_GET["action2"] == "stopperReservation")
+                    {
+                        {
+                            $idReservation = $_GET['idReservation'];
+    
+                            //On crée un objet de type Reservation
+                            $uneReservation = new \Projet\Models\admin\objets\Reservation($idReservation,"","","","");
+    
+                            //On appelle la fonction Read de l'objet reservation pour enregistrer en bdd
+                            $uneReservation->Read();
+    
+                            // on set le statut et date de debut 
+                            $uneReservation->setStatut('Terminée');
+                            
+                            $uneReservation->Update();
+    
+                            // ----------------------------------------------------------------- 
+    
+                            //on récupére idlivre  de l'object réservation
+                            $idLivre = $uneReservation->getIdLivre();
+                                                    
+                            $unLivreReserver = new \Projet\Models\admin\objets\Livre($idLivre,"","","","","","","","","","","","","","");
+    
+                            //On appelle la fonction Read de l'objet reservation pour enregistrer en bdd
+                            $unLivreReserver->Read();
+    
+                            // on set le statut et date de debut 
+                            $unLivreReserver->setDisponible('oui');
+    
+                            //on appel la fonction
+                            $unLivreReserver->Update();
+    
+    
+                            echo "<script>alert('La réservation a été stopper en base de données');</script>";
+                        }
+                    }
+
+
                 }
             }
                 
             $ManagerReservation= new \Projet\Models\admin\ManagerReservations();
             $listeReservationAValider = $ManagerReservation->getListeReservationsByStatut("En attente de validation");
-
             $listeReservationValidee = $ManagerReservation->getListeReservationsByStatut("Validée");
+            $listeReservationTerminee = $ManagerReservation->getListeReservationsByStatut("Terminée");
 
 
             //Appel à la vue : affichage
@@ -1643,5 +1728,9 @@ class ControllerAdmin
             exit();
         }
     }
+
+    //----GESTION RESERVATION EN COURS:
+
+
 
 }
