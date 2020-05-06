@@ -144,6 +144,10 @@
         width: 55%;
         padding-top: 103px;
     }
+    .Accueil .titreMain
+    {
+        font-size: 1.7rem;
+    }
     
 }
 
@@ -153,5 +157,9 @@
     .Accueil .citation
     {
         opacity: 0;
+    }
+    .Accueil .titreMain
+    {
+        font-size: 1.3rem;
     }
 }

@@ -57,7 +57,7 @@
             <!-- BLOCK COUP DE COEURS  -->
             <div class="blockContenu">
                 <h1 class="titreMain">
-                    Tous nos livres coup de coeurs du moment 
+                     Nos coups de coeurs du moment 
                 </h1>
                 <!--------------livre coup de coeur, favorite book------------------>
                 <section class="articles">  
@@ -245,7 +245,7 @@
              <!-- BLOCK  BANDES DESSINEES  -->
              <div class="blockContenu">
                 <h1 class="titreMain">
-                    Les Bandes dessinées
+                    Les bandes dessinées
                 </h1>
                 <!-------------- LIVRE  BANDES DESSINEES------------------>
                 <section class="articles">  
