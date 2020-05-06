@@ -54,12 +54,9 @@
                             <li><a href="./atelier">Nos Ateliers</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="creezVotreCompte.html">Creez votre compte</a></li>
                     <li><a href="#">S'identifier</a></li>
-                    <li><a href="#">adresse</a></li>
-                    <li><a href="#">Téléphone</a></li>
-                    <li><a href="#">Map</a></li>
+                    <li><a href="creezVotreCompte.html">Creez votre compte</a></li>
+                    <li><a href="#">FAQ</a></li>
                     <li><a href="#">Reseaux sociaux</a></li>
                     <li><a href="mentionsLegales.html">Mentions Légales</a></li>
                     <li><a href="#">Conditions générales</a></li>

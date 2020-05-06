@@ -49,11 +49,11 @@
         <p>
             Les dispositions qui suivent établissent les conditions générales de vente des produits
             proposés par la société
-            GIRAPHES COMMERCE sur son site web, accessible à l’adresse suivante :
+            xxxxxxx xxxxxxxxx sur son site web, accessible à l’adresse suivante :
             http://www.la-bibliotheque-en-ligne.com/
         </p>
         <p>
-            Toute commande d’un produit proposé à la vente sur le site Internet
+            Tout prêt d’un produit proposé sur le site Internet
             <em>la-bibliotheque-en-ligne.com</em> implique l’acceptation des présentes conditions générales
             de vente.
         </p>
@@ -64,7 +64,7 @@
             ARTICLE 1 – Objet 
         </h2>
         <p>
-            Le présent contrat détermine les droits et obligations de la société GIRAPHES COMMERCE et
+            Le présent contrat détermine les droits et obligations de la société xxxxxx xxxxxxxxxx et
             du Client dans le cadre de la vente des biens proposés par le biais du site internet
             http://www.la-bibliotheque-en-ligne.com/.
         </p>
@@ -83,14 +83,14 @@
             ARTICLE 2 – Identification de la société
         </h2>
         <p>
-            Société GIRAPHES COMMERCE SARL au capital de 1000 euros.<br />
-            Siège social : 99 avenue Henri Ginoux, 92120 Montrouge, France<br />
-            R.C.S. Nanterre 843 346 842<br />
-            Numéro de TVA intracommunautaire : FR14843346842<br />
+            Société xxxxxxxxx xxxxxxxxx SARL au capital de 1000 euros.<br />
+            Siège social : xx xxxxxx xxxxx xxxxx, xxxxxx xxxxxx, France<br />
+            R.C.S. xxxxxxx xxxxx xxxx xxxxxx<br />
+            Numéro de TVA intracommunautaire : xxxxxxxxxxxxx<br />
         </p>
 
         <p>
-            Le service client est joignable au 01 80 87 63 90 (prix d’un appel local à partir d’un
+            Le service client est joignable au xx xx xx xx xx (prix d’un appel local à partir d’un
             poste fixe en France) et peut également être contacté par email via le formulaire de
             contact.
         </p>
@@ -99,7 +99,7 @@
             ARTICLE 3 – Caractéristiques des biens et services offerts
         </h2>
         <p>
-            La société GIRAPHES COMMERCE fait connaître au client l’ensemble des caractéristiques
+            La société xxxxxxxx xxxxxxxxxxxx fait connaître au client l’ensemble des caractéristiques
             essentielles des biens offerts.
         </p>
         <p>
@@ -111,8 +111,8 @@
         </p>
         <p>
             Les produits présentés sur le site sont conformes à la législation française en vigueur
-            et aux normes applicables en France. Sauf indication particulière, la société GIRAPHES
-            COMMERCE ne limite pas géographiquement l’offre proposée.</p>
+            et aux normes applicables en France. Sauf indication particulière, la société xxxxxxxx
+            xxxxxxxxxx ne limite pas géographiquement l’offre proposée.</p>
         <p>
             L’offre de produits est valable tant qu’il sont affichés au client sur le site
             <em>la-bibliotheque-en-ligne.com</em>
@@ -139,7 +139,7 @@
             modifier le contenu du panier avant de valider définitivement la commande. Les
             informations personnelles requises (nom, prénom, adresse électronique, adresse de
             facturation, adresse de livraison, mode et détails du paiement) sont demandées au client
-            avant validation finale de la commande. La société GIRAPHES COMMERCE ne pourra être
+            avant validation finale de la commande. La société xxxxxxxxx xxxxxxxxx ne pourra être
             tenue responsable en cas d’erreurs de saisies de ces informations de la part du client,
             ni d’éventuel retards ou erreurs lors de la livraison.
         </p>
@@ -180,7 +180,7 @@
         </h2>                           
         <p>
             Une commande peut être soit effectuée sur le site Internet <em>la-bibliotheque-en-ligne.com</em>
-            (www.edelices.com), soit par téléphone au 01 80 87 63 90 (prix d’un appel local).
+            (www.edelices.com), soit par téléphone au xx xx xx xx xx (prix d’un appel local).
         </p>
         <p>
             Le contrat électronique sera établi après double validation par le client :
@@ -195,7 +195,7 @@
             </li>
         </ul>    
             <p>
-                Pour s’assurer de la volonté du client, la société GIRAPHES COMMERCE s’engage à
+                Pour s’assurer de la volonté du client, la société xxxxxxxxx xxxxxxxxx s’engage à
                 confirmer toute commande par courrier électronique. Sur cette confirmation
                 figurera la mention du bien commandé, son prix, le mode de paiement ainsi que
                 ses modalités de livraison par e-mail au plus tard lors de la livraison.
@@ -213,7 +213,6 @@
                 paiement suivantes :
             </p>
             <ul>
-                <li>par compte PayPal</li>
                 <li>par carte bancaire Visa, Eurocard/Mastercard, American Express</li>
                 <li>par chèque bancaire (France uniquement)</li>
                 <li>par virement bancaire</li>
@@ -297,7 +296,7 @@
             <p>
                 Pour exercer votre droit de rétractation, Vous pouvez utiliser le formulaire
                 type de rétractation à remplir
-            <a  href="https://www.edelices.com/media/public/formulaire-de-retractation.pdf"
+            <a  href="xxxxx xxxxxx xxxx xxxxxxx xxxxxx xxxxxxxx xxxxxxxxx xxxxx "
             target="_blank">
                 ici
             </a>
@@ -309,7 +308,7 @@
             <p>
                 Vous devez ensuite retourner les Produits à la-bibliotheque-en-ligne.com, au plus
                 tard dans les quatorze (14) jours suivant votre rétractation par La Poste à
-                l’adresse suivante : GIRAPHES COMMERCE, 3 rue Michelet, 94200
+                l’adresse suivante : xxxxxxxxx xxxxxxxxx, 3 rue Michelet, 94200
                 Ivry-sur-Seine.
             </p>
 
@@ -317,7 +316,7 @@
                 ARTICLE 9 – Modalités de remboursement
             </h2>
             <p>
-                En cas d’exercice du droit de rétractation, la société GIRAPHES COMMERCE
+                En cas d’exercice du droit de rétractation, la société xxxxxxxxx xxxxxxxxx
                 s’engage à rembourser au client les sommes versées et ce sans frais dans un
                 délai maximum de 14 jours à partir de la réception des produits.
             </p>
@@ -349,9 +348,9 @@
                 Toute réclamation doit être adressée à l’adresse indiquée à l’article 2. Le
                 client vérifiera l’aspect général de l’emballage du produit livré ; en cas
                 de dommage, il s’engage à le signaler sur le bon de commande. De plus, il en
-                fera part à la société GIRAPHES COMMERCE sous 3 jours par téléphone au 01 80
+                fera part à la société xxxxxxxxx xxxxxxxxx sous 3 jours par téléphone au 01 80
                 87 63 90 (prix d’un appel local). En cas de non-conformité du bien livré, la
-                société GIRAPHES COMMERCE s’engage à échanger le produit ou à rembourser le
+                société xxxxxxxxx xxxxxxxxx s’engage à échanger le produit ou à rembourser le
                 client.
             </p>
             <p>
@@ -401,8 +400,8 @@
                 Il appartient aux destinataires de vérifier l’état du colis en présence du
                 livreur ou transporteur. Toute anomalie lors de la réception doit être
                 signalée à 
-            <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="33505c5d47525047735657565f5a5056401d505c5e">
+            <a href="xxxxx xxxxxxxx xxxxxxxx_"
+                data-cfemail="xxxx xxx xxxxxxx xxxxx xxxxxxxxxx">
                 [email&#160;protected]
             </a>
                 sous 48 h afin de pouvoir entamer une procédure de remboursement auprès du
@@ -440,13 +439,13 @@
                 partenaires commerciaux de la société dans le seul objectif d’honorer la
                 commande et la livraison des produits.<br />
                 Ce traitement informatique a fait l’objet d’une déclaration auprès de la
-                CNIL, portant le numéro suivant : 1386970.<br />
+                CNIL, portant le numéro suivant : xxxxxxxxxxxxxx.<br />
                 En aucun cas, <em>la-bibliotheque-en-ligne.com</em> ne communiquera les
                 informations nominatives de ses clients à des tiers à des fins
                 commerciales.<br />
                 Le client dispose d’un droit d’accès et de rectification à l’égard de
                 toute information le concernant figurant dans les fichiers de la société
-                GIRAPHES COMMERCE.
+                xxxxxxxxx xxxxxxxxx.
             </p>
 
             <h2 class="condGeneraleh2">
@@ -508,7 +507,7 @@
             </h2>
             <p>
                 Ces confirmations de commande seront archivées au centre de la société
-                GIRAPHES COMMERCE et seront considérées comme valant preuve de la nature
+                xxxxxxxxx xxxxxxxxx et seront considérées comme valant preuve de la nature
                 de la convention et de sa date au sens de la loi du 13/03/2000.
             </p>
     </main>

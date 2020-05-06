@@ -51,25 +51,25 @@
                 <p>
                     1. Conformément à l'article 34 de la loi « Informatique et Libertés » n° 78-17 du 6 janvier 1978, modifiée,
                     notre site internet a fait l’objet de déclaration auprès de la Commission Nationale Informatique
-                    et Libertés, numéro 1843433 en date du 13 mars 2015.<br>
+                    et Libertés, numéro xxxxxxx en date du 13 mars 2015.<br>
                 </p>
                 <p>
-                    2. La ville s’engage à prendre toutes les mesures nécessaires, au regard des moyens techniques dont elle
+                    2. La bibliothèque s’engage à prendre toutes les mesures nécessaires, au regard des moyens techniques dont elle
                     dispose, permettant de garantir la sécurité et la confidentialité des informations fournies par l’utilisateur.<br>
                 </p>
                 <p>
                     3. L’usager dispose d’un droit d’accès, de modification, de rectification et de suppression des données qui le 
-                    concernent (art. 34 de la loi " Informatique et Libertés "). Pour l’exercer, il peut solliciter la Ville par 
+                    concernent (art. 34 de la loi " Informatique et Libertés "). Pour l’exercer, il peut solliciter la bibliothèque par 
                     l’intermédiaire du lien "Nous contacter" de la page d’accueil au travers des coordonnées affichées ou du formulaire 
                     à sa disposition dénommé « vous avez des difficultés avec le portail ? ». Des courriers peuvent être également êtes 
-                    adressés à « Ville de Lorient- 2 bd Leclerc – CS 30010- 56315 – Lorient cedex ».<br>
+                    adressés à « xxxxxxxx- xxxxxxxx – xxxxxxxxx- xxxxxxx – xxxxxx xxxxx ».<br>
                 </p>
                 <p>   
-                    4. Les données saisies par l’usager sont à l’usage exclusif des services de la Ville en charge de traiter les 
+                    4. Les données saisies par l’usager sont à l’usage exclusif des services de la xxxxxx en charge de traiter les 
                     demandes qu’il a formulées.<br>
                 </p>
                 <p>  
-                    5. La ville s'engage à n'opérer aucune commercialisation des informations et documents transmis par l'usager et 
+                    5. La bibliothèque s'engage à n'opérer aucune commercialisation des informations et documents transmis par l'usager et 
                     à ne pas les communiquer à des tiers, en dehors des cas prévus par la loi ou dans le cas d'une démarche faite à 
                     votre demande
                 </p>
