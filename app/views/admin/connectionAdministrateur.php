@@ -7,11 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- je n'index pas cette pas là  -->
         <meta name="robots" content="noindex">
-
         <meta name="title" content="Notre bibliothèque en ligne">
-        <title> Connection administrateur - Ma bibliothèque en ligne</title>
 
         <link rel="stylesheet" href="./../app/public/css/admin/connectionAdministrateur.css">
+
+        <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
+        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+
     </head>
     <body>
         <main>

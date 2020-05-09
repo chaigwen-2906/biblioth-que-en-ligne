@@ -325,7 +325,7 @@ class ControllerFront
                     array_push($donnees,$retour);
                 }
             }
-
+            
             $listDemandeEnAttente = $FrontManager-> getListDemandeEnAttente($_SESSION['idClient']);
             $listDemandeValider = $FrontManager-> getListDemandeValider($_SESSION['idClient']);
 
@@ -651,6 +651,7 @@ class ControllerFront
         //On gère le cas d'erreur sur la connexion au compte
         $this->gestionErreurConnexionCompte();
     }
+    
 
      
 
