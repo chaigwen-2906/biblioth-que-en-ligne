@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Détail des livres">
-    <meta name="description" content="Détail des livres">
-    <meta name="title" content="Notre bibliothèque en ligne">
+    <meta name="keywords" content="<?= $this->listMetas['keywords']; ?>">
+    <meta name="description" content="<?= $this->listMetas['description']; ?>">
+    <meta name="title" content="<?= $this->listMetas['title']; ?>">
     <meta http-equiv="expires" content="43200" />
 
     <title> Détail des livres - Ma bibliothèque en ligne</title>
@@ -130,7 +130,7 @@
                 <!-- alors on affiche le formulaire qui permet de poster un commentaire  -->
                 <?php if(isset($_SESSION['idClient'])){ ?>
                    
-                    <form method="POST" action="./<?= $this->nomPage;?>" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
+                    <form method="POST" action="./<?= $this->nomPage;?>?action2=ajouteCommentaire&id=<?= $_GET['id'];?>" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
                         <h2>
                             Commentaires sur le livre
                         </h2>

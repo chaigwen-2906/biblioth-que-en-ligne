@@ -4,6 +4,7 @@ namespace Projet\Controllers;
 
 class ControllerFront
 {
+    private $listMetas;
     private $listFAQ;
     private $listCategorie;
     private $FrontManager;
@@ -15,6 +16,8 @@ class ControllerFront
 
     private function gestionHeader()
     {
+        //On récupère la liste des métas
+        $this->listMetas = $this->FrontManager->getListMetas($this->nomPage);
         //On récupère la liste des FAQs
         $this->listFAQ = $this->FrontManager->getListFAQ();
         //On récupère la liste des catégorie
@@ -147,14 +150,16 @@ class ControllerFront
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        //on charge le ManagerFrontHome
-        $FrontHomeManager = new \Projet\Models\front\ManagerFrontHome();
-        $listCdCoeur = $FrontHomeManager-> getListCoupDeCoeur();
-        $listNouveautes = $FrontHomeManager-> getListNouveautes();
-        $listAtelier = $FrontHomeManager-> getListAtelier();
-        $listMangas = $FrontHomeManager-> getListMangas();
-        $listBandesDessinees = $FrontHomeManager-> getListBandesDessinees();
-        $listCuisine = $FrontHomeManager-> getListCuisine();
+        //on charge le ManagerFrontLivre
+        $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
+        $listCdCoeur = $FrontManagerLivre-> getListCoupDeCoeurLimit4();
+        $listNouveautes = $FrontManagerLivre-> getListNouveautesLimit4();
+        $listMangas = $FrontManagerLivre-> getListMangasLimit4();
+        $listBandesDessinees = $FrontManagerLivre-> getListBandesDessineesLimit4();
+        $listCuisine = $FrontManagerLivre-> getListCuisineLimit4();
+
+        $FrontManagerAtelier = new \Projet\Models\front\ManagerFrontAtelier();
+        $listAtelier = $FrontManagerAtelier-> getListAtelierLimit4();
        
 
         //Appel à la vue : affichage
@@ -175,9 +180,9 @@ class ControllerFront
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        //on charge le ManagerFrontcoupDeCoeur
-        $FrontCoupDeCoeurManager = new \Projet\Models\front\ManagerFrontCoupDeCoeur();
-        $listCdCoeur = $FrontCoupDeCoeurManager-> getListCoupDeCoeur();
+        //on charge le ManagerFrontLivre
+        $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
+        $listCdCoeur = $FrontManagerLivre-> getListCoupDeCoeur();
 
         require 'app/views/front/coupDeCoeurs.php';
 
@@ -196,9 +201,9 @@ class ControllerFront
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        //on charge le ManagerFrontnouveaute
-        $FrontNouveauteManager = new \Projet\Models\front\ManagerFrontNouveaute();
-        $listNouveautes = $FrontNouveauteManager-> getListNouveautes();
+        //on charge le ManagerFrontLivre
+        $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
+        $listNouveautes = $FrontManagerLivre-> getListNouveautesLimit16();
        
         require 'app/views/front/nouveaute.php';
 
@@ -238,12 +243,12 @@ class ControllerFront
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        //on charge le ManagerFrontPageRecherche
-        $FrontPageRechercheManager = new \Projet\Models\front\ManagerFrontPageRecherche();
+        //on charge le ManagerFrontLivre
+        $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
         //Test si la page est appelée en tapant directement l'url (sans variable POST)
         if(isset($_POST['selectCategorie']) && isset($_POST['champRecherche']))
         {
-            $resultPageRecherche = $FrontPageRechercheManager->getResultPageRecherche($_POST['selectCategorie'], $_POST['champRecherche']);
+            $resultPageRecherche = $FrontManagerLivre->getResultPageRecherche($_POST['selectCategorie'], $_POST['champRecherche']);
         }
         else{
             $resultPageRecherche = array();
@@ -269,8 +274,8 @@ class ControllerFront
         $donnees = array();
         if(isset($_SESSION['idClient']))
         {
-            //on charge le ManagerFrontPanier
-            $FrontPanierManager = new \Projet\Models\front\ManagerFrontPanier();
+            //on charge le ManagerFrontLivre
+            $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
 
 
             //on test si la variable action2 existe
@@ -301,7 +306,7 @@ class ControllerFront
                     // mon panier est un tableau d'idLivre 
                     foreach ($_SESSION['panier'] as $unIdLivre)
                     {
-                        $FrontPanierManager->ajoutReservation($unIdLivre, $_SESSION['idClient'] );
+                        $FrontManager->ajoutReservation($unIdLivre, $_SESSION['idClient'] );
                     }
                     
                     //on remet le tableau  $_SESSION ['panier] à vide
@@ -314,15 +319,15 @@ class ControllerFront
             {
                 foreach($_SESSION['panier'] as $unIdLivre)
                 {
-                    $retour = $FrontPanierManager->getInfoLivre($unIdLivre);
+                    $retour = $FrontManagerLivre->getInfoLivre($unIdLivre);
                     $retour['idLivre'] = $unIdLivre;
 
                     array_push($donnees,$retour);
                 }
             }
 
-            $listDemandeEnAttente = $FrontPanierManager-> getListDemandeEnAttente($_SESSION['idClient']);
-            $listDemandeValider = $FrontPanierManager-> getListDemandeValider($_SESSION['idClient']);
+            $listDemandeEnAttente = $FrontManager-> getListDemandeEnAttente($_SESSION['idClient']);
+            $listDemandeValider = $FrontManager-> getListDemandeValider($_SESSION['idClient']);
 
             require 'app/views/front/panier.php';
 
@@ -405,14 +410,14 @@ class ControllerFront
 
     function detailLivreFront()
     {
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
+
         if(isset($_GET['id']))
         {
-            $this->FrontManager = new \Projet\Models\front\ManagerFront();
-            $this->gestionHeader();
-            $this->gestionModeConnecte(); 
-
-            $FrontManagerDetailLivre = new \Projet\Models\front\ManagerFrontDetailLivre();
-            $DetailLivre = $FrontManagerDetailLivre->getDetailLivre($_GET['id']);
+            $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
+            $DetailLivre = $FrontManagerLivre->getDetailLivre($_GET['id']);
 
             //on test si la variable action2 existe
             if(isset($_GET["action2"])){
@@ -432,18 +437,22 @@ class ControllerFront
                         echo "<script>alert('Ce livre est déjà dans votre panier')</script>";
                     }
                 }
-            }
 
 
-            //On ajoute le commentaire si on est en situation de post du formulaire
-            if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
-            {
-                //on enregistre le commentaire posté par utilisateur
-                $FrontManagerDetailLivre->postCommentaire($_GET['id'],$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
+                //On ajoute le commentaire si on est en situation de post du formulaire
+                if($_GET["action2"] == "ajouteCommentaire")
+                {
+                    if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
+                    {
+                        //on enregistre le commentaire posté par utilisateur
+                        $FrontManagerLivre->postCommentaire($_GET['id'],$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
+                    }
+                }
+
             }
             
             //On récupère la liste des derniers commentaires
-            $listCommentaire = $FrontManagerDetailLivre->getCommentaire($_GET['id']);
+            $listCommentaire = $FrontManagerLivre->getCommentaire($_GET['id']);
 
             require 'app/views/front/detailLivre.php';
 
@@ -463,15 +472,15 @@ class ControllerFront
 
     function detailAtelierFront()
     {
+        $this->FrontManager = new \Projet\Models\front\ManagerFront();
+        $this->gestionHeader();
+        $this->gestionModeConnecte();
+
         if(isset($_GET['id']))
         {
-            $this->FrontManager = new \Projet\Models\front\ManagerFront();
-            $this->gestionHeader();
-            $this->gestionModeConnecte(); 
-
             // on récupère par id
-            $FrontManagerDetailAtelier = new \Projet\Models\front\ManagerFrontDetailAtelier();
-            $DetailAtelier = $FrontManagerDetailAtelier->getDetailAtelier($_GET['id']);
+            $FrontManagerAtelier = new \Projet\Models\front\ManagerFrontAtelier();
+            $DetailAtelier = $FrontManagerAtelier->getDetailAtelier($_GET['id']);
 
             require 'app/views/front/detailAtelier.php';
 
@@ -498,7 +507,6 @@ class ControllerFront
         //TEST de sécurité : on s'assure que le client est connecté (qu'il existe une variable $_SESSION['idClient'])
         if(isset($_SESSION['idClient']))
         {
-            $FrontManagerMonCompte = new \Projet\Models\front\ManagerFrontMonCompte();
   
             //on enregistre avant de charger les informations
             if(isset($_GET['action2']))
@@ -507,19 +515,19 @@ class ControllerFront
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $FrontManagerMonCompte->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
+                    $FrontManager->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
                     $_POST['mobile'],$_POST['fixe'],$_POST['adresse'],$_POST['dateNaissance']);
                 }
                 if ($_GET['action2'] == "enregistrerPassword"){
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $FrontManagerMonCompte->enregistrerPassword($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
+                    $FrontManager->enregistrerPassword($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
                 }
             }
 
             // on récupère le compte
-            $monCompte = $FrontManagerMonCompte->getMonCompte($_SESSION['idClient']);
+            $monCompte = $FrontManager->getMonCompte($_SESSION['idClient']);
 
             require 'app/views/front/monCompte.php';
 
@@ -615,9 +623,8 @@ class ControllerFront
                     $nouveauMotPass = $nouveauMotPass.chr($ascii);
                 }
                 
-                $FrontManagerPassOublier = new \Projet\Models\front\ManagerFrontPassOublier();
                 //j'appel ma fonction pour enregistrer dans la base de données
-                $FrontManagerPassOublier->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
+                $FrontManager->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
 
                 //on envoie le mail au client 
                 // Le message

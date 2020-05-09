@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Détail des atelier">
-    <meta name="description" content="Détail des atelier">
-    <meta name="title" content="Notre bibliothèque en ligne">
+    <meta name="keywords" content="<?= $this->listMetas['keywords']; ?>">
+    <meta name="description" content="<?= $this->listMetas['description']; ?>">
+    <meta name="title" content="<?= $this->listMetas['title']; ?>">
     <meta http-equiv="expires" content="43200" />
 
     <title> Détail des atelier - Ma bibliothèque en ligne</title>
@@ -59,13 +59,13 @@
                         <?= $DetailAtelier['description']; ?>
                     </p>
                     <hr separator>
-                    <h2>
+                    <!-- <h2>
                         Contexte de l'animation
                     </h2>
                     <hr separator>
                     <p>
                         <?= $DetailAtelier['contexteAnimation']; ?>
-                    </p>
+                    </p> -->
                 </article>
             </section>
             <!--FIN DESCRIPTION ATELIER -->
@@ -78,7 +78,7 @@
                         </h2>
                         <hr separator>
                         <h3>
-                            <?= $DetailAtelier['jour']; ?> <?= $DetailAtelier['date']; ?> à <?= $DetailAtelier['heure']; ?>
+                            <?= $DetailAtelier['date']; ?> à <?= $DetailAtelier['heure']; ?>
                             rendez-vous pour l'activité  " <?= $DetailAtelier['nom']; ?>"  d'une capacité 
                             <?= $DetailAtelier['capacite']; ?> personne et à partir <?= $DetailAtelier['age']; ?> ans.
                         </h3>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="Page d'erreur">
-    <meta name="description" content="Page d'erreur">
-    <meta name="title" content="Notre bibliothèque en ligne">
+    <meta name="keywords" content="<?= $this->listMetas['keywords']; ?>">
+    <meta name="description" content="<?= $this->listMetas['description']; ?>">
+    <meta name="title" content="<?= $this->listMetas['title']; ?>">
     <meta http-equiv="expires" content="43200" />
 
     <title> Page d'erreur - Ma bibliothèque en ligne</title>
