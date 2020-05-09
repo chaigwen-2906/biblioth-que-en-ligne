@@ -4,6 +4,28 @@ namespace Projet\Models\front;
 
 class ManagerFront extends Manager
 {
+    public function getListMetas($nomPage)
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM meta WHERE nomPage = ?";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$nomPage]);
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetch();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
     public function getListFAQ()
     {
         $bdd = $this->dbConnect();
@@ -141,6 +163,159 @@ class ManagerFront extends Manager
         $requete->closeCursor();
         
 
+
+    }
+
+    public function getMonCompte($idClient)
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM client where idClient = ?";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idClient]);
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetch();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //on tranforme la date dans un format fr 
+        $tabtemp = explode('-',$resultat['dateDeNaissance']);
+        $resultat['dateDeNaissance'] = $tabtemp[2]."/".$tabtemp[1]."/".$tabtemp[0];
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
+    public function misAJourInfoPersClient($idClient, $civilite, $nom, $prenom, $email, $mobile, $fixe, $adresse, $dateNaissance)
+    {  
+        $bdd = $this->dbConnect();
+
+        //On passe la date de naissance dans un format sql
+        $tabtemp = explode('/',$dateNaissance);
+        $dateNaissanceSQL = $tabtemp[2]."-".$tabtemp[1]."-".$tabtemp[0];
+
+        $sql = "UPDATE client
+            SET civilite ='$civilite', nom = '$nom', prenom ='$prenom', email ='$email', telephoneMobile ='$mobile', 
+		        telephoneFixe ='$fixe', adresse ='$adresse ', dateDeNaissance ='$dateNaissanceSQL'
+            WHERE idClient = ?";
+            
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idClient]);
+
+        //On ferme la requete
+        $requete->closeCursor();
+    }
+
+    public function motDePasseOublier($adresseMail,$nouveauMotPass)
+    {
+        $bdd = $this->dbConnect();
+       
+        //On prépare le mot de passe(hash)
+        $nouveauMotPass = password_hash($nouveauMotPass, PASSWORD_DEFAULT);
+
+        $sql = "UPDATE client  SET motDePasse ='$nouveauMotPass' WHERE email = ?";    
+        $requete = $bdd->prepare($sql);
+       
+
+        //Execution de la requete
+        $requete->execute([$adresseMail]);
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetch();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+    }
+
+    public function enregistrerPassword($idClient, $nouveauMotPasse)
+    {
+        $bdd = $this->dbConnect();
+
+        //On prépare le mot de passe(hash)
+        $nouveauMotPasse = password_hash($nouveauMotPasse, PASSWORD_DEFAULT);
+        
+        $sql = "UPDATE client  SET motDePasse ='$nouveauMotPasse' WHERE idClient = ?";    
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idClient]);
+
+        //On ferme la requete
+        $requete->closeCursor();
+    }
+
+
+    public function getListDemandeEnAttente($idClient)
+    {
+        
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM reservation LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
+        ON (reservation.idLivre = livre.idLivre)  WHERE idClient = $idClient AND statut LIKE 'En attente de validation'  ORDER BY reservation.dateDeDebut DESC  ";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
+
+    public function getListDemandeValider($idClient)
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = "SELECT * FROM reservation LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
+        ON (reservation.idLivre = livre.idLivre)  WHERE idClient = $idClient AND statut LIKE 'Validée'  ORDER BY reservation.dateDeDebut DESC  ";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute();
+
+        //On récupère le résultat de la requete
+        $resultat = $requete->fetchAll();
+
+        //On ferme la requete
+        $requete->closeCursor();
+
+        //On retourne les résultats
+        return $resultat;
+    }
+
+    public function ajoutReservation($idLivre,$idClient)
+    {
+        $bdd = $this->dbConnect();
+
+        //On réalise la requete sur la base de données
+        //On prépare la requete
+        $sql = " INSERT INTO reservation(idClient,idLivre,dateDeDebut,statut) VALUES (?,?,NOW(),'En attente de validation') ";
+        $requete = $bdd->prepare($sql);
+
+        //Execution de la requete
+        $requete->execute([$idClient,$idLivre]);
+
+        //On ferme la requete
+        $requete->closeCursor();
 
     }
     

@@ -60,7 +60,7 @@
                             <span>Auteur :&nbsp;</span><?= $unCoupCoeur['auteur']; ?>
                         </p>
                         <p class="conteneur2">
-                            <span>Commentaire :&nbsp;</span><?=  $unCoupCoeur['commentaire']; ?>
+                            <span>Livre :&nbsp;</span><?=  $unCoupCoeur['nomLivre']; ?>
                         </p>
                         <p class="conteneur3">
                             <?php 

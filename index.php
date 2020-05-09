@@ -230,12 +230,8 @@ try {
                    
 
 
-
-
-
-
                     default:
-                        $controller->pageErreurFront();
+                        $controller->pageErreurAdmin();
                     break;
                 }
             break;
