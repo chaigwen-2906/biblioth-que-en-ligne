@@ -13,10 +13,11 @@
     <title> Page d'erreur - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/header.css">
+    <link rel="stylesheet" href="./../app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
     <link rel="stylesheet" href="./../app/public/css/pageErreur.css">
-   
+    -->
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->

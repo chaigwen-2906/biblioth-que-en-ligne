@@ -13,9 +13,10 @@
     <title> Recherche livre - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/header.css">
+    <link rel="stylesheet" href="./../app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/pageRecherche.css">
+    <link rel="stylesheet" href="./../app/public/css/pageRecherche.css"> -->
    
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
