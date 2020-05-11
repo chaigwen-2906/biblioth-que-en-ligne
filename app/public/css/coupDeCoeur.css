@@ -117,12 +117,16 @@
     border-radius: 10px;
     padding: 10px;
 }
+.coupDeCoeur .figureSlider .imgSlider
+{
+    width: 90%;
+}
 .coupDeCoeur .figureSlider .imgDroite 
 {
     width: 5%;
     position: absolute;
     top: 40%;
-    right: 90px;
+    right: 10%;
     cursor: pointer;
 }
 .coupDeCoeur .figureSlider .imgGauche 
@@ -130,17 +134,22 @@
     width: 5%;
     position: absolute;
     top: 40%;
-    left:90px ;
+    left: 10%;
     cursor: pointer;
 }
 
 /* FIN FIGURE SLIDER  */
 
 /* TEXT EN SVG */
-svg
+.conteneurSVG
 {
     width: 100%;
-    padding-left: 530px;
+    display: flex;
+    justify-content: center;
+}
+svg
+{
+    width: 500px;
 }
 /*FIN TEXT EN SVG */
 
@@ -158,12 +167,6 @@ svg
     {
         display: none;
     }
-    .coupDeCoeur #imgSlider
-    {
-        width: 60%;
-    }
-    
-    
 }
 
 

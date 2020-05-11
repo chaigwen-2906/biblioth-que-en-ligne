@@ -57,7 +57,7 @@ header
     cursor:pointer;
 }
 
-.monBouttonBandeau
+/* .monBouttonBandeau
 {
     background-color: #92c4f3;
     border-radius: 7px;
@@ -65,7 +65,7 @@ header
     margin-right: 15px;
     padding: 8px;
     width: 20%;
-}
+} */
 
 
 /* -----------------  BANDEAU ----------------*/
@@ -132,16 +132,20 @@ header .menu_principal
     height: 50px;
 }
 
+header .bloc_connexion img
+{
+    width: 30px;
+    height: 30px;
+    margin: 0px 15px;
+    cursor: pointer;
+}
+
 header .bloc_deconnexion
 {
     display: flex;
     color: #92c4f3;
 }
-header .bloc_deconnexion .divBonjour
-{
-    display: flex;
-    align-items: center;
-}
+
 header .bloc_deconnexion img
 {
     width: 30px;
@@ -219,11 +223,20 @@ header .selectionLivres
     justify-content: center;
     width: 100%;
     color: white;
-    padding: 7px 5px;
+    padding: 7px 1px;
+}
+header .selectionLivres select
+{
+    width:140px;
 }
 header .selectionLivres input
 {
-    margin-left:10px;
+    margin:0 10px;
+    width:140px;
+}
+header .selectionLivres .boutonRechercher
+{
+    width:25px;
 }
 /*------------------------Fin du conteneur recherche----------*/
 
@@ -266,13 +279,13 @@ header .selectionLivres input
     padding:0;
     position:absolute;
     left:20%;
-    top:15%;
+    top:5%;
     border-radius: 10px;
     background-color: #92c4f3;
     opacity: 1;
     border: 1px solid grey;
-    
-
+    overflow: auto;
+    max-height:90%;
 }
 .boutonFermerModal
 {
@@ -293,7 +306,7 @@ header .selectionLivres input
 .boiteModal .conteneurModal .contenuModal
 {
     padding:20px;
-   
+    height:80%;
 }
 
 .boiteModal .conteneurForm
@@ -305,8 +318,9 @@ header .selectionLivres input
     border: 1px solid #ced4da;
     border-radius: .25rem;
     padding: 20px 0 20px 0;
-    overflow: auto;
-    max-height: 500px;
+    /* overflow: auto; */
+    /* max-height: 500px; */
+    margin-bottom: 15px;
 }
 
 .conteneurForm .identifier
@@ -383,21 +397,20 @@ header .selectionLivres input
     border: 1px solid #ced4da;
     border-radius: .25rem;
     padding: 20px 0 20px 0;
-    overflow: auto;
-    max-height: 500px;
+    margin-bottom: 15px;
+
 }
 .contenuModal .conteneurFaq h3
 {
-    width: 80%;
+    width: 90%;
     background-color: darkcyan;
     color: white;
     border-radius: 5px;
-   
 }
 .contenuModal .conteneurFaq .faqReponse
 {
-    width: 74%;
-    margin: 4px 0 0 0;
+    width: 80%;
+    margin: 4px 0px 0px 0px;
     background-color: lightgray;
     border-radius: 5px;
   
@@ -470,10 +483,11 @@ header .selectionLivres input
     {
         width:100%;
     }
-}
 
-
-/*-------------media querie mobile----------------*/
-@media screen and (max-width:530px){
-    
+    .conteneurModal 
+    {
+        width:90%;
+        left:5%;
+        top:5%;
+    }
 }

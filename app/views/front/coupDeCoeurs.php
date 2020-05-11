@@ -44,20 +44,22 @@
             <!--FIN  FILS D'ARIANE  -->
 
             <!-- TEXTE EN SVG   -->
-            <svg width="100px" height="50px">
-                <text x="10" y="30" style="
-                    font-family: Times New Roman;
-                    font-size  : 2.2em;
-                    stroke     : #ffffff;
-                    fill       : #dc143c;">
-                    Bienvenue sur nos coup de coeurs  
-                </text>
-            </svg>
+            <div class="conteneurSVG">
+                <svg width="100px" height="50px">
+                    <text x="10" y="30" style="
+                        font-family: Times New Roman;
+                        font-size  : 2.2em;
+                        stroke     : #ffffff;
+                        fill       : #dc143c;">
+                        Bienvenue sur nos coup de coeurs  
+                    </text>
+                </svg>
+            </div> 
             <!-- FIN TEXTE EN SVG -->
 
             <!-- SLIDER  -->
             <figure class="figureSlider">
-                <img id="imgSlider">
+                <img id="imgSlider" class="imgSlider">
                 <img id="gauche" class="imgGauche" src="./../app/public/image/bouton/flecheGauche.png">
                 <img id="droite" class="imgDroite" src="./../app/public/image/bouton/flecheDroite.png">
             </figure>

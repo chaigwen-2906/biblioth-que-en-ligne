@@ -51,17 +51,16 @@
                         <ul>
                             <li><a href="./coupDeCoeurs">Coup de coeurs</a></li>
                             <li><a href="./nouveaute">Nouveautées</a></li>
-                            <li><a href="./atelier">Nos Ateliers</a></li>
+                            <li><a href="./atelier">Ateliers</a></li>
                         </ul>
                     </li>
                     <li><a href="#">S'identifier</a></li>
-                    <li><a href="creezVotreCompte.html">Creez votre compte</a></li>
+                    <li><a href="#">Creez votre compte</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Reseaux sociaux</a></li>
-                    <li><a href="mentionsLegales.html">Mentions Légales</a></li>
-                    <li><a href="#">Conditions générales</a></li>
-                    <li><a href="#">RGPD</a></li>
-                    <li><a href="planDuSite.html">Plan du sîte</a></li>
+                    <li><a href="./mentionsLegales">Mentions Légales</a></li>
+                    <li><a href="./conditionsGenerales">Conditions générales</a></li>
+                    <li><a href="./rgpd">RGPD</a></li>
+                    <li><a href="./planDuSite">Plan du sîte</a></li>
                 </ul>
             </section>
         </main>

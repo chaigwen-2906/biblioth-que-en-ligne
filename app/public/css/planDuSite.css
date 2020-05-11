@@ -22,18 +22,21 @@
 
 
 /* CONTENEUR PLAN DU SITE  */
-.contenuPlanDuSite h1
-{
-    color: black;
-    text-align: center;   
-}
+
 .contenuPlanDuSite
 {
+    
     background-color: white;
     width: 50%;
     border-radius: 10px;
-    margin: 0 auto;
-    padding-top: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+.contenuPlanDuSite h1
+{
+    color: black;
+    text-align: center;
+    margin-bottom:15px;  
 }
 .contenuPlanDuSite ul li
 {
@@ -51,3 +54,13 @@
 }
 
 /*FIN CONTENEUR PLAN DU SITE  */
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .contenuPlanDuSite
+    {
+        width: 80%;
+    }
+}

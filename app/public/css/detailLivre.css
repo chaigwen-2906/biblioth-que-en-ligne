@@ -231,12 +231,6 @@
 {
     text-align: left;
 }
-.detailLivre .dernierCommentaire .commentaire
-{
-    text-align: justify;
-    margin-left: 5%;
-    padding-bottom: 25px;
-}
 .detailLivre .dernierCommentaire .commentaire strong
 {
     color: crimson;

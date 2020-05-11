@@ -65,7 +65,7 @@ class ControllerFront
                 $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonne"],$_POST["civilite"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["mobile"],
                 $_POST["telephone"], $_POST["adresse"], $_POST["date"], $_POST["motDePasse"]);
                 
-                if(is_int($testCreerCompte))
+                if(is_numeric($testCreerCompte))
                 {   
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idClient'] = $testCreerCompte;
