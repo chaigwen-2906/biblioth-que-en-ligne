@@ -10,7 +10,7 @@ $( function() {
 // déclaration de toute les regex 
 
 // -----on test le nom et prenom---------
-let nomprenomValid= /^[a-zA-ZéèîïÉÈÎÏ]{2,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+let nomprenomValid= /^[a-zA-ZéèîïÉÈÎÏ]{1,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 
 //-----------on test le mail-------
 let mailValid = /^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}$/;
@@ -349,7 +349,7 @@ function validSomething(event, element, nomValid, output, prefix){
     }
 }
 
-function validIdentique(event, element1, element2,output, prefix)
+function validIdentique(event, element1, element2, output, prefix)
 {   // on test si les champs sont identique
     if(!(element1.value == element2.value)){
         event.preventDefault();
@@ -362,7 +362,7 @@ function validIdentique(event, element1, element2,output, prefix)
 }
 
 // VALIDE LA CHECKBOX CONDITION UTILISATION 
-function validationCheckbox(event,element,output, prefix){
+function validationCheckbox(event,element,output,prefix){
     //si le champs est vide alors il ecrira: manquant en rouge
     if(!element.checked){
         event.preventDefault();

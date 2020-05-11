@@ -13,9 +13,10 @@
     <title> Nouveautés - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/header.css">
+    <link rel="stylesheet" href="./../app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
     <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/nouveaute.css">
+    <link rel="stylesheet" href="./../app/public/css/nouveaute.css"> -->
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
@@ -72,7 +73,7 @@
             <div class="SliderNew">
                 <div class="enteteSlider">
                     <div class="imgtext"></div>
-                    <span onclick="this.parentElement.style.display='none'" class="fermerBtn">&times;</span>
+                    <span onclick="this.parentElement.parentElement.style.display='none'" class="fermerBtn">&times;</span>
                 </div>
                 <img class="etendreImg">
             </div>
