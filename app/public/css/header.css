@@ -428,6 +428,53 @@ header .selectionLivres .boutonRechercher
 }
 /*FIN CLASS ACTIVE*/
 
+/*BARRE DE COOKIES*/
+.cookies
+{
+    position: fixed;
+    top:0;
+    width: 100%;
+    text-align: center;
+    background-color:#cfcfcf;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 6;
+} 
+.cookies .accepter
+{
+    margin: 0 15px;
+    border: 1px solid #f39331;
+    background-color: #ffffff;
+    color: #f39331;
+    border-radius: 2px;
+    padding: 3px;
+    cursor: pointer;
+}
+.cookies .savoirPlus
+{
+    margin: 0 15px;
+    border: 1px solid #f39331;
+    background-color: #ffffff;
+    color: #f39331;
+    border-radius: 2px;
+    padding: 3px;
+    width: 150px;
+    
+}
+.cookies .accepter:hover
+{
+    background-color:#f39331;
+    color: white;
+}
+.cookies .savoirPlus:hover
+{
+    background-color:#f39331;
+    color: white;
+}
+/* FIN BARRE DE COOKIES*/
 
 /*BNT RETOUR HAUT */
 .RetourHautPage

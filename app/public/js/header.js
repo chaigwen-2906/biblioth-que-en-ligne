@@ -65,7 +65,6 @@ boutonSidentifier.addEventListener("click",function(e) {
     document.getElementById('errorMotDePasseIdentifier').textContent = "";
     document.getElementById('erreurPostFormulaireConnexion').textContent = "";
     //On vide les champs
-    document.getElementById("emailIdentifier").value="";
     document.getElementById("motDePasseIdentifier").value="";
     //On affiche le modalConnection
     $("#modalConnection").show("slow");
@@ -198,7 +197,30 @@ function menuActive(indexActive){
 }
 //----------------------------------------FIN GESTION DU MENU CLASS ACTIVE ----------------------------------
 
-/*----------------------------------------------------gestion du retour en haut -------------------------------------*/
+/*-------------------------------------------BARRE DE COOKIES -----------------------------------------------*/
+
+let BtnCookieAccepter = document.getElementById("BtnCookieAccepter");
+
+BtnCookieAccepter.addEventListener("click",function(){
+    sessionStorage.setItem('AcceptCookie', 'ok');
+    masquerBandeauCookies();
+});
+// masque le bandeau 
+function masquerBandeauCookies(){
+    let divBandeauCookies = document.getElementById("barreCookie");
+    divBandeauCookies.style.display = "none";
+}
+//On teste si une variable de session acceptCookies existe
+if(sessionStorage.getItem('AcceptCookie'))
+{
+    if(sessionStorage.getItem('AcceptCookie') == 'ok')
+    {
+        masquerBandeauCookies();
+    }
+}
+/*------------------------------------FIN BARRE DE COOKIES -----------------------------------------------*/
+
+/*----------------------------------------GESTION RETOUR HAUT -------------------------------------*/
 let btnHaut = document.getElementById("retourHaut");
 
 btnHaut.addEventListener("click",function(){

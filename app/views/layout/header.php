@@ -127,7 +127,15 @@
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
                     <div class="blocinput">
-                        <input class="inputAligne"  type="email" name="email" id="emailIdentifier" placeholder=" E-mail" required><br />
+                        <?php
+                            $emailClient = "";
+                            
+                            if(isset($_COOKIE['emailClient']))
+                            {
+                                $emailClient = $_COOKIE['emailClient'];
+                            }
+                        ?>
+                        <input class="inputAligne" type="email" name="email" id="emailIdentifier" placeholder="E-mail" value="<?= $emailClient; ?>" required="required"><br /> 
                         <span id="errorMailIdentifier"></span>
                     </div>
                 </div>
@@ -309,6 +317,18 @@
     </div>
 </div>
 <!--FIN BOITE MODAL FAQ  -->
+
+<!-- COOKIES  -->
+<div id="barreCookie" class="cookies">
+    <span>
+        <!-- balise b : mets en gras -->
+        <b>En continuant de défiler</b>, vous acceptez l'utilisation de services tiers pouvant installer des cookies
+    </span>
+    <a id="BtnCookieAccepter" class="accepter"> ✓ Ok, tout accepter</a>
+    <a class="savoirPlus" href="https://www.cnil.fr/fr/site-web-cookies-et-autres-traceurs" target="_blank">En
+        savoir plus</a>
+</div>
+<!-- COOKIES  -->
 
 <!-- BTN RETOUR HAUT  -->
 <a id="retourHaut" class="RetourHautPage"><img class="imgRetourHautPage"
