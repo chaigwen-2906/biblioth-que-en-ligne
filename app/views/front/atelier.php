@@ -128,8 +128,12 @@
         <!---------------------- jQuery ---------------------------------->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        <!---------------------- API YouTube ---------------------------------->
+        
 
         <!---------- Appel du javascript  / Call of javascript------------>
+        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
         <script type="text/javascript" src="./../app/public/js/header.js"></script>
         <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
         <script type="text/javascript" src="./../app/public/js/atelier.js"></script>
