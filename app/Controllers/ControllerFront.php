@@ -42,6 +42,8 @@ class ControllerFront
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idClient'] = $testConnexion;
                     $_SESSION['panier'] = array();
+
+                    setcookie('emailClient', $_POST["email"], time()+3600*24);
                 }
                 else{
                     $this->erreurConnexionCompte = true;
@@ -70,6 +72,8 @@ class ControllerFront
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idClient'] = $testCreerCompte;
                     $_SESSION['panier'] = array();
+
+                    setcookie('emailClient', $_POST["email"], time()+3600*24);
                 }
                 else
                 {
