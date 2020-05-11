@@ -65,10 +65,10 @@
                             <li><a href="https://twitter.com/accueil?lang=fr" target="_blank"><img src="./../app/public/image/reseaux/TwitterEcusson.png"
                                 alt="Twitter" title="Twitter"> 
                             </a></li>
-                            <li><a href="https://www.youtube.com/" target="_blank"><img src="./../app/public/image/reseaux/youtubeEcusson.png"
+                            <li><a href="https://www.youtube.com/" target="_blank"><img src="./../app/public/image/reseaux/YoutubeEcusson.png"
                                 alt="Youtube" title="Youtube">
                             </a></li>
-                            <li><a href="https://www.linkedin.com/" target="_blank"><img src="./../app/public/image/reseaux/linkedinEcusson.png"
+                            <li><a href="https://www.linkedin.com/" target="_blank"><img src="./../app/public/image/reseaux/LinkedinEcusson.png"
                                 alt="Linkedin" title="Linkedin">
                             </a></li>
                         </ul>

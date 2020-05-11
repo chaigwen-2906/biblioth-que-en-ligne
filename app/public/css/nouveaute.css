@@ -48,7 +48,7 @@
     margin-top: 25px;
 }
 /* The expanding image container */
-.nouveaute .fermerSlider 
+.nouveaute .SliderNew 
 {
     position: relative;
     display: none;
@@ -57,31 +57,24 @@
     width: 75%;
     margin: 0 auto;
     margin-top: 10px;
+    text-align: center;
 }
+.nouveaute .fermerSlider .enteteSlider
+{
+    width: 100%;
+}
+
 /* Expanding image text */
 .nouveaute .imgtext 
 {
-    display: flex;
+    width: 70%;
     margin: 0 auto;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    width: 20%;
-    color: white;
-    position: absolute;
-    bottom: 290px;
-    left: 275px;
     font-size: 20px;
-}
-.nouveaute .etendreImg
-{
-    display: flex;
-    margin: 0 auto;
-    flex-wrap: wrap;
+    color: white;
     margin-top: 20px;
-    width: 20%;
-
+    text-align: center;
+    
 }
-/* Closable button inside the expanded image */
 .nouveaute .fermerBtn 
 {
     position: absolute;
@@ -89,8 +82,15 @@
     color: white;
     font-size: 35px;
     cursor: pointer;
-    bottom: 302px;
+    top: 5px;
 }
+.nouveaute .etendreImg
+{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 20%;
+}
+
 /* FIN CAROUSSEL NOUVEAUTE   */
 
 

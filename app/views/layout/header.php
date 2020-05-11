@@ -19,12 +19,21 @@
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
 
-        <div class="bloc_connexion">
+        <!-- <div class="bloc_connexion">
             <a id="boutonCreerCompte" class="monBouttonBandeau" href="">
                 Créez-votre compte
             </a>
             <a id="boutonSidentifier" class="monBouttonBandeau" href="">
                 S'identifier
+            </a>
+        </div> -->
+
+        <div class="bloc_connexion">
+            <a id="boutonCreerCompte" href="">
+                <img src="./../app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
+            </a>
+            <a id="boutonSidentifier" href="">
+                <img src="./../app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
             </a>
         </div>
 
@@ -49,7 +58,6 @@
         <!----------------------Menu------------------------------>
         <div class="burger" id="btnBurger">
             <img src="./../app/public/image/icon/burger.png" alt="image burger menu">
-            Menu
         </div>
         <div class="menu">
             <ul id="conteneurMenu" >
@@ -87,7 +95,7 @@
     
     <!--------------Barre de recherche, Search bar-------------------->
     <div id="barreDeRecherche">
-        <form class="selectionLivres" method="post" action="./pageRecherche" onsubmit="return verificationRecherche()">
+        <form class="selectionLivres" name="formRecherche" method="post" action="./pageRecherche" onsubmit="return verificationRecherche()">
             <select id="selectCategorie" name="selectCategorie">
                 <option value="0">
                     Catégorie...
@@ -100,7 +108,7 @@
                 ?>
             </select>
             <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
-            <input id="boutonRechercher" type="submit" value="rechercher" >
+            <img src="./../app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="window.document.formRecherche.submit();">
         </form>
     </div>
 </header>
@@ -198,9 +206,6 @@
                         <span id="errorMailCreez"></span>
                     </div>
                 </div>
-                <div class="identifier note">
-                    Le mail doit comporter un @ et terminé par .fr ou .com
-                </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Mobile</label>
                     <div class="blocinput">
@@ -291,14 +296,14 @@
         </div>
         <div class="contenuModal">
             <div id="divListFAQ" class="conteneurFaq">
-            <?php
-                foreach($this->listFAQ AS $uneQuestion)
-                {
-                    //var_dump($uneQuestion);
-                    echo "<h3>".$uneQuestion['question']."</h3>";
-                    echo "<div class='faqReponse'><p>".$uneQuestion['reponse']."</p></div>";
-                }
-            ?>
+                <?php
+                    foreach($this->listFAQ AS $uneQuestion)
+                    {
+                        //var_dump($uneQuestion);
+                        echo "<h3>".$uneQuestion['question']."</h3>";
+                        echo "<div class='faqReponse'><p>".$uneQuestion['reponse']."</p></div>";
+                    }
+                ?>
             </div>
         </div>
     </div>

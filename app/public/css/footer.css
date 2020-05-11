@@ -240,6 +240,14 @@ footer
         margin: 10px 5px;
     }
     
+    .contenuFooter .mentionFooter 
+    {  
+        width: 100%;
+        left: 0%;
+        margin-left: 0%;
+        display: flex;
+        justify-content: center;
+    }
     
     
 

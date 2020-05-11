@@ -1,15 +1,13 @@
 <footer>
         
         <div class="contenuFooter">
-            <figure class="figureBgFooter">
+             <figure class="figureBgFooter">
                 <img src="./../app/public/image/imgFond/bookFooter2.png" alt="livre" title ="livre">
-            </figure>
+            </figure> 
 
 
             <!-----------Adresse de la boutique, Shop address------------>
-            <div class="adresse">
-                <!--ajout d'une map google-->
-                
+            <div class="adresse">              
                 <address>
                     <h3>
                         Contactez-nous
@@ -33,16 +31,15 @@
                     Réseaux sociaux
                 </h3>
                 <ul>
-                    <!--target="_blank" => ouvre dans un nouvel onglet-->
                     <li><a href="https://www.facebook.com/" target="_blank"><img src="./../app/public/image/reseaux/Facebookgd.png"
                                 alt="Facebook" title="Facebook"></a></li>
 
-                    <li><a href="https://www.instagram.com/" target="_blank"><img src="./../app/public/image/reseaux/Instagramgd.png"
-                                alt="Instagram" title="Instagram"></a></li>
+                    <li><a href="https://www.YouTube.com/" target="_blank"><img src="./../app/public/image/reseaux/YouTube.png"
+                                alt="YouTube" title="YouTube"></a></li>
                 </ul>
                 <ul>
-                    <li><a href="https://www.pinterest.com/" target="_blank"><img src="./../app/public/image/reseaux/Pinterestgd.png"
-                                alt="Pinterest" title="Pinterest"> </a></li>
+                    <li><a href="https://www.Linkedin.com/" target="_blank"><img src="./../app/public/image/reseaux/Linkedin.png"
+                                alt="Linkedin" title="Linkedin"> </a></li>
 
                     <li><a href="https://twitter.com/accueil?lang=fr" target="_blank"><img src="./../app/public/image/reseaux/Twittergd.png"
                                 alt="Twitter" title="Twitter"> </a></li>
@@ -52,13 +49,15 @@
 
             <!---------toutes les mentions obligatoire d"un site, all obligatory mentions of a site-->
             <div class="mentionFooter">
-                <h3>
-                    Allez plus loin
-                </h3>
-                <div><img class="iconMentions" alt="Mentions Légales" title="Mentions Légales"  src="./../app/public/image/icon/puce.png"><a href="./mentionsLegales"><span>Mentions Légales</span></a></div>
-                <div><img class="iconMentions" alt="Conditions Générales" title="Conditions Générales"  src="./../app/public/image/icon/puce.png"><a href="./conditionsGenerales"><span>Conditions générales</span></a></div>
-                <div><img class="iconMentions" alt="Règlement général sur la protection des données" title="Règlement général sur la protection des données"  src="./../app/public/image/icon/puce.png"><a href="./rgpd"><span>RGPD</span></a></div>
-                <div><img class="iconMentions" alt="Plan du site" title="Plan du site" src="./../app/public/image/icon/puce.png"><a href="./planDuSite"><span>Plan du site</span></a></div>
+                <div>
+                    <h3>
+                        Allez plus loin
+                    </h3>
+                    <div><img class="iconMentions" alt="Mentions Légales" title="Mentions Légales"  src="./../app/public/image/icon/puce.png"><a href="./mentionsLegales"><span>Mentions Légales</span></a></div>
+                    <div><img class="iconMentions" alt="Conditions Générales" title="Conditions Générales"  src="./../app/public/image/icon/puce.png"><a href="./conditionsGenerales"><span>Conditions générales</span></a></div>
+                    <div><img class="iconMentions" alt="Règlement général sur la protection des données" title="Règlement général sur la protection des données"  src="./../app/public/image/icon/puce.png"><a href="./rgpd"><span>RGPD</span></a></div>
+                    <div><img class="iconMentions" alt="Plan du site" title="Plan du site" src="./../app/public/image/icon/puce.png"><a href="./planDuSite"><span>Plan du site</span></a></div>
+                </div>
             </div>
 
 

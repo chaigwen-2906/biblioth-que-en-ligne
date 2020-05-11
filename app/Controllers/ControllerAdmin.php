@@ -1729,7 +1729,16 @@ class ControllerAdmin
         }
     }
 
-    //----GESTION RESERVATION EN COURS:
+    //----PAGE D'ERREUR:
+    function pageErreurAdmin()
+    {
+       
+
+        require 'app/views/admin/pageErreurAdmin.php';
+
+      
+        
+    }
 
 
 

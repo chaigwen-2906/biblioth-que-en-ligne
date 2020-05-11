@@ -80,3 +80,11 @@ footer p
     text-align: center;
 }
 /* FIN FOOTER  */
+
+
+/* PAGE D'ERREUR D'ADMIN*/
+.pageErreur .erreur404
+{
+    display: flex;
+    margin: 0 auto;
+}

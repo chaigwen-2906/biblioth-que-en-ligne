@@ -92,7 +92,7 @@
 {
     line-height: 1.6em;
     width: 100%;
-    text-align: justify;
+    text-align: center;
     min-height: 220px;
     padding-top: 15px;
 }
@@ -230,12 +230,6 @@
 .detailLivre .dernierCommentaire .note
 {
     text-align: left;
-}
-.detailLivre .dernierCommentaire .commentaire
-{
-    text-align: justify;
-    margin-left: 5%;
-    padding-bottom: 25px;
 }
 .detailLivre .dernierCommentaire .commentaire strong
 {

@@ -65,7 +65,7 @@ class ControllerFront
                 $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonne"],$_POST["civilite"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["mobile"],
                 $_POST["telephone"], $_POST["adresse"], $_POST["date"], $_POST["motDePasse"]);
                 
-                if(is_int($testCreerCompte))
+                if(is_numeric($testCreerCompte))
                 {   
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idClient'] = $testCreerCompte;
@@ -306,7 +306,7 @@ class ControllerFront
                     // mon panier est un tableau d'idLivre 
                     foreach ($_SESSION['panier'] as $unIdLivre)
                     {
-                        $FrontManager->ajoutReservation($unIdLivre, $_SESSION['idClient'] );
+                        $this->FrontManager->ajoutReservation($unIdLivre, $_SESSION['idClient'] );
                     }
                     
                     //on remet le tableau  $_SESSION ['panier] à vide
@@ -325,9 +325,9 @@ class ControllerFront
                     array_push($donnees,$retour);
                 }
             }
-
-            $listDemandeEnAttente = $FrontManager-> getListDemandeEnAttente($_SESSION['idClient']);
-            $listDemandeValider = $FrontManager-> getListDemandeValider($_SESSION['idClient']);
+            
+            $listDemandeEnAttente = $this->FrontManager->getListDemandeEnAttente($_SESSION['idClient']);
+            $listDemandeValider = $this->FrontManager->getListDemandeValider($_SESSION['idClient']);
 
             require 'app/views/front/panier.php';
 
@@ -515,19 +515,19 @@ class ControllerFront
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $FrontManager->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
+                    $this->FrontManager->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
                     $_POST['mobile'],$_POST['fixe'],$_POST['adresse'],$_POST['dateNaissance']);
                 }
                 if ($_GET['action2'] == "enregistrerPassword"){
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $FrontManager->enregistrerPassword($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
+                    $this->FrontManager->enregistrerPassword($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
                 }
             }
 
             // on récupère le compte
-            $monCompte = $FrontManager->getMonCompte($_SESSION['idClient']);
+            $monCompte = $this->FrontManager->getMonCompte($_SESSION['idClient']);
 
             require 'app/views/front/monCompte.php';
 
@@ -624,7 +624,7 @@ class ControllerFront
                 }
                 
                 //j'appel ma fonction pour enregistrer dans la base de données
-                $FrontManager->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
+                $this->FrontManager->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
 
                 //on envoie le mail au client 
                 // Le message
@@ -651,6 +651,7 @@ class ControllerFront
         //On gère le cas d'erreur sur la connexion au compte
         $this->gestionErreurConnexionCompte();
     }
+    
 
      
 

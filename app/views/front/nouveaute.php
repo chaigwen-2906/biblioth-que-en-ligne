@@ -59,7 +59,7 @@
                     <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/quêteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="myFunction(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="myFunction(this);">
                 </div>
                 <div class="divImgSlider">
                     <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="myFunction(this);">
@@ -69,10 +69,12 @@
                 </div>    
             </figure>
 
-            <div class="fermerSlider">
-                <span onclick="this.parentElement.style.display='none'" class="fermerBtn">&times;</span>
+            <div class="SliderNew">
+                <div class="enteteSlider">
+                    <div class="imgtext"></div>
+                    <span onclick="this.parentElement.style.display='none'" class="fermerBtn">&times;</span>
+                </div>
                 <img class="etendreImg">
-                <div class="imgtext"></div>
             </div>
            
 

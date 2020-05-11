@@ -250,6 +250,6 @@ try {
 
 } catch (Exception $e) {
     $controller = new \Projet\Controllers\ControllerFront();
-    $controller->errorFront();
+    $controller->pageErreurFront();
    // require 'app/views/frontend/errorLoading.php';
 }

@@ -7,10 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- je n'index pas cette pas là  -->
         <meta name="robots" content="noindex">
-
-        <meta name="title" content="Notre bibliothèque en ligne">
-        
-        <title> Ajouter une categorie - Ma bibliothèque en ligne</title>
+        <meta name="title" content="Notre bibliothèque en ligne">      
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
         <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">

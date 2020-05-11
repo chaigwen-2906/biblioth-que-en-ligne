@@ -339,7 +339,7 @@
         </main>
 
 
-        <?php require_once("./app/views/layout/footer.php") ?> 
+        <?php require_once("./app/views/layout/footer.php"); ?> 
 
 
         <!---------------------- jQuery ---------------------------------->
