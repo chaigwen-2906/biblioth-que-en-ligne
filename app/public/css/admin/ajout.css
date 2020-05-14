@@ -55,6 +55,7 @@
     background:linear-gradient(to bottom, #a2c1f1 5%, #f796ae 100%);
     border-radius: 5px;
     display: flex;
+    justify-content: center;
     margin: 0 auto;
     width: 200px;
     height: 35px;
@@ -84,6 +85,7 @@ footer p
     background:linear-gradient(to bottom, #a2c1f1 5%, #f796ae 100%);
     border-radius: 5px;
     display: flex;
+    justify-content: center;
     margin: 0 auto;
     width: 200px;
     height: 35px;

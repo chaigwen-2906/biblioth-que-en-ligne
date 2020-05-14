@@ -102,7 +102,15 @@ class ManagerFront extends Manager
         $bdd = $this->dbConnect();
 
         //test: on vérifie que l'adresse mail n'est pas déjà utilisé et que le numéro d'abonné n'existe pas déjà
-        $sql="SELECT idClient FROM client WHERE email LIKE '$email' OR numeroAbonne LIKE '$numeroAbonne'";
+        if($numeroAbonne == "")
+        {
+            $sql="SELECT idClient FROM client WHERE email LIKE '$email'";
+        }
+        else{
+            $sql="SELECT idClient FROM client WHERE email LIKE '$email' OR numeroAbonne LIKE '$numeroAbonne'";
+        }
+        
+        
 
         $requete = $bdd->prepare($sql);
 

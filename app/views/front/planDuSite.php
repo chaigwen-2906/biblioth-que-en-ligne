@@ -77,7 +77,6 @@
 
         <!---------- Appel du javascript  / Call of javascript------------>
         <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
-        <script type="text/javascript" src="./../app/public/js/header.js"></script>
 
     </body>
 
