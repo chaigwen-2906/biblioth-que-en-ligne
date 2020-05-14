@@ -19,15 +19,6 @@
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
 
-        <!-- <div class="bloc_connexion">
-            <a id="boutonCreerCompte" class="monBouttonBandeau" href="">
-                Créez-votre compte
-            </a>
-            <a id="boutonSidentifier" class="monBouttonBandeau" href="">
-                S'identifier
-            </a>
-        </div> -->
-
         <div class="bloc_connexion">
             <a id="boutonCreerCompte" href="">
                 <img src="./../app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
@@ -108,7 +99,7 @@
                 ?>
             </select>
             <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
-            <img src="./../app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="window.document.formRecherche.submit();">
+            <img src="./../app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="verificationRecherche();">
         </form>
     </div>
 </header>
