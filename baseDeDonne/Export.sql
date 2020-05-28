@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `auteur` (
   `nomAuteur` varchar(50) NOT NULL,
   `prenomAuteur` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idAuteur`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table projet_biblio.auteur : ~91 rows (environ)
 /*!40000 ALTER TABLE `auteur` DISABLE KEYS */;
@@ -210,9 +210,9 @@ CREATE TABLE IF NOT EXISTS `client` (
   `dateDeNaissance` date NOT NULL,
   `motDePasse` varchar(250) NOT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Listage des données de la table projet_biblio.client : ~5 rows (environ)
+-- Listage des données de la table projet_biblio.client : ~0 rows (environ)
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 
@@ -229,9 +229,9 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   KEY `idClient` (`idClient`),
   CONSTRAINT `FK_commentaire_client` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `FK_commentaire_livre` FOREIGN KEY (`idLivre`) REFERENCES `livre` (`idLivre`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Listage des données de la table projet_biblio.commentaire : ~3 rows (environ)
+-- Listage des données de la table projet_biblio.commentaire : ~0 rows (environ)
 /*!40000 ALTER TABLE `commentaire` DISABLE KEYS */;
 /*!40000 ALTER TABLE `commentaire` ENABLE KEYS */;
 
@@ -534,9 +534,9 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   KEY `FK_reservation_livre` (`idLivre`),
   CONSTRAINT `FK_reservation_client` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `FK_reservation_livre` FOREIGN KEY (`idLivre`) REFERENCES `livre` (`idLivre`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Listage des données de la table projet_biblio.reservation : ~7 rows (environ)
+-- Listage des données de la table projet_biblio.reservation : ~0 rows (environ)
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 

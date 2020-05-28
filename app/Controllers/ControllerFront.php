@@ -434,7 +434,7 @@ class ControllerFront
                         //on ajoute idLivre dans la variable $_SESSION panier 
                         array_push($_SESSION['panier'], $_GET['id'] );
 
-                        echo "<script>alert('Votre demande de réservation a bien été ajoutée au panier')</script>";
+                        echo "<script>alert('Votre demande de réservation a bien été ajoutée au panier. \\nN\'oubliez pas de valider votre panier pour confirmer votre demande de réservation !')</script>";
                     }
                     else{
 
