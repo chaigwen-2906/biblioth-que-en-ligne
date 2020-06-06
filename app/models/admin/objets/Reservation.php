@@ -65,7 +65,7 @@ class Reservation extends Manager{
     public function __construct($idReservation,$idClient,$idLivre,$dateDeDebut,$statut){
 
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie l'attribut idcoupDeCoeur de l'objet
         $this->setIdReservation($idReservation);

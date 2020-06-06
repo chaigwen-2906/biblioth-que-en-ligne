@@ -2,7 +2,7 @@
 namespace Projet\Models\front;
 class Manager
 {
-    protected function dbConnect()
+    protected function bddConnection()
     {
 
         try {

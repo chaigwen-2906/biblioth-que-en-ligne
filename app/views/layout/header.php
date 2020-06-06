@@ -1,5 +1,5 @@
 <header>
-    <!------Bandeau (logo, titre, renseignement), Banner (logo, title, information)------->
+    <!------Bandeau (logo, titre, renseignement(FAQ)), Banner (logo, title, information)------->
     <div class="bandeau">
         <figure class="headerLogo">
             <a href="./home">
@@ -16,6 +16,7 @@
             </a>
         </div>
     </div>
+    
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
 
@@ -43,11 +44,11 @@
             </a>
         </figure>
 
-        <div class="btnloupe">
+        <div class="boutonLoupe">
             <img src="./../app/public/image/bouton/loupe.png">
         </div>
         <!----------------------Menu------------------------------>
-        <div class="burger" id="btnBurger">
+        <div class="burger" id="boutonBurger">
             <img src="./../app/public/image/icon/burger.png" alt="image burger menu">
         </div>
         <div class="menu">
@@ -103,6 +104,9 @@
         </form>
     </div>
 </header>
+
+
+
 <!-- BOITE MODAL:S'IDENTIFIER  -->
 <div id="modalConnection" class="boiteModal">
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
@@ -127,14 +131,14 @@
                             }
                         ?>
                         <input class="inputAligne" type="email" name="email" id="emailIdentifier" placeholder="E-mail" value="<?= $emailClient; ?>" required="required"><br /> 
-                        <span id="errorMailIdentifier"></span>
+                        <span id="erreurMailIdentifier"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse"> Mot de passe </label>
                     <div class="blocinput">
                         <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
-                        <span id="errorMotDePasseIdentifier"></span>
+                        <span id="erreurMotDePasseIdentifier"></span>
                     </div>
                 </div>
                 <div id="erreurPostFormulaireConnexion" class="error"></div>
@@ -142,7 +146,7 @@
                 <a href="./passOublier" class="monBoutton">
                     Mot de passe oublié ? 
                 </a>
-                <a id="btnBesoinCompte" class="monBoutton" >
+                <a id="boutonBesoinCompte" class="monBoutton" >
                     Besoin d'un compte ? 
                 </a>
                 </div>
@@ -152,6 +156,8 @@
     </div>
 </div>
 <!--FIN BOITE MODAL:S'IDENTIFIER  -->
+
+
 
 <!-- BOITE MODAL:CREER VOTRE COMPTE  -->
 <div id="modalCreerCompte" class="boiteModal">
@@ -168,89 +174,89 @@
                 <div class="civilite">
                     <div>
                         <label for="monsieur" class="petit">M</label>
-                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreez">
+                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreer">
                         <label for="madame" class="petit">Mme</label>
-                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreez">
+                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreer">
                 </div>
-                    <span id="errorCiviliteCreez"></span>
+                    <span id="erreurCiviliteCreer"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="numeroAbonne">Numéro d'abonnée</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreez"
+                        <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreer"
                         placeholder="Entrer votre Numero abonne">
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="nom">Nom</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="nom" id="nomCreez"
+                        <input class="inputAligne" type="text" name="nom" id="nomCreer"
                             placeholder="Entrer votre nom" required>
-                        <span id="errorNomCreez"></span>
+                        <span id="erreurNomCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="prenom">Votre prénom</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="prenom" id="prenomCreez"
+                        <input class="inputAligne" type="text" name="prenom" id="prenomCreer"
                             placeholder="Entrer votre prénom" required>
-                        <span id="errorPrenomCreez"></span>
+                        <span id="erreurPrenomCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="email">Votre email</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="email" name="email" id="emailCreez"
+                        <input class="inputAligne" type="email" name="email" id="emailCreer"
                             placeholder="Entrer votre email" required>
-                        <span id="errorMailCreez"></span>
+                        <span id="erreurMailCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Mobile</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="tel" name="mobile" id="mobileCreez"
+                        <input class="inputAligne" type="tel" name="mobile" id="mobileCreer"
                             placeholder="Entrer votre numéro" required>
-                        <span id="errorMobileCreez"></span>
+                        <span id="erreurMobileCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Fixe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="tel" name="telephone" id="telephoneCreez"
+                        <input class="inputAligne" type="tel" name="telephone" id="telephoneCreer"
                             placeholder="Entrer votre numéro">
-                        <span id="errorTelephoneCreez"></span>
+                        <span id="erreurTelephoneCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne "for="adresse"> Votre adresse</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="adresse" id="adresseCreez"  
+                        <input class="inputAligne" type="text" name="adresse" id="adresseCreer"  
                         placeholder="Entrer votre adresse" onkeyup="search()" required>
-                        <span id="errorAdresseCreez"></span>
+                        <span id="erreurAdresseCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="date">Votre date de naissance</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="date" id="dateCreez" 
+                        <input class="inputAligne" type="text" name="date" id="dateCreer" 
                         placeholder="Ex: 31/06/2019" required>
-                        <span id="errorDateCreez"></span>
+                        <span id="erreurDateCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse">Votre mot de passe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreez"
+                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreer"
                             placeholder="Mot de passe" required>
-                        <span id="errorMotDePasseCreez"></span>
+                        <span id="erreurMotDePasseCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasseConfirm">Confirmer votre mot de passe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreezConfirm"
+                        <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreerConfirm"
                             placeholder=" Confirmation du mot de passe" required>
-                        <span id="errorMotDePasseCreezConfirm"></span>
+                        <span id="erreurMotDePasseCreerConfirm"></span>
                     </div>
                 </div>
                 <div class="identifier note">
@@ -283,7 +289,9 @@
 </div>
 <!--FIN BOITE MODAL:CREER VOTRE COMPTE  -->
 
-<!-- BOITE MODAL FAQ  -->
+
+
+<!-- BOITE MODAL: FAQ  -->
 <div id="modalFaq" class="boiteModal">
     <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
@@ -309,17 +317,21 @@
 </div>
 <!--FIN BOITE MODAL FAQ  -->
 
+
+
 <!-- COOKIES  -->
 <div id="barreCookie" class="cookies">
     <span>
         <!-- balise b : mets en gras -->
         <b>En continuant de défiler</b>, vous acceptez l'utilisation de services tiers pouvant installer des cookies
     </span>
-    <a id="BtnCookieAccepter" class="accepter"> ✓ Ok, tout accepter</a>
+    <a id="boutonAccepterCookie" class="accepter"> ✓ Ok, tout accepter</a>
     <a class="savoirPlus" href="https://www.cnil.fr/fr/site-web-cookies-et-autres-traceurs" target="_blank">En
         savoir plus</a>
 </div>
 <!-- COOKIES  -->
+
+
 
 <!-- BTN RETOUR HAUT  -->
 <a id="retourHaut" class="RetourHautPage"><img class="imgRetourHautPage"

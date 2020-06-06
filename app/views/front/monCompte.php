@@ -125,7 +125,7 @@
                      
             <!-- MON COMPTE MODIFIER -->
             <section class="conteneurMonCompteModifier">
-                <form id="formCompte" method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerInfosPers">
+                <form method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerInfosPers">
                     <h1>
                         Mon compte
                     </h1> 
@@ -176,14 +176,14 @@
                     </article>
 
                     <!-- ADRESSE  -->
-                    <article id="" class="divContenuCompte">
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="adresse">Votre adresse</label>
                         <input type="text" name="adresse" id="adresseCompte" class="champsCompteModifier" value="<?= $monCompte['adresse']; ?>" required="required" />
                         <span id="erreurAdresseCompte"></span>
                     </article>
 
                     <!-- DATE DE NAISSANCE  -->
-                    <article id="" class="divContenuCompte">
+                    <article class="divContenuCompte">
                         <label class="labelAdresse" for="date">Votre date de naissance</label>
                         <input type="text" name="dateNaissance" id="dateNaissanceCompte" class="champsCompteModifier" value="<?= $monCompte['dateDeNaissance']; ?>" required="required"/>
                         <span id="erreurDateNaissanceCompte"></span>
@@ -200,7 +200,7 @@
             </section>
             <!-- CONTENEUR MODIFIER LE MOT DE PASSE  -->
             <section class="conteneurCompteMotPass">
-                <form id="formCompte" method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerPassword">
+                <form method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerPassword">
                     <h2>
                         Modifier mon mot de passe
                     </h2>
@@ -242,7 +242,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <script type="text/javascript" src="./../app/public/js/allJavaScriptMin.js"></script>
 
     </body>
 

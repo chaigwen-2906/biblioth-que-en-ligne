@@ -205,9 +205,13 @@ header .navMenuBurger li a
     color: white;
     cursor: pointer;
 }
-header .btnloupe
+header .boutonLoupe
 {
     width: 70px; 
+}
+header .boutonLoupe img
+{
+    cursor: pointer; 
 }
 /*---------------------------fin du nav-----------------*/
 
@@ -237,6 +241,7 @@ header .selectionLivres input
 header .selectionLivres .boutonRechercher
 {
     width:25px;
+    cursor: pointer;
 }
 /*------------------------Fin du conteneur recherche----------*/
 

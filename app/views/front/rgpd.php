@@ -85,7 +85,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <script type="text/javascript" src="./../app/public/js/allJavaScriptMin.js"></script>
 
     </body>
 

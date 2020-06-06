@@ -1,20 +1,20 @@
 /////////////////////   CHARGEMENT ONLOAD
 
-//gestion de la taille de l'impage de fond de la home ok
+//gestion de la taille de l'impage de fond de la home  - managing the size of the background image of the home 
 window.onload = function(){ 
-    let imagedefond = document.querySelector(".imgDeFond");
-    if(imagedefond != null)
+    let imageDeFond = document.querySelector(".imgDeFond");
+    if(imageDeFond != null)
     {
-        let imageHeight = imagedefond.height;
-        let imagecitation = document.querySelector(".citation");
-        if(imagecitation != null)
+        let imageHeight = imageDeFond.height;
+        let imageCitation = document.querySelector(".citation");
+        if(imageCitation != null)
         {
-            imagecitation.style.height = imageHeight+"px";
+            imageCitation.style.height = imageHeight+"px";
         }
     }
 };
 
-//jquery : création de l'accordéon pour la faq ok
+//jquery : création de l'accordéon pour la faq  - creation of the accordion for the faq 
 $( function() {
     
     $( "#divListFAQ" ).accordion({
@@ -22,12 +22,12 @@ $( function() {
     });
 });
 
-//jquery creation du datatime picker pour la date de naissance ok
+//jquery creation du datatime picker pour la date de naissance  - jquery creation of datatime picker for date of birth 
 $(function() {
-    $( "#dateCreez" ).datepicker();
-    $( "#dateCreez" ).datepicker( "option", "dateFormat", "dd/mm/yy" );
-    $( "#dateCreez" ).datepicker( "option", "showAnim", "clip" );
-    $( "#dateCreez" ).datepicker( "option", "duration", "slow" );
+    $( "#dateCreer" ).datepicker();
+    $( "#dateCreer" ).datepicker( "option", "dateFormat", "dd/mm/yy" );
+    $( "#dateCreer" ).datepicker( "option", "showAnim", "clip" );
+    $( "#dateCreer" ).datepicker( "option", "duration", "slow" );
 });
 
 
@@ -35,58 +35,58 @@ $(function() {
 
 
 
-/////////////////////   DECLARATION DES VARIABLES ok
+//   DECLARATION DES VARIABLES - VARIABLE DECLARATION 
 
 
-// -----regex nom et prenom---------
-let nomprenomValid= /^[a-zA-ZéèîïÉÈÎÏ]{1,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-//-----------regex mail-------
-let mailValid = /^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}$/;
+// -----regex nom et prenom---------regex name and surname
+let regexNomPrenom= /^[a-zA-ZéèîïÉÈÎÏ]{1,}[a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+//-----------regex mail-------regex mail
+let regexMail = /^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}$/;
 // ----regex Mobile --------
-let telephoneValid = /^(\d\d){5}$/;
-//-----regex password--------
-let PassValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/;
-//-----regex date de naissance---------
-let DateValid = /^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$/;
+let regexTelephone = /^(\d\d){5}$/;
+//-----regex mot de passe--------regex password
+let regexMotDePasse = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/;
+//-----regex date de naissance---------regex date of birth
+let regexDate = /^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$/;
 
-//Bouton Accepter Cookie
-let BtnCookieAccepter = document.getElementById("BtnCookieAccepter");
+//Bouton Accepter Cookie -  Accept Cookie button
+let boutonAccepterCookie = document.getElementById("boutonAccepterCookie");
 
 
-//Bouton acces FAQ
+//Bouton acces FAQ - FAQ access button
 let boutonFaq = document.getElementById("boutonFaq");
-//Bouton fermeture modal FAQ
+//Bouton fermeture modal FAQ - Modal close button FAQ
 let fermerModalFaq = document.getElementById("fermerModalFaq");
 
 
-//Bouton s'identifier
+//Bouton s'identifier - Login button
 let boutonSidentifier = document.getElementById("boutonSidentifier");
-//Bouton fermeture modal s'identifier
+//Bouton fermeture modal s'identifier - Modal close button identify
 let boutonFermerModalConnection = document.getElementById("fermerModalConnection");
-//Bouton valider identification
+//Bouton valider identification - Validate identification button
 let testIdentifier= document.getElementById("boutonEnvoyerIdentifier");
-//Bouton besoin compte
-let btnBesoinCompte = document.getElementById("btnBesoinCompte");
+//Bouton besoin compte - Account need button
+let boutonBesoinCompte = document.getElementById("boutonBesoinCompte");
 
 
-//Bouton créer son compte
+//Bouton créer son compte - Create account button
 let boutonCreerCompte = document.getElementById("boutonCreerCompte");
-//Bouton fermeture modal créer compte
+//Bouton fermeture modal créer compte - Modal close button create account
 let fermerModalCreerCompte = document.getElementById("fermerModalCreerCompte");
-//Bouton valider création compte
-let formValidCreez = document.getElementById("boutonEnvoyerCreez");
+//Bouton valider création compte - Validate account creation button
+let formValidCreer = document.getElementById("boutonEnvoyerCreez");
 
 
-//Bouton Retour en haut (scroll)
-let btnHaut = document.getElementById("retourHaut");
+//Bouton Retour en haut (scroll) - Back to top button (scroll)
+let boutonHaut = document.getElementById("retourHaut");
 
-//Bouton Valider modif mot de passe de la page monCompte
+//Bouton Valider modif mot de passe de la page monCompte - Validate button modify password on the myAccount page
 let formValidPass = document.getElementById("comptePassEnregistrer");
-//Bouton Valider modif compte de la page monCompte
+//Bouton Valider modif compte de la page monCompte - Validate button modify account on the myAccount page
 let formValidMonCompte = document.getElementById("compteEnregistrer");
 
 
-//Tableau d'image du slider Coup de coeur
+//Tableau d'image du slider Coup de coeur - Picture table of the Favorite slider
 let tabImgSlider = 
 [
     "./../app/public/image/slider/biblio.jpg",
@@ -95,13 +95,13 @@ let tabImgSlider =
     "./../app/public/image/slider/livre_magic.png",
     "./../app/public/image/slider/livre.png"
 ];
-//Compteur d'image du slider
+//Compteur d'image du slider - Slider image counter
 let numImgSlider = 0;
-//Element html img du slider Coup de coeur
+//Element html img du slider Coup de coeur - Element html img of the slider Favorite
 let imgSlider = document.getElementById("imgSlider");
-//bouton revenir à l'image précédente
+//bouton revenir à l'image précédente - button return to previous image
 let gauche = document.getElementById("gauche");
-//Bouton passer à l'image suivante
+//Bouton passer à l'image suivante - Go to next image button
 let droite = document.getElementById("droite");
 
 
@@ -112,14 +112,14 @@ let droite = document.getElementById("droite");
 
 
 
-/////////////////////   GESTION DES ACTIONS
+// GESTION DES ACTIONS - EQUITY MANAGEMENT
 
-////// Gestion du bandeau Cookies ok
-BtnCookieAccepter.addEventListener("click",function(){
+////// Gestion du bandeau Cookies - Management of the Cookies banner
+boutonAccepterCookie.addEventListener("click",function(){
     sessionStorage.setItem('AcceptCookie', 'ok');
     masquerBandeauCookies();
 });
-// masque le bandeau 
+// masque le bandeau - hide the blindfold
 function masquerBandeauCookies(){
     let divBandeauCookies = document.getElementById("barreCookie");
     divBandeauCookies.style.display = "none";
@@ -136,7 +136,7 @@ if(sessionStorage.getItem('AcceptCookie'))
 
 
 
-////// Gestion du Menu ok
+////// Gestion du Menu 
 function menuActive(indexActive){
     // traitement pour le menu normal
         //On récupère le conteneur du menu
@@ -162,8 +162,8 @@ function menuActive(indexActive){
 
 
 
-////// Gestion du MenuBurger ok
-$("#btnBurger").click(function(){
+////// Gestion du MenuBurger 
+$("#boutonBurger").click(function(){
     if($(".navMenuBurger").is(":visible")){
         $(".navMenuBurger").hide("slow");
     }
@@ -176,9 +176,9 @@ $("#btnBurger").click(function(){
 
 
 
-////// Gestion du Moteur de recherche ok
+////// Gestion du Moteur de recherche 
 $(".selectionLivres").hide();
-$(".btnloupe").click(function(){
+$(".boutonLoupe").click(function(){
     if($(".selectionLivres").is(":visible")){
         $(".selectionLivres").hide("slow");
     }
@@ -211,7 +211,7 @@ function verificationRecherche()
 
 
 
-////// Gestion du modal FAQ ok
+////// Gestion du modal FAQ 
 boutonFaq.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
@@ -232,15 +232,15 @@ fermerModalFaq.addEventListener("click",function(e) {
 
 
 
-////// Gestion du modal s'identifier ok
+////// Gestion du modal s'identifier 
 boutonSidentifier.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
 
     //On enlève les erreurs
-    document.getElementById('errorMailIdentifier').textContent = "";
-    document.getElementById('errorMotDePasseIdentifier').textContent = "";
-    document.getElementById('erreurPostFormulaireConnexion').textContent = "";
+    ['MailIdentifier', 'MotDePasseIdentifier', 'PostFormulaireConnexion'].forEach(function (id) {
+        document.getElementById(`erreur${id}`).textContent = "";
+      });
     //On vide les champs
     document.getElementById("motDePasseIdentifier").value="";
     //On affiche le modalConnection
@@ -255,10 +255,10 @@ boutonFermerModalConnection.addEventListener("click",function(e) {
 });
 testIdentifier.addEventListener("click",function(event){
 
-    validSomething(event, emailIdentifier, mailValid, errorMailIdentifier, "email");
-    validSomething(event, motDePasseIdentifier, PassValid, errorMotDePasseIdentifier, "mot de passe");
+    validSomething(event, emailIdentifier, regexMail, erreurMailIdentifier, "email");
+    validSomething(event, motDePasseIdentifier, regexMotDePasse, erreurMotDePasseIdentifier, "mot de passe");
 });
-btnBesoinCompte.addEventListener("click", function(){
+boutonBesoinCompte.addEventListener("click", function(){
     //On masque le modal dialog s'identifier
     $("#modalConnection").hide("slow");
     //On affiche le modal dialog creer son compte
@@ -268,36 +268,31 @@ btnBesoinCompte.addEventListener("click", function(){
 
 
 
-////// Gestion du modal création de compte ok
+////// Gestion du modal création de compte 
 boutonCreerCompte.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
 
     //On enlève les erreurs
-    document.getElementById('errorCiviliteCreez').textContent = "";
-    document.getElementById('errorPrenomCreez').textContent = "";
-    document.getElementById('errorNomCreez').textContent = "";
-    document.getElementById('errorMailCreez').textContent = "";
-    document.getElementById('errorMobileCreez').textContent = "";
-    document.getElementById('errorTelephoneCreez').textContent = "";
-    document.getElementById('errorMotDePasseCreez').textContent = "";
-    document.getElementById('errorMotDePasseCreezConfirm').textContent = "";
-    document.getElementById('errorAdresseCreez').textContent = "";
-    document.getElementById('errorDateCreez').textContent = "";
-    document.getElementById('erreurPostFormulaireCreer').textContent = "";
+    
+    ['CiviliteCreer', 'PrenomCreer', 'NomCreer', 'MailCreer', 'MobileCreer', 'TelephoneCreer',
+          'MotDePasseCreer', 'MotDePasseCreerConfirm', 'AdresseCreer', 'DateCreer', 'PostFormulaireCreer'
+      ].forEach(function (id) {
+        document.getElementById(`error${id}`).textContent = "";
+      });
     //On vide les champs
-    document.getElementById("civiliteMRCreez").checked=false;
-    document.getElementById("civiliteMMECreez").checked=false;
-    document.getElementById("numeroAbonneCreez").value="";
-    document.getElementById("nomCreez").value="";
-    document.getElementById("prenomCreez").value="";
-    document.getElementById("emailCreez").value="";
-    document.getElementById("mobileCreez").value="";
-    document.getElementById("telephoneCreez").value="";
-    document.getElementById("motDePasseCreez").value="";
-    document.getElementById("motDePasseCreezConfirm").value="";
-    document.getElementById("adresseCreez").value="";
-    document.getElementById("dateCreez").value="";
+    document.getElementById("civiliteMRCreer").checked=false;
+    document.getElementById("civiliteMMECreer").checked=false;
+    document.getElementById("numeroAbonneCreer").value="";
+    document.getElementById("nomCreer").value="";
+    document.getElementById("prenomCreer").value="";
+    document.getElementById("emailCreer").value="";
+    document.getElementById("mobileCreer").value="";
+    document.getElementById("telephoneCreer").value="";
+    document.getElementById("motDePasseCreer").value="";
+    document.getElementById("motDePasseCreerConfirm").value="";
+    document.getElementById("adresseCreer").value="";
+    document.getElementById("dateCreer").value="";
     document.getElementById("conditionsUtilisation").checked=false;
     //On affiche le modalConnection
     $("#modalCreerCompte").show("slow");
@@ -309,23 +304,23 @@ fermerModalCreerCompte.addEventListener("click",function(e) {
     //On affiche le modalConnection
     $("#modalCreerCompte").hide("slow");
 });
-formValidCreez.addEventListener("click",function(event){
+formValidCreer.addEventListener("click",function(event){
     //il doit absoloument cocher un bouton  
-    validCivilite(event, civiliteMRCreez, civiliteMMECreez, errorCiviliteCreez, "Civilité");
+    validCivilite(event, civiliteMRCreer, civiliteMMECreer, erreurCiviliteCreer, "Civilité");
 
-    validSomething(event, nomCreez, nomprenomValid, errorNomCreez, "Nom");
-    validSomething(event, prenomCreez, nomprenomValid, errorPrenomCreez, "Prénom");
-    validSomething(event, emailCreez, mailValid, errorMailCreez, "Email");
-    validSomething(event, mobileCreez, telephoneValid, errorMobileCreez, "Mobile");
+    validSomething(event, nomCreer, regexNomPrenom, erreurNomCreer, "Nom");
+    validSomething(event, prenomCreer, regexNomPrenom, erreurPrenomCreer, "Prénom");
+    validSomething(event, emailCreer, regexMail, erreurMailCreer, "Email");
+    validSomething(event, mobileCreer, regexTelephone, erreurMobileCreer, "Mobile");
     //on verifier le format mais la valeur a le droit d'être vide
-    validSomethingVideAutorise(event, telephoneCreez, telephoneValid, errorTelephoneCreez, "Fixe");
+    validSomethingVideAutorise(event, telephoneCreer, regexTelephone, erreurTelephoneCreer, "Fixe");
     // le champs accepte d'être vide 
-    validSomethingNonVide(event, adresseCreez, errorAdresseCreez, "Adresse")
-    validSomething(event, dateCreez, DateValid, errorDateCreez, "Date");
-    validSomething(event, motDePasseCreez, PassValid, errorMotDePasseCreez, "Mot de passe");
-    validSomething(event, motDePasseCreezConfirm, PassValid, errorMotDePasseCreezConfirm, "Mot de passe");
+    validSomethingNonVide(event, adresseCreer, erreurAdresseCreer, "Adresse")
+    validSomething(event, dateCreer, regexDate, erreurDateCreer, "Date");
+    validSomething(event, motDePasseCreer, regexMotDePasse, erreurMotDePasseCreer, "Mot de passe");
+    validSomething(event, motDePasseCreerConfirm, regexMotDePasse, erreurMotDePasseCreerConfirm, "Mot de passe");
     // on test si les champs sont identique
-    validIdentique(event, motDePasseCreez, motDePasseCreezConfirm, errorMotDePasseCreezConfirm, "Mot de passe saisie");
+    validIdentique(event, motDePasseCreer, motDePasseCreerConfirm, erreurMotDePasseCreerConfirm, "Mot de passe saisie");
     //on gére les checkbox
     validationCheckbox(event,conditionsUtilisation,errorCheckbox, "Conditions utilisation")
    
@@ -334,8 +329,8 @@ formValidCreez.addEventListener("click",function(event){
 
 
 
-////// Gestion du bouton retour en haut (scroll) ok
-btnHaut.addEventListener("click",function(){
+////// Gestion du bouton retour en haut (scroll) 
+boutonHaut.addEventListener("click",function(){
     retourneEnHaut();
 });
 function retourneEnHaut(){
@@ -343,15 +338,15 @@ function retourneEnHaut(){
     window.scrollTo(0,0);
 }
 /* Affichage du bouton retour en haut*/
-btnHaut.style.display = "none";
-/*Lorsque qu'un scrool est réalisé sur la fenetre, on appelle la fonction AfficheBtnHaut */
-window.onscroll = function() {AfficheBtnHaut(btnHaut)};
-function AfficheBtnHaut(btnHaut) {
+boutonHaut.style.display = "none";
+/*Lorsque qu'un scrool est réalisé sur la fenetre, on appelle la fonction afficheBoutonHaut */
+window.onscroll = function() {afficheBoutonHaut(boutonHaut)};
+function afficheBoutonHaut(boutonHaut) {
     if (document.documentElement.scrollTop > 250) {
-        btnHaut.style.display = "block";
+        boutonHaut.style.display = "block";
     }
     else{
-        btnHaut.style.display = "none";
+        boutonHaut.style.display = "none";
     }
 }
 
@@ -359,13 +354,13 @@ function AfficheBtnHaut(btnHaut) {
 
 
 
-////// Gestion des formulaires MonCompte ok
+////// Gestion des formulaires MonCompte 
 if(formValidPass != null){
     formValidPass.addEventListener("click",function(event){
 
         // on test si il y a une erreur
-        validSomething(event, nouveauMotPasse, PassValid, erreurNouveauMotPasse, "Mot de passe");
-        validSomething(event, confirmNouveauMotPasse, PassValid, erreurConfirNouveauMotPasse, " Nouveau mot de passe");
+        validSomething(event, nouveauMotPasse, regexMotDePasse, erreurNouveauMotPasse, "Mot de passe");
+        validSomething(event, confirmNouveauMotPasse, regexMotDePasse, erreurConfirNouveauMotPasse, " Nouveau mot de passe");
 
         // on test si les champs sont identique
         validIdentique(event, nouveauMotPasse, confirmNouveauMotPasse, erreurConfirNouveauMotPasse, "Mot de passe saisie");
@@ -377,25 +372,25 @@ if(formValidMonCompte != null)
         //il doit absoloument cocher un bouton  
        validCivilite(event, civiliteMonsieur, civiliteMadame, erreurCiviliteCompte, "Civilité");
    
-       validSomething(event, nomCompte, nomprenomValid, erreurNomCompte, "Nom");
-       validSomething(event, prenomCompte, nomprenomValid, erreurPrenomCompte, "Prénom");
-       validSomething(event, emailCompte, mailValid, erreurEmailCompte, "Email");
-       validSomething(event, mobileCompte, telephoneValid, erreurMobileCompte, "Mobile");
+       validSomething(event, nomCompte, regexNomPrenom, erreurNomCompte, "Nom");
+       validSomething(event, prenomCompte, regexNomPrenom, erreurPrenomCompte, "Prénom");
+       validSomething(event, emailCompte, regexMail, erreurEmailCompte, "Email");
+       validSomething(event, mobileCompte, regexTelephone, erreurMobileCompte, "Mobile");
    
        //on verifier le format mais la valeur a le droit d'être vide
-       validSomethingVideAutorise(event, telephoneCompte, telephoneValid, erreurFixeCompte, "Fixe");
+       validSomethingVideAutorise(event, telephoneCompte, regexTelephone, erreurFixeCompte, "Fixe");
    
        // le champs accepte d'être vide 
        validSomethingNonVide(event, adresseCompte, erreurAdresseCompte, "Adresse");
    
-       validSomething(event, dateNaissanceCompte, DateValid, erreurDateNaissanceCompte, "Date de naissance");
+       validSomething(event, dateNaissanceCompte, regexDate, erreurDateNaissanceCompte, "Date de naissance");
        
    });
 }
 
 
 
-////// Gestion du slider Coup de coeur ok
+////// Gestion du slider Coup de coeur 
 if(imgSlider != null)
 {
     //on initialise le slider sur la première image
@@ -443,8 +438,8 @@ function previousImage()
 
 
 
-////// Gestion de l'affichage des nouveautés ok
-function AfficheNouveaute(imgs) {
+////// Gestion de l'affichage des nouveautés 
+function afficheNouveaute(imgs) {
     var etendreImg = document.getElementsByClassName("etendreImg");
     var imgText = document.getElementsByClassName("imgtext");
     etendreImg[0].src = imgs.src;
@@ -456,14 +451,14 @@ function AfficheNouveaute(imgs) {
 
 
 
-////// Fonction de recherche sur l'API BAN ok
+////// Fonction de recherche sur l'API BAN 
 function search(){
-    let adresse = document.getElementById("adresseCreez").value
+    let adresse = document.getElementById("adresseCreer").value
 
     if(adresse != "")
     {
         //On génère l'autocomplétion sur le champ adresse
-        $("#adresseCreez").autocomplete({
+        $("#adresseCreer").autocomplete({
             //on adapte la source d'autocompletion
             source: function (request, response) {
                 //On effectue la requete AJAX vers l'API adresse
@@ -492,7 +487,7 @@ function search(){
 }
 
 
-//Fonction appel API youtube pour la page Atelier ok
+//Fonction appel API youtube pour la page Atelier 
 function onYouTubeIframeAPIReady() {
     player1 = new YT.Player('player1', {
         height: '143',

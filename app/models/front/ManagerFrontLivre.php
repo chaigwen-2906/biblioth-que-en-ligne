@@ -5,9 +5,9 @@ namespace Projet\Models\front;
 class ManagerFrontLivre extends Manager
 {
     //LIVRE
-    public function getDetailLivre($idLivre)
+    public function lireDetailLivre($idLivre)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         // echo "idLivre:".$_GET['id'];
 
@@ -30,9 +30,9 @@ class ManagerFrontLivre extends Manager
         return $resultat;
     }
 
-    public function getInfoLivre($unIdLivre)
+    public function lireInfoLivre($unIdLivre)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         // On réalise la requete sur la base de données
         // On prépare la requete
@@ -52,9 +52,9 @@ class ManagerFrontLivre extends Manager
         return $resultat;
     }
 
-    public function getListMangasLimit4()
+    public function lireListeMangasLimit4()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -75,9 +75,9 @@ class ManagerFrontLivre extends Manager
         return $resultat;
     }
 
-    public function getListBandesDessineesLimit4()
+    public function lireListeBandesDessineesLimit4()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -99,9 +99,9 @@ class ManagerFrontLivre extends Manager
 
     }
 
-    public function getListCuisineLimit4()
+    public function lireListeCuisineLimit4()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -124,9 +124,9 @@ class ManagerFrontLivre extends Manager
 
 
     //RECHERCHE
-    public function getResultPageRecherche($valeurCategorie, $valeurTexte)
+    public function rechercherLivre($valeurCategorie, $valeurTexte)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         // On réalise la requete sur la base de données
         // On prépare la requete
@@ -170,9 +170,9 @@ class ManagerFrontLivre extends Manager
 
 
     //COMMENTAIRE
-    public function getCommentaire($idLivre)
+    public function lireCommentaire($idLivre)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         // echo "idLivre:".$_GET['id'];
 
@@ -196,9 +196,9 @@ class ManagerFrontLivre extends Manager
         return $resultat;
     }
 
-    public function postCommentaire($idLivre,$idClient,$note,$description)
+    public function ecrireCommentaire($idLivre,$idClient,$note,$description)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -214,9 +214,9 @@ class ManagerFrontLivre extends Manager
 
 
     //NOUVEAUTE
-    public function getListNouveautesLimit16()
+    public function lireListeNouveautesLimit16()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -237,9 +237,9 @@ class ManagerFrontLivre extends Manager
         return $resultat;
     }
 
-    public function getListNouveautesLimit4()
+    public function lireListeNouveautesLimit4()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -262,9 +262,9 @@ class ManagerFrontLivre extends Manager
 
 
     //COUP DE COEUR
-    public function getListCoupDeCoeur()
+    public function lireListeCoupDeCoeur()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -284,9 +284,9 @@ class ManagerFrontLivre extends Manager
         return $resultat;
     }
 
-    public function getListCoupDeCoeurLimit4()
+    public function lireListeCoupDeCoeurLimit4()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete

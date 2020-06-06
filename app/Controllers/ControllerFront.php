@@ -17,11 +17,11 @@ class ControllerFront
     private function gestionHeader()
     {
         //On récupère la liste des métas
-        $this->listMetas = $this->FrontManager->getListMetas($this->nomPage);
+        $this->listMetas = $this->FrontManager->lireListeMetas($this->nomPage);
         //On récupère la liste des FAQs
-        $this->listFAQ = $this->FrontManager->getListFAQ();
+        $this->listFAQ = $this->FrontManager->lireListeFAQ();
         //On récupère la liste des catégorie
-        $this->listCategorie = $this->FrontManager->getListCategorie();
+        $this->listCategorie = $this->FrontManager->lireListeCategorie();
     }
 
     private function gestionModeConnecte()
@@ -108,18 +108,18 @@ class ControllerFront
             echo "<script>";
                 if($_POST['civilite'] == "monsieur")
                 {
-                    echo "$('#civiliteMRCreez').attr('checked', true);";
+                    echo "$('#civiliteMRCreer').attr('checked', true);";
                 }
                 else{
-                    echo "$('#civiliteMMECreez').attr('checked', true);";
+                    echo "$('#civiliteMMECreer').attr('checked', true);";
                 }
-                echo "$('#numeroAbonneCreez').val('".$_POST['numeroAbonne']."');";
-                echo "$('#nomCreez').val('".$_POST['nom']."');";
-                echo "$('#prenomCreez').val('".$_POST['prenom']."');";
-                echo "$('#emailCreez').val('".$_POST['email']."');";
-                echo "$('#mobileCreez').val('".$_POST['mobile']."');";
-                echo "$('#telephoneCreez').val('".$_POST['telephone']."');";
-                echo "$('#adresseCreez').val('".$_POST['adresse']."');";
+                echo "$('#numeroAbonneCreer').val('".$_POST['numeroAbonne']."');";
+                echo "$('#nomCreer').val('".$_POST['nom']."');";
+                echo "$('#prenomCreer').val('".$_POST['prenom']."');";
+                echo "$('#emailCreer').val('".$_POST['email']."');";
+                echo "$('#mobileCreer').val('".$_POST['mobile']."');";
+                echo "$('#telephoneCreer').val('".$_POST['telephone']."');";
+                echo "$('#adresseCreer').val('".$_POST['adresse']."');";
                
                 
                 //On affiche l'erreur
@@ -156,14 +156,14 @@ class ControllerFront
 
         //on charge le ManagerFrontLivre
         $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
-        $listCdCoeur = $FrontManagerLivre-> getListCoupDeCoeurLimit4();
-        $listNouveautes = $FrontManagerLivre-> getListNouveautesLimit4();
-        $listMangas = $FrontManagerLivre-> getListMangasLimit4();
-        $listBandesDessinees = $FrontManagerLivre-> getListBandesDessineesLimit4();
-        $listCuisine = $FrontManagerLivre-> getListCuisineLimit4();
+        $listCdCoeur = $FrontManagerLivre-> lireListeCoupDeCoeurLimit4();
+        $listNouveautes = $FrontManagerLivre-> lireListeNouveautesLimit4();
+        $listMangas = $FrontManagerLivre-> lireListeMangasLimit4();
+        $listBandesDessinees = $FrontManagerLivre-> lireListeBandesDessineesLimit4();
+        $listCuisine = $FrontManagerLivre-> lireListeCuisineLimit4();
 
         $FrontManagerAtelier = new \Projet\Models\front\ManagerFrontAtelier();
-        $listAtelier = $FrontManagerAtelier-> getListAtelierLimit4();
+        $listAtelier = $FrontManagerAtelier-> lireListeAtelierLimit4();
        
 
         //Appel à la vue : affichage
@@ -186,7 +186,7 @@ class ControllerFront
 
         //on charge le ManagerFrontLivre
         $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
-        $listCdCoeur = $FrontManagerLivre-> getListCoupDeCoeur();
+        $listCdCoeur = $FrontManagerLivre-> lireListeCoupDeCoeur();
 
         require 'app/views/front/coupDeCoeurs.php';
 
@@ -207,7 +207,7 @@ class ControllerFront
 
         //on charge le ManagerFrontLivre
         $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
-        $listNouveautes = $FrontManagerLivre-> getListNouveautesLimit16();
+        $listNouveautes = $FrontManagerLivre-> lireListeNouveautesLimit16();
        
         require 'app/views/front/nouveaute.php';
 
@@ -228,7 +228,7 @@ class ControllerFront
 
         //on charge le ManagerFrontAtelier
         $FrontAtelierManager = new \Projet\Models\front\ManagerFrontAtelier();
-        $listAtelier = $FrontAtelierManager->getListAtelier();
+        $listAtelier = $FrontAtelierManager->lireListeAtelier();
 
         require 'app/views/front/atelier.php';
 
@@ -252,7 +252,7 @@ class ControllerFront
         //Test si la page est appelée en tapant directement l'url (sans variable POST)
         if(isset($_POST['selectCategorie']) && isset($_POST['champRecherche']))
         {
-            $resultPageRecherche = $FrontManagerLivre->getResultPageRecherche($_POST['selectCategorie'], $_POST['champRecherche']);
+            $resultPageRecherche = $FrontManagerLivre->rechercherLivre($_POST['selectCategorie'], $_POST['champRecherche']);
         }
         else{
             $resultPageRecherche = array();
@@ -310,7 +310,7 @@ class ControllerFront
                     // mon panier est un tableau d'idLivre 
                     foreach ($_SESSION['panier'] as $unIdLivre)
                     {
-                        $this->FrontManager->ajoutReservation($unIdLivre, $_SESSION['idClient'] );
+                        $this->FrontManager->ajouterReservation($unIdLivre, $_SESSION['idClient'] );
                     }
                     
                     //on remet le tableau  $_SESSION ['panier] à vide
@@ -323,15 +323,15 @@ class ControllerFront
             {
                 foreach($_SESSION['panier'] as $unIdLivre)
                 {
-                    $retour = $FrontManagerLivre->getInfoLivre($unIdLivre);
+                    $retour = $FrontManagerLivre->lireInfoLivre($unIdLivre);
                     $retour['idLivre'] = $unIdLivre;
 
                     array_push($donnees,$retour);
                 }
             }
             
-            $listDemandeEnAttente = $this->FrontManager->getListDemandeEnAttente($_SESSION['idClient']);
-            $listDemandeValider = $this->FrontManager->getListDemandeValider($_SESSION['idClient']);
+            $listDemandeEnAttente = $this->FrontManager->lireListeDemandeEnAttente($_SESSION['idClient']);
+            $listDemandeValider = $this->FrontManager->lireListeDemandeValide($_SESSION['idClient']);
 
             require 'app/views/front/panier.php';
 
@@ -421,7 +421,7 @@ class ControllerFront
         if(isset($_GET['id']))
         {
             $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
-            $DetailLivre = $FrontManagerLivre->getDetailLivre($_GET['id']);
+            $DetailLivre = $FrontManagerLivre->lireDetailLivre($_GET['id']);
 
             //on test si la variable action2 existe
             if(isset($_GET["action2"])){
@@ -449,14 +449,14 @@ class ControllerFront
                     if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
                     {
                         //on enregistre le commentaire posté par utilisateur
-                        $FrontManagerLivre->postCommentaire($_GET['id'],$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
+                        $FrontManagerLivre->ecrireCommentaire($_GET['id'],$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
                     }
                 }
 
             }
             
             //On récupère la liste des derniers commentaires
-            $listCommentaire = $FrontManagerLivre->getCommentaire($_GET['id']);
+            $listCommentaire = $FrontManagerLivre->lireCommentaire($_GET['id']);
 
             require 'app/views/front/detailLivre.php';
 
@@ -484,7 +484,7 @@ class ControllerFront
         {
             // on récupère par id
             $FrontManagerAtelier = new \Projet\Models\front\ManagerFrontAtelier();
-            $DetailAtelier = $FrontManagerAtelier->getDetailAtelier($_GET['id']);
+            $DetailAtelier = $FrontManagerAtelier->lireDetailAtelier($_GET['id']);
 
             require 'app/views/front/detailAtelier.php';
 
@@ -519,19 +519,19 @@ class ControllerFront
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $this->FrontManager->misAJourInfoPersClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
+                    $this->FrontManager->mettreAJourClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
                     $_POST['mobile'],$_POST['fixe'],$_POST['adresse'],$_POST['dateNaissance']);
                 }
                 if ($_GET['action2'] == "enregistrerPassword"){
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $this->FrontManager->enregistrerPassword($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
+                    $this->FrontManager->mettreAJourMotDePasseParIdClient($_SESSION['idClient'],$_POST['nouveauMotPasse'], $_POST['confirNouveauMotPasse']);
                 }
             }
 
             // on récupère le compte
-            $monCompte = $this->FrontManager->getMonCompte($_SESSION['idClient']);
+            $monCompte = $this->FrontManager->lireMonCompte($_SESSION['idClient']);
 
             require 'app/views/front/monCompte.php';
 
@@ -628,12 +628,12 @@ class ControllerFront
                 }
                 
                 //j'appel ma fonction pour enregistrer dans la base de données
-                $this->FrontManager->motDePasseOublier($_POST["adresseMail"],$nouveauMotPass);
+                $this->FrontManager->mettreAJourMotDePasseParEmail($_POST["adresseMail"],$nouveauMotPass);
 
                 //on envoie le mail au client 
                 // Le message
-                $message = "Bonjour, nous vous envoyons ce nouveau mot de passe que vous venez de générer sur notre site. \r\n";
-                $message = $message."On vous invite à personnaliser ce mot de passe en ce rendant sur le site dans la rubrique: Mon compte \r\n";
+                $message = "Bonjour, votre mot de passe a été réinitialisé : ".$nouveauMotPass." \r\n";
+                $message = $message."On vous invite à personnaliser ce mot de passe en vous rendant sur le site dans la rubrique: Mon compte \r\n";
                 $message = $message."Si vous n'êtes pas à l'origine de cette manipulation, on vous invite à prendre contact avec la bibliothèquaire.\r\n";
                 $message = $message."Nous vous remecions pour votre expérience sur notre site.";
 
@@ -641,7 +641,7 @@ class ControllerFront
                 $message = wordwrap($message, 70, "\r\n");
 
                 // Envoi du mail
-                mail('chaigwen@hotmail.fr', 'Nouveau mot de passe', $message);   
+                mail($_POST["adresseMail"], 'Nouveau mot de passe', $message);   
             }
         }
         

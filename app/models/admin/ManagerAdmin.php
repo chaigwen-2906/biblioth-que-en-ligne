@@ -6,9 +6,9 @@ namespace Projet\Models\admin;
 class ManagerAdmin extends Manager
 {
 
-    public function getConnectionAdministrateur($nom, $motPasse)
+    public function connectionAdministrateur($nom, $motPasse)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT * FROM admin  WHERE  nomUtilisateur = ?";    
         $requete = $bdd->prepare($sql);

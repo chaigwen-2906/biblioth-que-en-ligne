@@ -14,7 +14,7 @@ class ControllerAdmin
             if ($_GET['action2'] == "connectionAdministrateur"){
                     
                 //on appelle la function qui vérifier si le nom utilisateur et mot de passe existent dans la table admin 
-                $retourConnectionAdmin = $adminManager->getConnectionAdministrateur($_POST['nom'], $_POST['motPasse']);
+                $retourConnectionAdmin = $adminManager->connectionAdministrateur($_POST['nom'], $_POST['motPasse']);
 
                 if($retourConnectionAdmin != false)
                 {
@@ -87,7 +87,7 @@ class ControllerAdmin
             }
 
             $ManagerLivres = new \Projet\Models\admin\ManagerLivres();
-            $listeLivres = $ManagerLivres->getListeLivres();
+            $listeLivres = $ManagerLivres->lireListeLivres();
             
             //Appel à la vue : affichage
             require 'app/views/admin/gestionLivres.php';
@@ -131,15 +131,15 @@ class ControllerAdmin
 
             $ManagerCategorie = new  \Projet\Models\admin\ManagerCategories();
             //récupères dans un select toutes les catégories
-            $listCategorie = $ManagerCategorie->getListeCategorie();
+            $listCategorie = $ManagerCategorie->lireListeCategorie();
 
             $ManagerAuteurs = new  \Projet\Models\admin\ManagerAuteurs();
             //récupères dans un select toutes les auteurs
-            $listAuteurs = $ManagerAuteurs-> getListeAuteurs();
+            $listAuteurs = $ManagerAuteurs-> lireListeAuteurs();
 
             $ManagerEditeurs = new  \Projet\Models\admin\ManagerEditeurs();
             //récupères dans un select toutes les éditeurs
-            $listEditeurs = $ManagerEditeurs->getlisteEditeurs();
+            $listEditeurs = $ManagerEditeurs->lireListeEditeurs();
 
             //Appel à la vue : affichage
             require 'app/views/admin/ajoutLivre.php';
@@ -201,15 +201,15 @@ class ControllerAdmin
 
                 $ManagerCategorie = new  \Projet\Models\admin\ManagerCategories();
                 //récupères dans un select toutes les catégories
-                $listCategorie = $ManagerCategorie->getListeCategorie();
+                $listCategorie = $ManagerCategorie->lireListeCategorie();
 
                 $ManagerAuteurs = new  \Projet\Models\admin\ManagerAuteurs();
                 //récupères dans un select toutes les auteurs
-                $listAuteurs = $ManagerAuteurs-> getListeAuteurs();
+                $listAuteurs = $ManagerAuteurs-> lireListeAuteurs();
 
                 $ManagerEditeurs = new  \Projet\Models\admin\ManagerEditeurs();
                 //récupères dans un select toutes les éditeurs
-                $listEditeurs = $ManagerEditeurs->getlisteEditeurs();
+                $listEditeurs = $ManagerEditeurs->lireListeEditeurs();
 
 
                 //Appel à la vue : affichage
@@ -245,11 +245,11 @@ class ControllerAdmin
                     {
                         //on récupère les commentaires qui sont associés au livre
                         $ManagerCommentaires = new  \Projet\Models\admin\ManagerCommentaires();
-                        $ManagerCommentaires->deleteCommentairesByIdLivre($idLivre);
+                        $ManagerCommentaires->supprimeCommentairesParIdLivre($idLivre);
 
                         //on récupère les coup de coeur qui sont associés au livre
                         $ManagerCoupDeCoeur = new \Projet\Models\admin\ManagerCoupCoeur();
-                        $listeCoupCoeur = $ManagerCoupDeCoeur->getListeCoupCoeurByIdLivre($idLivre);
+                        $listeCoupCoeur = $ManagerCoupDeCoeur->lireListeCoupCoeurParIdLivre($idLivre);
                         //on supprime coup de coeur
                         foreach($listeCoupCoeur as $uncoupCoeur )
                         {
@@ -259,7 +259,7 @@ class ControllerAdmin
 
                         //on récupère les reservations 
                         $ManagerReservations = new \Projet\Models\admin\ManagerReservations();
-                        $listeReservations = $ManagerReservations->getListeReservationsByIdLivre($idLivre);
+                        $listeReservations = $ManagerReservations->lireListeReservationsParIdLivre($idLivre);
                         // on supprime reservations
                         foreach($listeReservations as $uneReservation)
                         {
@@ -325,7 +325,7 @@ class ControllerAdmin
             }
 
             $ManagerAuteurs = new \Projet\Models\admin\ManagerAuteurs();
-            $listeAuteur = $ManagerAuteurs->getListeAuteurs();
+            $listeAuteur = $ManagerAuteurs->lireListeAuteurs();
 
 
             //Appel à la vue : affichage
@@ -430,7 +430,7 @@ class ControllerAdmin
                     if($_GET['action2'] == "supprimerAuteur")
                     {
                         $ManagerLivres= new \Projet\Models\admin\ManagerLivres();
-                        $listeLivres = $ManagerLivres->getListeLivreByIdAuteur($idAuteur);
+                        $listeLivres = $ManagerLivres->lireListeLivreParIdAuteur($idAuteur);
 
                         if($listeLivres == null)
                         {
@@ -495,7 +495,7 @@ class ControllerAdmin
             }
 
             $ManagerAtelier = new \Projet\Models\admin\ManagerAtelier();
-            $listeAtelier = $ManagerAtelier->getListeAtelier();
+            $listeAtelier = $ManagerAtelier->lireListeAtelier();
 
 
             //Appel à la vue : affichage
@@ -653,7 +653,7 @@ class ControllerAdmin
             }
 
             $ManagerCategorie = new \Projet\Models\admin\ManagerCategories();
-            $listeCategorie = $ManagerCategorie->getListeCategorie();
+            $listeCategorie = $ManagerCategorie->lireListeCategorie();
 
 
             //Appel à la vue : affichage
@@ -805,7 +805,7 @@ class ControllerAdmin
             }
                 
                 $ManagerClient = new \Projet\Models\admin\ManagerClients();
-                $listeClient = $ManagerClient->getListeClients();
+                $listeClient = $ManagerClient->lireListeClients();
 
 
                 //Appel à la vue : affichage
@@ -918,12 +918,12 @@ class ControllerAdmin
 
                         //on récupère les commentaires qui sont associés au livre
                         $ManagerCommentaires = new  \Projet\Models\admin\ManagerCommentaires();
-                        $ManagerCommentaires->deleteCommentairesByIdClient($idClient);
+                        $ManagerCommentaires->supprimeCommentairesParIdClient($idClient);
 
 
                         //on récupère les reservations 
                         $ManagerReservations = new \Projet\Models\admin\ManagerReservations();
-                        $listeReservations = $ManagerReservations->getListeReservationsByIdClient($idClient);
+                        $listeReservations = $ManagerReservations->lireListeReservationsParIdClient($idClient);
                         // on supprime reservations
                         foreach($listeReservations as $uneReservation)
                         {
@@ -982,7 +982,7 @@ class ControllerAdmin
             }
                 
                 $ManagerCoupDeCoeur = new \Projet\Models\admin\ManagerCoupCoeur();
-                $listeCoupDeCoeur = $ManagerCoupDeCoeur->getListeCoupDeCoeur();
+                $listeCoupDeCoeur = $ManagerCoupDeCoeur->lireListeCoupDeCoeur();
 
 
                 //Appel à la vue : affichage
@@ -1019,7 +1019,7 @@ class ControllerAdmin
             
             $ManagerLivre = new  \Projet\Models\admin\ManagerLivres();
             //récupères dans un select toutes les catégories
-            $listLivre = $ManagerLivre->getListeLivres();
+            $listLivre = $ManagerLivre->lireListeLivres();
             
 
             //Appel à la vue : affichage
@@ -1065,7 +1065,7 @@ class ControllerAdmin
 
                 $ManagerLivre = new  \Projet\Models\admin\ManagerLivres();
                 //récupères dans un select toutes les catégories
-                $listLivre = $ManagerLivre->getListeLivres();
+                $listLivre = $ManagerLivre->lireListeLivres();
 
                 //Appel à la vue : affichage
                 require 'app/views/admin/modifierCoupDeCoeur.php';
@@ -1153,7 +1153,7 @@ class ControllerAdmin
             }
                 
                 $ManagerEditeur= new \Projet\Models\admin\ManagerEditeurs();
-                $listeEditeur = $ManagerEditeur->getlisteEditeurs();
+                $listeEditeur = $ManagerEditeur->lireListeEditeurs();
 
 
                 //Appel à la vue : affichage
@@ -1261,7 +1261,7 @@ class ControllerAdmin
                     {
 
                         $ManagerEditeurs= new \Projet\Models\admin\ManagerEditeurs();
-                        $listeEditeur = $ManagerEditeurs->getListeLivreByIdEditeur($idEditeur);
+                        $listeEditeur = $ManagerEditeurs->lireListeLivreParIdEditeur($idEditeur);
 
                         if($listeEditeur == null)
                         {
@@ -1322,7 +1322,7 @@ class ControllerAdmin
             }
                 
                 $ManagerFAQ = new \Projet\Models\admin\ManagerFAQ();
-                $listeFAQ = $ManagerFAQ->getListeFAQ();
+                $listeFAQ = $ManagerFAQ->lireListeFAQ();
 
 
                 //Appel à la vue : affichage
@@ -1479,7 +1479,7 @@ class ControllerAdmin
             }
                 
                 $ManagerMeta= new \Projet\Models\admin\ManagerMeta();
-                $listeMeta = $ManagerMeta->getlisteMeta();
+                $listeMeta = $ManagerMeta->lireListeMeta();
 
 
                 //Appel à la vue : affichage
@@ -1714,9 +1714,9 @@ class ControllerAdmin
             }
                 
             $ManagerReservation= new \Projet\Models\admin\ManagerReservations();
-            $listeReservationAValider = $ManagerReservation->getListeReservationsByStatut("En attente de validation");
-            $listeReservationValidee = $ManagerReservation->getListeReservationsByStatut("Validée");
-            $listeReservationTerminee = $ManagerReservation->getListeReservationsByStatut("Terminée");
+            $listeReservationAValider = $ManagerReservation->lireListeReservationsParStatut("En attente de validation");
+            $listeReservationValidee = $ManagerReservation->lireListeReservationsParStatut("Validée");
+            $listeReservationTerminee = $ManagerReservation->lireListeReservationsParStatut("Terminée");
 
 
             //Appel à la vue : affichage
