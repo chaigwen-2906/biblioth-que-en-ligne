@@ -40,7 +40,7 @@
                 <a href="./home"> 
                     Accueil >
                 </a>
-                    L'ateliers
+                    Atelier
             </div>
             <!--FIN  FILS D'ARIANE  -->
 
@@ -75,7 +75,7 @@
             <section class="sectionReservationAtelier">
                 <article class ="reservationAtelier">
                         <h2>
-                            Les réservations 
+                            Date de l'atelier
                         </h2>
                         <hr separator>
                         <h3>
@@ -83,16 +83,6 @@
                             rendez-vous pour l'activité  " <?= $DetailAtelier['nom']; ?>"  d'une capacité 
                             <?= $DetailAtelier['capacite']; ?> personne et à partir <?= $DetailAtelier['age']; ?> ans.
                         </h3>
-
-                        <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
-                        <!-- alors on affiche le button réserver   -->
-                        <?php if(isset($_SESSION['idClient'])){ ?>
-                            <!-- BUTTON RESERVER   -->
-                            <a class="monBoutton" href="#">
-                                Réserver
-                            </a>
-                            <!--FIN BUTTON RESERVER   -->
-                        <?php } ?>
                 </article>
             </section>
             <!--FIN RESERVATION ATELIER  -->
@@ -109,7 +99,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <script type="text/javascript" src="./../app/public/js/allJavaScriptMin.js"></script>
 
     </body>
 

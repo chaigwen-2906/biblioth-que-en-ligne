@@ -4,9 +4,9 @@ namespace Projet\Models\front;
 
 class ManagerFrontAtelier extends Manager
 {
-    public function getListAtelier()
+    public function lireListeAtelier()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -26,9 +26,9 @@ class ManagerFrontAtelier extends Manager
         return $resultat;
     }
 
-    public function getListAtelierLimit4()
+    public function lireListeAtelierLimit4()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -48,9 +48,9 @@ class ManagerFrontAtelier extends Manager
         return $resultat;
     }
 
-    public function getDetailAtelier($idAtelier)
+    public function lireDetailAtelier($idAtelier)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete

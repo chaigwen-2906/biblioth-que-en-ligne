@@ -5,9 +5,9 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerCommentaires extends Manager{
 
-    function deleteCommentairesByIdLivre($idLivre)
+    function supprimeCommentairesParIdLivre($idLivre)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "DELETE FROM commentaire where idLivre =?";
          
@@ -21,9 +21,9 @@ class ManagerCommentaires extends Manager{
     }
 
 
-    function deleteCommentairesByIdClient($idClient)
+    function supprimeCommentairesParIdClient($idClient)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "DELETE FROM commentaire where idClient =?";
          

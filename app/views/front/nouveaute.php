@@ -48,25 +48,25 @@
             
             <figure class="figureSlid">
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours" onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="./../app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours" onclick="afficheNouveaute(this);">
                 </div>    
             </figure>
 
@@ -140,7 +140,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <script type="text/javascript" src="./../app/public/js/allJavaScriptMin.js"></script>
 
         <!--class active-->
         <script type="text/javascript">

@@ -84,7 +84,7 @@ class Atelier extends Manager{
     public function __construct($idAtelier, $nom, $date, $description, $heure, $age, $capacite){
 
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie l'attribut idAtelier de l'objet
         $this->setIdAtelier($idAtelier);

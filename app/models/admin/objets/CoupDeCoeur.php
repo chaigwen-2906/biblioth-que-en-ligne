@@ -67,7 +67,7 @@ class CoupDeCoeur extends Manager{
 
     public function __construct($idCoupDeCoeur, $idLivre, $auteur, $commentaire, $dateDePublication){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie idcoupDeCoeur
         $this->setIdCoupDeCoeur($idCoupDeCoeur);

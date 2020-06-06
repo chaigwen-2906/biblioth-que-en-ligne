@@ -35,7 +35,7 @@ class Categorie extends Manager{
     /////////////// DECLARATION DES CONSTRUCTEURS ///////////////////////
     public function __construct($idCategorie, $nomCategorie){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie l'attribut IdCategorie de l'objet
         $this->setIdCategorie($idCategorie);

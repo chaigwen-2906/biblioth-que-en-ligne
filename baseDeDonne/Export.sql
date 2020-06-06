@@ -210,10 +210,12 @@ CREATE TABLE IF NOT EXISTS `client` (
   `dateDeNaissance` date NOT NULL,
   `motDePasse` varchar(250) NOT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table projet_biblio.client : ~0 rows (environ)
+-- Listage des données de la table projet_biblio.client : ~1 rows (environ)
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
+INSERT INTO `client` (`idClient`, `numeroAbonne`, `civilite`, `nom`, `prenom`, `email`, `telephoneMobile`, `telephoneFixe`, `adresse`, `dateDeNaissance`, `motDePasse`) VALUES
+	(1, '0000', 'monsieur', 'Lemoine', 'Mathieu', 'mat.lemoine@gmail.com', '0618433249', '0297022200', 'Chemin du Nas 38610 Venon ', '2020-05-04', '$2y$10$838Zj7egWB7rtLbWgyrqPOI5LEXIs0QikQsouNSj/vu8K38DQdCFy');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 
 -- Listage de la structure de la table projet_biblio. commentaire
@@ -229,10 +231,12 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   KEY `idClient` (`idClient`),
   CONSTRAINT `FK_commentaire_client` FOREIGN KEY (`idClient`) REFERENCES `client` (`idClient`),
   CONSTRAINT `FK_commentaire_livre` FOREIGN KEY (`idLivre`) REFERENCES `livre` (`idLivre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table projet_biblio.commentaire : ~0 rows (environ)
+-- Listage des données de la table projet_biblio.commentaire : ~1 rows (environ)
 /*!40000 ALTER TABLE `commentaire` DISABLE KEYS */;
+INSERT INTO `commentaire` (`idCommentaire`, `idLivre`, `idClient`, `date`, `note`, `description`) VALUES
+	(1, 60, 1, '2020-06-06 11:34:33', 2, 'test de commentaire. Ce livre est vraiment super !');
 /*!40000 ALTER TABLE `commentaire` ENABLE KEYS */;
 
 -- Listage de la structure de la table projet_biblio. coupdecoeur
