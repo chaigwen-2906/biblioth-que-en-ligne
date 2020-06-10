@@ -20,29 +20,42 @@
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
 
-        <div class="bloc_connexion">
-            <a id="boutonCreerCompte" href="">
-                <img src="./../app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
-            </a>
-            <a id="boutonSidentifier" href="">
-                <img src="./../app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
-            </a>
-        </div>
+        
+        <?php
+        if(isset($_SESSION['idClient'])){
+        ?>
+            <!-- Bloc déconnexion - s'affiche en mode connecté -->
+            <figure class="bloc_deconnexion">
+                <a href="./monCompte">
+                    <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
+                </a>
 
-        <!-- Bloc déconnexion - s'affiche en mode connecté -->
-        <figure class="bloc_deconnexion">
-            <a href="./monCompte">
-                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
-            </a>
+                <a href="./panier">
+                    <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
+                </a>
 
-            <a href="./panier">
-                <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
-            </a>
+                <a href="./<?= $this->nomPage;?>?action2=deconnecter">
+                    <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
+                </a>
+            </figure>
+        <?php
+        }
+        else{
+        ?>
+            <div class="bloc_connexion">
+                <a id="boutonCreerCompte" href="">
+                    <img src="./../app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
+                </a>
+                <a id="boutonSidentifier" href="">
+                    <img src="./../app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
+                </a>
+            </div>
+        <?php
+        }
+        ?>
+        
 
-            <a href="./<?= $this->nomPage;?>?action2=deconnecter">
-                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
-            </a>
-        </figure>
+        
 
         <div class="boutonLoupe">
             <img src="./../app/public/image/bouton/loupe.png">
@@ -141,7 +154,7 @@
                         <span id="erreurMotDePasseIdentifier"></span>
                     </div>
                 </div>
-                <div id="erreurPostFormulaireConnexion" class="error"></div>
+                <div id="erreurPostFormulaireConnexion" class="error"><?php if($this->erreurConnexionCompte == true){echo $this->libelleErreurConnexionCompte;} ?></div>
                 <div class="conteneurIdentifiant" >
                 <a href="./passOublier" class="monBoutton">
                     Mot de passe oublié ? 
@@ -174,9 +187,9 @@
                 <div class="civilite">
                     <div>
                         <label for="monsieur" class="petit">M</label>
-                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreer">
+                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreer" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "monsieur"){echo "checked";}} ?>>
                         <label for="madame" class="petit">Mme</label>
-                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreer">
+                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreer" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "madame"){echo "checked";}} ?>>
                 </div>
                     <span id="erreurCiviliteCreer"></span>
                 </div>
@@ -184,14 +197,14 @@
                     <label class="labelAligne " for="numeroAbonne">Numéro d'abonnée</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreer"
-                        placeholder="Entrer votre Numero abonne">
+                        placeholder="Entrer votre Numero abonne" value="<?php if($this->erreurCreationCompte == true){echo $_POST['numeroAbonne'];} ?>">
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="nom">Nom</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="text" name="nom" id="nomCreer"
-                            placeholder="Entrer votre nom" required>
+                            placeholder="Entrer votre nom" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['nom'];} ?>">
                         <span id="erreurNomCreer"></span>
                     </div>
                 </div>
@@ -199,7 +212,7 @@
                     <label class="labelAligne " for="prenom">Votre prénom</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="text" name="prenom" id="prenomCreer"
-                            placeholder="Entrer votre prénom" required>
+                            placeholder="Entrer votre prénom" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['prenom'];} ?>">
                         <span id="erreurPrenomCreer"></span>
                     </div>
                 </div>
@@ -207,7 +220,7 @@
                     <label class="labelAligne " for="email">Votre email</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="email" name="email" id="emailCreer"
-                            placeholder="Entrer votre email" required>
+                            placeholder="Entrer votre email" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['email'];} ?>">
                         <span id="erreurMailCreer"></span>
                     </div>
                 </div>
@@ -215,7 +228,7 @@
                     <label class="labelAligne " for="mobile">Votre Mobile</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="tel" name="mobile" id="mobileCreer"
-                            placeholder="Entrer votre numéro" required>
+                            placeholder="Entrer votre numéro" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['mobile'];} ?>">
                         <span id="erreurMobileCreer"></span>
                     </div>
                 </div>
@@ -223,7 +236,7 @@
                     <label class="labelAligne " for="mobile">Votre Fixe</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="tel" name="telephone" id="telephoneCreer"
-                            placeholder="Entrer votre numéro">
+                            placeholder="Entrer votre numéro" value="<?php if($this->erreurCreationCompte == true){echo $_POST['telephone'];} ?>">
                         <span id="erreurTelephoneCreer"></span>
                     </div>
                 </div>
@@ -231,7 +244,7 @@
                     <label class="labelAligne "for="adresse"> Votre adresse</label>
                     <div class="blocinput">
                         <input class="inputAligne" type="text" name="adresse" id="adresseCreer"  
-                        placeholder="Entrer votre adresse" onkeyup="search()" required>
+                        placeholder="Entrer votre adresse" onkeyup="search()" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['adresse'];} ?>">
                         <span id="erreurAdresseCreer"></span>
                     </div>
                 </div>
@@ -275,7 +288,7 @@
                     </div>
                     <span id="errorCheckbox"></span> 
                 </div>
-                <div id="erreurPostFormulaireCreer" class="error"></div>
+                <div id="erreurPostFormulaireCreer" class="error"><?php if($this->erreurCreationCompte == true){echo $this->libelleErreurCreationCompte;} ?></div>
                 <div class="conteneurIdentifiant">
                         <!--bouton pour envoyer le formulaire ou annuler-->
                         <input type="submit" id="boutonEnvoyerCreez" value="envoyer" class="monBoutton">

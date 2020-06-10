@@ -2,7 +2,15 @@
 RewriteEngine on
 #gestion de la réecriture url pour piloter le contoller et la page.
 #option QSA pour conserver les paramètres GET
+
+#RewriteRule ^front/detailLivre/([0-9]+)$   /bibliotheque_en_ligne/front/detailLivre?id=$1 [QSA]
+
+#RewriteRule /detailLivre/([0-9]+)$   /bibliotheque_en_ligne/index.php?action=front/detailLivre&id=$1
+
 RewriteRule ^([a-zA-Z0-9\-\/]*)$ index.php?action=$1 [L,QSA]
+
+
+
 
 
 #Gestion du cache

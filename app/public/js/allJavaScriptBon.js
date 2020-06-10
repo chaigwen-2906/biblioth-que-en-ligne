@@ -232,20 +232,24 @@ fermerModalFaq.addEventListener("click",function(e) {
 
 
 
-////// Gestion du modal s'identifier 
-boutonSidentifier.addEventListener("click",function(e) {
-    //On désactive le comportement du lien
-    e.preventDefault();
+////// Gestion du modal s'identifier
+if(boutonSidentifier != null)
+{
+    boutonSidentifier.addEventListener("click",function(e) {
+        //On désactive le comportement du lien
+        e.preventDefault();
 
-    //On enlève les erreurs
-    ['MailIdentifier', 'MotDePasseIdentifier', 'PostFormulaireConnexion'].forEach(function (id) {
-        document.getElementById(`erreur${id}`).textContent = "";
-      });
-    //On vide les champs
-    document.getElementById("motDePasseIdentifier").value="";
-    //On affiche le modalConnection
-    $("#modalConnection").show("slow");
-});
+        //On enlève les erreurs
+        ['MailIdentifier', 'MotDePasseIdentifier', 'PostFormulaireConnexion'].forEach(function (id) {
+            document.getElementById(`erreur${id}`).textContent = "";
+        });
+        //On vide les champs
+        document.getElementById("motDePasseIdentifier").value="";
+        //On affiche le modalConnection
+        $("#modalConnection").show("slow");
+    });
+} 
+
 boutonFermerModalConnection.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
@@ -268,35 +272,38 @@ boutonBesoinCompte.addEventListener("click", function(){
 
 
 
-////// Gestion du modal création de compte 
-boutonCreerCompte.addEventListener("click",function(e) {
-    //On désactive le comportement du lien
-    e.preventDefault();
-
-    //On enlève les erreurs
+////// Gestion du modal création de compte
+if(boutonCreerCompte != null)
+{
+    boutonCreerCompte.addEventListener("click",function(e) {
+        //On désactive le comportement du lien
+        e.preventDefault();
     
-    ['CiviliteCreer', 'PrenomCreer', 'NomCreer', 'MailCreer', 'MobileCreer', 'TelephoneCreer',
-          'MotDePasseCreer', 'MotDePasseCreerConfirm', 'AdresseCreer', 'DateCreer', 'PostFormulaireCreer'
-      ].forEach(function (id) {
-        document.getElementById(`error${id}`).textContent = "";
-      });
-    //On vide les champs
-    document.getElementById("civiliteMRCreer").checked=false;
-    document.getElementById("civiliteMMECreer").checked=false;
-    document.getElementById("numeroAbonneCreer").value="";
-    document.getElementById("nomCreer").value="";
-    document.getElementById("prenomCreer").value="";
-    document.getElementById("emailCreer").value="";
-    document.getElementById("mobileCreer").value="";
-    document.getElementById("telephoneCreer").value="";
-    document.getElementById("motDePasseCreer").value="";
-    document.getElementById("motDePasseCreerConfirm").value="";
-    document.getElementById("adresseCreer").value="";
-    document.getElementById("dateCreer").value="";
-    document.getElementById("conditionsUtilisation").checked=false;
-    //On affiche le modalConnection
-    $("#modalCreerCompte").show("slow");
-});
+        //On enlève les erreurs
+        
+        ['CiviliteCreer', 'PrenomCreer', 'NomCreer', 'MailCreer', 'MobileCreer', 'TelephoneCreer',
+              'MotDePasseCreer', 'MotDePasseCreerConfirm', 'AdresseCreer', 'DateCreer', 'PostFormulaireCreer'
+          ].forEach(function (id) {
+            document.getElementById(`error${id}`).textContent = "";
+          });
+        //On vide les champs
+        document.getElementById("civiliteMRCreer").checked=false;
+        document.getElementById("civiliteMMECreer").checked=false;
+        document.getElementById("numeroAbonneCreer").value="";
+        document.getElementById("nomCreer").value="";
+        document.getElementById("prenomCreer").value="";
+        document.getElementById("emailCreer").value="";
+        document.getElementById("mobileCreer").value="";
+        document.getElementById("telephoneCreer").value="";
+        document.getElementById("motDePasseCreer").value="";
+        document.getElementById("motDePasseCreerConfirm").value="";
+        document.getElementById("adresseCreer").value="";
+        document.getElementById("dateCreer").value="";
+        document.getElementById("conditionsUtilisation").checked=false;
+        //On affiche le modalConnection
+        $("#modalCreerCompte").show("slow");
+    });
+}
 fermerModalCreerCompte.addEventListener("click",function(e) {
     //On désactive le comportement du lien
     e.preventDefault();
