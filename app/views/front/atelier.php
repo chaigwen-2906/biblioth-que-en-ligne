@@ -125,18 +125,6 @@
         
         <?php require_once("./app/views/layout/footer.php") ?> 
 
-        <!---------------------- jQuery ---------------------------------->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
-        <!---------------------- API YouTube ---------------------------------->
-        
-
-        <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScriptMin.js"></script>
-        <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
-        
-
         <!--class active-->
         <script type="text/javascript">
             menuActive(3);

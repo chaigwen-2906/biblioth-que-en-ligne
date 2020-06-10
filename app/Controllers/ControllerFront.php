@@ -84,69 +84,6 @@ class ControllerFront
         }
     }
 
-    private function affichageBlocConnexion()
-    {
-        if(isset($_SESSION['idClient'])){
-            echo "<script>";
-                echo "$('.bloc_connexion').hide();";
-                echo "$('.bloc_deconnexion').show();";
-            echo "</script>";
-        }
-        else{
-            echo "<script>";
-                echo "$('.bloc_connexion').show();";
-                echo "$('.bloc_deconnexion').hide();";
-            echo "</script>";
-        }
-    }
-
-    private function gestionErreurCreerCompte()
-    {
-        if($this->erreurCreationCompte == true)
-        {
-            //on ré-ouvre le modal dialog créer compte et on remplie les champs avec les précédentes données
-            echo "<script>";
-                if($_POST['civilite'] == "monsieur")
-                {
-                    echo "$('#civiliteMRCreer').attr('checked', true);";
-                }
-                else{
-                    echo "$('#civiliteMMECreer').attr('checked', true);";
-                }
-                echo "$('#numeroAbonneCreer').val('".$_POST['numeroAbonne']."');";
-                echo "$('#nomCreer').val('".$_POST['nom']."');";
-                echo "$('#prenomCreer').val('".$_POST['prenom']."');";
-                echo "$('#emailCreer').val('".$_POST['email']."');";
-                echo "$('#mobileCreer').val('".$_POST['mobile']."');";
-                echo "$('#telephoneCreer').val('".$_POST['telephone']."');";
-                echo "$('#adresseCreer').val('".$_POST['adresse']."');";
-               
-                
-                //On affiche l'erreur
-                echo "$('#erreurPostFormulaireCreer').html('".addslashes($this->libelleErreurCreationCompte)."');";
-            echo "</script>";
-            
-
-            //on ouvre la boite modal creer votre compte 
-            echo "<script>$('#modalCreerCompte').show('slow');</script>";
-        }
-    }
-
-    private function gestionErreurConnexionCompte()
-    {
-        if($this->erreurConnexionCompte == true)
-        {
-            //on ré-ouvre le modal dialog connexion
-            echo "<script>";
-                //On affiche l'erreur
-                echo "$('#erreurPostFormulaireConnexion').html('".addslashes($this->libelleErreurConnexionCompte)."');";
-            echo "</script>";
-            
-
-            //on ouvre la boite modal creer votre compte 
-            echo "<script>$('#modalConnection').show('slow');</script>";
-        }
-    }
 
     function homeFront()
     {
@@ -168,14 +105,6 @@ class ControllerFront
 
         //Appel à la vue : affichage
         require 'app/views/front/home.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function coupDeCoeursFront()
@@ -189,14 +118,6 @@ class ControllerFront
         $listCdCoeur = $FrontManagerLivre-> lireListeCoupDeCoeur();
 
         require 'app/views/front/coupDeCoeurs.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function nouveauteFront()
@@ -210,14 +131,6 @@ class ControllerFront
         $listNouveautes = $FrontManagerLivre-> lireListeNouveautesLimit16();
        
         require 'app/views/front/nouveaute.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function atelierFront()
@@ -231,14 +144,6 @@ class ControllerFront
         $listAtelier = $FrontAtelierManager->lireListeAtelier();
 
         require 'app/views/front/atelier.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function pageRechercheFront()
@@ -259,14 +164,6 @@ class ControllerFront
         }
     
         require 'app/views/front/pageRecherche.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function panierFront()
@@ -334,9 +231,6 @@ class ControllerFront
             $listDemandeValider = $this->FrontManager->lireListeDemandeValide($_SESSION['idClient']);
 
             require 'app/views/front/panier.php';
-
-            //On gère l'affichage des blocs connexion / deconnexion
-            $this->affichageBlocConnexion();
         }
         else{
             header('Location: ./home');
@@ -351,14 +245,6 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/conditionsGenerales.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function mentionsLegalesFront()
@@ -368,14 +254,6 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/mentionsLegales.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
     
     function rgpdFront()
@@ -385,14 +263,6 @@ class ControllerFront
         $this->gestionModeConnecte(); 
 
         require 'app/views/front/rgpd.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function planDuSiteFront()
@@ -402,14 +272,6 @@ class ControllerFront
         $this->gestionModeConnecte();
         
         require 'app/views/front/planDuSite.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
 
     function detailLivreFront()
@@ -459,14 +321,6 @@ class ControllerFront
             $listCommentaire = $FrontManagerLivre->lireCommentaire($_GET['id']);
 
             require 'app/views/front/detailLivre.php';
-
-            //On gère l'affichage des blocs connexion / deconnexion
-            $this->affichageBlocConnexion();
-
-            //On gère le cas d'erreur sur une création de compte
-            $this->gestionErreurCreerCompte();
-            //On gère le cas d'erreur sur la connexion au compte
-            $this->gestionErreurConnexionCompte();
         }
         else{
             header('Location: ./home');
@@ -487,14 +341,6 @@ class ControllerFront
             $DetailAtelier = $FrontManagerAtelier->lireDetailAtelier($_GET['id']);
 
             require 'app/views/front/detailAtelier.php';
-
-            //On gère l'affichage des blocs connexion / deconnexion
-            $this->affichageBlocConnexion();
-
-            //On gère le cas d'erreur sur une création de compte
-            $this->gestionErreurCreerCompte();
-            //On gère le cas d'erreur sur la connexion au compte
-            $this->gestionErreurConnexionCompte();
         }
         else{
             header('Location: ./home');
@@ -534,9 +380,6 @@ class ControllerFront
             $monCompte = $this->FrontManager->lireMonCompte($_SESSION['idClient']);
 
             require 'app/views/front/monCompte.php';
-
-            //On gère l'affichage des blocs connexion / deconnexion
-            $this->affichageBlocConnexion();
 
             if(isset($_GET['action2']))
             {
@@ -582,15 +425,6 @@ class ControllerFront
         $this->gestionModeConnecte();
 
         require 'app/views/front/pageErreur.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
-        
     }
 
     function passOublierFront()
@@ -646,14 +480,6 @@ class ControllerFront
         }
         
         require 'app/views/front/passOublier.php';
-
-        //On gère l'affichage des blocs connexion / deconnexion
-        $this->affichageBlocConnexion();
-
-        //On gère le cas d'erreur sur une création de compte
-        $this->gestionErreurCreerCompte();
-        //On gère le cas d'erreur sur la connexion au compte
-        $this->gestionErreurConnexionCompte();
     }
     
 
