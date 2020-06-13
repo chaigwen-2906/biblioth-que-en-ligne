@@ -21,7 +21,7 @@ class ControllerAdmin
                     //On stocke dans une variable de session PHP l'idClient
                     $_SESSION['idAdmin'] = $retourConnectionAdmin;
                     // on renvoie vers la page d'accueil
-                    header('Location: ./accueil');
+                    header('Location: ./admin-accueil');
                     exit();
                 }
                 else{
@@ -47,7 +47,7 @@ class ControllerAdmin
                 if($_GET['action2'] == "seDeconnecter"){
 
                     unset($_SESSION['idAdmin'] );
-                    header('Location: ./home');
+                    header('Location: ./admin-home');
                     exit();
                 }
                 
@@ -57,7 +57,7 @@ class ControllerAdmin
             require 'app/views/admin/accueil.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -93,7 +93,7 @@ class ControllerAdmin
             require 'app/views/admin/gestionLivres.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -124,7 +124,7 @@ class ControllerAdmin
                     //On appelle la fonction Create de l'objet livre pour enregistrer en bdd
                     $unLivre->Create();
 
-                    header('Location: ./listeLivres?action2=confirmAjout');
+                    header('Location: ./admin-listeLivres?action2=confirmAjout');
                 }
                 
             }
@@ -145,21 +145,18 @@ class ControllerAdmin
             require 'app/views/admin/ajoutLivre.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function modifierLivre()
+    function modifierLivre($idLivre)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idLivre']))
+            if($idLivre != "")
             {   
-                //on récupère la var idLivre 
-                $idLivre = $_GET['idLivre'];
-
                 //on récupère les données du livre
                 $unLivre = new \Projet\Models\admin\objets\Livre($idLivre,'','','','','','','','','','','','','','');
                 $unLivre->Read();
@@ -193,7 +190,7 @@ class ControllerAdmin
                         //enregistrer en base bdd
                         $unLivre->Update();
                         //on renvoie vers la page listeLivre
-                        header('Location: ./listeLivres?action2=confirmModif');
+                        header('Location: ./admin-listeLivres?action2=confirmModif');
                     }
                 }
 
@@ -216,13 +213,13 @@ class ControllerAdmin
                 require 'app/views/admin/modifierLivre.php';
             }
             else{
-                header('location: ./listeLivres');
+                header('Location: ./admin-listeLivres');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
@@ -230,15 +227,12 @@ class ControllerAdmin
 
 
 
-    function getSupprimerLivre()
+    function getSupprimerLivre($idLivre)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idLivre']))
+            if($idLivre != "")
             {
-                 //on récupère la var idLivre 
-                 $idLivre = $_GET['idLivre'];
-
                  if (isset($_GET['action2']))
                  {
                     if($_GET['action2'] == "supprimerLivre")
@@ -273,7 +267,7 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page gestion livre 
-                        header('location: ./listeLivres?action2=confirmSupp');
+                        header('Location: ./admin-listeLivres?action2=confirmSupp');
 
                     }
                  }
@@ -282,13 +276,13 @@ class ControllerAdmin
                 require 'app/views/admin/supprimerLivre.php';
             }
             else{
-                header('location: ./listeLivres');
+                header('Location: ./admin-listeLivres');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -332,7 +326,7 @@ class ControllerAdmin
             require 'app/views/admin/listeAuteur.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
@@ -354,7 +348,7 @@ class ControllerAdmin
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $unAuteur->Create();
 
-                    header('Location: ./listeAuteur?action2=confirmAjout');
+                    header('Location: ./admin-listeAuteur?action2=confirmAjout');
 
                 }
             }
@@ -363,23 +357,20 @@ class ControllerAdmin
             require 'app/views/admin/ajoutAuteur.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
 
-    function modifierAuteur()
+    function modifierAuteur($idAuteur)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idAuteur']))
+            if($idAuteur != "")
             {
-                 //on récupère la var idLivre 
-                 $idAuteur = $_GET['idAuteur'];
-
-                 //on récupère les données de l'auteur
+                //on récupère les données de l'auteur
                  $unAuteur = new \Projet\Models\admin\objets\Auteur($idAuteur,'','');
                  $unAuteur->Read();
 
@@ -394,7 +385,7 @@ class ControllerAdmin
                         $unAuteur->Update();
 
                         //on renvoie vers la page listeAuteur
-                        header('Location: ./listeAuteur?action2=confirmModif');
+                        header('Location: ./admin-listeAuteur?action2=confirmModif');
                     }
 
                 }
@@ -402,13 +393,13 @@ class ControllerAdmin
                 require 'app/views/admin/modifierAuteur.php';
             }
             else{
-                header('location: ./listeAuteur');
+                header('Location: ./admin-listeAuteur');
                 exit();
             }
                  
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
@@ -416,15 +407,12 @@ class ControllerAdmin
 
 
 
-    function getSupprimerAuteur()
+    function getSupprimerAuteur($idAuteur)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idAuteur']))
+            if($idAuteur != "")
             {
-                //on récupère la var idLivre 
-                $idAuteur = $_GET['idAuteur'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerAuteur")
@@ -439,12 +427,12 @@ class ControllerAdmin
                             $unAuteur->delete();
 
                             // on renvoie vers la page liste auteur
-                            header('location: ./listeAuteur?action2=confirmSupp');
+                            header('Location: ./admin-listeAuteur?action2=confirmSupp');
                         }
                         else{
 
                             // on renvoie vers la page liste auteur
-                            header('location: ./listeAuteur?action2=errorSupp');
+                            header('Location: ./admin-listeAuteur?action2=errorSupp');
                         }
 
                          
@@ -457,13 +445,13 @@ class ControllerAdmin
                  require 'app/views/admin/supprimerAuteur.php';
             }
             else{
-                header('location: ./listeAuteur');
+                header('Location: ./admin-listeAuteur');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -502,7 +490,7 @@ class ControllerAdmin
             require 'app/views/admin/listeAtelier.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
@@ -525,7 +513,7 @@ class ControllerAdmin
                     $unAtelier->Create();
 
                     
-                    header('Location: ./listeAtelier?action2=confirmAjout');
+                    header('Location: ./admin-listeAtelier?action2=confirmAjout');
                 }
             }
 
@@ -533,20 +521,18 @@ class ControllerAdmin
             require 'app/views/admin/ajoutAtelier.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
     }
 
 
-    function modifierAtelier()
+    function modifierAtelier($idAtelier)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idAtelier'])){
-
-                $idAtelier = $_GET['idAtelier'];
+            if($idAtelier != ""){
 
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données de l'atelier 
@@ -569,7 +555,7 @@ class ControllerAdmin
                         $unAtelier->Update();
 
                         //on renvoie vers la page listeAuteur
-                        header('Location: ./listeAtelier?action2=confirmModif');
+                        header('Location: ./admin-listeAtelier?action2=confirmModif');
                     }
                 }
 
@@ -577,28 +563,25 @@ class ControllerAdmin
                 require 'app/views/admin/modifierAtelier.php';
             }
             else{
-                header('location: ./listeAtelier');
+                header('Location: ./admin-listeAtelier');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
            
     }
 
 
-    function supprimerAtelier()
+    function supprimerAtelier($idAtelier)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idAtelier']))
+            if($idAtelier != "")
             {
-                //on récupère la var idLivre 
-                $idAtelier = $_GET['idAtelier'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerAtelier")
@@ -609,20 +592,20 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page liste auteur
-                        header('location: ./listeAtelier?action2=confirmSupp');
+                        header('Location: ./admin-listeAtelier?action2=confirmSupp');
                     }
                 }
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerAtelier.php';
             }
             else{
-                header('location: ./listeAtelier');
+                header('Location: ./admin-listeAtelier');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -660,7 +643,7 @@ class ControllerAdmin
             require 'app/views/admin/listeCategorie.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
@@ -682,7 +665,7 @@ class ControllerAdmin
                     $uneCategorie->Create();
 
                     
-                    header('Location: ./listeCategorie?action2=confirmAjout');
+                    header('Location: ./admin-listeCategorie?action2=confirmAjout');
                 }
             }
 
@@ -690,21 +673,19 @@ class ControllerAdmin
             require 'app/views/admin/ajoutCategorie.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
 
     }
 
 
-    function modifierCategorie()
+    function modifierCategorie($idCategorie)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idCategorie'])){
-
-                $idCategorie = $_GET['idCategorie'];
-
+            if($idCategorie != ""){
+                
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données de l'atelier 
                 $uneCategorie = new \Projet\Models\admin\objets\Categorie($idCategorie,'');
@@ -721,7 +702,7 @@ class ControllerAdmin
                         $uneCategorie->Update();
 
                         //on renvoie vers la page listeAuteur
-                        header('Location: ./listeCategorie?action2=confirmModif');
+                        header('Location: ./admin-listeCategorie?action2=confirmModif');
                     }
                 }
 
@@ -729,28 +710,25 @@ class ControllerAdmin
                 require 'app/views/admin/modifierCategorie.php';
             }
             else{
-                header('location: ./listeCategorie');
+                header('Location: ./admin-listeCategorie');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
            
     }
 
 
-    function supprimerCategorie()
+    function supprimerCategorie($idCategorie)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idCategorie']))
+            if($idCategorie != "")
             {
-                //on récupère la var idLivre 
-                $idCategorie = $_GET['idCategorie'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerCategorie")
@@ -761,20 +739,20 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page liste auteur
-                        header('location: ./listeCategorie?action2=confirmSupp');
+                        header('Location: ./admin-listeCategorie?action2=confirmSupp');
                     }
                 }
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerCategorie.php';
             }
             else{
-                header('location: ./listeCategorie');
+                header('Location: ./admin-listeCategorie');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -813,7 +791,7 @@ class ControllerAdmin
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -835,7 +813,7 @@ class ControllerAdmin
                     $unClient->Create();
 
                     
-                    header('Location: ./listeClient?action2=confirmAjout');
+                    header('Location: ./admin-listeClient?action2=confirmAjout');
                 }
             }
 
@@ -843,19 +821,17 @@ class ControllerAdmin
             require 'app/views/admin/ajoutClient.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function modifierClient()
+    function modifierClient($idClient)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idClient'])){
-
-                $idClient = $_GET['idClient'];
+            if($idClient != ""){
 
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données du client
@@ -882,7 +858,7 @@ class ControllerAdmin
                         $unClient->Update();
 
                         //on renvoie vers la page listeClient
-                        header('Location: ./listeClient?action2=confirmModif');
+                        header('Location: ./admin-listeClient?action2=confirmModif');
                     }
                 }
 
@@ -890,27 +866,24 @@ class ControllerAdmin
                 require 'app/views/admin/modifierClient.php';
             }
             else{
-                header('location: ./listeClient');
+                header('Location: ./admin-listeClient');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function supprimerClient()
+    function supprimerClient($idClient)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idClient']))
+            if($idClient != "")
             {
-                //on récupère la var idLivre 
-                $idClient = $_GET['idClient'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerClient")
@@ -938,20 +911,20 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page liste client
-                        header('location: ./listeClient?action2=confirmSupp');
+                        header('Location: ./admin-listeClient?action2=confirmSupp');
                     }
                 }
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerClient.php';
             }
             else{
-                header('location: ./listeClient');
+                header('Location: ./admin-listeClient');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -990,7 +963,7 @@ class ControllerAdmin
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1012,7 +985,7 @@ class ControllerAdmin
                     $unCoupDeCoeur->Create();
 
                     
-                    header('Location: ./listeCoupDeCoeur?action2=confirmAjout');
+                    header('Location: ./admin-listeCoupDeCoeur?action2=confirmAjout');
                 }
             }
 
@@ -1026,19 +999,17 @@ class ControllerAdmin
             require 'app/views/admin/ajoutCoupDeCoeur.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function modifierCoupDeCoeur()
+    function modifierCoupDeCoeur($idCoupDeCoeur)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idCoupDeCoeur'])){
-
-                $idCoupDeCoeur = $_GET['idCoupDeCoeur'];
+            if($idCoupDeCoeur != ""){
 
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données du client  
@@ -1059,7 +1030,7 @@ class ControllerAdmin
                         $unCoupDeCoeur->Update();
 
                         //on renvoie vers la page listeCoupDeCoeur
-                        header('Location: ./listeCoupDeCoeur?action2=confirmModif');
+                        header('Location: ./admin-listeCoupDeCoeur?action2=confirmModif');
                     }
                 }
 
@@ -1071,27 +1042,24 @@ class ControllerAdmin
                 require 'app/views/admin/modifierCoupDeCoeur.php';
             }
             else{
-                header('location: ./listeCoupDeCoeur');
+                header('Location: ./admin-listeCoupDeCoeur');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function supprimerCoupDeCoeur()
+    function supprimerCoupDeCoeur($idCoupDeCoeur)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idCoupDeCoeur']))
+            if($idCoupDeCoeur != "")
             {
-                //on récupère la var idLivre 
-                $idCoupDeCoeur = $_GET['idCoupDeCoeur'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerCoupDeCoeur")
@@ -1103,20 +1071,20 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page liste client
-                        header('location: ./listeCoupDeCoeur?action2=confirmSupp');
+                        header('Location: ./admin-listeCoupDeCoeur?action2=confirmSupp');
                     }
                 }
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerCoupDeCoeur.php';
             }
             else{
-                header('location: ./listeCoupDeCoeur');
+                header('Location: ./admin-listeCoupDeCoeur');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1161,7 +1129,7 @@ class ControllerAdmin
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1182,7 +1150,7 @@ class ControllerAdmin
                     $unEditeur->Create();
 
                     
-                    header('Location: ./listeEditeur?action2=confirmAjout');
+                    header('Location: ./admin-listeEditeur?action2=confirmAjout');
                 }
             }
 
@@ -1192,22 +1160,18 @@ class ControllerAdmin
             require 'app/views/admin/ajoutEditeur.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function modifierEditeur()
+    function modifierEditeur($idEditeur)
     {
         if(isset($_SESSION['idAdmin'])){
 
 
-            if(isset($_GET['idEditeur'])){
-
-    
-                $idEditeur = $_GET['idEditeur'];
-
+            if($idEditeur != ""){
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données du client  
                 $unEditeur = new \Projet\Models\admin\objets\Editeur($idEditeur, "","");
@@ -1225,7 +1189,7 @@ class ControllerAdmin
                         $unEditeur->Update();
 
                         //on renvoie vers la page listeCoupDeCoeur
-                        header('Location: ./listeEditeur?action2=confirmModif');
+                        header('Location: ./admin-listeEditeur?action2=confirmModif');
                     }
                 }
 
@@ -1234,27 +1198,24 @@ class ControllerAdmin
                 require 'app/views/admin/modifierEditeur.php';
             }
             else{
-                header('location: ./listeEditeur');
+                header('Location: ./admin-listeEditeur');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function supprimerEditeur()
+    function supprimerEditeur($idEditeur)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idEditeur']))
+            if($idEditeur != "")
             {
-                //on récupère la var idLivre 
-                $idEditeur = $_GET['idEditeur'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerEditeur")
@@ -1270,11 +1231,11 @@ class ControllerAdmin
                             $unEditeur->delete();
 
                             // on renvoie vers la page liste client
-                            header('location: ./listeEditeur?action2=confirmSupp');
+                            header('Location: ./admin-listeEditeur?action2=confirmSupp');
                         }
                         else{
                             // on renvoie vers la page liste client
-                            header('location: ./listeEditeur?action2=errorSupp');
+                            header('Location: ./admin-listeEditeur?action2=errorSupp');
                         }
                         
                     }
@@ -1286,13 +1247,13 @@ class ControllerAdmin
                 require 'app/views/admin/supprimerEditeur.php';
             }
             else{
-                header('location: ./listeEditeur');
+                header('Location: ./admin-listeEditeur');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1330,7 +1291,7 @@ class ControllerAdmin
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1350,7 +1311,7 @@ class ControllerAdmin
                     $uneFAQ->Create();
 
                     
-                    header('Location: ./listeFAQ?action2=confirmAjout');
+                    header('Location: ./admin-listeFAQ?action2=confirmAjout');
                 }
             }
 
@@ -1360,21 +1321,18 @@ class ControllerAdmin
             require 'app/views/admin/ajoutFAQ.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
-    function modifierFAQ()
+    function modifierFAQ($idFaq)
     {
         
         if(isset($_SESSION['idAdmin'])){
 
 
-            if(isset($_GET['idFaq'])){
-
-    
-                $idFaq = $_GET['idFaq'];
+            if($idFaq != ""){
 
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données du client  
@@ -1394,7 +1352,7 @@ class ControllerAdmin
                         $uneFAQ->Update();
 
                         //on renvoie vers la page listeCoupDeCoeur
-                        header('Location: ./listeFAQ?action2=confirmModif');
+                        header('Location: ./admin-listeFAQ?action2=confirmModif');
                     }
                 }
 
@@ -1403,27 +1361,24 @@ class ControllerAdmin
                 require 'app/views/admin/modifierFAQ.php';
             }
             else{
-                header('location: ./listeFAQ');
+                header('Location: ./admin-listeFAQ');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
 
-    function supprimerFAQ()
+    function supprimerFAQ($idFaq)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idFaq']))
+            if($idFaq != "")
             {
-                //on récupère la var idFaq 
-                $idFaq = $_GET['idFaq'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerFAQ")
@@ -1435,20 +1390,20 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page liste client
-                        header('location: ./listeFAQ?action2=confirmSupp');
+                        header('Location: ./admin-listeFAQ?action2=confirmSupp');
                     }
                 }
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerFAQ.php';
             }
             else{
-                header('location: ./listeFAQ');
+                header('Location: ./admin-listeFAQ');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1487,7 +1442,7 @@ class ControllerAdmin
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1508,7 +1463,7 @@ class ControllerAdmin
                     $unMeta->Create();
 
                     
-                    header('Location: ./listeMeta?action2=confirmAjout');
+                    header('Location: ./admin-listeMeta?action2=confirmAjout');
                 }
             }
 
@@ -1518,20 +1473,17 @@ class ControllerAdmin
             require 'app/views/admin/ajoutMeta.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
-    function ModifierMeta()
+    function ModifierMeta($idMeta)
     {
         if(isset($_SESSION['idAdmin'])){
 
 
-            if(isset($_GET['idMeta'])){
-
-    
-                $idMeta = $_GET['idMeta'];
+            if($idMeta != ""){
 
                 //On crée un objet de type Atelier avec l'id et on le lit
                 //on récupère les données du client  
@@ -1552,7 +1504,7 @@ class ControllerAdmin
                         $unMeta->Update();
 
                         //on renvoie vers la page listeCoupDeCoeur
-                        header('Location: ./listeMeta?action2=confirmModif');
+                        header('Location: ./admin-listeMeta?action2=confirmModif');
                     }
                 }
 
@@ -1561,26 +1513,23 @@ class ControllerAdmin
                 require 'app/views/admin/modifierMeta.php';
             }
             else{
-                header('location: ./listeMeta');
+                header('Location: ./admin-listeMeta');
                 exit();
             }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
 
-    function supprimerMeta()
+    function supprimerMeta($idMeta)
     {
         if(isset($_SESSION['idAdmin'])){
 
-            if(isset($_GET['idMeta']))
+            if($idMeta != "")
             {
-                //on récupère la var idFaq 
-                $idMeta = $_GET['idMeta'];
-
                 if(isset($_GET['action2']))
                 {
                     if($_GET['action2'] == "supprimerMeta")
@@ -1592,20 +1541,20 @@ class ControllerAdmin
 
 
                         // on renvoie vers la page liste client
-                        header('location: ./listeMeta?action2=confirmSupp');
+                        header('Location: ./admin-listeMeta?action2=confirmSupp');
                     }
                 }
                 //Appel à la vue : affichage
                 require 'app/views/admin/supprimerMeta.php';
             }
             else{
-                header('location: ./listeMeta');
+                header('Location: ./admin-listeMeta');
                 exit();
                 }
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1724,7 +1673,7 @@ class ControllerAdmin
 
         }
         else{
-            header('Location: ./home');
+            header('Location: ./admin-home');
             exit();
         }
     }
@@ -1735,9 +1684,6 @@ class ControllerAdmin
        
 
         require 'app/views/admin/pageErreurAdmin.php';
-
-      
-        
     }
 
 

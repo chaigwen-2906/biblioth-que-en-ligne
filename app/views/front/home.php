@@ -13,14 +13,14 @@
     <title> Accueil - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/styles.css">
-    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
-    <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/accueil.css"> -->
+    <link rel="stylesheet" href="app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="app/public/css/header.css">
+    <link rel="stylesheet" href="app/public/css/footer.css">
+    <link rel="stylesheet" href="app/public/css/accueil.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -31,7 +31,7 @@
     <body>
 
 
-        <?php require_once("./app/views/layout/header.php"); ?>
+        <?php require_once("app/views/layout/header.php"); ?>
 
         
 
@@ -39,7 +39,7 @@
         <!--------image de fond fixer pour scroller dessus. et se trouve dessous la barre de recheche--------------->
         <!-- background image fix to scroll on. and is below the search bar -->
         <figure class="imageDeFondAccueil">
-            <img class="imgDeFond" src="./../app/public/image/imgFond/livreDeFond.png" alt=" une bibliothèque"
+            <img class="imgDeFond" src="app/public/image/imgFond/livreDeFond.png" alt=" une bibliothèque"
                 title="une bibliothèque">
         </figure>
 
@@ -81,7 +81,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailLivre?id=".$unCoupDeCoeur['idLivre']."' class='button'>"; 
+                                echo "<a href='./front-detailLivre-".$unCoupDeCoeur['idLivre']."' class='button'>"; 
                             ?>
                                 En savoir plus !!
                             </a>
@@ -128,7 +128,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailLivre?id=".$uneNouveaute['idLivre']."' class='button'>"; 
+                                echo "<a href='./front-detailLivre-".$uneNouveaute['idLivre']."' class='button'>"; 
                             ?>
                                 En savoir plus !!
                             </a>
@@ -165,7 +165,7 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                               <img src ="../app/public/image/icon/calendrier.png" alt="Calendrier" title="Calendrier">
+                               <img src ="./../apppublic/image/icon/calendrier.png" alt="Calendrier" title="Calendrier">
                             </figure>
                             <h4>
                                 <?= $unAtelier['nom']; ?>
@@ -186,7 +186,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailAtelier?id=".$unAtelier['idAtelier']."' class='button'>";
+                                echo "<a href='./detailAtelier/".$unAtelier['idAtelier']."' class='button'>";
                             ?>
                                 En savoir plus !!
                             </a>
@@ -222,7 +222,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailLivre?id=".$unMangas['idLivre']."' class='button'>"; 
+                                echo "<a href='./front-detailLivre-".$unMangas['idLivre']."' class='button'>"; 
                             ?>
                                 En savoir plus !!
                             </a>
@@ -269,7 +269,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailLivre?id=".$uneBandesDessinees['idLivre']."' class='button'>"; 
+                                echo "<a href='./front-detailLivre-".$uneBandesDessinees['idLivre']."' class='button'>"; 
                             ?>
                                 En savoir plus !!
                             </a>
@@ -316,7 +316,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailLivre?id=".$uneCuisine['idLivre']."' class='button'>"; 
+                                echo "<a href='./front-detailLivre-".$uneCuisine['idLivre']."' class='button'>"; 
                             ?>
                                 En savoir plus !!
                             </a>
@@ -340,7 +340,7 @@
         </main>
 
 
-        <?php require_once("./app/views/layout/footer.php"); ?> 
+        <?php require_once("app/views/layout/footer.php"); ?> 
 
         <!--class active-->
         <script type="text/javascript">

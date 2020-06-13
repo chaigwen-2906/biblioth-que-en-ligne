@@ -13,15 +13,15 @@
     <title> Mon compte - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/styles.css">
-    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
-    <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/monCompte.css"> -->
+    <link rel="stylesheet" href="app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="app/public/css/header.css">
+    <link rel="stylesheet" href="app/public/css/footer.css">
+    <link rel="stylesheet" href="app/public/css/monCompte.css"> -->
    
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -30,13 +30,13 @@
 
     <body>
 
-        <?php require_once("./app/views/layout/header.php"); ?>
+        <?php require_once("app/views/layout/header.php"); ?>
 
         <main class="monCompte">
 
             <!-- FILS D'ARIANE  -->
             <div class ="filArianeMonCompte" >
-                <a href="./home"> 
+                <a href="./front-home"> 
                     Accueil >
                 </a>
                     Mon compte
@@ -118,14 +118,14 @@
 
                 <!-- BOUTON ENREGISTRE OU RETOUR  -->
                 <div class="boutonModifier">
-                    <a href="./<?= $this->nomPage;?>?action2=modifier" class="monBoutton">Modifier</a>
+                    <a href="./front-<?= $this->nomPage;?>?action2=modifier" class="monBoutton">Modifier</a>
                 </div>
             </section>
 
                      
             <!-- MON COMPTE MODIFIER -->
             <section class="conteneurMonCompteModifier">
-                <form method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerInfosPers">
+                <form method="POST" action="./front-<?= $this->nomPage;?>?action2=enregistrerInfosPers">
                     <h1>
                         Mon compte
                     </h1> 
@@ -193,14 +193,14 @@
                     <div>
                         <p class="boutonEnregistrer" >
                             <input class="monBoutton" id="compteEnregistrer" type="submit" value="Enregistrer">
-                            <a class="monBoutton" href="./monCompte">Retour</a>
+                            <a class="monBoutton" href="./front-monCompte">Retour</a>
                         </p>
                     </div>
                 </form>
             </section>
             <!-- CONTENEUR MODIFIER LE MOT DE PASSE  -->
             <section class="conteneurCompteMotPass">
-                <form method="POST" action="./<?= $this->nomPage;?>?action2=enregistrerPassword">
+                <form method="POST" action="./front-<?= $this->nomPage;?>?action2=enregistrerPassword">
                     <h2>
                         Modifier mon mot de passe
                     </h2>
@@ -223,7 +223,7 @@
                     <div>
                         <p class="boutonEnregistrer" >
                             <input class="monBoutton" id="comptePassEnregistrer" type="submit" value="Enregistrer">
-                            <a class="monBoutton" href="./monCompte">Retour</a>
+                            <a class="monBoutton" href="./front-monCompte">Retour</a>
                         </p>
                     </div>
                 </form> 
@@ -235,7 +235,7 @@
 
        
         
-        <?php require_once("./app/views/layout/footer.php") ?> 
+        <?php require_once("app/views/layout/footer.php") ?> 
 
     </body>
 

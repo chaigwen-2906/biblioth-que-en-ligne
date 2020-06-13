@@ -10,10 +10,10 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">
+        <link rel="stylesheet" href="app/public/css/admin/ajout.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -21,8 +21,8 @@
         <main class="supprimerLivre">
             <!--BOUTON RETOUR  -->
             <figure class="retour">
-                <a href="./listeCoupDeCoeur">
-                    <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                <a href="./admin-listeCoupDeCoeur">
+                    <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                     Retour 
                 </a>
             </figure>
@@ -31,7 +31,7 @@
             <h1>
                 Supprimer un coup de coeur
             </h1>
-            <form method="POST" action="./<?= $this->nomPage;?>?action2=supprimerCoupDeCoeur&idCoupDeCoeur=<?= $idCoupDeCoeur;?>">
+            <form method="POST" action="./admin-<?= $this->nomPage;?>-<?= $idCoupDeCoeur;?>?action2=supprimerCoupDeCoeur">
 
                 <h2>
                     Voulez vous réellement supprimer les coups de coeur !  

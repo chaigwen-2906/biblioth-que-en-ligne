@@ -35,15 +35,15 @@ Si vous avez défini un mot de passe pour l'utilisateur Mysql root, Vous devez m
 - app\Models\admin\Manager.php
 - app\Models\front\Manager.php
 
-Pour accéder au front de l'application : ouvrir un navigateur et saisir l'adresse http://localhost/bibliotheque_en_ligne/front/home. Pour pouvoir procéder à la réservation d'un livre, valider votre panier, ou pour pouvoir commenter un livre, vous devez disposer d'un compte et être connecté nominativement. Nous vous invitons à créer votre compte pour pouvoir accéder aux différentes fonctionnalités.
+Pour accéder au front de l'application : ouvrir un navigateur et saisir l'adresse http://localhost/bibliotheque_en_ligne/front-home. Pour pouvoir procéder à la réservation d'un livre, valider votre panier, ou pour pouvoir commenter un livre, vous devez disposer d'un compte et être connecté nominativement. Nous vous invitons à créer votre compte pour pouvoir accéder aux différentes fonctionnalités.
 
-Pour accéder au backend de gestion de l'application, ouvrir un navigateur et saisir l'adresse http://localhost/bibliotheque_en_ligne/admin/home. Pour accéder à cet espace d'administration, vous devez disposer d'identifiants (Nom d'utilisateur : gwen - mot de passe : toto).
+Pour accéder au backend de gestion de l'application, ouvrir un navigateur et saisir l'adresse http://localhost/bibliotheque_en_ligne/admin-home. Pour accéder à cet espace d'administration, vous devez disposer d'identifiants (Nom d'utilisateur : gwen - mot de passe : toto).
 
 
 POUR CONSULTER LE SITE EN LIGNE:
 Le site "bibliotheque en ligne" est publié sur un serveur accessible sur la zone internet.
-Pour acceder au front de l'application : ouvrir un navigateur et saisir l'adresse http://chaigwen.alwaysdata.net/bibliotheque_en_ligne/front/home.
-Pour accéder au backend de gestion de l'application, ouvrir un navigateur et saisir l'adresse http://chaigwen.alwaysdata.net/bibliotheque_en_ligne/admin/home. Pour accéder à cet espace d'administration, vous devez disposer d'identifiants (Nom d'utilisateur : gwen - mot de passe : toto).
+Pour acceder au front de l'application : ouvrir un navigateur et saisir l'adresse http://chaigwen.alwaysdata.net/bibliotheque_en_ligne/front-home.
+Pour accéder au backend de gestion de l'application, ouvrir un navigateur et saisir l'adresse http://chaigwen.alwaysdata.net/bibliotheque_en_ligne/admin-home. Pour accéder à cet espace d'administration, vous devez disposer d'identifiants (Nom d'utilisateur : gwen - mot de passe : toto).
 
 
 # Auteurs

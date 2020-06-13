@@ -10,10 +10,10 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/accueil.css">
+        <link rel="stylesheet" href="app/public/css/admin/accueil.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -22,8 +22,8 @@
         <main class="accueil">
             <!-- BOUTON SE DECONNECTER  -->
             <figure class="seDeconnecter">
-                <a  href="./<?= $this->nomPage;?>?action2=seDeconnecter">
-                    <img src="./../app/public/image/bouton/disconnect.png" alt="Se déconnecter" title="Se déconnecter">
+                <a  href="./admin-<?= $this->nomPage;?>?action2=seDeconnecter">
+                    <img src="app/public/image/bouton/disconnect.png" alt="Se déconnecter" title="Se déconnecter">
                 </a>
             </figure>
             <!-- FIN BOUTON DECONNECTER  -->
@@ -36,7 +36,7 @@
 
             <!-- SECTION RESERVER  -->
             <section class="gestionReserver">
-                <a href="./listeReservation">
+                <a href="./admin-listeReservation">
                     <article class="gererReservations">
                         Gérer les reservations
                     </article>
@@ -47,54 +47,54 @@
             <!-- SECTION DES ARTICLES  -->
             <section class="gestionsDesTables">
 
-                <a href="./listeLivres">
+                <a href="./admin-listeLivres">
                     <article class="gererArticle">
                         Gérer les livres
                     </article>
                 </a>
 
-                <a href="./listeAuteur">    
+                <a href="./admin-listeAuteur">    
                     <article class="gererArticle">
                         Gérer les auteurs
                     </article>
                 </a>
 
-                <a href="./listeAtelier">
+                <a href="./admin-listeAtelier">
                     <article class="gererArticle">
                         Gérer les ateliers
                     </article>
                 </a>
 
-                <a href="./listeCategorie"> 
+                <a href="./admin-listeCategorie"> 
                     <article class="gererArticle">
                         Gérer les catégories 
                     </article>
                 </a>
 
-                <a href="./listeClient">
+                <a href="./admin-listeClient">
                     <article class="gererArticle">
                         Gérer les clients
                     </article>
                 </a>
 
-                <a href="./listeCoupDeCoeur">
+                <a href="./admin-listeCoupDeCoeur">
                     <article class="gererArticle">
                         Gérer les coups de coeur
                     </article>
                 </a>
 
-                <a href="./listeEditeur">
+                <a href="./admin-listeEditeur">
                     <article class="gererArticle">
                         Gérer les éditeurs
                     </article>
                 </a>
 
-                <a href="./listeFAQ">
+                <a href="./admin-listeFAQ">
                     <article class="gererArticle">
                         Gérer les FAQ
                     </article>
                 </a>
-                <a href="./listeMeta">
+                <a href="./admin-listeMeta">
                     <article class="gererArticle">
                     Paramètrage des pages
                     </article>
