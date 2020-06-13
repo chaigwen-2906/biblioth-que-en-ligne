@@ -44,13 +44,13 @@
             <!--FIN  FILS D'ARIANE  -->
 
              <!-- SECTION YOU TUBE API (VIDEO-ATELIER) -->
-             <section class =" sectionYoutube">
+             <section class="sectionYoutube">
                 <article>
                     <h3>
                         Nos videos
                     </h3>
                 </article>
-                <figure class ="figureVideo">
+                <figure class="figureVideo">
                     <div>
                         <h6>bibliobingo!</h6>
                         <div id="player1"></div>

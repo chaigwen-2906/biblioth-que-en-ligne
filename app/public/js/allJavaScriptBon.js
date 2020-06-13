@@ -495,34 +495,67 @@ function search(){
 
 
 //Fonction appel API youtube pour la page Atelier 
+
+//loading of the IFrame Player API code asynchronously.
+//Chargement du code de l'API Iframe Player de manière asynchrone
+let tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//Creating of the iframes
+//Création des iframes
+let player1;let player2;let player3;let player4;
 function onYouTubeIframeAPIReady() {
     player1 = new YT.Player('player1', {
         height: '143',
         width: '255',
         videoId: 'GwYVr1ZFb-8',
-        events: {}
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
     });
-    
-
     player2 = new YT.Player('player2', {
         height: '143',
         width: '255',
         videoId: 'VVrG8KhDwHU',
-        events: {}
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
     });
     player3 = new YT.Player('player3', {
         height: '143',
         width: '255',
         videoId: 'ydmlTbi6hdM',
-        events: {}
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
     });
     player4 = new YT.Player('player4', {
         height: '143',
         width: '255',
         videoId: 'EA-RkfWvZPk',
-        events: {}
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
     });
 }
+
+//Call to vidéo
+//Appel de la vidéo
+function onPlayerReady(event) {}
+
+//When the player's state changes.
+//Gestion de changement d'état du player
+function onPlayerStateChange(event) {}
+
+
+
+
 
 
 

@@ -259,7 +259,7 @@ try {
     }
     else{
         //Si pas de varaiable action, on redirige vers la page home du front
-        header('Location: front/home');
+        header('Location: front-home');
     }
 
     

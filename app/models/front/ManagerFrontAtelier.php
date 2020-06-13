@@ -32,7 +32,7 @@ class ManagerFrontAtelier extends Manager
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        $sql = "SELECT * FROM atelier WHERE DATE>NOW() ORDER BY DATE LIMIT 4 ";
+        $sql = "SELECT * FROM atelier WHERE DATE>NOW() ORDER BY DATE LIMIT 4";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
