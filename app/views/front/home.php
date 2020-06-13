@@ -165,7 +165,7 @@
                             </h3>
                             <hr separator>
                             <figure class="imgArticleLivre">
-                               <img src ="./../apppublic/image/icon/calendrier.png" alt="Calendrier" title="Calendrier">
+                               <img src ="app/public/image/icon/calendrier.png" alt="Calendrier" title="Calendrier">
                             </figure>
                             <h4>
                                 <?= $unAtelier['nom']; ?>
