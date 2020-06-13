@@ -194,7 +194,7 @@ class ControllerFront
                         unset($_SESSION['panier'][$tablIndex]);
 
 
-                        echo "<script>alert('Votre demande à bien été supprimer')</script>";
+                        echo "<script>alert('Votre demande à bien été supprimée')</script>";
                     }
                     else{
 
@@ -233,7 +233,7 @@ class ControllerFront
             require 'app/views/front/panier.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./front-home');
             exit();
         }
     }
@@ -274,16 +274,16 @@ class ControllerFront
         require 'app/views/front/planDuSite.php';
     }
 
-    function detailLivreFront()
+    function detailLivreFront($idLivre)
     {
         $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        if(isset($_GET['id']))
+        if($idLivre != "")
         {
             $FrontManagerLivre = new \Projet\Models\front\ManagerFrontLivre();
-            $DetailLivre = $FrontManagerLivre->lireDetailLivre($_GET['id']);
+            $DetailLivre = $FrontManagerLivre->lireDetailLivre($idLivre);
 
             //on test si la variable action2 existe
             if(isset($_GET["action2"])){
@@ -291,10 +291,10 @@ class ControllerFront
                 //je test quel soit bien égale a ajoute panier
                 if($_GET["action2"] == "ajoutePanier")
                 {
-                    if(!in_array($_GET['id'], $_SESSION['panier']))
+                    if(!in_array($idLivre, $_SESSION['panier']))
                     {
                         //on ajoute idLivre dans la variable $_SESSION panier 
-                        array_push($_SESSION['panier'], $_GET['id'] );
+                        array_push($_SESSION['panier'], $idLivre);
 
                         echo "<script>alert('Votre demande de réservation a bien été ajoutée au panier. \\nN\'oubliez pas de valider votre panier pour confirmer votre demande de réservation !')</script>";
                     }
@@ -311,39 +311,39 @@ class ControllerFront
                     if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
                     {
                         //on enregistre le commentaire posté par utilisateur
-                        $FrontManagerLivre->ecrireCommentaire($_GET['id'],$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
+                        $FrontManagerLivre->ecrireCommentaire($idLivre,$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
                     }
                 }
 
             }
             
             //On récupère la liste des derniers commentaires
-            $listCommentaire = $FrontManagerLivre->lireCommentaire($_GET['id']);
+            $listCommentaire = $FrontManagerLivre->lireCommentaire($idLivre);
 
             require 'app/views/front/detailLivre.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./front-home');
             exit();
         }
     } 
 
-    function detailAtelierFront()
+    function detailAtelierFront($idAtelier)
     {
         $this->FrontManager = new \Projet\Models\front\ManagerFront();
         $this->gestionHeader();
         $this->gestionModeConnecte();
 
-        if(isset($_GET['id']))
+        if($idAtelier != "")
         {
             // on récupère par id
             $FrontManagerAtelier = new \Projet\Models\front\ManagerFrontAtelier();
-            $DetailAtelier = $FrontManagerAtelier->lireDetailAtelier($_GET['id']);
+            $DetailAtelier = $FrontManagerAtelier->lireDetailAtelier($idAtelier);
 
             require 'app/views/front/detailAtelier.php';
         }
         else{
-            header('Location: ./home');
+            header('Location: ./front-home');
             exit();
         }
     }
@@ -411,7 +411,7 @@ class ControllerFront
             }
         }
         else{
-            header('Location: ./home');
+            header('Location: ./front-home');
             exit();
         }
         

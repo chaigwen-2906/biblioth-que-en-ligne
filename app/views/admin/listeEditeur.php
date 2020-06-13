@@ -10,10 +10,10 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
+        <link rel="stylesheet" href="app/public/css/admin/gestion.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -22,8 +22,8 @@
         <main class="gestion">
                 <!--BOUTON RETOUR  -->
                 <figure class="retour">
-                    <a href="./accueil">
-                        <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                    <a href="./admin-accueil">
+                        <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                         Retour 
                     </a>
                 </figure>
@@ -37,7 +37,7 @@
 
                 <!-- AJOUTE  -->
                 <section class="ajout">
-                    <a href="./ajoutEditeur">   
+                    <a href="./admin-ajoutEditeur">   
                         Ajouter un éditeur !!
                     </a>
                 </section> 
@@ -62,10 +62,10 @@
                         
                         
                         <p class="conteneur4">
-                            <a  href="./modifierEditeur?idEditeur=<?= $unEditeur['idEditeur']; ?>">   
+                            <a  href="./admin-modifierEditeur-<?= $unEditeur['idEditeur']; ?>">   
                                 <span> Modifier</span>
                             </a>
-                            <a  href="./supprimerEditeur?idEditeur=<?= $unEditeur['idEditeur']; ?>">   
+                            <a  href="./admin-supprimerEditeur-<?= $unEditeur['idEditeur']; ?>">   
                                 <span>Supprimer</span>
                             </a>
                         </p>
@@ -87,7 +87,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/admin/gestionLivres.js"></script>
+        <script type="text/javascript" src="app/public/js/admin/gestionLivres.js"></script>
 
     </body>    
     

@@ -89,11 +89,11 @@ let formValidMonCompte = document.getElementById("compteEnregistrer");
 //Tableau d'image du slider Coup de coeur - Picture table of the Favorite slider
 let tabImgSlider = 
 [
-    "./../app/public/image/slider/biblio.jpg",
-    "./../app/public/image/slider/la_biblio.jpg",
-    "./../app/public/image/slider/lecture.png",
-    "./../app/public/image/slider/livre_magic.png",
-    "./../app/public/image/slider/livre.png"
+    "app/public/image/slider/biblio.jpg",
+    "app/public/image/slider/la_biblio.jpg",
+    "app/public/image/slider/lecture.png",
+    "app/public/image/slider/livre_magic.png",
+    "app/public/image/slider/livre.png"
 ];
 //Compteur d'image du slider - Slider image counter
 let numImgSlider = 0;

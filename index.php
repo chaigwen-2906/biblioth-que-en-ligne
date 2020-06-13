@@ -11,8 +11,8 @@ try {
 
     if ($_GET['action'] != "") {
 
-        $params = explode('/',$_GET['action']);
-    
+        $params = explode('-',$_GET['action']);
+        
         //test du controller
         // echo "controller : ".$params[0];
         // echo "<br/>";
@@ -60,11 +60,21 @@ try {
                     break;
 
                     case "detailLivre":
-                        $controller->detailLivreFront();
+                        $idLivre = "";
+                        if(isset($params[2]))
+                        {
+                            $idLivre = $params[2];
+                        }
+                        $controller->detailLivreFront($idLivre);
                     break;
 
                     case "detailAtelier":
-                        $controller->detailAtelierFront();
+                        $idAtelier = "";
+                        if(isset($params[2]))
+                        {
+                            $idAtelier = $params[2];
+                        }
+                        $controller->detailAtelierFront($idAtelier);
                     break;
 
                     case "pageRecherche":
@@ -83,8 +93,9 @@ try {
                         $controller->passOublierFront();
                     break;                    
 
-
-
+                    case "erreur404":
+                        $controller->pageErreurFront();
+                    break;
 
                     default:
                         $controller->pageErreurFront();
@@ -97,6 +108,12 @@ try {
                 $controller = new \Projet\Controllers\ControllerAdmin();
                 //On initialise la variable nomPage du controller front avec le nom de la page demandée
                 $controller->nomPage = $params[1];
+
+                $id= "";
+                if(isset($params[2]))
+                {
+                    $id = $params[2];
+                }
 
                 switch($params[1])
                 {
@@ -114,10 +131,10 @@ try {
                         $controller->ajouterUnLivre();
                     break;
                     case "modifierLivre":
-                        $controller->modifierLivre();
+                        $controller->modifierLivre($id);
                     break;
                     case "supprimerLivre":
-                        $controller->getSupprimerLivre();
+                        $controller->getSupprimerLivre($id);
                     break;
                     //gestion auteurs
                     case "listeAuteur":
@@ -127,10 +144,10 @@ try {
                         $controller->ajouterUnAuteur();
                     break;
                     case "modifierAuteur":
-                        $controller->modifierAuteur();
+                        $controller->modifierAuteur($id);
                     break;
                     case"supprimerAuteur":
-                        $controller->getSupprimerAuteur();
+                        $controller->getSupprimerAuteur($id);
                     break;
                     //gestion atelier
                     case"listeAtelier":
@@ -140,10 +157,10 @@ try {
                         $controller->ajouterUnAtelier();
                     break;
                     case"modifierAtelier":
-                        $controller->modifierAtelier();
+                        $controller->modifierAtelier($id);
                     break;
                     case"supprimerAtelier":
-                        $controller->supprimerAtelier();
+                        $controller->supprimerAtelier($id);
                     break;
                     //gestion categorie
                     case"listeCategorie":
@@ -153,10 +170,10 @@ try {
                         $controller->ajouterUneCategorie();
                     break;
                     case"modifierCategorie":
-                        $controller->modifierCategorie();
+                        $controller->modifierCategorie($id);
                     break;
                     case"supprimerCategorie":
-                        $controller->supprimerCategorie();
+                        $controller->supprimerCategorie($id);
                     break;
                     //gestion des clients(abonnés)
                     case"listeClient":
@@ -166,10 +183,10 @@ try {
                         $controller->ajouterUnClient();
                     break;
                     case"modifierClient":
-                        $controller->modifierClient();
+                        $controller->modifierClient($id);
                     break;
                     case"supprimerClient":
-                        $controller->supprimerClient();
+                        $controller->supprimerClient($id);
                     break;
                     //gestion des coups de coeur
                     case"listeCoupDeCoeur": 
@@ -179,10 +196,10 @@ try {
                         $controller->ajoutUnCoupDeCoeur();
                     break;
                     case"modifierCoupDeCoeur":
-                        $controller->modifierCoupDeCoeur();
+                        $controller->modifierCoupDeCoeur($id);
                     break;
                     case"supprimerCoupDeCoeur":
-                        $controller->supprimerCoupDeCoeur();
+                        $controller->supprimerCoupDeCoeur($id);
                     break;
                     //gestion des éditeurs
                     case"listeEditeur":
@@ -192,10 +209,10 @@ try {
                         $controller->ajoutUnEditeur();
                     break;
                     case"modifierEditeur":
-                        $controller->modifierEditeur();
+                        $controller->modifierEditeur($id);
                     break;
                     case"supprimerEditeur":
-                        $controller->supprimerEditeur();
+                        $controller->supprimerEditeur($id);
                     break;
                     //gestion des FAQ
                     case"listeFAQ":
@@ -205,10 +222,10 @@ try {
                         $controller->ajouterUneFAQ();
                     break;
                     case"modifierFAQ":
-                        $controller->modifierFAQ();
+                        $controller->modifierFAQ($id);
                     break;
                     case"supprimerFAQ":
-                        $controller->supprimerFAQ();
+                        $controller->supprimerFAQ($id);
                     break;
                     //gestion des META
                     case"listeMeta":
@@ -218,10 +235,10 @@ try {
                         $controller->ajoutMeta();
                     break;
                     case"modifierMeta":
-                        $controller->ModifierMeta();
+                        $controller->ModifierMeta($id);
                     break;
                     case"supprimerMeta":
-                        $controller->supprimerMeta();
+                        $controller->supprimerMeta($id);
                     break;
                     //gestion des reservations
                     case"listeReservation":

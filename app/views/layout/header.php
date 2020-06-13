@@ -2,8 +2,8 @@
     <!------Bandeau (logo, titre, renseignement(FAQ)), Banner (logo, title, information)------->
     <div class="bandeau">
         <figure class="headerLogo">
-            <a href="./home">
-                <img class="retoucheLogo" src="./../app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
+            <a href="./front-home">
+                <img class="retoucheLogo" src="app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
                     title="Tout l'univers">
             </a>
         </figure>
@@ -12,7 +12,7 @@
         </h1>
         <div class="logo">
             <a href="" id="boutonFaq">
-                <img class="retouchePointIntero" src="./../app/public/image/logo-flavicon/pointIntero1.png">
+                <img class="retouchePointIntero" src="app/public/image/logo-flavicon/pointIntero1.png">
             </a>
         </div>
     </div>
@@ -26,16 +26,16 @@
         ?>
             <!-- Bloc déconnexion - s'affiche en mode connecté -->
             <figure class="bloc_deconnexion">
-                <a href="./monCompte">
-                    <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
+                <a href="./front-monCompte">
+                    <img id="boutonCompte" src="app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
                 </a>
 
-                <a href="./panier">
-                    <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
+                <a href="./front-panier">
+                    <img id="boutonPanier" src="app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
                 </a>
 
-                <a href="./<?= $this->nomPage;?>?action2=deconnecter">
-                    <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
+                <a href="./front-<?= $this->nomPage;?>?action2=deconnecter">
+                    <img id="boutonDisconnect" src="app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
                 </a>
             </figure>
         <?php
@@ -44,10 +44,10 @@
         ?>
             <div class="bloc_connexion">
                 <a id="boutonCreerCompte" href="">
-                    <img src="./../app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
+                    <img src="app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
                 </a>
                 <a id="boutonSidentifier" href="">
-                    <img src="./../app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
+                    <img src="app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
                 </a>
             </div>
         <?php
@@ -58,25 +58,25 @@
         
 
         <div class="boutonLoupe">
-            <img src="./../app/public/image/bouton/loupe.png">
+            <img src="app/public/image/bouton/loupe.png">
         </div>
         <!----------------------Menu------------------------------>
         <div class="burger" id="boutonBurger">
-            <img src="./../app/public/image/icon/burger.png" alt="image burger menu">
+            <img src="app/public/image/icon/burger.png" alt="image burger menu">
         </div>
         <div class="menu">
             <ul id="conteneurMenu" >
                 <li class="nav-item">
-                    <a href="./home">Accueil</a>
+                    <a href="./front-home">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./coupDeCoeurs">Coups de coeurs</a>
+                    <a href="./front-coupDeCoeurs">Coups de coeurs</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./nouveaute">Nouveautés</a>
+                    <a href="./front-nouveaute">Nouveautés</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./atelier">Ateliers</a>
+                    <a href="./front-atelier">Ateliers</a>
                 </li>
             </ul>
         </div>
@@ -84,23 +84,23 @@
     <nav class="navMenuBurger">
         <ul id="conteneurMenuBurger" >
             <li class="nav-item">
-                <a href="./home"> Accueil </a>
+                <a href="./front-home"> Accueil </a>
             </li>
             <li class="nav-item">
-                <a href="./coupDeCoeurs"> Coups de coeurs</a>
+                <a href="./front-coupDeCoeurs"> Coups de coeurs</a>
             </li>
             <li class="nav-item">
-                <a href="./nouveaute"> Nouveautés</a>
+                <a href="./front-nouveaute"> Nouveautés</a>
             </li>
             <li class="nav-item">
-                <a href="./atelier"> Ateliers</a>
+                <a href="./front-atelier"> Ateliers</a>
             </li>
         </ul>
     </nav>
     
     <!--------------Barre de recherche, Search bar-------------------->
     <div id="barreDeRecherche">
-        <form class="selectionLivres" name="formRecherche" method="post" action="./pageRecherche" onsubmit="return verificationRecherche()">
+        <form class="selectionLivres" name="formRecherche" method="post" action="./front-pageRecherche" onsubmit="return verificationRecherche()">
             <select id="selectCategorie" name="selectCategorie">
                 <option value="0">
                     Catégorie...
@@ -113,7 +113,7 @@
                 ?>
             </select>
             <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
-            <img src="./../app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="verificationRecherche();">
+            <img src="app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="verificationRecherche();">
         </form>
     </div>
 </header>
@@ -122,16 +122,16 @@
 
 <!-- BOITE MODAL:S'IDENTIFIER  -->
 <div id="modalConnection" class="boiteModal">
-    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalConnection" class="boutonFermerModal" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalConnection" class="boutonFermerModal" src="app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Veuillez vous d'identifier 
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connecter">
+            <form class="conteneurForm" method="POST" action="./front-<?= $this->nomPage;?>?action2=connecter">
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
                     <div class="blocinput">
@@ -156,7 +156,7 @@
                 </div>
                 <div id="erreurPostFormulaireConnexion" class="error"><?php if($this->erreurConnexionCompte == true){echo $this->libelleErreurConnexionCompte;} ?></div>
                 <div class="conteneurIdentifiant" >
-                <a href="./passOublier" class="monBoutton">
+                <a href="./front-passOublier" class="monBoutton">
                     Mot de passe oublié ? 
                 </a>
                 <a id="boutonBesoinCompte" class="monBoutton" >
@@ -174,16 +174,16 @@
 
 <!-- BOITE MODAL:CREER VOTRE COMPTE  -->
 <div id="modalCreerCompte" class="boiteModal">
-    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalCreerCompte" class="boutonFermerModal" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalCreerCompte" class="boutonFermerModal" src="app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Créez-votre compte
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=creerCompte">
+            <form class="conteneurForm" method="POST" action="./front-<?= $this->nomPage;?>?action2=creerCompte">
                 <div class="civilite">
                     <div>
                         <label for="monsieur" class="petit">M</label>
@@ -292,7 +292,7 @@
                 <div class="conteneurIdentifiant">
                         <!--bouton pour envoyer le formulaire ou annuler-->
                         <input type="submit" id="boutonEnvoyerCreez" value="envoyer" class="monBoutton">
-                        <a href="./home" class="monBoutton" type="reset" >
+                        <a href="./front-home" class="monBoutton" type="reset" >
                             Annuler
                         </a>
                 </div>
@@ -306,10 +306,10 @@
 
 <!-- BOITE MODAL: FAQ  -->
 <div id="modalFaq" class="boiteModal">
-    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalFaq" src="./../app/public/image/bouton/btnFermer1.png"  alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalFaq" src="app/public/image/bouton/btnFermer1.png"  alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Question - Réponse
             </h1>
@@ -348,6 +348,6 @@
 
 <!-- BTN RETOUR HAUT  -->
 <a id="retourHaut" class="RetourHautPage"><img class="imgRetourHautPage"
-    src="./../app/public/image/bouton/boutonHaut.png"  alt="Retour vers le haut" title="Retour vers le haut">
+    src="app/public/image/bouton/boutonHaut.png"  alt="Retour vers le haut" title="Retour vers le haut">
 </a>
 <!-- BTN RETOUR HAUT  -->

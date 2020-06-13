@@ -11,10 +11,10 @@
     <meta name="title" content="Notre bibliothèque en ligne">
    
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/admin/accueil.css">
+    <link rel="stylesheet" href="app/public/css/admin/accueil.css">
 
 
 </head>
@@ -25,8 +25,8 @@
 
             <!--BOUTON RETOUR  -->
             <figure class="retour">
-                <a href="./accueil">
-                    <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                <a href="./admin-accueil">
+                    <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                     Retour 
                 </a>
             </figure>
@@ -34,7 +34,7 @@
 
             <!-- PAGE 404 -->
             <figure>
-                <img class="erreur404" src="./../app/public/image/img/erreur404.jpg" alt="Erreur de page " title="Erreur de page">
+                <img class="erreur404" src="app/public/image/img/erreur404.jpg" alt="Erreur de page " title="Erreur de page">
             </figure>
            
  
