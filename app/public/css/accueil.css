@@ -99,7 +99,6 @@
 }
 .Accueil .imgArticleLivre img
 {
-    
     margin: 0 auto;
     border: 1px solid #92c4f3;
     height: 232px;
@@ -162,5 +161,9 @@
     .Accueil .titreMain
     {
         font-size: 1.3rem;
+    }
+    .Accueil .imgArticleLivre img
+    {
+        height: 150px;
     }
 }

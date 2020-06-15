@@ -10,11 +10,13 @@ Ces instructions vous permettront d'obtenir une copie du projet sur votre ordina
 
 
 ## Langage utilisé
-* html5 
-* css3
-* javaScript
-* php
-* jquery
+* HTML5
+* CSS3
+* JAVASCRIPT
+* PHP
+* JQUERY
+* AJAX
+* API
 
 ## Description du projet
 Ce projet est une bibliothèque en ligne pour mon projet de fin d'année

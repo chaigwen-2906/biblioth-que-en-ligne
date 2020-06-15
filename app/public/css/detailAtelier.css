@@ -51,7 +51,6 @@
 }
 .detailAtelier .descriptionAtelier h2
 {
-    color: white;
     text-align: center;
     height: 55px;
     display: flex;
@@ -76,7 +75,6 @@
     border-radius: 5px;
     background-color: white;
     text-align: center;
-    color: rgb(218, 213, 213);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -86,7 +84,7 @@
 }
 .detailAtelier .reservationAtelier h2
 {
-    color: rgb(218, 213, 213);
+    color: crimson;
     text-align: center;
     height: 55px;
     display: flex;

@@ -390,9 +390,6 @@ header .selectionLivres .boutonRechercher
     margin: 15px;
 }
 
-
-
-
 /* BOITE MODAL FAQ  */
 .boiteModal .conteneurFaq
 {
@@ -503,16 +500,18 @@ header .selectionLivres .boutonRechercher
 /*---------------media querie tablette------------*/
 @media screen and (max-width: 992px)
 {
-    header .bandeau .headerLogo img {
+    header .bandeau .headerLogo img 
+    {
         width: 50px;
     }
-    header .bandeau h1 {
+    header .bandeau h1 
+    {
         font-size: 1.3rem;
     }
-    header .bandeau .logo .retouchePointIntero{
+    header .bandeau .logo .retouchePointIntero
+    {
         width: 40px;
     }
-
     header .burger
     {
         display: flex;
@@ -541,5 +540,14 @@ header .selectionLivres .boutonRechercher
         width:90%;
         left:5%;
         top:5%;
+    }
+}
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .contenuModal .conteneurFaq .faqReponse
+    {
+       width: 75%;
     }
 }

@@ -29,7 +29,7 @@ class ManagerCoupCoeur extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT *, livre.nom AS nomLivre FROM coupDeCoeur LEFT JOIN livre ON (coupDeCoeur.idLivre = livre.idLivre)";  
+        $sql = "SELECT idCoupDeCoeur,coupDeCoeur.auteur AS auteurCC, coupDeCoeur.dateDePublication AS dateCC, livre.nom AS nomLivre FROM coupDeCoeur LEFT JOIN livre ON (coupDeCoeur.idLivre = livre.idLivre)";  
         
 
         $requete = $bdd->prepare($sql);
