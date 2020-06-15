@@ -79,7 +79,12 @@
                         </h2>
                         <hr separator>
                         <h3>
-                            <?= $DetailAtelier['date']; ?> à <?= $DetailAtelier['heure']; ?>
+                            <?php 
+                                //récupération de la date sous forme d'un datetime
+                                // puis utilisation de la fonction format pour afficher avec le format attendu
+                                $date = new DateTime($DetailAtelier['date']);
+                            ?>
+                            <?= $date->format('d/m/Y'); ?> à <?= substr($DetailAtelier["heure"],0,5); ?>
                             rendez-vous pour l'activité  " <?= $DetailAtelier['nom']; ?>"  d'une capacité 
                             <?= $DetailAtelier['capacite']; ?> personne et à partir <?= $DetailAtelier['age']; ?> ans.
                         </h3>

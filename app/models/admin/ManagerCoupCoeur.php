@@ -9,7 +9,7 @@ class ManagerCoupCoeur extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT idCoupDeCoeur FROM coupDeCoeur where idLivre =?";
+        $sql = "SELECT idCoupDeCoeur FROM coupdecoeur where idLivre =?";
          
         $requete = $bdd->prepare($sql);
 
@@ -24,12 +24,11 @@ class ManagerCoupCoeur extends Manager{
     }
 
 
-
     function lireListeCoupDeCoeur()
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT idCoupDeCoeur,coupDeCoeur.auteur AS auteurCC, coupDeCoeur.dateDePublication AS dateCC, livre.nom AS nomLivre FROM coupDeCoeur LEFT JOIN livre ON (coupDeCoeur.idLivre = livre.idLivre)";  
+        $sql = "SELECT idCoupDeCoeur,coupdecoeur.auteur AS auteurCC, coupdecoeur.dateDePublication AS dateCC, livre.nom AS nomLivre FROM coupdecoeur LEFT JOIN livre ON (coupdecoeur.idLivre = livre.idLivre)";  
         
 
         $requete = $bdd->prepare($sql);

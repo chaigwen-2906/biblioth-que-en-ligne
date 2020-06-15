@@ -958,7 +958,6 @@ class ControllerAdmin
             $ManagerCoupDeCoeur = new \Projet\Models\admin\ManagerCoupCoeur();
             $listeCoupDeCoeur = $ManagerCoupDeCoeur->lireListeCoupDeCoeur();
 
-
             //Appel à la vue : affichage
             require 'app/views/admin/listeCoupDeCoeur.php';
 

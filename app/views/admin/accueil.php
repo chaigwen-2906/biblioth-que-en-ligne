@@ -37,10 +37,8 @@
 
             <!-- SECTION RESERVER  -->
             <section class="gestionReserver">
-                <a href="./admin-listeReservation">
-                    <article class="gererReservations">
-                        Gérer les reservations
-                    </article>
+                <a href="./admin-listeReservation" class="gererReservations">
+                    Gérer les reservations
                 </a>
             </section>
             <!-- FIN SECTION RESERVER  -->
@@ -48,57 +46,41 @@
             <!-- SECTION DES ARTICLES  -->
             <section class="gestionsDesTables">
 
-                <a href="./admin-listeLivres">
-                    <article class="gererArticle">
-                        Gérer les livres
-                    </article>
+                <a href="./admin-listeLivres" class="gererArticle">
+                    Gérer les livres
                 </a>
 
-                <a href="./admin-listeAuteur">    
-                    <article class="gererArticle">
+                <a href="./admin-listeAuteur" class="gererArticle">    
                         Gérer les auteurs
-                    </article>
                 </a>
 
-                <a href="./admin-listeAtelier">
-                    <article class="gererArticle">
+                <a href="./admin-listeAtelier" class="gererArticle">
                         Gérer les ateliers
-                    </article>
                 </a>
 
-                <a href="./admin-listeCategorie"> 
-                    <article class="gererArticle">
+                <a href="./admin-listeCategorie" class="gererArticle"> 
                         Gérer les catégories 
-                    </article>
                 </a>
 
-                <a href="./admin-listeClient">
-                    <article class="gererArticle">
+                <a href="./admin-listeClient" class="gererArticle">
                         Gérer les clients
-                    </article>
                 </a>
 
-                <a href="./admin-listeCoupDeCoeur">
-                    <article class="gererArticle">
+                <a href="./admin-listeCoupDeCoeur" class="gererArticle">
                         Gérer les coups de coeur
-                    </article>
                 </a>
 
-                <a href="./admin-listeEditeur">
-                    <article class="gererArticle">
+                <a href="./admin-listeEditeur" class="gererArticle">
                         Gérer les éditeurs
-                    </article>
+
                 </a>
 
-                <a href="./admin-listeFAQ">
-                    <article class="gererArticle">
+                <a href="./admin-listeFAQ" class="gererArticle">
                         Gérer les FAQ
                     </article>
                 </a>
-                <a href="./admin-listeMeta">
-                    <article class="gererArticle">
+                <a href="./admin-listeMeta" class="gererArticle">
                     Paramètrage des pages
-                    </article>
                 </a>
             
             </section>
