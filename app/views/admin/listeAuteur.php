@@ -8,8 +8,10 @@
         <!-- je n'index pas cette pas là  -->
         <meta name="robots" content="noindex">
         <meta name="title" content="Notre bibliothèque en ligne">
+
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="app/public/css/admin/gestion.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/gestion.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
         <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />

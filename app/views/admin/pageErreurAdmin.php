@@ -14,7 +14,8 @@
     <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="app/public/css/admin/accueil.css">
+    <!-- <link rel="stylesheet" href="app/public/css/admin/accueil.css"> -->
+    <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
 
 
 </head>

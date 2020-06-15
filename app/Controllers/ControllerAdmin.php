@@ -237,6 +237,7 @@ class ControllerAdmin
                  {
                     if($_GET['action2'] == "supprimerLivre")
                     {
+                        echo "<br/><br/><br/><br/><br/><br/><br/><br/>idLivre : ".$idLivre;
                         //on récupère les commentaires qui sont associés au livre
                         $ManagerCommentaires = new  \Projet\Models\admin\ManagerCommentaires();
                         $ManagerCommentaires->supprimeCommentairesParIdLivre($idLivre);
@@ -257,12 +258,12 @@ class ControllerAdmin
                         // on supprime reservations
                         foreach($listeReservations as $uneReservation)
                         {
-                            $supUneReservation = new \Projet\Models\admin\objets\reservation($uneReservation['idReservation'],'','','','');
+                            $supUneReservation = new \Projet\Models\admin\objets\Reservation($uneReservation['idReservation'],'','','','');
                             $supUneReservation->delete();  
                         }
 
                         // on supprime le livre
-                        $unLivre = new \Projet\Models\admin\objets\livre($idLivre,'','','','','','','','','','','','','','');
+                        $unLivre = new \Projet\Models\admin\objets\Livre($idLivre,'','','','','','','','','','','','','','');
                         $unLivre->delete();
 
 
@@ -900,7 +901,7 @@ class ControllerAdmin
                         // on supprime reservations
                         foreach($listeReservations as $uneReservation)
                         {
-                            $supUneReservation = new \Projet\Models\admin\objets\reservation($uneReservation['idReservation'],'','','','');
+                            $supUneReservation = new \Projet\Models\admin\objets\Reservation($uneReservation['idReservation'],'','','','');
                             $supUneReservation->delete();  
                         }
 
@@ -954,12 +955,12 @@ class ControllerAdmin
                 }
             }
                 
-                $ManagerCoupDeCoeur = new \Projet\Models\admin\ManagerCoupCoeur();
-                $listeCoupDeCoeur = $ManagerCoupDeCoeur->lireListeCoupDeCoeur();
+            $ManagerCoupDeCoeur = new \Projet\Models\admin\ManagerCoupCoeur();
+            $listeCoupDeCoeur = $ManagerCoupDeCoeur->lireListeCoupDeCoeur();
 
 
-                //Appel à la vue : affichage
-                require 'app/views/admin/listeCoupDeCoeur.php';
+            //Appel à la vue : affichage
+            require 'app/views/admin/listeCoupDeCoeur.php';
 
         }
         else{
@@ -1016,16 +1017,17 @@ class ControllerAdmin
                 $unCoupDeCoeur = new \Projet\Models\admin\objets\CoupDeCoeur($idCoupDeCoeur, "","", "", "");
                 $unCoupDeCoeur->Read();
 
-
+                
                 if(isset($_GET['action2'])){
 
                     if($_GET['action2'] == "modifierCoupDeCoeur")
                     {
+                        
                         $unCoupDeCoeur->setIdLIvre($_POST['selectLivre']);
                         $unCoupDeCoeur->setAuteur($_POST['auteur']);
                         $unCoupDeCoeur->setCommentaire($_POST['commentaire']);
                         $unCoupDeCoeur->setDateDePublication($_POST['dateDePublication']);
-                        
+                       
                         //enregistrer en base bdd
                         $unCoupDeCoeur->Update();
 

@@ -10,7 +10,8 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="app/public/css/admin/gestion.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/gestion.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
         <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
@@ -54,14 +55,14 @@
 
                     <section class="detail">
                         <p class="conteneur1">
-                            <span>Auteur :&nbsp;</span><?= $unCoupCoeur['auteur']; ?>
+                            <span>Auteur :&nbsp;</span><?= $unCoupCoeur['auteurCC']; ?>
                         </p>
                         <p class="conteneur2">
                             <span>Livre :&nbsp;</span><?=  $unCoupCoeur['nomLivre']; ?>
                         </p>
                         <p class="conteneur3">
                             <?php 
-                                $tempDate = substr($unCoupCoeur['dateDePublication'],0,10);
+                                $tempDate = substr($unCoupCoeur['dateCC'],0,10);
                                 $tabdate = explode('-',$tempDate);
                                 $dateDePublication = $tabdate[2]."/".$tabdate[1]."/".$tabdate[0];
                             ?>

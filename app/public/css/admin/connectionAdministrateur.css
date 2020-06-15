@@ -30,6 +30,7 @@
 .administrateur .labelAdministrateur
 {
     width: 305px;
+    text-align: center;
 }
 /*FIN CHAMPS LABEL  */
 
@@ -67,3 +68,14 @@ footer p
     text-align: center;
 }
 /* FIN FOOTER  */
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    /* BOUTON CONNECTER ET RETOUR  */
+    .administrateur .boutonAdministrer
+    {
+        width: 55%;
+    }
+}
