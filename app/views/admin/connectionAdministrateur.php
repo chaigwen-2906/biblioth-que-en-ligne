@@ -28,13 +28,13 @@
                     <!-- NOM  -->
                     <article class="divContenuAdministrateur">
                         <label class="labelAdministrateur" for="nom"> Nom d'utilisateur </label>
-                        <input type="text" name="nom" class="inputAdministrateur" value="" > 
+                        <input type="text" name="nom" class="inputAdministrateur" value=""/> 
                         <span id="erreurNom"></span>
                     </article>
                     <!-- NOUVEAU MOT DE PASSE  -->
                     <article class="divContenuAdministrateur">
                         <label class="labelAdministrateur" for="motPasse"> mot de passe</label>
-                        <input type="password" name="motPasse" class="inputAdministrateur" value="" placeholder=" mot de passe" required/>
+                        <input type="password" name="motPasse" class="inputAdministrateur" value=""/>
                         <span id="erreur"></span>
                     </article>
 
