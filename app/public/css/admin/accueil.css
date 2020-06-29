@@ -13,6 +13,10 @@
 /* FIN TITRE  */
 
 /* SECTION RESERVER  */
+.accueil .gestionReserver
+{
+    display: flex;
+}
 .accueil .gestionReserver a
 {
     text-decoration: none;
@@ -40,7 +44,7 @@
    
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin: 15px;
     padding: 10px;
 }
@@ -88,3 +92,4 @@ footer p
     display: flex;
     margin: 0 auto;
 }
+

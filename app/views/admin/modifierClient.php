@@ -10,10 +10,11 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/ajout.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -21,8 +22,8 @@
         <main class="ajoutLivre">
             <!--BOUTON RETOUR  -->
             <figure class="retour">
-                <a href="./listeClient">
-                    <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                <a href="./admin-listeClient">
+                    <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                     Retour 
                 </a>
             </figure>
@@ -31,7 +32,7 @@
             <h1>
                 Modifier un client
             </h1>
-            <form method="POST" action="./<?= $this->nomPage;?>?action2=modifierClient&idClient=<?= $idClient;?>">
+            <form method="POST" action="./admin-<?= $this->nomPage;?>-<?= $idClient;?>?action2=modifierClient">
 
                <!-- numeroAbonne  -->
                <section class="conteneurSection">

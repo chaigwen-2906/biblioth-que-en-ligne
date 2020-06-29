@@ -5,9 +5,9 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerLivres extends Manager{
 
-    function getListeLivres()
+    function lireListeLivres()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT idLivre, livre.nom, nomAuteur, editeur.nom AS 'nomEditeur' 
         FROM livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur) LEFT JOIN editeur ON (livre.idEditeur = editeur.idEditeur) ORDER BY livre.nom";  
@@ -27,9 +27,9 @@ class ManagerLivres extends Manager{
 
     }
 
-    function getListeLivreByIdAuteur($idAuteur)
+    function lireListeLivreParIdAuteur($idAuteur)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
     
         $sql = "SELECT idLivre FROM livre where idAuteur=?";
             

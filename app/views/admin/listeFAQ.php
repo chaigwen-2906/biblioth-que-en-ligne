@@ -10,10 +10,11 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/gestion.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -22,8 +23,8 @@
         <main class="gestion">
                 <!--BOUTON RETOUR  -->
                 <figure class="retour">
-                    <a href="./accueil">
-                        <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                    <a href="./admin-accueil">
+                        <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                         Retour 
                     </a>
                 </figure>
@@ -37,7 +38,7 @@
 
                 <!-- AJOUTE  -->
                 <section class="ajout">
-                    <a href="./ajoutFAQ">   
+                    <a href="./admin-ajoutFAQ">   
                         Ajouter un FAQ !!
                     </a>
                 </section> 
@@ -62,10 +63,10 @@
                        
                         
                         <p class="conteneur4">
-                            <a  href="./modifierFAQ?idFaq=<?= $uneFAQ['idFAQ']; ?>">   
+                            <a  href="./admin-modifierFAQ-<?= $uneFAQ['idFAQ']; ?>">   
                                 <span> Modifier</span>
                             </a>
-                            <a  href="./supprimerFAQ?idFaq=<?= $uneFAQ['idFAQ']; ?>">   
+                            <a  href="./admin-supprimerFAQ-<?= $uneFAQ['idFAQ']; ?>">   
                                 <span>Supprimer</span>
                             </a>
                         </p>
@@ -87,7 +88,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/admin/gestionLivres.js"></script>
+        <script type="text/javascript" src="app/public/js/admin/gestionLivres.js"></script>
 
     </body>    
     

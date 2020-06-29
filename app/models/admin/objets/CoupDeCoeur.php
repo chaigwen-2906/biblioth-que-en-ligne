@@ -67,7 +67,7 @@ class CoupDeCoeur extends Manager{
 
     public function __construct($idCoupDeCoeur, $idLivre, $auteur, $commentaire, $dateDePublication){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie idcoupDeCoeur
         $this->setIdCoupDeCoeur($idCoupDeCoeur);
@@ -95,7 +95,7 @@ class CoupDeCoeur extends Manager{
          //Préparation de la requête
          //dans la bdd INSERT la ligne dans la table coupDeCoeur et je passe les valeur des colonne = 
          //(idlivre,auteur,commentaire,dateDePublication)
-        $sql= "INSERT INTO coupDeCoeur(idLivre,auteur,commentaire,dateDePublication) VALUES (";
+        $sql= "INSERT INTO coupdecoeur(idLivre,auteur,commentaire,dateDePublication) VALUES (";
 
         if($this->getIdLivre() == ''){
             $sql = $sql."null,";
@@ -130,7 +130,7 @@ class CoupDeCoeur extends Manager{
     // Read : Lit une ligne dans la table CoupDeCoeur
     public function Read(){
         //Préparation de la requête
-        $sql = "SELECT * FROM coupDeCoeur WHERE idCoupDECoeur = ?";
+        $sql = "SELECT * FROM coupdecoeur WHERE idCoupDECoeur = ?";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
@@ -158,7 +158,7 @@ class CoupDeCoeur extends Manager{
     // Update : Modifie les données d'une ligne dans la table Categorie
     public function Update(){
         //Préparation de la requête
-        $sql = "UPDATE coupDeCoeur SET idLivre = ?, auteur = ?, commentaire = ?, dateDePublication = ? WHERE idCoupDeCoeur = ?";
+        $sql = "UPDATE coupdecoeur SET idLivre = ?, auteur = ?, commentaire = ?, dateDePublication = ? WHERE idCoupDeCoeur = ?";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
@@ -174,7 +174,7 @@ class CoupDeCoeur extends Manager{
     // delete : supprime une ligne dans la table Categorie
     public function delete(){
         //Préparation de la requête
-        $sql = "DELETE FROM coupDeCoeur WHERE idCoupDeCoeur = ?";
+        $sql = "DELETE FROM coupdecoeur WHERE idCoupDeCoeur = ?";
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete

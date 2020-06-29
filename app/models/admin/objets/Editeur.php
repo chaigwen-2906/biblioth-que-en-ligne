@@ -46,7 +46,7 @@ class Editeur extends Manager{
     public function __construct($idEditeur, $code, $nom){
 
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie idEditeur 
         $this->setIdEditeur($idEditeur);

@@ -1,0 +1,184 @@
+.coupDeCoeur
+{
+    padding-top: 170px;
+}
+
+/* FILS D'ARIANE  */
+.coupDeCoeur .filArianeCoupDeCoeurs
+{
+    color: white;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-bottom: 25px;
+}
+
+/* FIN  FILS D'ARIANE  */
+
+/*CONTENU  ARTICLE COUP DE COEUR  */
+.coupDeCoeur .separator
+{
+    width: 55%;
+    border-color: rgb(241, 123, 147);
+}
+.coupDeCoeur .blockContenu
+{
+    background-color: #92c4f3;
+    padding-top: 5px;
+}
+.coupDeCoeur .titreMain
+{
+    background-color: grey;
+    color: white;
+    height: 55px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.coupDeCoeur .articles
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+/*FIN CONTENU  ARTICLE COUP DE COEUR  */
+
+/* TOUT LES ARTICLES   */
+.coupDeCoeur .articleLivres
+{  
+    border: 2px solid rgb(209, 201, 201);
+    background-color: white;
+    border-radius: 5px;
+    width: 350px;
+    margin-bottom: 25px;
+}
+.coupDeCoeur .articleLivres h3,
+.coupDeCoeur .articleLivres p
+{
+    text-align: center;
+    background-color: rgb(209, 201, 201);
+    padding: 10px;
+}
+.coupDeCoeur .articleLivres .dateDeSortie
+{
+    font-size: 0.8em;
+}
+.coupDeCoeur .imgArticleLivre  
+{
+    text-align: center;
+    padding-top: 10px;
+    max-width: 55%;
+    margin: 0 auto;
+}
+.coupDeCoeur .imgArticleLivre img
+{
+    border: 1px solid #92c4f3;
+    max-width: 75%;
+    margin: 0 auto;
+    height: 232px;
+}
+.coupDeCoeur .articles h4
+{
+    text-align: center;
+    height: 65px;
+    padding-top: 35px;
+}
+.coupDeCoeur .button
+{
+    background-color: indigo;
+    width: 80%;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
+.coupDeCoeur .articles a
+{
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    max-width: 150px;
+    background-color: rgb(243, 131, 26);
+    justify-content: center;
+    border-radius: 5px;
+}
+/*FIN TOUT LES ARTICLES   */
+
+/* FIGURE SLIDER */
+.coupDeCoeur .figureSlider
+{
+    width: 80%;
+    position: relative;
+    text-align: center;   
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+.coupDeCoeur .figureSlider .imgSlider
+{
+    width: 90%;
+}
+.coupDeCoeur .figureSlider .imgDroite 
+{
+    width: 5%;
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    cursor: pointer;
+}
+.coupDeCoeur .figureSlider .imgGauche 
+{
+    width: 5%;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    cursor: pointer;
+}
+
+/* FIN FIGURE SLIDER  */
+
+/* TEXT EN SVG */
+.conteneurSVG
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+svg
+{
+    width: 500px;
+}
+/*FIN TEXT EN SVG */
+
+
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .coupDeCoeur
+    {
+        padding-top: 145px;
+    }
+    svg
+    {
+        display: none;
+    }
+}
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .coupDeCoeur .figureSlider
+    {
+        display: none;
+    }
+    .coupDeCoeur .titreMain
+    {
+        font-size: 1.5em;
+        text-align: center;
+    }
+}

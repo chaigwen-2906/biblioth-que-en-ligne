@@ -91,3 +91,16 @@ footer p
     height: 35px;
     margin-top: 35px;
 }
+
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .ajoutLivre .conteneurInputAjout 
+    {
+        width: 50%;
+        margin: 5px;
+    }
+}
+

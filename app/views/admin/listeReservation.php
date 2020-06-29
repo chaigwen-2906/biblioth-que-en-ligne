@@ -10,10 +10,11 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/gestion.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -22,8 +23,8 @@
         <main class="gestion">
                 <!--BOUTON RETOUR  -->
                 <figure class="retour">
-                    <a href="./accueil">
-                        <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                    <a href="./admin-accueil">
+                        <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                         Retour 
                     </a>
                 </figure>
@@ -62,11 +63,11 @@
                             </p>
                             <p class="conteneur4">
                             <?php if($uneReservationAValide['disponible'] == "oui" ) {   ?>
-                                <a   href="./<?= $this->nomPage;?>?action2=validerReservation&idReservation=<?=$uneReservationAValide['idReservation'];?>">   
+                                <a   href="./admin-<?= $this->nomPage;?>?action2=validerReservation&idReservation=<?=$uneReservationAValide['idReservation'];?>">   
                                     <span> Validée</span>
                                 </a>
                             <?php }?>
-                                <a href="./<?= $this->nomPage;?>?action2=supprimerReservation&idReservation=<?=$uneReservationAValide['idReservation'];?>"   >   
+                                <a href="./admin-<?= $this->nomPage;?>?action2=supprimerReservation&idReservation=<?=$uneReservationAValide['idReservation'];?>"   >   
                                     <span>Supprimer</span>
                                 </a>
                             </p>
@@ -101,7 +102,7 @@
                                 <span>La date de début :&nbsp;</span><?= $date; ?>
                             </p>
                             <p class="conteneur4">
-                                <a href="./<?= $this->nomPage;?>?action2=stopperReservation&idReservation=<?=$uneReservationValide['idReservation'];?>"   >   
+                                <a href="./admin-<?= $this->nomPage;?>?action2=stopperReservation&idReservation=<?=$uneReservationValide['idReservation'];?>"   >   
                                     <span>Stopper</span>
                                 </a>
                             </p>
@@ -155,7 +156,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/admin/gestionLivres.js"></script>
+        <script type="text/javascript" src="app/public/js/admin/gestionLivres.js"></script>
 
     </body>    
     

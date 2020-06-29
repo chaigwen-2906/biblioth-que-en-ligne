@@ -155,7 +155,7 @@ namespace Projet\Models\admin\objets;
     $description,$disponible,$idEditeur,$nbDePage,$dimension,$langue,$ean,$isbn){
     
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie l'attribut idLivre de l'objet
         $this->setIdLivre($idLivre);

@@ -2,7 +2,7 @@
 {
     border: 2px solid crimson;
     text-align: center;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     margin-bottom: 85px;
     margin-top: 25px;
@@ -15,8 +15,6 @@
 /* LES ARTICLES  */
 .administrateur .divContenuAdministrateur
 {
-    border: 2px solid wheat;
-    background-color: darkgray;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -30,6 +28,7 @@
 .administrateur .labelAdministrateur
 {
     width: 305px;
+    text-align: center;
 }
 /*FIN CHAMPS LABEL  */
 
@@ -67,3 +66,26 @@ footer p
     text-align: center;
 }
 /* FIN FOOTER  */
+
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:992px)
+{
+    /* BOUTON CONNECTER ET RETOUR  */
+    .administrateur .boutonAdministrer
+    {
+        width: 45%;
+    }
+}
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    /* BOUTON CONNECTER ET RETOUR  */
+    .administrateur .boutonAdministrer
+    {
+        width: 55%;
+    }
+}

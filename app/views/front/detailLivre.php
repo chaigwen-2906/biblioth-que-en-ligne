@@ -13,15 +13,15 @@
     <title> Détail des livres - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/styles.css">
-    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
-    <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/detailLivre.css"> -->
+    <link rel="stylesheet" href="app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="app/public/css/header.css">
+    <link rel="stylesheet" href="app/public/css/footer.css">
+    <link rel="stylesheet" href="app/public/css/detailLivre.css"> -->
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -30,13 +30,13 @@
 
     <body>
 
-        <?php require_once("./app/views/layout/header.php"); ?>
+        <?php require_once("app/views/layout/header.php"); ?>
 
         <main class="detailLivre">
 
             <!-- FILS D'ARIANE  -->
             <div class ="filArianeLivre" >
-                <a href="./home"> 
+                <a href="./front-home"> 
                     Accueil >
                 </a>
                     Résumé du livre
@@ -60,16 +60,16 @@
                     <hr separator>
                     <figure class="réglageReseaux">
                         <ul>
-                            <li><a href="https://www.facebook.com/" target="_blank"><img src="./../app/public/image/reseaux/FacebookEcusson.png" 
+                            <li><a href="https://www.facebook.com/" target="_blank"><img src="app/public/image/reseaux/FacebookEcusson.png" 
                                 alt="Facebook" title="Facebook">
                             </a></li>
-                            <li><a href="https://twitter.com/accueil?lang=fr" target="_blank"><img src="./../app/public/image/reseaux/TwitterEcusson.png"
+                            <li><a href="https://twitter.com/accueil?lang=fr" target="_blank"><img src="app/public/image/reseaux/TwitterEcusson.png"
                                 alt="Twitter" title="Twitter"> 
                             </a></li>
-                            <li><a href="https://www.youtube.com/" target="_blank"><img src="./../app/public/image/reseaux/YoutubeEcusson.png"
+                            <li><a href="https://www.youtube.com/" target="_blank"><img src="app/public/image/reseaux/YoutubeEcusson.png"
                                 alt="Youtube" title="Youtube">
                             </a></li>
-                            <li><a href="https://www.linkedin.com/" target="_blank"><img src="./../app/public/image/reseaux/LinkedinEcusson.png"
+                            <li><a href="https://www.linkedin.com/" target="_blank"><img src="app/public/image/reseaux/LinkedinEcusson.png"
                                 alt="Linkedin" title="Linkedin">
                             </a></li>
                         </ul>
@@ -78,7 +78,7 @@
                     <!-- alors on affiche le bouton réserver   -->
                     <?php if(isset($_SESSION['idClient'])){ ?>
                         <?php if($DetailLivre['disponible'] == "oui"){ ?>
-                            <a id="btnReserver" class="monBoutton" href="./<?= $this->nomPage;?>?action2=ajoutePanier&id=<?= $_GET['id'];?>">
+                            <a id="btnReserver" class="monBoutton" href="./front-<?= $this->nomPage;?>-<?= $idLivre;?>?action2=ajoutePanier">
                                 Réserver
                             </a>
                         <?php } 
@@ -131,7 +131,7 @@
                 <!-- alors on affiche le formulaire qui permet de poster un commentaire  -->
                 <?php if(isset($_SESSION['idClient'])){ ?>
                    
-                    <form method="POST" action="./<?= $this->nomPage;?>?action2=ajouteCommentaire&id=<?= $_GET['id'];?>" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
+                    <form method="POST" action="./front-<?= $this->nomPage;?>-<?= $idLivre;?>?action2=ajouteCommentaire" id="sectionCommentaire" name="formAjoutCommentaire" class="commentaireLivre">
                         <h2>
                             Commentaires sur le livre
                         </h2>
@@ -147,7 +147,7 @@
                             <label for="commentaire">
                                 Votre commentaire :
                             </label>
-                            <textarea class="reglCommentaire" name="description" placeholder="Entrer votre message" cols="50" rows="3"></textarea>
+                            <textarea class="reglCommentaire" name="description" placeholder="Entrer votre message" cols="90" rows="6"></textarea>
                         </article>
                         <a id="btnPoster" class="monBoutton" onclick="window.document.formAjoutCommentaire.submit();">
                             Posté !
@@ -188,14 +188,7 @@
             </section>
         </main>
         
-        <?php require_once("./app/views/layout/footer.php") ?> 
-
-        <!---------------------- jQuery ---------------------------------->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-        <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <?php require_once("app/views/layout/footer.php") ?> 
 
     </body>
 

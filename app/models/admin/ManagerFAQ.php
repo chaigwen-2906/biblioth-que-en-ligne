@@ -5,9 +5,9 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerFAQ extends Manager{
 
-    function getListeFAQ()
+    function lireListeFAQ()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT * FROM faq";  
         

@@ -10,10 +10,11 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/accueil.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/accueil.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -22,8 +23,8 @@
         <main class="accueil">
             <!-- BOUTON SE DECONNECTER  -->
             <figure class="seDeconnecter">
-                <a  href="./<?= $this->nomPage;?>?action2=seDeconnecter">
-                    <img src="./../app/public/image/bouton/disconnect.png" alt="Se déconnecter" title="Se déconnecter">
+                <a  href="./admin-<?= $this->nomPage;?>?action2=seDeconnecter">
+                    <img src="app/public/image/bouton/disconnect.png" alt="Se déconnecter" title="Se déconnecter">
                 </a>
             </figure>
             <!-- FIN BOUTON DECONNECTER  -->
@@ -36,10 +37,8 @@
 
             <!-- SECTION RESERVER  -->
             <section class="gestionReserver">
-                <a href="./listeReservation">
-                    <article class="gererReservations">
-                        Gérer les reservations
-                    </article>
+                <a href="./admin-listeReservation" class="gererReservations">
+                    Gérer les reservations
                 </a>
             </section>
             <!-- FIN SECTION RESERVER  -->
@@ -47,57 +46,41 @@
             <!-- SECTION DES ARTICLES  -->
             <section class="gestionsDesTables">
 
-                <a href="./listeLivres">
-                    <article class="gererArticle">
-                        Gérer les livres
-                    </article>
+                <a href="./admin-listeLivres" class="gererArticle">
+                    Gérer les livres
                 </a>
 
-                <a href="./listeAuteur">    
-                    <article class="gererArticle">
+                <a href="./admin-listeAuteur" class="gererArticle">    
                         Gérer les auteurs
-                    </article>
                 </a>
 
-                <a href="./listeAtelier">
-                    <article class="gererArticle">
+                <a href="./admin-listeAtelier" class="gererArticle">
                         Gérer les ateliers
-                    </article>
                 </a>
 
-                <a href="./listeCategorie"> 
-                    <article class="gererArticle">
+                <a href="./admin-listeCategorie" class="gererArticle"> 
                         Gérer les catégories 
-                    </article>
                 </a>
 
-                <a href="./listeClient">
-                    <article class="gererArticle">
+                <a href="./admin-listeClient" class="gererArticle">
                         Gérer les clients
-                    </article>
                 </a>
 
-                <a href="./listeCoupDeCoeur">
-                    <article class="gererArticle">
+                <a href="./admin-listeCoupDeCoeur" class="gererArticle">
                         Gérer les coups de coeur
-                    </article>
                 </a>
 
-                <a href="./listeEditeur">
-                    <article class="gererArticle">
+                <a href="./admin-listeEditeur" class="gererArticle">
                         Gérer les éditeurs
-                    </article>
+
                 </a>
 
-                <a href="./listeFAQ">
-                    <article class="gererArticle">
+                <a href="./admin-listeFAQ" class="gererArticle">
                         Gérer les FAQ
                     </article>
                 </a>
-                <a href="./listeMeta">
-                    <article class="gererArticle">
+                <a href="./admin-listeMeta" class="gererArticle">
                     Paramètrage des pages
-                    </article>
                 </a>
             
             </section>

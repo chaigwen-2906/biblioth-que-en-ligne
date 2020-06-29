@@ -9,10 +9,12 @@
         <meta name="robots" content="noindex">
         <meta name="title" content="Notre bibliothèque en ligne">
 
-        <link rel="stylesheet" href="./../app/public/css/admin/connectionAdministrateur.css">
+        <!-- Appel des feuilles de style --/ Calling style sheets-->
+        <!-- <link rel="stylesheet" href="app/public/css/admin/connectionAdministrateur.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
 
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
     <body>
@@ -21,18 +23,18 @@
                 <h1>
                     Connection à l'administration
                 </h1>
-                <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connectionAdministrateur">
+                <form class="conteneurForm" method="POST" action="./admin-<?= $this->nomPage;?>?action2=connectionAdministrateur">
 
                     <!-- NOM  -->
                     <article class="divContenuAdministrateur">
                         <label class="labelAdministrateur" for="nom"> Nom d'utilisateur </label>
-                        <input type="text" name="nom" class="inputAdministrateur" value="" > 
+                        <input type="text" name="nom" class="inputAdministrateur" value=""/> 
                         <span id="erreurNom"></span>
                     </article>
                     <!-- NOUVEAU MOT DE PASSE  -->
                     <article class="divContenuAdministrateur">
                         <label class="labelAdministrateur" for="motPasse"> mot de passe</label>
-                        <input type="password" name="motPasse" class="inputAdministrateur" value="" placeholder=" mot de passe" required/>
+                        <input type="password" name="motPasse" class="inputAdministrateur" value=""/>
                         <span id="erreur"></span>
                     </article>
 

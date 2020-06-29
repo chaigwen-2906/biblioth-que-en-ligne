@@ -13,15 +13,15 @@
     <title> Nouveautés - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/styles.css">
-    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
-    <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/nouveaute.css"> -->
+    <link rel="stylesheet" href="app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="app/public/css/header.css">
+    <link rel="stylesheet" href="app/public/css/footer.css">
+    <link rel="stylesheet" href="app/public/css/nouveaute.css"> -->
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -31,13 +31,13 @@
     <body>
 
 
-        <?php require_once("./app/views/layout/header.php"); ?>
+        <?php require_once("app/views/layout/header.php"); ?>
 
         <main class="nouveaute">
 
             <!-- FILS D'ARIANE  -->
             <div class ="filArianeNouveaute" >
-                <a href="./home">
+                <a href="./front-home">
                     Accueil >
                 </a>
                     Nos nouveautés
@@ -48,25 +48,25 @@
             
             <figure class="figureSlid">
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="afficheNouveaute(this);">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="./../app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours" onclick="AfficheNouveaute(this);">
+                    <img class="imgSlider" src="app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours" onclick="afficheNouveaute(this);">
                 </div>    
             </figure>
 
@@ -107,7 +107,7 @@
                             <?php 
                                 //création du lien vers la page detailLivre en passant l'idLivre du coup de coeur 
                                 // en paramètre
-                                echo "<a href='./detailLivre?id=".$uneNouveaute['idLivre']."' class='button'>"; 
+                                echo "<a href='./front-detailLivre-".$uneNouveaute['idLivre']."' class='button'>"; 
                             ?>
                                 En savoir plus !!
                             </a>
@@ -133,14 +133,7 @@
 
 
         
-        <?php require_once("./app/views/layout/footer.php") ?> 
-
-        <!---------------------- jQuery ---------------------------------->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-        <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <?php require_once("app/views/layout/footer.php") ?> 
 
         <!--class active-->
         <script type="text/javascript">

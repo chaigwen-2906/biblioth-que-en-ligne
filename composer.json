@@ -1,10 +1,10 @@
 {
-    "name": "cedric/mvc",
-    "description": "project mvc",
+    "name": "Projet bibliotheque en ligne",
+    "description": "Site de publication web dédié aux bibilotheques",
     "authors": [
         {
-            "name": "cedricLt",
-            "email": "ced533@msn.com"
+            "name": "Gwenola LEMOINE",
+            "email": "chaigwen@hotmail.fr"
         }
     ],
     "autoload": {

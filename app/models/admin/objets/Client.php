@@ -121,7 +121,7 @@ class Client extends Manager{
     public function __construct($idClient, $numeroAbonne,$civilite, $nom, $prenom, $email, $telephoneMobile, $telephoneFixe, $adresse, $dateDeNaissance, $motDePasse){
 
       //On stocke la connexion à la base de données
-      $this->connectBdd = $this->dbConnect();
+      $this->connectBdd = $this->bddConnection();
 
       //on modifie l'attribut IdClient de l'objet
       // j'appel la function setidclient je lui passe en parametre idclient reçu en entrée

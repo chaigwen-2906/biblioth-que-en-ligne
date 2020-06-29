@@ -8,11 +8,13 @@
         <!-- je n'index pas cette pas là  -->
         <meta name="robots" content="noindex">
         <meta name="title" content="Notre bibliothèque en ligne">
+
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/gestion.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -21,8 +23,8 @@
         <main class="gestion">
                 <!--BOUTON RETOUR  -->
                 <figure class="retour">
-                    <a href="./accueil">
-                        <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                    <a href="./admin-accueil">
+                        <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                         Retour 
                     </a>
                 </figure>
@@ -36,7 +38,7 @@
 
                 <!-- AJOUTE LIVRE  -->
                 <section class="ajout">
-                    <a href="./ajoutAuteur">   
+                    <a href="./admin-ajoutAuteur">   
                         Ajouter un auteur !!
                     </a>
                 </section> 
@@ -59,10 +61,10 @@
                             <span>Prénom :&nbsp;</span><?= $unAuteur['prenomAuteur']; ?>
                         </p>
                         <p class="conteneur4">
-                            <a  href="./modifierAuteur?idAuteur=<?= $unAuteur['idAuteur']; ?>">   
+                            <a  href="./admin-modifierAuteur-<?= $unAuteur['idAuteur']; ?>">   
                                 <span> Modifier</span>
                             </a>
-                            <a  href="./supprimerAuteur?idAuteur=<?= $unAuteur['idAuteur']; ?>">   
+                            <a  href="./admin-supprimerAuteur-<?= $unAuteur['idAuteur']; ?>">   
                                 <span>Supprimer</span>
                             </a>
                         </p>
@@ -84,7 +86,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/admin/gestionLivres.js"></script>
+        <script type="text/javascript" src="app/public/js/admin/gestionLivres.js"></script>
 
     </body>    
     

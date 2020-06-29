@@ -1,0 +1,25 @@
+/* MAIN DETAIL PAGE ERREUR  */
+.pageErreur
+{
+    padding-top: 170px;
+}
+/*FIN DETAIL PAGE ERREUR    */
+
+/* FILS D'ARIANE  */
+.pageErreur .filArianePageErreur
+{
+    padding-left: 25px;
+}
+.pageErreur .filArianePageErreur
+{
+    color: white;
+    font-weight: bold;
+}
+/* FIN  FILS D'ARIANE  */
+
+/* FIGURE IMAGE 404  */
+.pageErreur .erreur404
+{
+    margin: 0 auto;
+    display: flex;
+}

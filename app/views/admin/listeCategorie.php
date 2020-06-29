@@ -10,10 +10,11 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/gestion.css">
+        <!-- <link rel="stylesheet" href="app/public/css/admin/gestion.css"> -->
+        <link rel="stylesheet" href="app/public/css/admin/stylesAdmin.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -22,8 +23,8 @@
         <main class="gestion">
                 <!--BOUTON RETOUR  -->
                 <figure class="retour">
-                    <a href="./accueil">
-                        <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                    <a href="./admin-accueil">
+                        <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                         Retour 
                     </a>
                 </figure>
@@ -37,7 +38,7 @@
 
                 <!-- AJOUTE LIVRE  -->
                 <section class="ajout">
-                    <a href="./ajoutCategorie">   
+                    <a href="./admin-ajoutCategorie">   
                         Ajouter une catégorie !!
                     </a>
                 </section> 
@@ -58,10 +59,10 @@
                         </p>
                         
                         <p class="conteneur4">
-                            <a  href="./modifierCategorie?idCategorie=<?= $uneCategorie['idCategorie']; ?>">   
+                            <a  href="./admin-modifierCategorie-<?= $uneCategorie['idCategorie']; ?>">   
                                 <span> Modifier</span>
                             </a>
-                            <a  href="./supprimerCategorie?idCategorie=<?= $uneCategorie['idCategorie']; ?>">   
+                            <a  href="./admin-supprimerCategorie-<?= $uneCategorie['idCategorie']; ?>">   
                                 <span>Supprimer</span>
                             </a>
                         </p>
@@ -83,7 +84,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/admin/gestionLivres.js"></script>
+        <script type="text/javascript" src="app/public/js/admin/gestionLivres.js"></script>
 
     </body>    
     

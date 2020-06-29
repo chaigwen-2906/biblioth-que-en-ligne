@@ -1,0 +1,146 @@
+/* MAIN */
+.atelier
+{
+    padding-top: 170px;
+}
+ /* FIN DU MAIN  */
+
+
+/* FILS D'ARIANE  */
+.atelier .filArianeAtelier
+{
+    padding-left: 25px;
+    padding-bottom: 15px;
+}
+.atelier .filArianeAtelier
+{
+    color: white;
+    font-weight: bold;
+}
+
+/* FIN  FILS D'ARIANE  */
+.atelier .blockContenu
+{
+    background-color: #92c4f3 ;
+    padding-top: 5px;
+}
+.atelier .titreMain
+{
+    background-color: #a59d9d;
+    color: white;
+    height: 55px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.atelier .articles
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+.atelier .articleLivres
+{  
+    border: 2px solid rgb(209, 201, 201);
+    background-color: white;
+    border-radius: 5px;
+    width: 350px;
+    margin-bottom: 25px;
+}
+.atelier .articleLivres h3,
+.atelier .articleLivres p
+{
+    text-align: center;
+    background-color: rgb(209, 201, 201);
+    padding: 10px;
+}
+.atelier .articleLivres .dateDeSortie
+{
+    font-size: 0.8em;
+}
+.atelier .imgArticleLivre  
+{
+    text-align: center;
+    padding-top: 10px;
+    max-width: 55%;
+    margin: 0 auto;
+}
+.atelier .imgArticleLivre img
+{
+    max-width: 75%;
+    margin: 0 auto;
+    border: 1px solid #92c4f3;
+}
+.atelier .articles h4
+{
+    text-align: center;
+    padding: 10px;
+}
+.atelier .button
+{
+    background-color: indigo;
+    width: 80%;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
+
+
+/* BOUTON EN SAVOIR PLUS  */
+.atelier .articles a
+{
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    max-width: 150px;
+    background-color: rgb(243, 131, 26);
+    justify-content: center;
+    border-radius: 5px;
+}
+/*FIN BOUTON EN SAVOIR PLUS   */
+
+
+/* SECTION YOU TUBE API (VIDEO-ATELIER)  */
+ .atelier .sectionYoutube h3, h6
+ {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+ }
+ .atelier .figureVideo
+ {
+     display: flex;
+     flex-wrap: wrap;
+     color: white;
+     background-color: #d1c9c9;
+     justify-content: space-around;
+     padding: 15px;
+ }
+/* FIN SECTION YOU TUBE API (VIDEO-ATELIER)   */
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .atelier
+    {
+        padding-top: 145px;
+     
+    }
+    
+}
+
+
+@media screen and (max-width:530px)
+{
+    .atelier .sectionYoutube
+    {
+        display: none;
+    }
+}

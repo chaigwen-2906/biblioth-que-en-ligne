@@ -44,7 +44,7 @@ class Faq extends Manager{
 
     public function __construct($idFaq, $question, $reponse){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie l'attribut idFaq de l'objet
         $this->setIdFaq($idFaq);

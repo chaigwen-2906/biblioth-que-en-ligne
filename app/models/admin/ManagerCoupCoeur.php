@@ -5,11 +5,11 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerCoupCoeur extends Manager{
 
-    function getListeCoupCoeurByIdLivre($idLivre)
+    function lireListeCoupCoeurParIdLivre($idLivre)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
-        $sql = "SELECT idCoupDeCoeur FROM coupDeCoeur where idLivre =?";
+        $sql = "SELECT idCoupDeCoeur FROM coupdecoeur where idLivre =?";
          
         $requete = $bdd->prepare($sql);
 
@@ -24,12 +24,11 @@ class ManagerCoupCoeur extends Manager{
     }
 
 
-
-    function getListeCoupDeCoeur()
+    function lireListeCoupDeCoeur()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
-        $sql = "SELECT *, livre.nom AS nomLivre FROM coupDeCoeur LEFT JOIN livre ON (coupDeCoeur.idLivre = livre.idLivre)";  
+        $sql = "SELECT idCoupDeCoeur,coupdecoeur.auteur AS auteurCC, coupdecoeur.dateDePublication AS dateCC, livre.nom AS nomLivre FROM coupdecoeur LEFT JOIN livre ON (coupdecoeur.idLivre = livre.idLivre)";  
         
 
         $requete = $bdd->prepare($sql);

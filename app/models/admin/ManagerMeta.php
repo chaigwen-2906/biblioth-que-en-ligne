@@ -5,9 +5,9 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerMeta extends Manager{
 
-    function getlisteMeta()
+    function lireListeMeta()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT * FROM meta ";  
         

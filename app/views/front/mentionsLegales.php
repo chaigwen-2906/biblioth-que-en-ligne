@@ -13,15 +13,15 @@
     <title> Mentions légales - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/styles.css">
-    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
-    <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/mentionsLegales.css"> -->
+    <link rel="stylesheet" href="app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="app/public/css/header.css">
+    <link rel="stylesheet" href="app/public/css/footer.css">
+    <link rel="stylesheet" href="app/public/css/mentionsLegales.css"> -->
    
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -30,12 +30,12 @@
 
     <body>
 
-        <?php require_once("./app/views/layout/header.php"); ?>
+        <?php require_once("app/views/layout/header.php"); ?>
     
         <main class="mentionsLegales">
             <!-- FILS D'ARIANE  -->
             <div class ="filArianeMentionsLegales" >
-                <a href="./home"> 
+                <a href="./front-home"> 
                     Accueil >
                 </a>
                     Mentions Legales
@@ -56,7 +56,7 @@
                 <p>
                     <b>Client&nbsp;:</b>&nbsp;tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, 
                     ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
-                    <b>Prestations et Services&nbsp;:</b> <a href="https/www la bibliotheque en ligne">https/www la bibliotheque en ligne</a> met à disposition
+                    <b>Prestations et Services&nbsp;:</b>la bibliotheque en ligne met à disposition
                         des Clients&nbsp;:
                 </p>
 
@@ -66,9 +66,7 @@
 
                 <p>
                     <b>Informations clients&nbsp;:</b> Ci après dénommé «&nbsp;Information (s)&nbsp;» qui correspondent à l’ensemble des données
-                    personnelles susceptibles d’être détenues par 
-                    <a href="https/www la bibliotheque en ligne">https/www la bibliotheque en ligne</a> 
-                    pour la
+                    personnelles susceptibles d’être détenues par la bibliotheque en ligne pour la 
                     gestion de votre compte, de la gestion de la relation client et à des fins d’analyses et de statistiques.
                 </p>
                 <p>
@@ -628,14 +626,7 @@
 
 
         
-        <?php require_once("./app/views/layout/footer.php") ?> 
-
-        <!---------------------- jQuery ---------------------------------->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-        <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <?php require_once("app/views/layout/footer.php") ?> 
 
     </body>
 

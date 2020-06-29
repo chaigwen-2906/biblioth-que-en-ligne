@@ -4,9 +4,9 @@ namespace Projet\Models\front;
 
 class ManagerFront extends Manager
 {
-    public function getListMetas($nomPage)
+    public function lireListeMetas($nomPage)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -26,9 +26,9 @@ class ManagerFront extends Manager
         return $resultat;
     }
 
-    public function getListFAQ()
+    public function lireListeFAQ()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -48,9 +48,9 @@ class ManagerFront extends Manager
         return $resultat;
     }
 
-    public function getListCategorie()
+    public function lireListeCategorie()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -72,7 +72,7 @@ class ManagerFront extends Manager
 
     public function seConnecter($adresseMail, $motDePasse)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         // On réalise la requete sur la base de données
         // On prépare la requete
@@ -99,7 +99,7 @@ class ManagerFront extends Manager
 
     public function creerCompte($numeroAbonne, $civilite, $nom, $prenom, $email, $mobile, $telephone, $adresse, $dateDeNaissance, $motDePasse)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //test: on vérifie que l'adresse mail n'est pas déjà utilisé et que le numéro d'abonné n'existe pas déjà
         if($numeroAbonne == "")
@@ -174,9 +174,9 @@ class ManagerFront extends Manager
 
     }
 
-    public function getMonCompte($idClient)
+    public function lireMonCompte($idClient)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -200,9 +200,9 @@ class ManagerFront extends Manager
         return $resultat;
     }
 
-    public function misAJourInfoPersClient($idClient, $civilite, $nom, $prenom, $email, $mobile, $fixe, $adresse, $dateNaissance)
+    public function mettreAJourClient($idClient, $civilite, $nom, $prenom, $email, $mobile, $fixe, $adresse, $dateNaissance)
     {  
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On passe la date de naissance dans un format sql
         $tabtemp = explode('/',$dateNaissance);
@@ -222,9 +222,9 @@ class ManagerFront extends Manager
         $requete->closeCursor();
     }
 
-    public function motDePasseOublier($adresseMail,$nouveauMotPass)
+    public function mettreAJourMotDePasseParEmail($adresseMail,$nouveauMotPass)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
        
         //On prépare le mot de passe(hash)
         $nouveauMotPass = password_hash($nouveauMotPass, PASSWORD_DEFAULT);
@@ -244,9 +244,9 @@ class ManagerFront extends Manager
 
     }
 
-    public function enregistrerPassword($idClient, $nouveauMotPasse)
+    public function mettreAJourMotDePasseParIdClient($idClient, $nouveauMotPasse)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On prépare le mot de passe(hash)
         $nouveauMotPasse = password_hash($nouveauMotPasse, PASSWORD_DEFAULT);
@@ -262,10 +262,10 @@ class ManagerFront extends Manager
     }
 
 
-    public function getListDemandeEnAttente($idClient)
+    public function lireListeDemandeEnAttente($idClient)
     {
         
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -287,9 +287,9 @@ class ManagerFront extends Manager
     }
 
 
-    public function getListDemandeValider($idClient)
+    public function lireListeDemandeValide($idClient)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete
@@ -310,9 +310,9 @@ class ManagerFront extends Manager
         return $resultat;
     }
 
-    public function ajoutReservation($idLivre,$idClient)
+    public function ajouterReservation($idLivre,$idClient)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
 
         //On réalise la requete sur la base de données
         //On prépare la requete

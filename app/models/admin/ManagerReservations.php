@@ -5,9 +5,9 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerReservations extends Manager{
 
-    function getListeReservationsByStatut($statut)
+    function lireListeReservationsParStatut($statut)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT idReservation, livre.nom as nomLivre, client.nom AS nomClient, client.prenom AS prenomClient, disponible, dateDeDebut FROM reservation 
         LEFT JOIN client ON(reservation.idClient = client.idClient) 
@@ -27,9 +27,9 @@ class ManagerReservations extends Manager{
         return $resultats;
     }
 
-    function getListeReservationsByIdLivre($idLivre)
+    function lireListeReservationsParIdLivre($idLivre)
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT idReservation FROM reservation where idLivre =?";
          
@@ -46,9 +46,9 @@ class ManagerReservations extends Manager{
     }
 
 
-     function getListeReservationsByIdClient($idClient)
+     function lireListeReservationsParIdClient($idClient)
      {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT idReservation FROM reservation where idLivre =?";
          

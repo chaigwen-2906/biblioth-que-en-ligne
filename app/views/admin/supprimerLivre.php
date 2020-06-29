@@ -10,10 +10,10 @@
         <meta name="title" content="Notre bibliothèque en ligne">
 
         <!-- Appel des feuilles de style --/ Calling style sheets-->
-        <link rel="stylesheet" href="./../app/public/css/admin/ajout.css">
+        <link rel="stylesheet" href="app/public/css/admin/ajout.css">
  
         <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-        <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+        <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     </head>
 
@@ -21,8 +21,8 @@
         <main class="supprimerLivre">
             <!--BOUTON RETOUR  -->
             <figure class="retour">
-                <a href="./listeLivres">
-                    <img src="./../app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
+                <a href="./admin-listeLivres">
+                    <img src="app/public/image/bouton/retour.png" alt=" Retour" title=" Retour">
                     Retour 
                 </a>
             </figure>
@@ -31,7 +31,7 @@
             <h1>
                 Supprimer un livre
             </h1>
-            <form method="POST" action="./<?= $this->nomPage;?>?action2=supprimerLivre&idLivre=<?= $idLivre;?>">
+            <form method="POST" action="./admin-<?= $this->nomPage;?>-<?= $idLivre;?>?action2=supprimerLivre">
 
                 <h2>
                     Attention : Tous les commentaires, les coups de coeur et les réservations associés à ce livre seront également supprimés ! 
@@ -42,7 +42,7 @@
      
                 <!-- BOUTON VALIDER  -->
                 <section >
-                    <input class="boutonSupprimerLivre"  type="submit" value="Valider">
+                    <input class="boutonSupprimerLivre" type="submit" value="Valider">
                 </section>
                 
             </form>    

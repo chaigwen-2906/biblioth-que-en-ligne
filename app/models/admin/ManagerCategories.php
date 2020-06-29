@@ -5,9 +5,9 @@ namespace Projet\Models\admin;
 // ManagerLivres est étendue à la basse de données-> Manager
 class ManagerCategories extends Manager{
 
-    function getListeCategorie()
+    function lireListeCategorie()
     {
-        $bdd = $this->dbConnect();
+        $bdd = $this->bddConnection();
       
         $sql = "SELECT * FROM categorie" ;  
 

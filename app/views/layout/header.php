@@ -1,9 +1,9 @@
 <header>
-    <!------Bandeau (logo, titre, renseignement), Banner (logo, title, information)------->
+    <!------Bandeau (logo, titre, renseignement(FAQ)), Banner (logo, title, information)------->
     <div class="bandeau">
         <figure class="headerLogo">
-            <a href="./home">
-                <img class="retoucheLogo" src="./../app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
+            <a href="./front-home">
+                <img class="retoucheLogo" src="app/public/image/logo-flavicon/toutUnivere1.png" alt="Tout l'univers"
                     title="Tout l'univers">
             </a>
         </figure>
@@ -12,57 +12,71 @@
         </h1>
         <div class="logo">
             <a href="" id="boutonFaq">
-                <img class="retouchePointIntero" src="./../app/public/image/logo-flavicon/pointIntero1.png">
+                <img class="retouchePointIntero" src="app/public/image/logo-flavicon/pointIntero1.png">
             </a>
         </div>
     </div>
+    
     <!-------------------Menu principal, Main Menu--------------------------->
     <nav class="menu_principal">
 
-        <div class="bloc_connexion">
-            <a id="boutonCreerCompte" href="">
-                <img src="./../app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
-            </a>
-            <a id="boutonSidentifier" href="">
-                <img src="./../app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
-            </a>
-        </div>
+        
+        <?php
+        if(isset($_SESSION['idClient'])){
+        ?>
+            <!-- Bloc déconnexion - s'affiche en mode connecté -->
+            <figure class="bloc_deconnexion">
+                <a href="./front-monCompte">
+                    <img id="boutonCompte" src="app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
+                </a>
 
-        <!-- Bloc déconnexion - s'affiche en mode connecté -->
-        <figure class="bloc_deconnexion">
-            <a href="./monCompte">
-                <img id="boutonCompte" src="./../app/public/image/bouton/compte.png" alt="Mon compte" title="Mon compte">
-            </a>
+                <a href="./front-panier">
+                    <img id="boutonPanier" src="app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
+                </a>
 
-            <a href="./panier">
-                <img id="boutonPanier" src="./../app/public/image/bouton/panier.png" alt="Mon panier" title="Mon panier">
-            </a>
+                <a href="./front-<?= $this->nomPage;?>?action2=deconnecter">
+                    <img id="boutonDisconnect" src="app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
+                </a>
+            </figure>
+        <?php
+        }
+        else{
+        ?>
+            <div class="bloc_connexion">
+                <a id="boutonCreerCompte" href="">
+                    <img src="app/public/image/bouton/creer_compte.png" alt="Créer son compte" title="Créer son compte">
+                </a>
+                <a id="boutonSidentifier" href="">
+                    <img src="app/public/image/bouton/login.png" alt="S'identifier" title="S'identifier">
+                </a>
+            </div>
+        <?php
+        }
+        ?>
+        
 
-            <a href="./<?= $this->nomPage;?>?action2=deconnecter">
-                <img id="boutonDisconnect" src="./../app/public/image/bouton/disconnect.png" alt="Se deconnecter" title="Se deconnecter">
-            </a>
-        </figure>
+        
 
-        <div class="btnloupe">
-            <img src="./../app/public/image/bouton/loupe.png">
+        <div class="boutonLoupe">
+            <img src="app/public/image/bouton/loupe.png">
         </div>
         <!----------------------Menu------------------------------>
-        <div class="burger" id="btnBurger">
-            <img src="./../app/public/image/icon/burger.png" alt="image burger menu">
+        <div class="burger" id="boutonBurger">
+            <img src="app/public/image/icon/burger.png" alt="image burger menu">
         </div>
         <div class="menu">
             <ul id="conteneurMenu" >
                 <li class="nav-item">
-                    <a href="./home">Accueil</a>
+                    <a href="./front-home">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./coupDeCoeurs">Coups de coeurs</a>
+                    <a href="./front-coupDeCoeurs">Coups de coeurs</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./nouveaute">Nouveautés</a>
+                    <a href="./front-nouveaute">Nouveautés</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./atelier">Ateliers</a>
+                    <a href="./front-atelier">Ateliers</a>
                 </li>
             </ul>
         </div>
@@ -70,23 +84,23 @@
     <nav class="navMenuBurger">
         <ul id="conteneurMenuBurger" >
             <li class="nav-item">
-                <a href="./home"> Accueil </a>
+                <a href="./front-home"> Accueil </a>
             </li>
             <li class="nav-item">
-                <a href="./coupDeCoeurs"> Coups de coeurs</a>
+                <a href="./front-coupDeCoeurs"> Coups de coeurs</a>
             </li>
             <li class="nav-item">
-                <a href="./nouveaute"> Nouveautés</a>
+                <a href="./front-nouveaute"> Nouveautés</a>
             </li>
             <li class="nav-item">
-                <a href="./atelier"> Ateliers</a>
+                <a href="./front-atelier"> Ateliers</a>
             </li>
         </ul>
     </nav>
     
     <!--------------Barre de recherche, Search bar-------------------->
     <div id="barreDeRecherche">
-        <form class="selectionLivres" name="formRecherche" method="post" action="./pageRecherche" onsubmit="return verificationRecherche()">
+        <form class="selectionLivres" name="formRecherche" method="post" action="./front-pageRecherche" onsubmit="return verificationRecherche()">
             <select id="selectCategorie" name="selectCategorie">
                 <option value="0">
                     Catégorie...
@@ -99,22 +113,25 @@
                 ?>
             </select>
             <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
-            <img src="./../app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="verificationRecherche();">
+            <img src="app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="verificationRecherche();">
         </form>
     </div>
 </header>
+
+
+
 <!-- BOITE MODAL:S'IDENTIFIER  -->
 <div id="modalConnection" class="boiteModal">
-    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalConnection" class="boutonFermerModal" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalConnection" class="boutonFermerModal" src="app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Veuillez vous d'identifier 
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=connecter">
+            <form class="conteneurForm" method="POST" action="./front-<?= $this->nomPage;?>?action2=connecter">
                 <div class="identifier">
                     <label class="labelAligne "  for="email"> E-mail </label>
                     <div class="blocinput">
@@ -127,22 +144,22 @@
                             }
                         ?>
                         <input class="inputAligne" type="email" name="email" id="emailIdentifier" placeholder="E-mail" value="<?= $emailClient; ?>" required="required"><br /> 
-                        <span id="errorMailIdentifier"></span>
+                        <span id="erreurMailIdentifier"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse"> Mot de passe </label>
                     <div class="blocinput">
                         <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
-                        <span id="errorMotDePasseIdentifier"></span>
+                        <span id="erreurMotDePasseIdentifier"></span>
                     </div>
                 </div>
-                <div id="erreurPostFormulaireConnexion" class="error"></div>
+                <div id="erreurPostFormulaireConnexion" class="error"><?php if($this->erreurConnexionCompte == true){echo $this->libelleErreurConnexionCompte;} ?></div>
                 <div class="conteneurIdentifiant" >
-                <a href="./passOublier" class="monBoutton">
+                <a href="./front-passOublier" class="monBoutton">
                     Mot de passe oublié ? 
                 </a>
-                <a id="btnBesoinCompte" class="monBoutton" >
+                <a id="boutonBesoinCompte" class="monBoutton" >
                     Besoin d'un compte ? 
                 </a>
                 </div>
@@ -153,104 +170,106 @@
 </div>
 <!--FIN BOITE MODAL:S'IDENTIFIER  -->
 
+
+
 <!-- BOITE MODAL:CREER VOTRE COMPTE  -->
 <div id="modalCreerCompte" class="boiteModal">
-    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalCreerCompte" class="boutonFermerModal" src="./../app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalCreerCompte" class="boutonFermerModal" src="app/public/image/bouton/btnFermer1.png" alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Créez-votre compte
             </h1>
         </div>
         <div class="contenuModal">
-            <form class="conteneurForm" method="POST" action="./<?= $this->nomPage;?>?action2=creerCompte">
+            <form class="conteneurForm" method="POST" action="./front-<?= $this->nomPage;?>?action2=creerCompte">
                 <div class="civilite">
                     <div>
                         <label for="monsieur" class="petit">M</label>
-                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreez">
+                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreer" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "monsieur"){echo "checked";}} ?>>
                         <label for="madame" class="petit">Mme</label>
-                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreez">
+                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreer" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "madame"){echo "checked";}} ?>>
                 </div>
-                    <span id="errorCiviliteCreez"></span>
+                    <span id="erreurCiviliteCreer"></span>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="numeroAbonne">Numéro d'abonnée</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreez"
-                        placeholder="Entrer votre Numero abonne">
+                        <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreer"
+                        placeholder="Entrer votre Numero abonne" value="<?php if($this->erreurCreationCompte == true){echo $_POST['numeroAbonne'];} ?>">
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="nom">Nom</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="nom" id="nomCreez"
-                            placeholder="Entrer votre nom" required>
-                        <span id="errorNomCreez"></span>
+                        <input class="inputAligne" type="text" name="nom" id="nomCreer"
+                            placeholder="Entrer votre nom" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['nom'];} ?>">
+                        <span id="erreurNomCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="prenom">Votre prénom</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="prenom" id="prenomCreez"
-                            placeholder="Entrer votre prénom" required>
-                        <span id="errorPrenomCreez"></span>
+                        <input class="inputAligne" type="text" name="prenom" id="prenomCreer"
+                            placeholder="Entrer votre prénom" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['prenom'];} ?>">
+                        <span id="erreurPrenomCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="email">Votre email</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="email" name="email" id="emailCreez"
-                            placeholder="Entrer votre email" required>
-                        <span id="errorMailCreez"></span>
+                        <input class="inputAligne" type="email" name="email" id="emailCreer"
+                            placeholder="Entrer votre email" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['email'];} ?>">
+                        <span id="erreurMailCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Mobile</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="tel" name="mobile" id="mobileCreez"
-                            placeholder="Entrer votre numéro" required>
-                        <span id="errorMobileCreez"></span>
+                        <input class="inputAligne" type="tel" name="mobile" id="mobileCreer"
+                            placeholder="Entrer votre numéro" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['mobile'];} ?>">
+                        <span id="erreurMobileCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="mobile">Votre Fixe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="tel" name="telephone" id="telephoneCreez"
-                            placeholder="Entrer votre numéro">
-                        <span id="errorTelephoneCreez"></span>
+                        <input class="inputAligne" type="tel" name="telephone" id="telephoneCreer"
+                            placeholder="Entrer votre numéro" value="<?php if($this->erreurCreationCompte == true){echo $_POST['telephone'];} ?>">
+                        <span id="erreurTelephoneCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne "for="adresse"> Votre adresse</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="adresse" id="adresseCreez"  
-                        placeholder="Entrer votre adresse" onkeyup="search()" required>
-                        <span id="errorAdresseCreez"></span>
+                        <input class="inputAligne" type="text" name="adresse" id="adresseCreer"  
+                        placeholder="Entrer votre adresse" onkeyup="search()" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['adresse'];} ?>">
+                        <span id="erreurAdresseCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="date">Votre date de naissance</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="date" id="dateCreez" 
+                        <input class="inputAligne" type="text" name="date" id="dateCreer" 
                         placeholder="Ex: 31/06/2019" required>
-                        <span id="errorDateCreez"></span>
+                        <span id="erreurDateCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasse">Votre mot de passe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreez"
+                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreer"
                             placeholder="Mot de passe" required>
-                        <span id="errorMotDePasseCreez"></span>
+                        <span id="erreurMotDePasseCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
                     <label class="labelAligne " for="motDePasseConfirm">Confirmer votre mot de passe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreezConfirm"
+                        <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreerConfirm"
                             placeholder=" Confirmation du mot de passe" required>
-                        <span id="errorMotDePasseCreezConfirm"></span>
+                        <span id="erreurMotDePasseCreerConfirm"></span>
                     </div>
                 </div>
                 <div class="identifier note">
@@ -269,11 +288,11 @@
                     </div>
                     <span id="errorCheckbox"></span> 
                 </div>
-                <div id="erreurPostFormulaireCreer" class="error"></div>
+                <div id="erreurPostFormulaireCreer" class="error"><?php if($this->erreurCreationCompte == true){echo $this->libelleErreurCreationCompte;} ?></div>
                 <div class="conteneurIdentifiant">
                         <!--bouton pour envoyer le formulaire ou annuler-->
                         <input type="submit" id="boutonEnvoyerCreez" value="envoyer" class="monBoutton">
-                        <a href="./home" class="monBoutton" type="reset" >
+                        <a href="./front-home" class="monBoutton" type="reset" >
                             Annuler
                         </a>
                 </div>
@@ -283,12 +302,14 @@
 </div>
 <!--FIN BOITE MODAL:CREER VOTRE COMPTE  -->
 
-<!-- BOITE MODAL FAQ  -->
+
+
+<!-- BOITE MODAL: FAQ  -->
 <div id="modalFaq" class="boiteModal">
-    <img src="./../app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
+    <img src="app/public/image/imgFond/fond_modal.png" class="fondModalDialog">
     <div class="conteneurModal">
         <div class="enteteModal">
-            <img id="fermerModalFaq" src="./../app/public/image/bouton/btnFermer1.png"  alt="Bouton fermer" title="Bouton fermer">
+            <img id="fermerModalFaq" src="app/public/image/bouton/btnFermer1.png"  alt="Bouton fermer" title="Bouton fermer">
             <h1>
                 Question - Réponse
             </h1>
@@ -309,20 +330,24 @@
 </div>
 <!--FIN BOITE MODAL FAQ  -->
 
+
+
 <!-- COOKIES  -->
 <div id="barreCookie" class="cookies">
     <span>
         <!-- balise b : mets en gras -->
         <b>En continuant de défiler</b>, vous acceptez l'utilisation de services tiers pouvant installer des cookies
     </span>
-    <a id="BtnCookieAccepter" class="accepter"> ✓ Ok, tout accepter</a>
+    <a id="boutonAccepterCookie" class="accepter"> ✓ Ok, tout accepter</a>
     <a class="savoirPlus" href="https://www.cnil.fr/fr/site-web-cookies-et-autres-traceurs" target="_blank">En
         savoir plus</a>
 </div>
 <!-- COOKIES  -->
 
+
+
 <!-- BTN RETOUR HAUT  -->
 <a id="retourHaut" class="RetourHautPage"><img class="imgRetourHautPage"
-    src="./../app/public/image/bouton/boutonHaut.png"  alt="Retour vers le haut" title="Retour vers le haut">
+    src="app/public/image/bouton/boutonHaut.png"  alt="Retour vers le haut" title="Retour vers le haut">
 </a>
 <!-- BTN RETOUR HAUT  -->

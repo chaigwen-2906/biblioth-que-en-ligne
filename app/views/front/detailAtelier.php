@@ -13,15 +13,15 @@
     <title> Détail des atelier - Ma bibliothèque en ligne</title>
 
     <!-- Appel des feuilles de style --/ Calling style sheets-->
-    <link rel="stylesheet" href="./../app/public/css/styles.css">
-    <!-- <link rel="stylesheet" href="./../app/public/css/header.css">
-    <link rel="stylesheet" href="./../app/public/css/footer.css">
-    <link rel="stylesheet" href="./../app/public/css/detailAtelier.css"> -->
+    <link rel="stylesheet" href="app/public/css/styles.css">
+    <!-- <link rel="stylesheet" href="app/public/css/header.css">
+    <link rel="stylesheet" href="app/public/css/footer.css">
+    <link rel="stylesheet" href="app/public/css/detailAtelier.css"> -->
     
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     
     <!-- Appel a l'icon dans le champs d'ouverture --/ Call to the icon in the opening field-->
-    <link rel="icon" href="./../app/public/image/logo-flavicon/flavicon.jpg" />
+    <link rel="icon" href="app/public/image/logo-flavicon/flavicon.jpg" />
 
     <!-- Appel des feuilles de style jquery --/ Calling style sheets jquery-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -31,16 +31,16 @@
     <body>
 
 
-        <?php require_once("./app/views/layout/header.php"); ?>
+        <?php require_once("app/views/layout/header.php"); ?>
 
         <main class="detailAtelier">
 
         <!-- FILS D'ARIANE  -->
         <div class ="filArianeAtelier" >
-                <a href="./home"> 
+                <a href="./front-home"> 
                     Accueil >
                 </a>
-                    L'ateliers
+                    Atelier
             </div>
             <!--FIN  FILS D'ARIANE  -->
 
@@ -75,24 +75,19 @@
             <section class="sectionReservationAtelier">
                 <article class ="reservationAtelier">
                         <h2>
-                            Les réservations 
+                            Date de l'atelier
                         </h2>
                         <hr separator>
                         <h3>
-                            <?= $DetailAtelier['date']; ?> à <?= $DetailAtelier['heure']; ?>
+                            <?php 
+                                //récupération de la date sous forme d'un datetime
+                                // puis utilisation de la fonction format pour afficher avec le format attendu
+                                $date = new DateTime($DetailAtelier['date']);
+                            ?>
+                            <?= $date->format('d/m/Y'); ?> à <?= substr($DetailAtelier["heure"],0,5); ?>
                             rendez-vous pour l'activité  " <?= $DetailAtelier['nom']; ?>"  d'une capacité 
                             <?= $DetailAtelier['capacite']; ?> personne et à partir <?= $DetailAtelier['age']; ?> ans.
                         </h3>
-
-                        <!-- Si la variable de session idClient existe :l'utilisateur est connecté -->
-                        <!-- alors on affiche le button réserver   -->
-                        <?php if(isset($_SESSION['idClient'])){ ?>
-                            <!-- BUTTON RESERVER   -->
-                            <a class="monBoutton" href="#">
-                                Réserver
-                            </a>
-                            <!--FIN BUTTON RESERVER   -->
-                        <?php } ?>
                 </article>
             </section>
             <!--FIN RESERVATION ATELIER  -->
@@ -102,14 +97,7 @@
 
 
             
-        <?php require_once("./app/views/layout/footer.php") ?> 
-
-        <!---------------------- jQuery ---------------------------------->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-        <!---------- Appel du javascript  / Call of javascript------------>
-        <script type="text/javascript" src="./../app/public/js/allJavaScript.js"></script>
+        <?php require_once("app/views/layout/footer.php") ?> 
 
     </body>
 

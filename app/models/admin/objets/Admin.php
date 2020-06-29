@@ -46,7 +46,7 @@ class Admin extends Manager{
 
     public function __construct($idAdmin, $nomUtilisateur, $passUtilisateur){
         //On stocke la connexion à la base de données
-        $this->connectBdd = $this->dbConnect();
+        $this->connectBdd = $this->bddConnection();
 
         //on modifie l'attribut idAdmin de l'objet
         $this->setIdAdmin($idAdmin);

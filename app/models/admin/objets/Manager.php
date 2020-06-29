@@ -2,7 +2,7 @@
 namespace Projet\Models\admin\objets;
 class Manager
 {
-    protected function dbConnect()
+    protected function bddConnection()
     {
 
         try {
