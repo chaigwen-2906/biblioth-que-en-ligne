@@ -33,9 +33,6 @@
 
         <?php require_once("app/views/layout/header.php"); ?>
 
-        
-
-
         <!--------image de fond fixer pour scroller dessus. et se trouve dessous la barre de recheche--------------->
         <!-- background image fix to scroll on. and is below the search bar -->
         <figure class="imageDeFondAccueil">
