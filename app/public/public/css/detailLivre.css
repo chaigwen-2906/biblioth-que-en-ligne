@@ -1,0 +1,324 @@
+/* MAIN DETAIL LIVRE  */
+.detailLivre
+{
+    padding-top: 170px;
+}
+/*FIN DETAIL LIVRE  */
+
+/* FILS D'ARIANE  */
+.detailLivre .filArianeLivre
+{
+    padding-left: 25px;
+}
+.detailLivre .filArianeLivre
+{
+    color: white;
+    font-weight: bold;
+}
+
+/* FIN  FILS D'ARIANE  */
+
+
+.detailLivre .grosTitre
+{
+    text-align: center;
+    color: white;
+    padding-top: 15px;
+}
+.detailLivre .sectionDescripLivre
+{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+.detailLivre .sectionDescripLivre h2
+{
+    color: rgb(156, 148, 148);
+    text-align: center;
+    min-height:55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailLivre .titreImgReseaux .reglageImg
+{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+   
+}
+.detailLivre .titreImgReseaux
+{
+    background-color: white;
+    width: 30%;  
+    margin: 15px;
+    border-radius: 5px;
+}
+.detailLivre .titreImgReseaux .réglageReseaux ul
+{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: space-around;
+    padding-top: 30px;
+
+}
+/* INFO DISPO OU NON DISPO  */
+.detailLivre .livreIndisponible
+{
+    margin: 25px;
+    text-align: center;
+    color: crimson;
+}
+
+/* DESCRIPTION DU LIVRE  */
+.detailLivre .divDesResum
+{
+    width: 66%;
+    margin: 5px;
+    padding: 5px;
+}
+.detailLivre .livreDescription
+{
+    background-color: white;
+    width: 95%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: justify;
+    overflow: auto;
+}
+.detailLivre .livreDescription p
+{
+    line-height: 1.6em;
+    width: 100%;
+    text-align: center;
+    min-height: 220px;
+    padding-top: 15px;
+}
+.detailLivre .commentaireLivre figure
+{
+    text-align: initial;
+    padding-left: 5%;
+    line-height: 2em;
+}
+
+/* INFO DU LIVRE  */
+.detailLivre .infoLivre
+{
+    background-color: white;
+    width: 95%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    Overflow: auto;  
+    height: 250px;
+}
+.detailLivre .ficheTecknic
+{
+    padding-top: 35px;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 95px;
+}
+.detailLivre .infoLivre ul
+{
+    width: 80%;
+    list-style-type: none;
+}
+/* COMMENTAIRE SUR LE LIVRE  */
+
+.detailLivre .commentaireLivre
+{
+    width: 70%;
+    border-radius: 5px;
+    background-color: rgb(218, 213, 213);
+    color: black;
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.detailLivre .commentaireLivre h2
+{
+    text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailLivre .commentaireLivre h3
+{
+    text-align: initial;
+    line-height: 2em;
+}
+.detailLivre .inputNote
+{
+    max-width: 4%;
+    text-align: center
+}
+.detailLivre .commentaire 
+{
+    padding-left: 25%;
+    line-height: 2em;
+}
+.detailLivre .commentaire label
+{
+   padding-right: 5px;
+}
+.detailLivre .commentaireLivre img
+{
+    width: 2%;
+}
+.detailLivre .reglCommentaire
+{
+    display: flex;
+    font-size: 1em;
+}
+.detailLivre .sectionCommentaireLivre
+{
+    justify-content: center;
+    margin: 15px;
+}
+/* BOUTON :RESERVER & POSTE  */
+.detailLivre #btnReserver
+{
+    display: flex;
+    width: 10%;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 20px;
+}
+.detailLivre #btnPoster
+{
+    display: flex;
+    width: 10%;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*FIN COMMENTAIRE SUR LE LIVRE  */
+
+/*DERNIERS COMMENTAIRES POSTER  */
+
+.detailLivre .dernierCommentaire
+{
+    width: 70%;
+    border-radius: 5px;
+    background-color: rgb(218, 213, 213);
+    padding: 5px;
+    margin: 0 auto;
+}
+.detailLivre .dernierCommentaire h2
+{
+    text-align: center;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailLivre .dernierCommentaire .posterLe
+{
+    text-align: initial;
+    line-height: 2em;
+    color: cadetblue;
+    padding-top: 20px;
+}
+.detailLivre .dernierCommentaire .note
+{
+    text-align: left;
+}
+.detailLivre .dernierCommentaire .commentaire strong
+{
+    color: crimson;
+}
+.detailLivre .dernierCommentaire .separatorCommentaire 
+{
+    width: 50%;
+    margin: 0 auto;
+}
+/*FIN DERNIERS COMMENTAIRES POSTER  */
+
+
+
+
+
+
+/*---------------media querie tablette------------*/
+@media screen and (max-width: 992px)
+{
+    .detailLivre
+    {
+        padding-top: 145px;
+    }
+    .detailLivre .ficheTecknic 
+    {
+        flex-direction: column;
+        width: 300px;
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+    .detailLivre .infoLivre 
+    {
+        flex-wrap: nowrap;
+        margin-top: 15px;
+    }
+    .detailLivre #btnPoster 
+    {
+        width: 15%; 
+    }
+    .detailLivre .inputNote
+    {
+    max-width: 8%;
+    }
+    .detailLivre .reglCommentaire
+    { 
+        width: 60%;
+    }
+    
+}
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .detailLivre .sectionDescripLivre
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .detailLivre .titreImgReseaux
+    {
+        width:80%;
+    }
+    .detailLivre .divDesResum
+    {
+        width:80%;
+    }
+    .detailLivre #btnReserver
+    {
+        margin-bottom: 25px;
+    }
+    .detailLivre .commentaireLivre 
+    {
+        width: 80%; 
+    }
+    .detailLivre .dernierCommentaire 
+    {
+        width: 80%;  
+    }
+    .detailLivre #btnPoster 
+    {
+       width: 18%;
+    }
+    .detailLivre .reglCommentaire 
+    {
+        width: 75%;
+    }
+    .detailLivre .inputNote
+    {
+    max-width: 11%;
+    }
+    
+}

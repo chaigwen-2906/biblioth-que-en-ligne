@@ -1,0 +1,106 @@
+/* BOUTON RETOUR  */
+.ajoutLivre .retour a
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+/* FIN BOUTON RETOUR  */
+
+/* TITRE  */
+.ajoutLivre h1
+{
+    text-align: center;
+    margin: 35px;
+}
+/* CONTENEUR SECTION  */
+.ajoutLivre .conteneurSection
+{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+    margin: 15px;
+
+}
+/* CONTENEUR INPUT  */
+.ajoutLivre .conteneurInputAjout
+{
+    background-color: rgb(221, 221, 233);
+    border: 2px solid darkgray;
+    color: crimson;
+    width: 450px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+/* CONTENEUR LABEL  */
+.ajoutLivre .conteneurLabel
+{
+    background-color: rgb(206, 206, 250);
+    border: 2px solid darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+/* BOUTON  */
+.ajoutLivre .boutonValiderAjoutLivre
+{
+    border: 2px solid darkgray  ;
+    background:linear-gradient(to bottom, #a2c1f1 5%, #f796ae 100%);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 200px;
+    height: 35px;
+    margin-top: 35px;
+}
+/* FOOTER  */
+footer p
+{
+    margin: 55px;
+    text-align: center;
+}
+/* FIN FOOTER  */
+
+
+/* ----------------------------------------------------------------------page supprimer ------------------------------------------------- */
+
+/* SUPPRIMER LIVRE  */
+.supprimerLivre h1, .supprimerLivre h2
+{
+    text-align: center;
+}
+
+/* BOUTON  */
+.supprimerLivre .boutonSupprimerLivre
+{
+    border: 2px solid darkgray  ;
+    background:linear-gradient(to bottom, #a2c1f1 5%, #f796ae 100%);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 200px;
+    height: 35px;
+    margin-top: 35px;
+}
+
+
+
+/*-------------media querie mobile----------------*/
+@media screen and (max-width:530px)
+{
+    .ajoutLivre .conteneurInputAjout 
+    {
+        width: 45%;
+        margin: 5px;
+    }
+}
+

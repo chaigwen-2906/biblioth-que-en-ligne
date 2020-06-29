@@ -1,0 +1,58 @@
+/* MAIN MENTIONS LEGALES  */
+.mentionsLegales
+{
+    padding-top: 170px;
+}
+ /* FIN DU MAIN MENTIONS LEGALES   */
+
+
+/* FILS D'ARIANE  */
+.mentionsLegales .filArianeMentionsLegales
+{
+    padding-left: 25px;
+    padding-bottom: 15px;
+}
+.mentionsLegales .filArianeMentionsLegales
+{
+    color: white;
+    font-weight: bold;
+}
+/*FIN FILS D'ARIANE  */
+
+/* CONTENEUR MENTIONS LEGALES  */
+.contenuMentionsLegales
+{
+    margin: 10px;
+}
+/*FIN CONTENEUR MENTIONS LEGALES  */
+
+/*FIN H1-H2-H3  */
+.mentionsLegales .mentionsLegalesH1
+{
+    color: black;
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 15px;
+}
+
+
+.mentionsLegales .mentionsLegalesH2
+{
+    color: crimson;
+    text-align: center;
+    padding: 15px;
+    margin: 15px; 
+}
+
+
+.mentionsLegales .mentionsLegalesH3
+{
+    color: darkorange;
+
+}
+.mentionsLegales p
+{
+    text-align: justify;
+    line-height: 1.5em;
+    margin: 10px;
+}
