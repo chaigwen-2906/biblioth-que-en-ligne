@@ -36,14 +36,14 @@
 
                 <!-- NOM  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom"> Nom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" placeholder="Nom de l'auteur" required>             
+                    <label class="conteneurLabel" for="nomAuteur"> Nom de l'auteur :</label>
+                    <input class=conteneurInputAjout type="text" id="nomAuteur" name="nomAuteur" placeholder="Nom de l'auteur" required>                         
                 </section>
 
                 <!-- PRENOM  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="prenom"> Prénom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" placeholder="prénom de l'auteur" required>             
+                    <label class="conteneurLabel" for="prenomAuteur"> Prénom de l'auteur :</label>
+                    <input class=conteneurInputAjout type="text" id="prenomAuteur" name="prenomAuteur" placeholder="prénom de l'auteur" required>             
                 </section>
 
 

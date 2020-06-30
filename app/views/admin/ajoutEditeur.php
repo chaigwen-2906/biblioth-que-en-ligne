@@ -36,14 +36,14 @@
 
                 <!-- Code  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="code">Code :</label>
-                    <input class=conteneurInputAjout type="text" name="code" placeholder="Code">             
+                    <label class="conteneurLabel" for="codeEditeur">Code :</label>
+                    <input class=conteneurInputAjout type="text" id="codeEditeur" name="codeEditeur" placeholder="Code">             
                 </section>
 
                 <!-- nom auteur -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom">Auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" placeholder="Auteur">             
+                    <label class="conteneurLabel" for="nomEditeur">Auteur :</label>
+                    <input class=conteneurInputAjout type="text" id="nomEditeur" name="nomEditeur" placeholder="Auteur">             
                 </section>
 
                 <!-- BOUTON VALIDER  -->

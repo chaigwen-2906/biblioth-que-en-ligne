@@ -36,8 +36,8 @@
 
                 <!-- ID LIVRE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="selectLivre">Livre :</label>
-                    <select class="conteneurInputAjout" name="selectLivre">
+                    <label class="conteneurLabel" for="selectLivreCDC">Livre :</label>
+                    <select class="conteneurInputAjout" id="selectLivreCDC" name="selectLivreCDC">
                             <?php
                                 foreach($listLivre AS $unLivre)
                                 {
@@ -49,20 +49,20 @@
 
                 <!-- auteur  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="auteur">Auteur :</label>
-                    <input class="conteneurInputAjout" type="text" name="auteur" placeholder="auteur" required >             
+                    <label class="conteneurLabel" for="auteurCDC">Auteur :</label>
+                    <input class="conteneurInputAjout" type="text" id="auteurCDC" name="auteurCDC" placeholder="auteur" required >             
                 </section>
 
                 <!-- commentaire  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="commentaire">Commentaire :</label>
-                    <input class="conteneurInputAjout" type="text" name="commentaire" placeholder="commentaire">             
+                    <label class="conteneurLabel" for="commentaireCDC">Commentaire :</label>
+                    <input class="conteneurInputAjout" type="text" id="commentaireCDC" name="commentaireCDC" placeholder="commentaire">             
                 </section>
 
                 <!-- dateDePublication -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="dateDePublication">Date de publication :</label>
-                    <input class="conteneurInputAjout" type="date" name="dateDePublication" placeholder="dateDePublication " required>             
+                    <label class="conteneurLabel" for="dateDePublicationCDC">Date de publication :</label>
+                    <input class="conteneurInputAjout" type="date" id="dateDePublicationCDC" name="dateDePublicationCDC" placeholder="dateDePublication " required>             
                 </section>
 
 

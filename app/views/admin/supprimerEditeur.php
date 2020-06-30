@@ -40,7 +40,7 @@
      
                 <!-- BOUTON VALIDER  -->
                 <section >
-                    <input class="boutonSupprimerLivre"  type="submit" value="Valider">
+                    <input class="boutonSupprimerLivre" type="submit" value="Valider">
                 </section>
                 
             </form>    

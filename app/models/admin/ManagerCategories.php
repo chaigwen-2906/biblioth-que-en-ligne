@@ -9,7 +9,7 @@ class ManagerCategories extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT * FROM categorie" ;  
+        $sql = "SELECT * FROM categorie";  
 
         $requete = $bdd->prepare($sql);
 

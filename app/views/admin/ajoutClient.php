@@ -36,14 +36,14 @@
 
                 <!-- numeroAbonne  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="numeroAbonne">Numéro d'abonné :</label>
-                    <input class=conteneurInputAjout type="text" name="numeroAbonne" placeholder="numeroAbonne" >             
+                    <label class="conteneurLabel" for="numeroAbonneClient">Numéro d'abonné :</label>
+                    <input class=conteneurInputAjout type="text" id="numeroAbonneClient" name="numeroAbonneClient" placeholder="numeroAbonne" >             
                 </section>
 
                 <!-- civilite  -->
                 <section class="conteneurSection">
-                <label class="conteneurLabel" for="selectciviliteDispo">civilite :</label>
-                    <select class=conteneurInputAjout  name="civilite" placeholder="civilite">
+                <label class="conteneurLabel" for="selectciviliteDispoClient">civilite :</label>
+                    <select class=conteneurInputAjout id="selectciviliteDispoClient"  name="civilite" placeholder="civilite">
                             <option value="Monsieur">Monsieur</option>
                             <option value="Madame">Madame</option>
                     </select>            
@@ -51,50 +51,50 @@
 
                 <!-- nom  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom">Nom :</label>
-                    <textarea class=conteneurInputAjout name="nom" placeholder="nom"></textarea>            
+                    <label class="conteneurLabel" for="nomClient">Nom :</label>
+                    <textarea class=conteneurInputAjout id="nomClient"  name="nomClient" placeholder="nom"></textarea>            
                 </section>
 
                 <!-- prenom  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="prenom">Prénom :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" placeholder="prenom">             
+                    <label class="conteneurLabel" for="prenomClient">Prénom :</label>
+                    <input class=conteneurInputAjout type="text" id="prenomClient" name="prenomClient" placeholder="prenom">             
                 </section>
 
                 <!-- email  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="email">Email :</label>
-                    <input class=conteneurInputAjout type="email" name="email" placeholder="email">             
+                    <label class="conteneurLabel" for="emailClient">Email :</label>
+                    <input class=conteneurInputAjout type="email" id="emailClient"  name="emailClient" placeholder="email">             
                 </section>
 
                 <!-- telephoneMobile  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="telephoneMobile">Télèphone mobile  :</label>
-                    <input class=conteneurInputAjout type="tel" name="telephoneMobile" placeholder="telephoneMobile ">             
+                    <label class="conteneurLabel" for="telephoneMobileClient">Télèphone mobile  :</label>
+                    <input class=conteneurInputAjout type="tel" id="telephoneMobileClient" name="telephoneMobileClient" placeholder="telephoneMobile ">             
                 </section>
 
                 <!-- telephoneFixe -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="telephoneFixe">Télèphone fixe  :</label>
-                    <input class=conteneurInputAjout type="tel" name="telephoneFixe" placeholder="telephoneFixe ">             
+                    <label class="conteneurLabel" for="telephoneFixeClient">Télèphone fixe  :</label>
+                    <input class=conteneurInputAjout type="tel" id="telephoneFixeClient" name="telephoneFixeClient" placeholder="telephoneFixe ">             
                 </section>
 
                 <!-- adresse -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="adresse">Adresse  :</label>
-                    <input class=conteneurInputAjout type="text" name="adresse" placeholder="adresse ">             
+                    <label class="conteneurLabel" for="adresseClient">Adresse  :</label>
+                    <input class=conteneurInputAjout type="text" id="adresseClient" name="adresseClient" placeholder="adresse ">             
                 </section>
 
                 <!-- dateDeNaissance -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="dateDeNaissance">Date de naissance :</label>
-                    <input class=conteneurInputAjout type="date" name="dateDeNaissance" placeholder="dateDeNaissance " required>             
+                    <label class="conteneurLabel" for="dateDeNaissanceClient">Date de naissance :</label>
+                    <input class=conteneurInputAjout type="date" id="dateDeNaissanceClient" name="dateDeNaissanceClient" placeholder="dateDeNaissance " required>             
                 </section>
 
                 <!-- motDePasse -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="motDePasse">Mot de passe  :</label>
-                    <input class=conteneurInputAjout type="password" name="motDePasse" placeholder="motDePasse ">             
+                    <label class="conteneurLabel" for="motDePasseClient">Mot de passe  :</label>
+                    <input class=conteneurInputAjout type="password" id="motDePasseClient" name="motDePasseClient" placeholder="motDePasse ">             
                 </section>
 
 

@@ -37,7 +37,7 @@
                 <!-- ID LIVRE  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="selectLivre">Livre :</label>
-                    <select class="conteneurInputAjout" name="selectLivre">
+                    <select class="conteneurInputAjout" id="numeroAbonne" name="selectLivre">
                             <?php
                                 foreach($listLivre AS $unLivre)
                                 {
@@ -49,20 +49,20 @@
 
                 <!-- auteur  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="auteur">Auteur :</label>
-                    <input class="conteneurInputAjout" type="text" name="auteur" value="<?= $unCoupDeCoeur->getAuteur(); ?>">             
+                    <label class="conteneurLabel" for="auteurCDC">Auteur :</label>
+                    <input class="conteneurInputAjout" type="text" id="auteurCDC" name="auteur" value="<?= $unCoupDeCoeur->getAuteur(); ?>">             
                 </section>
 
                 <!-- commentaire  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="commentaire">Commentaire :</label>
-                    <input class="conteneurInputAjout" type="text" name="commentaire" value="<?= $unCoupDeCoeur->getCommentaire(); ?>">             
+                    <label class="conteneurLabel" for="commentaireCDC">Commentaire :</label>
+                    <input class="conteneurInputAjout" type="text" id="commentaireCDC" name="commentaire" value="<?= $unCoupDeCoeur->getCommentaire(); ?>">             
                 </section>
 
                 <!-- dateDePublication -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="dateDePublication">Date de publication :</label>
-                    <input class="conteneurInputAjout" type="date" name="dateDePublication" value="<?= substr($unCoupDeCoeur->getDateDePublication(),0,10); ?>">             
+                    <label class="conteneurLabel" for="dateDePublicationCDC">Date de publication :</label>
+                    <input class="conteneurInputAjout" type="date" id="dateDePublicationCDC" name="dateDePublication" value="<?= substr($unCoupDeCoeur->getDateDePublication(),0,10); ?>">             
                 </section>
 
 

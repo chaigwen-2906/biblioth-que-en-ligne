@@ -36,14 +36,14 @@
 
                 <!-- NOM  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom"> Nom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unAuteur->getNomAuteur(); ?>">             
+                    <label class="conteneurLabel" for="nomAuteur"> Nom de l'auteur :</label>
+                    <input class=conteneurInputAjout type="text" id="nomAuteur" name="nomAuteur" value="<?= $unAuteur->getNomAuteur(); ?>">             
                 </section>
 
                 <!-- PRENOM  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="prenom"> Prénom de l'auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" value="<?= $unAuteur->getPrenomAuteur(); ?>">             
+                    <label class="conteneurLabel" for="prenomAuteur"> Prénom de l'auteur :</label>
+                    <input class=conteneurInputAjout type="text" id="prenomAuteur" name="prenomAuteur" value="<?= $unAuteur->getPrenomAuteur(); ?>">             
                 </section>
 
 

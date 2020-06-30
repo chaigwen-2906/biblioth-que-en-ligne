@@ -48,32 +48,32 @@
             
             <figure class="figureSlid">
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles"  onclick="afficheNouveaute(this);">
+                    <img id="imgSlider1" class="imgSlider" src="app/public/image/img/filleEncre.jpg" alt="La fille d'encre et étoiles" title="La fille d'encre et étoiles">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique"  onclick="afficheNouveaute(this);">
+                    <img id="imgSlider2" class="imgSlider" src="app/public/image/img/luluNelson1.jpg" alt="Tome-1: Cap sur l'Afrique" title="Tome-1: Cap sur l'Afrique">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse"  onclick="afficheNouveaute(this);">
+                    <img id="imgSlider3" class="imgSlider" src="app/public/image/img/guerreDesClans.jpg" alt="éclipse" title="éclipse">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat" onclick="afficheNouveaute(this);">
+                    <img id="imgSlider4" class="imgSlider" src="app/public/image/img/droitEnf.jpg" alt="Les cahiers filliozat" title="Les cahiers filliozat">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages" onclick="afficheNouveaute(this);">
+                    <img id="imgSlider5" class="imgSlider" src="app/public/image/img/queteDesOurs.jpg" alt="Les dernières contrées sauvages" title="Les dernières contrées sauvages">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile"  onclick="afficheNouveaute(this);">
+                    <img id="imgSlider6" class="imgSlider" src="app/public/image/img/royaumeDesLoups.jpg" alt="Une nouvelle étoile" title="Une nouvelle étoile">
                 </div>
                 <div class="divImgSlider">
-                    <img class="imgSlider" src="app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours" onclick="afficheNouveaute(this);">
+                    <img id="imgSlider7" class="imgSlider" src="app/public/image/img/parfumAmours.jpg" alt="Parfum d'amours" title="Parfum d'amours">
                 </div>    
             </figure>
 
             <div class="SliderNew">
                 <div class="enteteSlider">
                     <div class="imgtext"></div>
-                    <span onclick="this.parentElement.parentElement.style.display='none'" class="fermerBtn">&times;</span>
+                    <span id="btnFermerImgSlider" class="fermerBtn">&times;</span>
                 </div>
                 <img class="etendreImg">
             </div>
@@ -134,11 +134,6 @@
 
         
         <?php require_once("app/views/layout/footer.php") ?> 
-
-        <!--class active-->
-        <script type="text/javascript">
-            menuActive(2);
-        </script>
 
     </body>
 

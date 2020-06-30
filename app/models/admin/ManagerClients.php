@@ -9,7 +9,7 @@ class ManagerClients extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT * FROM client ";  
+        $sql = "SELECT * FROM client";  
         
 
         $requete = $bdd->prepare($sql);

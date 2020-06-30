@@ -37,7 +37,7 @@
                 <!-- NOM  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="nomCategorie">Nom de la catégorie:</label>
-                    <input class=conteneurInputAjout type="text" name="nomCategorie" placeholder="Nom de la catégorie" required>             
+                    <input class=conteneurInputAjout type="text" id="nomCategorie" name="nomCategorie" placeholder="Nom de la catégorie" required>             
                 </section>
 
                

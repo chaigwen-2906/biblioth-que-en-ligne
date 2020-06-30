@@ -9,7 +9,7 @@ class ManagerEditeurs extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT * FROM editeur" ;  
+        $sql = "SELECT * FROM editeur";  
 
         $requete = $bdd->prepare($sql);
 

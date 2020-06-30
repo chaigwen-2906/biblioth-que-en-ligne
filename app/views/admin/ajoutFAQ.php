@@ -36,14 +36,14 @@
 
                 <!-- question  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="Question">Question:</label>
-                    <input class=conteneurInputAjout type="text" name="question" placeholder="Question" >             
+                    <label class="conteneurLabel" for="questionFaq">Question:</label>
+                    <input class=conteneurInputAjout type="text" id="questionFaq" name="questionFaq" placeholder="Question" >             
                 </section>
 
                 <!-- reponse  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="reponse">Réponse:</label>
-                    <input class=conteneurInputAjout type="text" name="reponse" placeholder="reponse" >             
+                    <label class="conteneurLabel" for="reponseFaq">Réponse:</label>
+                    <input class=conteneurInputAjout type="text" id="reponseFaq" name="reponseFaq" placeholder="reponse" >             
                 </section>
 
 

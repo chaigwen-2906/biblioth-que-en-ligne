@@ -10,7 +10,7 @@ class ManagerFrontAtelier extends Manager
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        $sql = "SELECT * FROM atelier WHERE DATE>NOW() ORDER BY DATE ";
+        $sql = "SELECT * FROM atelier WHERE DATE>NOW() ORDER BY DATE";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
@@ -54,11 +54,11 @@ class ManagerFrontAtelier extends Manager
 
         //On réalise la requete sur la base de données
         //On prépare la requete
-        $sql = "SELECT * FROM atelier WHERE idAtelier=".$idAtelier;
+        $sql = "SELECT * FROM atelier WHERE idAtelier = ?";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$idAtelier]);
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetch();

@@ -36,14 +36,14 @@
 
                  <!-- Code  -->
                  <section class="conteneurSection">
-                    <label class="conteneurLabel" for="code">Code :</label>
-                    <input class=conteneurInputAjout type="text" name="code" value="<?= $unEditeur->getCode(); ?>">             
+                    <label class="conteneurLabel" for="codeEditeur">Code :</label>
+                    <input class=conteneurInputAjout type="text" id="codeEditeur" name="codeEditeur" value="<?= $unEditeur->getCode(); ?>">             
                 </section>
 
                 <!-- nom auteur -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom">Auteur :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unEditeur->getNom(); ?>">             
+                    <label class="conteneurLabel" for="nomEditeur">Editeur :</label>
+                    <input class=conteneurInputAjout type="text" id="nomEditeur" name="nomEditeur" value="<?= $unEditeur->getNom(); ?>">             
                 </section>
 
 

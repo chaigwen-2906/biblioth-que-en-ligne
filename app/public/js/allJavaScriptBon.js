@@ -287,8 +287,8 @@ if(boutonCreerCompte != null)
             document.getElementById(`error${id}`).textContent = "";
           });
         //On vide les champs
-        document.getElementById("civiliteMRCreer").checked=false;
-        document.getElementById("civiliteMMECreer").checked=false;
+        document.getElementById("civiliteMonsieur").checked=false;
+        document.getElementById("civiliteMadame").checked=false;
         document.getElementById("numeroAbonneCreer").value="";
         document.getElementById("nomCreer").value="";
         document.getElementById("prenomCreer").value="";
@@ -313,8 +313,8 @@ fermerModalCreerCompte.addEventListener("click",function(e) {
 });
 formValidCreer.addEventListener("click",function(event){
     //il doit absoloument cocher un bouton  
-    validCivilite(event, civiliteMRCreer, civiliteMMECreer, erreurCiviliteCreer, "Civilité");
-
+    validCivilite(event, civiliteMonsieur, civiliteMadame, erreurCiviliteCreer, "Civilité");
+    
     validSomething(event, nomCreer, regexNomPrenom, erreurNomCreer, "Nom");
     validSomething(event, prenomCreer, regexNomPrenom, erreurPrenomCreer, "Prénom");
     validSomething(event, emailCreer, regexMail, erreurMailCreer, "Email");
@@ -377,8 +377,8 @@ if(formValidMonCompte != null)
 {
     formValidMonCompte.addEventListener("click",function(event){
         //il doit absoloument cocher un bouton  
-       validCivilite(event, civiliteMonsieur, civiliteMadame, erreurCiviliteCompte, "Civilité");
-   
+       validCivilite(event, civiliteMonsieurCompte, civiliteMadameCompte, erreurCiviliteCompte, "Civilité");
+
        validSomething(event, nomCompte, regexNomPrenom, erreurNomCompte, "Nom");
        validSomething(event, prenomCompte, regexNomPrenom, erreurPrenomCompte, "Prénom");
        validSomething(event, emailCompte, regexMail, erreurEmailCompte, "Email");
@@ -642,3 +642,96 @@ function validationCheckbox(event,element,output,prefix){
         output.textContent = "";
     }
 }
+
+
+let btnPoster = document.getElementById("btnPoster");
+if(btnPoster != null)
+{
+    btnPoster.addEventListener("click",function(){
+        window.document.formAjoutCommentaire.submit();
+    });
+}
+
+let btnRechercher = document.getElementById("btnRechercher");
+if(btnRechercher != null)
+{
+    btnRechercher.addEventListener("click",function(){
+        verificationRecherche();
+    });
+}
+
+let imgSlider1 = document.getElementById("imgSlider1");
+if(imgSlider1 != null)
+{
+    imgSlider1.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let imgSlider2 = document.getElementById("imgSlider2");
+if(imgSlider2 != null)
+{
+    imgSlider2.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let imgSlider3 = document.getElementById("imgSlider3");
+if(imgSlider3 != null)
+{
+    imgSlider3.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let imgSlider4 = document.getElementById("imgSlider4");
+if(imgSlider4 != null)
+{
+    imgSlider4.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let imgSlider5 = document.getElementById("imgSlider5");
+if(imgSlider5 != null)
+{
+    imgSlider5.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let imgSlider6 = document.getElementById("imgSlider6");
+if(imgSlider6 != null)
+{
+    imgSlider6.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let imgSlider7 = document.getElementById("imgSlider7");
+if(imgSlider7 != null)
+{
+    imgSlider7.addEventListener("click",function(){
+        afficheNouveaute(this);
+    });
+}
+let btnFermerImgSlider = document.getElementById("btnFermerImgSlider");
+if(btnFermerImgSlider != null)
+{
+    btnFermerImgSlider.addEventListener("click",function(){
+        this.parentElement.parentElement.style.display='none';
+    });
+}
+
+let tabtemp = document.location.href.split('/');
+let page = tabtemp[tabtemp.length-1];
+switch (page) {
+    case 'front-home':
+        menuActive(0);
+    break;
+    case 'front-coupDeCoeurs':
+        menuActive(1);
+    break;
+    case 'front-nouveaute':
+        menuActive(2);
+    break;
+    case 'front-atelier':
+        menuActive(3);
+    break;
+    default:
+}
+

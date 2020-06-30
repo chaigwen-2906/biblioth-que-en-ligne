@@ -45,9 +45,8 @@
                 <!-- FIN AJOUTE  -->
 
                 <!-- RECHERCHE  -->
-                <section class="rechercheLivre" >
-                    Recherche sur le nom : <input type="text" id="champRecherche">
-                </section> 
+                    <label for="champRecherche"> Recherche sur le nom : </label> 
+                    <input type="text" id="champRecherche">
                 <!-- FIN RECHERCHE -->
 
                 <!-- DETAIL -->

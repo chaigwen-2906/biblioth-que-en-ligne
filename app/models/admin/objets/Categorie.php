@@ -56,7 +56,7 @@ class Categorie extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomCategorie()]);
+        $requete->execute([addslashes($this->getNomCategorie())]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCategorie de notre objet      
@@ -96,7 +96,7 @@ class Categorie extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomCategorie(),$this->getIdCategorie()]);
+        $requete->execute([addslashes($this->getNomCategorie()),$this->getIdCategorie()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

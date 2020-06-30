@@ -36,32 +36,32 @@
      
                 <!-- nomPage  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nomPage">Nom de la page :</label>
-                    <input class=conteneurInputAjout type="text" name="nomPage" value="<?= $unMeta->getNomPage(); ?>" >             
+                    <label class="conteneurLabel" for="nomPageModif">Nom de la page :</label>
+                    <input class=conteneurInputAjout type="text" id="nomPageModif" name="nomPageModif" value="<?= $unMeta->getNomPage(); ?>" >             
                 </section>
 
                 <!-- keywords  -->                
                  <section class="conteneurSection">
-                    <label class="conteneurLabel" for="keywords">Keywords :</label>
-                    <input class=conteneurInputAjout type="text" name="keywords" value="<?= $unMeta->getKeywords(); ?>" >             
+                    <label class="conteneurLabel" for="keywordsModif">Keywords :</label>
+                    <input class=conteneurInputAjout type="text" id="keywordsModif" name="keywordsModif" value="<?= $unMeta->getKeywords(); ?>" >             
                 </section>
 
                 <!-- description  -->
                  <section class="conteneurSection">
-                    <label class="conteneurLabel" for="description">Description :</label>
-                    <input class=conteneurInputAjout type="text" name="description" value="<?= $unMeta->getDescription(); ?>" >             
+                    <label class="conteneurLabel" for="descriptionModif">Description :</label>
+                    <input class=conteneurInputAjout type="text" id="descriptionModif" name="descriptionModif" value="<?= $unMeta->getDescription(); ?>" >             
                 </section>
 
                 <!-- title  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="title">Title :</label>
-                    <input class=conteneurInputAjout type="text" name="title" value="<?= $unMeta->getTitle(); ?>">             
+                    <label class="conteneurLabel" for="titleModif">Title :</label>
+                    <input class=conteneurInputAjout type="text" id="titleModif" name="titleModif" value="<?= $unMeta->getTitle(); ?>">             
                 </section>
 
 
                 <!-- BOUTON VALIDER  -->
                 <section>
-                    <input class="boutonValiderAjoutLivre" id="btnValideAjoutLivre"  type="submit" value="Valider">
+                    <input class="boutonValiderAjoutLivre" id="btnValideAjoutLivre" type="submit" value="Valider">
                 </section>
                 
             </form>    

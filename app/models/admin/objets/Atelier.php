@@ -117,34 +117,20 @@ class Atelier extends Manager{
         //Préparation de la requête
         //dans la bdd INSERT la ligne dans la table atelier et je passe les valeur des colonne = 
         //(nom,date,description,heure,age,capacite)
-        $sql= "INSERT INTO atelier(nom,date,description,heure,age,capacite) VALUES (";
 
-        //Le champ idCategorie de la table livre est un entier. Il ne peut donc pas prendre la valeur ''
-       //Si l'idCategorie est null il faut donc lui envoyer le mot null
-       
-        $sql = $sql."'".addslashes($this->getNom())."',";
+        $sql= "INSERT INTO atelier(nom,date,description,heure,age,capacite) VALUES (?,?,?,?,?,?)";
 
         if($this->getDate() == ''){
-            $sql = $sql."null,";
+            $dateSql = "NULL";
         }
         else{
-             $sql = $sql."'".$this->getDate()."',";
+            $dateSql = $this->getDate();
         }
-
-        $sql = $sql."'".addslashes($this->getDescription())."',";
-
-        $sql = $sql."'".addslashes($this->getHeure())."',";
-
-        $sql = $sql."'".addslashes($this->getAge())."',";
-
-        $sql = $sql."'".addslashes($this->getCapacite())."'";
-
-        $sql = $sql.")";
 
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([addslashes($this->getNom()), $dateSql, addslashes($this->getDescription()), addslashes($this->getHeure()), addslashes($this->getAge()), addslashes($this->getCapacite())]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idAtelier de notre objet

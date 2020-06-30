@@ -69,16 +69,12 @@ class Editeur extends Manager{
         //Préparation de la requête
         //dans la bdd INSERT la ligne dans la table editeur et je passe les valeur des colonne = 
         //(editeur,code,nom)
-        $sql= "INSERT INTO editeur(code,nom) VALUES (";
-
-        $sql = $sql."'".addslashes($this->getCode())."',";
-        $sql = $sql."'".addslashes($this->getNom())."'";
-        $sql = $sql.")";
+        $sql= "INSERT INTO editeur(code,nom) VALUES (?,?)";
 
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getCode(), $this->getNom()]);
+        $requete->execute([addslashes($this->getCode()), addslashes($this->getNom())]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idEditeur de notre objet
@@ -119,7 +115,7 @@ class Editeur extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getCode(), $this->getNom(), $this->getIdEditeur()]);
+        $requete->execute([addslashes($this->getCode()), addslashes($this->getNom()), $this->getIdEditeur()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

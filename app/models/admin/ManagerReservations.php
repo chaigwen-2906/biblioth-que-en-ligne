@@ -11,12 +11,12 @@ class ManagerReservations extends Manager{
       
         $sql = "SELECT idReservation, livre.nom as nomLivre, client.nom AS nomClient, client.prenom AS prenomClient, disponible, dateDeDebut FROM reservation 
         LEFT JOIN client ON(reservation.idClient = client.idClient) 
-        LEFT JOIN livre ON(reservation.idLivre = livre.idLivre) WHERE statut LIKE '$statut'"  ;  
+        LEFT JOIN livre ON(reservation.idLivre = livre.idLivre) WHERE statut LIKE ?";  
 
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$statut]);
 
         //On récupère le résultat de la requete dans la variable admin
         $resultats = $requete->fetchAll();
@@ -43,6 +43,8 @@ class ManagerReservations extends Manager{
         //On ferme la requete
         $requete->closeCursor();
 
+        return $resultat;
+
     }
 
 
@@ -61,5 +63,7 @@ class ManagerReservations extends Manager{
 
         //On ferme la requete
         $requete->closeCursor();
+
+        return $resultat;
      }
 }
