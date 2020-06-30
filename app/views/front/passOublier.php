@@ -54,8 +54,8 @@
             </p>
             <section>
                 <form class="conteneurPassOublier" method="POST"  action="./front-<?= $this->nomPage;?>?action2=motDePasseOublier">
-                    <label class="labelAdresse" for="adresseMail">Votre adresse e-mail : </label>
-                    <input class="champsPass" name="adresseMail" id="adresseMail" placeholder="Entrer votre adresse e-mail">    
+                    <label class="labelAdresse" for="oublierAdresseMail">Votre adresse e-mail : </label>
+                    <input class="champsPass" name="adresseMail" id="oublierAdresseMail" placeholder="Entrer votre adresse e-mail">    
                     <input type="submit" class="monBoutton" name="adresseMailOublier" value="Envoyer">
                 </form>
             </section>

@@ -37,7 +37,7 @@
                 <!-- NOM  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="nomCategorie"> Nom de la categorie:</label>
-                    <input class=conteneurInputAjout type="text" name="nomCategorie" value="<?= $uneCategorie->getNomCategorie(); ?>" required>             
+                    <input class=conteneurInputAjout type="text" id="nomCategorie" name="nomCategorie" value="<?= $uneCategorie->getNomCategorie(); ?>" required>             
                 </section>
 
 

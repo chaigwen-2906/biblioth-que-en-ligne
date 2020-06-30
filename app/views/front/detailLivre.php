@@ -140,16 +140,16 @@
                             Poster votre commentaire :
                         </h3>
                         <article>
-                            <label for="note">Note :</label>
-                            <input class="inputNote" type="number" name="note" min="0" max= "5"  >
+                            <label for="noteLivre">Note :</label>
+                            <input class="inputNote" type="number" id="noteLivre" name="noteLivre" min="0" max= "5"  >
                         </article>
                         <article class="commentaire">        
-                            <label for="commentaire">
+                            <label for="commentaireLivre">
                                 Votre commentaire :
                             </label>
-                            <textarea class="reglCommentaire" name="description" placeholder="Entrer votre message" cols="90" rows="6"></textarea>
+                            <textarea class="reglCommentaire" id="commentaireLivre" name="commentaireLivre" placeholder="Entrer votre message" cols="70" rows="6"></textarea>
                         </article>
-                        <a id="btnPoster" class="monBoutton" onclick="window.document.formAjoutCommentaire.submit();">
+                        <a id="btnPoster" class="monBoutton">
                             Posté !
                         </a>
                     </form>

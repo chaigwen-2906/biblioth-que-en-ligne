@@ -9,7 +9,7 @@ class ManagerAuteurs extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT * FROM auteur ";  
+        $sql = "SELECT * FROM auteur";  
         
 
         $requete = $bdd->prepare($sql);

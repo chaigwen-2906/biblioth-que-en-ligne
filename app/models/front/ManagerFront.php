@@ -104,17 +104,15 @@ class ManagerFront extends Manager
         //test: on vérifie que l'adresse mail n'est pas déjà utilisé et que le numéro d'abonné n'existe pas déjà
         if($numeroAbonne == "")
         {
-            $sql="SELECT idClient FROM client WHERE email LIKE '$email'";
+            $sql="SELECT idClient FROM client WHERE email LIKE ?";
+            $requete = $bdd->prepare($sql);
+            $requete->execute([addslashes($email)]);
         }
         else{
-            $sql="SELECT idClient FROM client WHERE email LIKE '$email' OR numeroAbonne LIKE '$numeroAbonne'";
+            $sql="SELECT idClient FROM client WHERE email LIKE ? OR numeroAbonne LIKE ?";
+            $requete = $bdd->prepare($sql);
+            $requete->execute([addslashes($email), addslashes($numeroAbonne)]);
         }
-        
-        
-
-        $requete = $bdd->prepare($sql);
-
-        $requete->execute();
 
         $client = $requete->fetch();
 
@@ -142,15 +140,11 @@ class ManagerFront extends Manager
         // On réalise la requete sur la base de données
         // On prépare la requete
         $sql = "INSERT INTO client(numeroAbonne,civilite,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
-        VALUES ('$numeroAbonne','$civilite', '$nom', '$prenom', '$email', '$mobile', '$telephone', '$adresse', '$dateDeNaissanceSQL', '$motDePasse')";
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
-        // echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-        // echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-        // echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-        // echo $sql;
         $requete = $bdd->prepare($sql);
 
-        $testRequete = $requete->execute();
+        $testRequete = $requete->execute([$numeroAbonne, $civilite, $nom, $prenom, $email, $mobile, $telephone, $adresse, $dateDeNaissanceSQL, $motDePasse]);
 
         if($testRequete == false)
         {
@@ -204,19 +198,25 @@ class ManagerFront extends Manager
     {  
         $bdd = $this->bddConnection();
 
+        $nom = addslashes($nom);
+        $prenom = addslashes($prenom);
+        $email = addslashes($email);
+        $mobile = addslashes($mobile);
+        $fixe = addslashes($fixe);
+        $adresse = addslashes($adresse);
+
         //On passe la date de naissance dans un format sql
         $tabtemp = explode('/',$dateNaissance);
         $dateNaissanceSQL = $tabtemp[2]."-".$tabtemp[1]."-".$tabtemp[0];
 
         $sql = "UPDATE client
-            SET civilite ='$civilite', nom = '$nom', prenom ='$prenom', email ='$email', telephoneMobile ='$mobile', 
-		        telephoneFixe ='$fixe', adresse ='$adresse ', dateDeNaissance ='$dateNaissanceSQL'
-            WHERE idClient = ?";
+            SET civilite = ?, nom = ?, prenom = ?, email = ?, telephoneMobile = ?, 
+		        telephoneFixe = ?, adresse = ?, dateDeNaissance = ? WHERE idClient = ?";
             
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$idClient]);
+        $requete->execute([$civilite, $nom, $prenom, $email, $mobile, $fixe, $adresse, $dateNaissanceSQL, $idClient]);
 
         //On ferme la requete
         $requete->closeCursor();
@@ -229,12 +229,12 @@ class ManagerFront extends Manager
         //On prépare le mot de passe(hash)
         $nouveauMotPass = password_hash($nouveauMotPass, PASSWORD_DEFAULT);
 
-        $sql = "UPDATE client  SET motDePasse ='$nouveauMotPass' WHERE email = ?";    
+        $sql = "UPDATE client  SET motDePasse = ? WHERE email = ?";    
         $requete = $bdd->prepare($sql);
        
 
         //Execution de la requete
-        $requete->execute([$adresseMail]);
+        $requete->execute([$nouveauMotPass, $adresseMail]);
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetch();
@@ -251,11 +251,11 @@ class ManagerFront extends Manager
         //On prépare le mot de passe(hash)
         $nouveauMotPasse = password_hash($nouveauMotPasse, PASSWORD_DEFAULT);
         
-        $sql = "UPDATE client  SET motDePasse ='$nouveauMotPasse' WHERE idClient = ?";    
+        $sql = "UPDATE client  SET motDePasse = ? WHERE idClient = ?";    
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$idClient]);
+        $requete->execute([$nouveauMotPasse, $idClient]);
 
         //On ferme la requete
         $requete->closeCursor();
@@ -270,11 +270,11 @@ class ManagerFront extends Manager
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "SELECT * FROM reservation LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
-        ON (reservation.idLivre = livre.idLivre)  WHERE idClient = $idClient AND statut LIKE 'En attente de validation'  ORDER BY reservation.dateDeDebut DESC  ";
+        ON (reservation.idLivre = livre.idLivre)  WHERE idClient = ? AND statut LIKE 'En attente de validation' ORDER BY reservation.dateDeDebut DESC";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$idClient]);
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetchAll();
@@ -294,11 +294,11 @@ class ManagerFront extends Manager
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "SELECT * FROM reservation LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
-        ON (reservation.idLivre = livre.idLivre)  WHERE idClient = $idClient AND statut LIKE 'Validée'  ORDER BY reservation.dateDeDebut DESC  ";
+        ON (reservation.idLivre = livre.idLivre)  WHERE idClient = ? AND statut LIKE 'Validée' ORDER BY reservation.dateDeDebut DESC";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$idClient]);
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetchAll();

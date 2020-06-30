@@ -14,11 +14,11 @@ class ManagerFrontLivre extends Manager
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "SELECT * FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) 
-        WHERE idLivre=".$idLivre;
+        WHERE idLivre = ?";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$idLivre]);
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetch();
@@ -36,11 +36,11 @@ class ManagerFrontLivre extends Manager
 
         // On réalise la requete sur la base de données
         // On prépare la requete
-        $sql = "SELECT nom, nomAuteur FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) WHERE idLivre=".$unIdLivre;
+        $sql = "SELECT nom, nomAuteur FROM (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) WHERE idLivre = ?";
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$unIdLivre]);
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetch();
@@ -131,32 +131,39 @@ class ManagerFrontLivre extends Manager
         // On réalise la requete sur la base de données
         // On prépare la requete
         $sql = "SELECT * FROM livre LEFT JOIN categorie ON (livre.idCategorie = categorie.idCategorie) 
-        LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur) WHERE";
+        LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)";
 
-        if($valeurCategorie == 0)
+        if($valeurCategorie != 0 && $valeurTexte != "")
         {
-            //Pour éviter l'erreur de syntaxe sql "WHERE AND"
-            $sql = $sql." 1=1";
+            $sql = $sql."WHERE livre.idCategorie = ? AND";
+            $sql = $sql." (livre.nom LIKE ?
+                OR auteur.nomAuteur LIKE ? 
+                OR auteur.prenomAuteur LIKE ?)";
+            $requete = $bdd->prepare($sql);
+            $requete->execute([$valeurCategorie, "%".addslashes($valeurTexte)."%", "%".addslashes($valeurTexte)."%", "%".addslashes($valeurTexte)."%"]);
         }
         else{
-            $sql = $sql." livre.idCategorie=".$valeurCategorie;
+            if($valeurCategorie != 0)
+            {
+                $sql = $sql."WHERE livre.idCategorie = ?";
+                $requete = $bdd->prepare($sql);
+                $requete->execute([$valeurCategorie]);
+            }
+            else{
+                if($valeurTexte != "")
+                {
+                    $sql = $sql."WHERE (livre.nom LIKE ?
+                        OR auteur.nomAuteur LIKE ? 
+                        OR auteur.prenomAuteur LIKE ?)";
+                    $requete = $bdd->prepare($sql);
+                    $requete->execute(["%".addslashes($valeurTexte)."%", "%".addslashes($valeurTexte)."%", "%".addslashes($valeurTexte)."%"]);
+                }
+                else{
+                    $requete = $bdd->prepare($sql);
+                    $requete->execute();
+                }
+            }
         }
-        $sql = $sql." AND";
-        if($valeurTexte == "")
-        {
-            $sql = $sql." 1=1";
-        }
-        else{
-            // % : remplace n'importequel caractère devant et derrière la valeur
-            $sql = $sql." (livre.nom LIKE '%".$valeurTexte."%' 
-                OR auteur.nomAuteur LIKE '%".$valeurTexte."%' 
-                OR auteur.prenomAuteur LIKE '%".$valeurTexte."%')";
-        }
-
-        $requete = $bdd->prepare($sql);
-
-        //Execution de la requete
-        $requete->execute();
 
         //On récupère le résultat de la requete
         $resultat = $requete->fetchAll();
@@ -179,7 +186,7 @@ class ManagerFrontLivre extends Manager
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "SELECT * FROM commentaire left join client on (commentaire.idClient = client.idClient) 
-        where commentaire.idLivre=? ORDER BY commentaire.date DESC ";
+        where commentaire.idLivre = ? ORDER BY commentaire.date DESC";
         
         $requete = $bdd->prepare($sql);
 
@@ -206,7 +213,7 @@ class ManagerFrontLivre extends Manager
         $requete = $bdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$idLivre,$idClient,$note,$description]);
+        $requete->execute([$idLivre,$idClient,$note,addslashes($description)]);
 
         //On ferme la requete
         $requete->closeCursor();
@@ -269,7 +276,7 @@ class ManagerFrontLivre extends Manager
         //On réalise la requete sur la base de données
         //On prépare la requete
         $sql = "SELECT * FROM coupdecoeur LEFT JOIN (livre LEFT JOIN auteur ON (livre.idAuteur = auteur.idAuteur)) ON 
-        (coupdecoeur.idLivre = livre.idLivre) ORDER BY coupdecoeur.dateDePublication DESC ";
+        (coupdecoeur.idLivre = livre.idLivre) ORDER BY coupdecoeur.dateDePublication DESC";
         $requete = $bdd->prepare($sql);
         //Execution de la requete
         $requete->execute();

@@ -122,11 +122,6 @@
         
         <?php require_once("app/views/layout/footer.php") ?> 
 
-        <!--class active-->
-        <script type="text/javascript">
-            menuActive(1);
-        </script>
-
     </body>
 
 </html>

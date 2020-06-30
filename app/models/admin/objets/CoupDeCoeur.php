@@ -95,27 +95,18 @@ class CoupDeCoeur extends Manager{
          //Préparation de la requête
          //dans la bdd INSERT la ligne dans la table coupDeCoeur et je passe les valeur des colonne = 
          //(idlivre,auteur,commentaire,dateDePublication)
-        $sql= "INSERT INTO coupdecoeur(idLivre,auteur,commentaire,dateDePublication) VALUES (";
-
-        if($this->getIdLivre() == ''){
-            $sql = $sql."null,";
-        }
-        else{
-             $sql = $sql."'".$this->getIdLivre()."',";
-        }
-
-        $sql = $sql."'".addslashes($this->getAuteur())."',";
-
-        $sql = $sql."'".addslashes($this->getCommentaire())."',";
-
-        $sql = $sql."'".addslashes($this->getDateDePublication())."'";
-
-        $sql = $sql.")";
-
+        $sql= "INSERT INTO coupdecoeur(idLivre,auteur,commentaire,dateDePublication) VALUES (?,?,?,?)";
         $requete = $this->connectBdd->prepare($sql);
 
+        if($this->getIdLivre() == ''){
+            $idLivre = "NULL";
+        }
+        else{
+            $idLivre = $this->getIdLivre();
+        }
+
         //Execution de la requete
-        $requete->execute();
+        $requete->execute([$idLivre, addslashes($this->getAuteur()), addslashes($this->getCommentaire()), addslashes($this->getDateDePublication())]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCoupDeCoeur de notre objet
@@ -162,7 +153,7 @@ class CoupDeCoeur extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getIdLivre(), $this->getAuteur(), $this->getCommentaire(), $this->getDateDePublication(), $this->getIdCoupDeCoeur()]);
+        $requete->execute([$this->getIdLivre(), addslashes($this->getAuteur()), addslashes($this->getCommentaire()), addslashes($this->getDateDePublication()), $this->getIdCoupDeCoeur()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

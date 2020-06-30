@@ -68,7 +68,7 @@ class Admin extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomUtilisateur(), $this->getPassUtilisateur()]);
+        $requete->execute([addslashes($this->getNomUtilisateur()), addslashes($this->getPassUtilisateur())]);
         
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idAdmin de notre objet
@@ -109,7 +109,7 @@ class Admin extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomUtilisateurr(), $this->getPassUtilisateurr(), $this->getIdAdmin()]);
+        $requete->execute([addslashes($this->getNomUtilisateurr()), addslashes($this->getPassUtilisateurr()), $this->getIdAdmin()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

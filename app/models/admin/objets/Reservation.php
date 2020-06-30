@@ -94,7 +94,7 @@ class Reservation extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getIdClient(), $this->getIdLivre(), $this->getDateDeDebut(), $this->getStatut()]);
+        $requete->execute([$this->getIdClient(), $this->getIdLivre(), addslashes($this->getDateDeDebut()), addslashes($this->getStatut())]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCoupDeCoeur de notre objet
@@ -139,7 +139,7 @@ class Reservation extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getIdClient(), $this->getIdLivre(),  $this->getDateDeDebut(), $this->getStatut(), $this->getIdReservation()]);
+        $requete->execute([$this->getIdClient(), $this->getIdLivre(),  addslashes($this->getDateDeDebut()), addslashes($this->getStatut()), $this->getIdReservation()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

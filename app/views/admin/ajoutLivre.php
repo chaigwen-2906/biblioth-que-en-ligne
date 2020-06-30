@@ -87,32 +87,32 @@
 
                 <!-- NOM  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom"> Nom du livre :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" placeholder="Nom du livre" required>             
+                    <label class="conteneurLabel" for="nomLivre"> Nom du livre :</label>
+                    <input class=conteneurInputAjout type="text" id="nomLivre" name="nomLivre" placeholder="Nom du livre" required>             
                 </section>
 
                 <!-- IMAGE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="image"> Image du livre :</label>
-                    <input class=conteneurInputAjout type="file" name="image">             
+                    <label class="conteneurLabel" for="imageLivre"> Image du livre :</label>
+                    <input class=conteneurInputAjout type="file" id="imageLivre" name="imageLivre">             
                 </section>
 
                 <!-- DATE DE PUBLICATION  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="date"> Date de publications du livre :</label>
-                    <input class=conteneurInputAjout type="date" name="date" placeholder=" Date de publications du livre">             
+                    <label class="conteneurLabel" for="dateLivre"> Date de publications du livre :</label>
+                    <input class=conteneurInputAjout type="date" id="dateLivre" name="dateLivre" placeholder=" Date de publications du livre">             
                 </section>
 
                 <!-- DESCRIPTION  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="description">Descriptions du livre :</label>
-                    <textarea class=conteneurInputAjout name="description" placeholder="Entrer votre description"></textarea>            
+                    <label class="conteneurLabel" for="descriptionLivre">Descriptions du livre :</label>
+                    <textarea class=conteneurInputAjout id="descriptionLivre" name="descriptionLivre" placeholder="Entrer votre description"></textarea>            
                 </section>
 
                 <!-- DISPONIBLE  -->
                 <section class="conteneurSection">
-                <label class="conteneurLabel" for="selectDispo">Livre disponible :</label>
-                    <select class=conteneurInputAjout id="selectDispo" name="selectDispo" placeholder="Livre disponible">
+                <label class="conteneurLabel" for="selectDispoLivre">Livre disponible :</label>
+                    <select class=conteneurInputAjout id="selectDispoLivre" name="selectDispoLivre" placeholder="Livre disponible">
                             <option value="oui">oui</option>
                             <option value="non">non</option>
                     </select>            
@@ -120,32 +120,32 @@
 
                 <!-- NB DE PAGE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nbPage"> Nombre de pages du livre :</label>
-                    <input class=conteneurInputAjout type="number" name="nbPage" placeholder="Nombre de pages du livre ">             
+                    <label class="conteneurLabel" for="nbPageLivre"> Nombre de pages du livre :</label>
+                    <input class=conteneurInputAjout type="number" id="nbPageLivre" name="nbPageLivre" placeholder="Nombre de pages du livre ">             
                 </section>
 
                 <!-- DIMENSION  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="dimension"> Dimension du livre :</label>
-                    <input class=conteneurInputAjout type="text" name="dimension" placeholder="21,5 cm × 29,2 cm × 1,2 cm">             
+                    <label class="conteneurLabel" for="dimensionLivre"> Dimension du livre :</label>
+                    <input class=conteneurInputAjout type="text" id="dimensionLivre" name="dimensionLivre" placeholder="21,5 cm × 29,2 cm × 1,2 cm">             
                 </section>
 
                 <!-- LANGUE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="langue"> Langue du livre :</label>
-                    <input class=conteneurInputAjout type="text" name="langue" placeholder="Langue du livre">             
+                    <label class="conteneurLabel" for="langueLivre"> Langue du livre :</label>
+                    <input class=conteneurInputAjout type="text" id="langueLivre" name="langueLivre" placeholder="Langue du livre">             
                 </section>
 
                 <!-- ISBN  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="isbn"> isbn du livre :</label>
-                    <input class=conteneurInputAjout type="text" name="isbn" placeholder="isbn du livre">             
+                    <label class="conteneurLabel" for="isbnLivre"> isbn du livre :</label>
+                    <input class=conteneurInputAjout type="text" id="isbnLivre" name="isbnLivre" placeholder="isbn du livre">             
                 </section>
 
                 <!-- EAN  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="ean"> Ean du livre :</label>
-                    <input class=conteneurInputAjout type="text" name="ean" placeholder="Ean du livre">             
+                    <label class="conteneurLabel" for="eanLivre"> Ean du livre :</label>
+                    <input class=conteneurInputAjout type="text" id="eanLivre" name="eanLivre" placeholder="Ean du livre">             
                 </section>
 
                 <!-- BOUTON VALIDER  -->

@@ -67,7 +67,7 @@ class Auteur extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomAuteur(), $this->getPrenomAuteur()]);
+        $requete->execute([addslashes($this->getNomAuteur()), addslashes($this->getPrenomAuteur())]);
         
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCoupDeCoeur de notre objet
@@ -108,7 +108,7 @@ class Auteur extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomAuteur(), $this->getPrenomAuteur(), $this->getIdAuteur()]);
+        $requete->execute([addslashes($this->getNomAuteur()), addslashes($this->getPrenomAuteur()), $this->getIdAuteur()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

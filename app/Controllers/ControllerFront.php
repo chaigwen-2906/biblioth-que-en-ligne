@@ -35,7 +35,7 @@ class ControllerFront
                 //L'utilisateur essaie de se connecter
                 //on test le couple @/mot de passe
                 //si ok, on récupère l'idClient dans la variable testConnexion
-                $testConnexion = $this->FrontManager->seConnecter($_POST["email"], $_POST["motDePasse"]);
+                $testConnexion = $this->FrontManager->seConnecter($_POST["emailIdentifier"], $_POST["motDePasseIdentifier"]);
 
                 if($testConnexion != false)
                 {
@@ -43,7 +43,7 @@ class ControllerFront
                     $_SESSION['idClient'] = $testConnexion;
                     $_SESSION['panier'] = array();
 
-                    setcookie('emailClient', $_POST["email"], time()+3600*24);
+                    setcookie('emailClient', $_POST["emailIdentifier"], time()+3600*24);
                 }
                 else{
                     $this->erreurConnexionCompte = true;
@@ -64,8 +64,8 @@ class ControllerFront
                 //L'utilisateur essaie de creer son compte
                 //on test les champs 
                 //si ok, on récupère l'idClient dans la variable testCreerCompte
-                $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonne"],$_POST["civilite"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["mobile"],
-                $_POST["telephone"], $_POST["adresse"], $_POST["date"], $_POST["motDePasse"]);
+                $testCreerCompte = $this->FrontManager->creerCompte($_POST["numeroAbonneCreer"],$_POST["civilite"], $_POST["nomCreer"], $_POST["prenomCreer"], $_POST["emailCreer"], $_POST["mobileCreer"],
+                $_POST["telephoneCreer"], $_POST["adresseCreer"], $_POST["dateCreer"], $_POST["motDePasseCreer"]);
                 
                 if(is_numeric($testCreerCompte))
                 {   
@@ -73,7 +73,7 @@ class ControllerFront
                     $_SESSION['idClient'] = $testCreerCompte;
                     $_SESSION['panier'] = array();
 
-                    setcookie('emailClient', $_POST["email"], time()+3600*24);
+                    setcookie('emailClient', $_POST["emailCreer"], time()+3600*24);
                 }
                 else
                 {
@@ -308,10 +308,18 @@ class ControllerFront
                 //On ajoute le commentaire si on est en situation de post du formulaire
                 if($_GET["action2"] == "ajouteCommentaire")
                 {
-                    if(isset($_SESSION["idClient"]) && isset($_POST["note"]) && isset($_POST["description"]))
+                    if(isset($_SESSION["idClient"]) && isset($_POST["noteLivre"]) && isset($_POST["commentaireLivre"]))
                     {
-                        //on enregistre le commentaire posté par utilisateur
-                        $FrontManagerLivre->ecrireCommentaire($idLivre,$_SESSION["idClient"],$_POST["note"],$_POST["description"]);
+                        if($_POST["noteLivre"] != "")
+                        {
+                            //on enregistre le commentaire posté par utilisateur
+                            $FrontManagerLivre->ecrireCommentaire($idLivre,$_SESSION["idClient"],$_POST["noteLivre"],$_POST["commentaireLivre"]);
+                        }
+                        else
+                        {
+                            echo "<script>alert('Veuillez saisir une note pour ce livre !')</script>";
+                        }
+                        
                     }
                 }
 
@@ -365,8 +373,8 @@ class ControllerFront
                     
                     //on appelle la function qui met à jour les informations dans la basse de donnée
                     //récuperer les variables post
-                    $this->FrontManager->mettreAJourClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],
-                    $_POST['mobile'],$_POST['fixe'],$_POST['adresse'],$_POST['dateNaissance']);
+                    $this->FrontManager->mettreAJourClient($_SESSION['idClient'],$_POST['Civilite'],$_POST['nomCompte'],$_POST['prenomCompte'],$_POST['emailCompte'],
+                    $_POST['mobileCompte'],$_POST['telephoneCompte'],$_POST['adresseCompte'],$_POST['dateNaissanceCompte']);
                 }
                 if ($_GET['action2'] == "enregistrerPassword"){
                     

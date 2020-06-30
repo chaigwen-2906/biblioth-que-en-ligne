@@ -14,7 +14,7 @@ class ControllerAdmin
             if ($_GET['action2'] == "connectionAdministrateur"){
                     
                 //on appelle la function qui vérifier si le nom utilisateur et mot de passe existent dans la table admin 
-                $retourConnectionAdmin = $adminManager->connectionAdministrateur($_POST['nom'], $_POST['motPasse']);
+                $retourConnectionAdmin = $adminManager->connectionAdministrateur($_POST['nomUtilisateur'], $_POST['motPasseUtilisateur']);
 
                 if($retourConnectionAdmin != false)
                 {
@@ -111,15 +111,15 @@ class ControllerAdmin
                 {
                     //$_FILES : variable superglobal qui permet de récupérer les input type file
                     $contenuImage = "";
-                    if(isset($_FILES['image']) && ($_FILES['image']['tmp_name'] != ""))
+                    if(isset($_FILES['imageLivre']) && ($_FILES['imageLivre']['tmp_name'] != ""))
                     {
-                        $contenuImage = file_get_contents($_FILES['image']['tmp_name']);
+                        $contenuImage = file_get_contents($_FILES['imageLivre']['tmp_name']);
                     }
                     
 
                     //On crée un objet de type livre
-                    $unLivre = new \Projet\Models\admin\objets\Livre('',$_POST['selectCategorie'],$_POST['selectAuteurs'],$_POST['nom'],$contenuImage,'',$_POST['date'],
-                    $_POST['description'],$_POST['selectDispo'],$_POST['selectEditeurs'],$_POST['nbPage'],$_POST['dimension'],$_POST['langue'],$_POST['ean'],$_POST['isbn']);
+                    $unLivre = new \Projet\Models\admin\objets\Livre('',$_POST['selectCategorie'],$_POST['selectAuteurs'],$_POST['nomLivre'],$contenuImage,'',$_POST['dateLivre'],
+                    $_POST['descriptionLivre'],$_POST['selectDispoLivre'],$_POST['selectEditeurs'],$_POST['nbPageLivre'],$_POST['dimensionLivre'],$_POST['langueLivre'],$_POST['eanLivre'],$_POST['isbnLivre']);
 
                     //On appelle la fonction Create de l'objet livre pour enregistrer en bdd
                     $unLivre->Create();
@@ -167,7 +167,7 @@ class ControllerAdmin
                     {
                         $unLivre->setIdCategorie($_POST['selectCategorie']);
                         $unLivre->setIdAuteur($_POST['selectAuteurs']);
-                        $unLivre->setNom($_POST['nom']);
+                        $unLivre->setNom($_POST['nomLivre']);
 
                         //$_FILES : variable superglobal qui permet de récupérer les input type file
                         $contenuImage = "";
@@ -177,15 +177,15 @@ class ControllerAdmin
                             $unLivre->setImage($contenuImage);
                         }
 
-                        $unLivre->setDateDePublication($_POST['date']);
-                        $unLivre->setDescription($_POST['description']);
-                        $unLivre->setDisponible($_POST['selectDispo']); 
+                        $unLivre->setDateDePublication($_POST['dateLivre']);
+                        $unLivre->setDescription($_POST['descriptionLivre']);
+                        $unLivre->setDisponible($_POST['selectDispoLivre']); 
                         $unLivre->setIdEditeur($_POST['selectEditeurs']);
-                        $unLivre->setNbDePage($_POST['nbPage']);
-                        $unLivre->setDimension($_POST['dimension']);
-                        $unLivre->setLangue($_POST['langue']);
-                        $unLivre->setEan($_POST['ean']);
-                        $unLivre->setIsbn($_POST['isbn']);
+                        $unLivre->setNbDePage($_POST['nbPageLivre']);
+                        $unLivre->setDimension($_POST['dimensionLivre']);
+                        $unLivre->setLangue($_POST['langueLivre']);
+                        $unLivre->setEan($_POST['eanLivre']);
+                        $unLivre->setIsbn($_POST['isbnLivre']);
 
                         //enregistrer en base bdd
                         $unLivre->Update();
@@ -237,7 +237,6 @@ class ControllerAdmin
                  {
                     if($_GET['action2'] == "supprimerLivre")
                     {
-                        echo "<br/><br/><br/><br/><br/><br/><br/><br/>idLivre : ".$idLivre;
                         //on récupère les commentaires qui sont associés au livre
                         $ManagerCommentaires = new  \Projet\Models\admin\ManagerCommentaires();
                         $ManagerCommentaires->supprimeCommentairesParIdLivre($idLivre);
@@ -265,7 +264,6 @@ class ControllerAdmin
                         // on supprime le livre
                         $unLivre = new \Projet\Models\admin\objets\Livre($idLivre,'','','','','','','','','','','','','','');
                         $unLivre->delete();
-
 
                         // on renvoie vers la page gestion livre 
                         header('Location: ./admin-listeLivres?action2=confirmSupp');
@@ -344,7 +342,7 @@ class ControllerAdmin
                 if($_GET["action2"] == "ajoutAuteur")
                 {
                     //On crée un objet de type auteur
-                    $unAuteur = new \Projet\Models\admin\objets\Auteur('',$_POST['nom'],$_POST['prenom']);
+                    $unAuteur = new \Projet\Models\admin\objets\Auteur('',$_POST['nomAuteur'],$_POST['prenomAuteur']);
 
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $unAuteur->Create();
@@ -379,8 +377,8 @@ class ControllerAdmin
 
                     if($_GET['action2'] == "modifierAuteur")
                     {
-                        $unAuteur->setNomAuteur($_POST['nom']);
-                        $unAuteur->setPrenomAuteur($_POST['prenom']);
+                        $unAuteur->setNomAuteur($_POST['nomAuteur']);
+                        $unAuteur->setPrenomAuteur($_POST['prenomAuteur']);
 
                         //enregistrer en base bdd
                         $unAuteur->Update();
@@ -507,8 +505,8 @@ class ControllerAdmin
                 if($_GET["action2"] == "ajoutAtelier")
                 {
                     //On crée un objet de type atelier 
-                    $unAtelier = new \Projet\Models\admin\objets\Atelier('',$_POST['nom'],$_POST['date'],$_POST['description'],$_POST['horaire'],
-                    $_POST['age'],$_POST['capacite']);
+                    $unAtelier = new \Projet\Models\admin\objets\Atelier('',$_POST['nomAtelier'],$_POST['dateAtelier'],$_POST['descriptionAtelier'],$_POST['horaireAtelier'],
+                    $_POST['ageAtelier'],$_POST['capaciteAtelier']);
                     
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $unAtelier->Create();
@@ -545,12 +543,12 @@ class ControllerAdmin
 
                     if($_GET['action2'] == "modifierAtelier")
                     {
-                        $unAtelier->setNom($_POST['nom']);
-                        $unAtelier->setDate($_POST['date']);
-                        $unAtelier->setDescription($_POST['description']);
-                        $unAtelier->setHeure($_POST['horaire']);
-                        $unAtelier->setAge($_POST['age']);
-                        $unAtelier->setCapacite($_POST['capacite']);
+                        $unAtelier->setNom($_POST['nomAtelier']);
+                        $unAtelier->setDate($_POST['dateAtelier']);
+                        $unAtelier->setDescription($_POST['descriptionAtelier']);
+                        $unAtelier->setHeure($_POST['horaireAtelier']);
+                        $unAtelier->setAge($_POST['ageAtelier']);
+                        $unAtelier->setCapacite($_POST['capaciteAtelier']);
 
                         //enregistrer en base bdd
                         $unAtelier->Update();
@@ -807,8 +805,8 @@ class ControllerAdmin
                 if($_GET["action2"] == "ajoutClient")
                 {
                     //On crée un objet de type Client
-                    $unClient = new \Projet\Models\admin\objets\Client('',$_POST['numeroAbonne'],$_POST['civilite'],$_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['telephoneMobile']
-                    ,$_POST['telephoneFixe'],$_POST['adresse'],$_POST['dateDeNaissance'],$_POST['motDePasse']);
+                    $unClient = new \Projet\Models\admin\objets\Client('',$_POST['numeroAbonneClient'],$_POST['civilite'],$_POST['nomClient'],$_POST['prenomClient'],$_POST['emailClient'],$_POST['telephoneMobileClient']
+                    ,$_POST['telephoneFixeClient'],$_POST['adresseClient'],$_POST['dateDeNaissanceClient'],$_POST['motDePasseClient']);
                     
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $unClient->Create();
@@ -844,16 +842,16 @@ class ControllerAdmin
 
                     if($_GET['action2'] == "modifierClient")
                     {
-                        $unClient->setNumeroAbonne($_POST['numeroAbonne']);
+                        $unClient->setNumeroAbonne($_POST['numeroAbonneClient']);
                         $unClient->setCivilite($_POST['civilite']);
-                        $unClient->setNom($_POST['nom']);
-                        $unClient->setPrenom($_POST['prenom']);
-                        $unClient->setEmail($_POST['email']);
-                        $unClient->setTelephoneMobile($_POST['telephoneMobile']);
-                        $unClient->setTelephoneFixe($_POST['telephoneFixe']);
-                        $unClient->setAdresse($_POST['adresse']);
-                        $unClient->setDateDeNaissance($_POST['dateDeNaissance']);
-                        $unClient->setMotDePasse($_POST['motDePasse']);
+                        $unClient->setNom($_POST['nomClient']);
+                        $unClient->setPrenom($_POST['prenomClient']);
+                        $unClient->setEmail($_POST['emailClient']);
+                        $unClient->setTelephoneMobile($_POST['telephoneMobileClient']);
+                        $unClient->setTelephoneFixe($_POST['telephoneFixeClient']);
+                        $unClient->setAdresse($_POST['adresseClient']);
+                        $unClient->setDateDeNaissance($_POST['dateDeNaissanceClient']);
+                        $unClient->setMotDePasse($_POST['motDePasseClient']);
 
                         //enregistrer en base bdd
                         $unClient->Update();
@@ -979,7 +977,7 @@ class ControllerAdmin
                 if($_GET["action2"] == "ajoutCoupDeCoeur")
                 {
                     //On crée un objet de type Coup de coeur
-                    $unCoupDeCoeur = new \Projet\Models\admin\objets\CoupDeCoeur('',$_POST['selectLivre'],$_POST['auteur'],$_POST['commentaire'],$_POST['dateDePublication']);
+                    $unCoupDeCoeur = new \Projet\Models\admin\objets\CoupDeCoeur('',$_POST['selectLivreCDC'],$_POST['auteurCDC'],$_POST['commentaireCDC'],$_POST['dateDePublicationCDC']);
 
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $unCoupDeCoeur->Create();
@@ -1145,7 +1143,7 @@ class ControllerAdmin
                 if($_GET["action2"] == "ajoutEditeur")
                 {
                     //On crée un objet de type Coup de coeur
-                    $unEditeur = new \Projet\Models\admin\objets\Editeur('',$_POST['code'],$_POST['nom']);
+                    $unEditeur = new \Projet\Models\admin\objets\Editeur('',$_POST['codeEditeur'],$_POST['nomEditeur']);
 
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $unEditeur->Create();
@@ -1183,8 +1181,8 @@ class ControllerAdmin
 
                     if($_GET['action2'] == "modifierEditeur")
                     {
-                        $unEditeur->setCode($_POST['code']);
-                        $unEditeur->setNom($_POST['nom']);
+                        $unEditeur->setCode($_POST['codeEditeur']);
+                        $unEditeur->setNom($_POST['nomEditeur']);
                    
                         //enregistrer en base bdd
                         $unEditeur->Update();
@@ -1306,7 +1304,7 @@ class ControllerAdmin
                 if($_GET["action2"] == "ajoutFAQ")
                 {
                     //On crée un objet de type Coup de coeur
-                    $uneFAQ = new \Projet\Models\admin\objets\Faq('',$_POST['question'],$_POST['reponse']);
+                    $uneFAQ = new \Projet\Models\admin\objets\Faq('',$_POST['questionFaq'],$_POST['reponseFaq']);
 
                     //On appelle la fonction Create de l'objet auteur pour enregistrer en bdd
                     $uneFAQ->Create();
@@ -1345,8 +1343,8 @@ class ControllerAdmin
 
                     if($_GET['action2'] == "modifierFAQ")
                     {
-                        $uneFAQ->setQuestion($_POST['question']);
-                        $uneFAQ->setReponse($_POST['reponse']);
+                        $uneFAQ->setQuestion($_POST['questionFaq']);
+                        $uneFAQ->setReponse($_POST['reponseFaq']);
                  
                         
                         //enregistrer en base bdd
@@ -1495,10 +1493,10 @@ class ControllerAdmin
 
                     if($_GET['action2'] == "modifierMeta")
                     {
-                        $unMeta->setNomPage($_POST['nomPage']);
-                        $unMeta->setKeywords($_POST['keywords']);
-                        $unMeta->setDescription($_POST['description']);
-                        $unMeta->setTitle($_POST['title']);
+                        $unMeta->setNomPage($_POST['nomPageModif']);
+                        $unMeta->setKeywords($_POST['keywordsModif']);
+                        $unMeta->setDescription($_POST['descriptionModif']);
+                        $unMeta->setTitle($_POST['titleModif']);
                  
                         
                         //enregistrer en base bdd

@@ -36,14 +36,14 @@
 
                  <!-- question  -->
                  <section class="conteneurSection">
-                    <label class="conteneurLabel" for="Question">Question:</label>
-                    <input class=conteneurInputAjout type="text" name="question" value="<?= $uneFAQ->getQuestion(); ?>">             
+                    <label class="conteneurLabel" for="questionFaq">Question:</label>
+                    <input class=conteneurInputAjout type="text" id="questionFaq"  name="questionFaq" value="<?= $uneFAQ->getQuestion(); ?>">             
                 </section>
 
                 <!-- reponse  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="reponse">Réponse:</label>
-                    <input class=conteneurInputAjout type="text" name="reponse" value="<?= $uneFAQ->getReponse(); ?>" >             
+                    <label class="conteneurLabel" for="reponseFaq">Réponse:</label>
+                    <input class=conteneurInputAjout type="text" id="reponseFaq"  name="reponseFaq" value="<?= $uneFAQ->getReponse(); ?>" >             
                 </section>
 
 

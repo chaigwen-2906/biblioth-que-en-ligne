@@ -36,38 +36,38 @@
 
                 <!-- NOM  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom">Nom de l'atelier :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" placeholder="Nom de l'atelier" required>             
+                    <label class="conteneurLabel" for="nomAtelier">Nom de l'atelier :</label>
+                    <input class=conteneurInputAjout type="text" id="nomAtelier" name="nomAtelier" placeholder="Nom de l'atelier" required>             
                 </section>
 
                 <!-- DATE DU JOUR  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="date">Date de l'atelier :</label>
-                    <input class=conteneurInputAjout type="date" name="date" required>             
+                    <label class="conteneurLabel" for="dateAtelier">Date de l'atelier :</label>
+                    <input class=conteneurInputAjout type="date" id="dateAtelier" name="dateAtelier" required>             
                 </section>
 
                 <!-- DESCRIPTION  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="description">Description de l'atelier  :</label>
-                    <textarea class=conteneurInputAjout name="description" placeholder="Entrer votre description" required></textarea>            
+                    <label class="conteneurLabel" for="descriptionAtelier">Description de l'atelier  :</label>
+                    <textarea class=conteneurInputAjout id="descriptionAtelier" name="descriptionAtelier" placeholder="Entrer votre description" required></textarea>            
                 </section>
 
                 <!-- HORAIRE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="horaire">Horaire de l'atelier  :</label>
-                    <input class=conteneurInputAjout type="time" name="horaire" required>             
+                    <label class="conteneurLabel" for="horaireAtelier">Horaire de l'atelier  :</label>
+                    <input class=conteneurInputAjout type="time" id="horaireAtelier" name="horaireAtelier" required>             
                 </section>
 
                 <!-- AGE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="age">Age pour l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="age" placeholder="Age pour l'atelier" required>             
+                    <label class="conteneurLabel" for="ageAtelier">Age pour l'atelier :</label>
+                    <input class=conteneurInputAjout type="number" id="ageAtelier" name="ageAtelier" placeholder="Age pour l'atelier" required>             
                 </section>
 
                 <!-- CAPACITE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="capacite">Capacité de l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="capacite" placeholder="Capacité de l'atelier" required>             
+                    <label class="conteneurLabel" for="capaciteAtelier">Capacité de l'atelier :</label>
+                    <input class=conteneurInputAjout type="number"  id="capaciteAtelier" name="capaciteAtelier" placeholder="Capacité de l'atelier" required>             
                 </section>
 
 

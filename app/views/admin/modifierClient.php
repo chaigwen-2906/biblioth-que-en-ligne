@@ -37,13 +37,13 @@
                <!-- numeroAbonne  -->
                <section class="conteneurSection">
                     <label class="conteneurLabel" for="numeroAbonne">numeroAbonne :</label>
-                    <input class=conteneurInputAjout type="number" name="numeroAbonne" value="<?= $unClient->getNumeroAbonne(); ?>">             
+                    <input class=conteneurInputAjout type="number" id="numeroAbonne" name="numeroAbonne" value="<?= $unClient->getNumeroAbonne(); ?>">             
                 </section>
 
                 <!-- civilite  -->
                 <section class="conteneurSection">
                 <label class="conteneurLabel" for="selectciviliteDispo">civilite :</label>
-                    <select class=conteneurInputAjout  name="civilite">
+                    <select class=conteneurInputAjout id="selectciviliteDispo" name="civilite">
                         <option value='Monsieur'<?php if($unClient->getCivilite() == 'Monsieur'){ echo " selected"; } ?>>Monsieur</option>
                         <option value='Madame'<?php if($unClient->getCivilite() == 'Madame'){ echo " selected"; } ?>>Madame</option>  
                     </select>            
@@ -51,50 +51,50 @@
 
                 <!-- nom  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom">nom :</label>
-                    <input class=conteneurInputAjout type="text" name="nom" value="<?= $unClient->getNom(); ?>">             
+                    <label class="conteneurLabel" for="nomClient">nom :</label>
+                    <input class=conteneurInputAjout type="text" id="nomClient" name="nomClient" value="<?= $unClient->getNom(); ?>">             
                 </section>
 
                 <!-- prenom  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="prenom">prenom :</label>
-                    <input class=conteneurInputAjout type="text" name="prenom" value="<?= $unClient->getPrenom(); ?>">             
+                    <label class="conteneurLabel" for="prenomClient">prenom :</label>
+                    <input class=conteneurInputAjout type="text" id="prenomClient" name="prenomClient" value="<?= $unClient->getPrenom(); ?>">             
                 </section>
 
                 <!-- email  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="email">email :</label>
-                    <input class=conteneurInputAjout type="email" name="email" value="<?= $unClient->getEmail(); ?>">             
+                    <label class="conteneurLabel" for="emailClient">email :</label>
+                    <input class=conteneurInputAjout type="email" id="emailClient" name="emailClient" value="<?= $unClient->getEmail(); ?>">             
                 </section>
 
                 <!-- telephoneMobile  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="telephoneMobile">telephoneMobile  :</label>
-                    <input class=conteneurInputAjout type="tel" name="telephoneMobile" value="<?= $unClient->getTelephoneMobile(); ?>">             
+                    <label class="conteneurLabel" for="telephoneMobileClient">telephoneMobile  :</label>
+                    <input class=conteneurInputAjout type="tel" id="telephoneMobileClient" name="telephoneMobileClient" value="<?= $unClient->getTelephoneMobile(); ?>">             
                 </section>
 
                 <!-- telephoneFixe -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="telephoneFixe">telephoneFixe  :</label>
-                    <input class=conteneurInputAjout type="tel" name="telephoneFixe" value="<?= $unClient->getTelephoneFixe(); ?>">             
+                    <label class="conteneurLabel" for="telephoneFixeClient">telephoneFixe  :</label>
+                    <input class=conteneurInputAjout type="tel" id="telephoneFixeClient" name="telephoneFixeClient" value="<?= $unClient->getTelephoneFixe(); ?>">             
                 </section>
 
                 <!-- adresse -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="adresse">adresse  :</label>
-                    <input class=conteneurInputAjout type="text" name="adresse" value="<?= $unClient->getAdresse(); ?>">             
+                    <label class="conteneurLabel" for="adresseClient">adresse  :</label>
+                    <input class=conteneurInputAjout type="text" id="adresseClient" name="adresseClient" value="<?= $unClient->getAdresse(); ?>">             
                 </section>
 
                 <!-- dateDeNaissance -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="dateDeNaissance">date De Naissance :</label>
-                    <input class=conteneurInputAjout type="date" name="dateDeNaissance" value="<?= $unClient->getDateDeNaissance(); ?>">             
+                    <label class="conteneurLabel" for="dateDeNaissanceClient">date De Naissance :</label>
+                    <input class=conteneurInputAjout type="date" id="dateDeNaissanceClient" name="dateDeNaissanceClient" value="<?= $unClient->getDateDeNaissance(); ?>">             
                 </section>
 
                 <!-- motDePasse -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="motDePasse">motDePasse  :</label>
-                    <input class=conteneurInputAjout type="password" name="motDePasse" value="<?= $unClient->getMotDePasse(); ?>">             
+                    <label class="conteneurLabel" for="motDePasseClient">motDePasse  :</label>
+                    <input class=conteneurInputAjout type="password" id="motDePasseClient" name="motDePasseClient" value="<?= $unClient->getMotDePasse(); ?>">             
                 </section>
 
 

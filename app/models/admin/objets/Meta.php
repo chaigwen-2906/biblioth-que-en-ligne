@@ -86,24 +86,12 @@ class Meta extends Manager{
 
     // Create : crée une ligne dans la table auteur
     public function Create(){
-        $sql= "INSERT INTO meta(nomPage,keywords,description,title) VALUES(";
-
-      
-        $sql = $sql."'".addslashes($this->getNomPage())."',";
-
-        $sql = $sql."'".addslashes($this->getKeywords())."',";
-
-        $sql = $sql."'".addslashes($this->getDescription())."',";
-
-        $sql = $sql."'".addslashes($this->getTitle())."'";
-
-        $sql = $sql.")";
-
+        $sql= "INSERT INTO meta(nomPage,keywords,description,title) VALUES(?,?,?,?)";
 
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomPage(), $this->getKeywords(), $this->getDescription(), $this->getTitle()]);
+        $requete->execute([addslashes($this->getNomPage()), addslashes($this->getKeywords()), addslashes($this->getDescription()), addslashes($this->getTitle())]);
         
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idCoupDeCoeur de notre objet
@@ -146,7 +134,7 @@ class Meta extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getNomPage(), $this->getKeywords(), $this->getDescription(), $this->getTitle(), $this->getidMeta()]);
+        $requete->execute([addslashes($this->getNomPage()), addslashes($this->getKeywords()), addslashes($this->getDescription()), addslashes($this->getTitle()), addslashes($this->getidMeta())]);
 
         //Fermeture de la requete
         $requete->closeCursor();

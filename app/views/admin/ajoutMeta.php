@@ -37,25 +37,25 @@
                 <!-- nomPage  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="nomPage">Nom de la page :</label>
-                    <input class=conteneurInputAjout type="text" name="nomPage" placeholder="Nom de la page" >             
+                    <input class=conteneurInputAjout type="text" id="nomPage" name="nomPage" placeholder="Nom de la page" >             
                 </section>
 
                 <!-- keywords  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="keywords">Keywords :</label>
-                    <textarea class=conteneurInputAjout name="keywords" placeholder="Keywords"></textarea>            
+                    <textarea class=conteneurInputAjout id="keywords" name="keywords" placeholder="Keywords"></textarea>            
                 </section>
 
                 <!-- description  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="description">Description :</label>
-                    <textarea class=conteneurInputAjout name="description" placeholder="Description"></textarea>            
+                    <textarea class=conteneurInputAjout id="description" name="description" placeholder="Description"></textarea>            
                 </section>
 
                 <!-- title  -->
                 <section class="conteneurSection">
                     <label class="conteneurLabel" for="title">Title :</label>
-                    <input class=conteneurInputAjout type="text" name="title" placeholder="Title">             
+                    <input class=conteneurInputAjout type="text" id="title" name="title" placeholder="Title">             
                 </section>
 
 

@@ -12,7 +12,7 @@
         </h1>
         <div class="logo">
             <a href="" id="boutonFaq">
-                <img class="retouchePointIntero" src="app/public/image/logo-flavicon/pointIntero1.png">
+                <img class="retouchePointIntero" src="app/public/image/logo-flavicon/pointIntero1.png" alt="Foire aux questions" title="Foire aux questions">
             </a>
         </div>
     </div>
@@ -58,11 +58,11 @@
         
 
         <div class="boutonLoupe">
-            <img src="app/public/image/bouton/loupe.png">
+            <img src="app/public/image/bouton/loupe.png" alt="bouton de recherche" title="bouton de recherche">
         </div>
         <!----------------------Menu------------------------------>
         <div class="burger" id="boutonBurger">
-            <img src="app/public/image/icon/burger.png" alt="image burger menu">
+            <img src="app/public/image/icon/burger.png" alt="image burger du menu" title="image burger du menu">
         </div>
         <div class="menu">
             <ul id="conteneurMenu" >
@@ -113,7 +113,7 @@
                 ?>
             </select>
             <input id="champRecherche" type="text" name="champRecherche" placeholder="Nom du livre, auteur" >
-            <img src="app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher" onclick="verificationRecherche();">
+            <img id="btnRechercher" src="app/public/image/bouton/search.png" class="boutonRechercher" alt="Rechercher">
         </form>
     </div>
 </header>
@@ -133,7 +133,7 @@
         <div class="contenuModal">
             <form class="conteneurForm" method="POST" action="./front-<?= $this->nomPage;?>?action2=connecter">
                 <div class="identifier">
-                    <label class="labelAligne "  for="email"> E-mail </label>
+                    <label class="labelAligne " for="emailIdentifier"> E-mail </label>
                     <div class="blocinput">
                         <?php
                             $emailClient = "";
@@ -143,14 +143,14 @@
                                 $emailClient = $_COOKIE['emailClient'];
                             }
                         ?>
-                        <input class="inputAligne" type="email" name="email" id="emailIdentifier" placeholder="E-mail" value="<?= $emailClient; ?>" required="required"><br /> 
+                        <input class="inputAligne" type="email" id="emailIdentifier" name="emailIdentifier" placeholder="E-mail" value="<?= $emailClient; ?>" required="required"><br /> 
                         <span id="erreurMailIdentifier"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="motDePasse"> Mot de passe </label>
+                    <label class="labelAligne " for="motDePasseIdentifier"> Mot de passe </label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
+                        <input class="inputAligne" type="password" name="motDePasseIdentifier" id="motDePasseIdentifier" placeholder=" Mot de passe" required><br />
                         <span id="erreurMotDePasseIdentifier"></span>
                     </div>
                 </div>
@@ -186,88 +186,88 @@
             <form class="conteneurForm" method="POST" action="./front-<?= $this->nomPage;?>?action2=creerCompte">
                 <div class="civilite">
                     <div>
-                        <label for="monsieur" class="petit">M</label>
-                        <input type="radio" name="civilite" value="monsieur" id="civiliteMRCreer" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "monsieur"){echo "checked";}} ?>>
-                        <label for="madame" class="petit">Mme</label>
-                        <input type="radio" name="civilite" value="madame" id="civiliteMMECreer" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "madame"){echo "checked";}} ?>>
+                        <label for="civiliteMonsieur" class="petit">M</label>
+                        <input type="radio" name="civilite" value="monsieur" id="civiliteMonsieur" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "monsieur"){echo "checked";}} ?>>
+                        <label for="civiliteMadame" class="petit">Mme</label>
+                        <input type="radio" name="civilite" value="madame" id="civiliteMadame" <?php if($this->erreurCreationCompte == true){if($_POST['civilite'] == "madame"){echo "checked";}} ?>>
                 </div>
                     <span id="erreurCiviliteCreer"></span>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="numeroAbonne">Numéro d'abonnée</label>
+                    <label class="labelAligne " for="numeroAbonneCreer">Numéro d'abonnée</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="numeroAbonne" id="numeroAbonneCreer"
+                        <input class="inputAligne" type="text" name="numeroAbonneCreer" id="numeroAbonneCreer"
                         placeholder="Entrer votre Numero abonne" value="<?php if($this->erreurCreationCompte == true){echo $_POST['numeroAbonne'];} ?>">
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="nom">Nom</label>
+                    <label class="labelAligne " for="nomCreer">Nom</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="nom" id="nomCreer"
+                        <input class="inputAligne" type="text" name="nomCreer" id="nomCreer"
                             placeholder="Entrer votre nom" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['nom'];} ?>">
                         <span id="erreurNomCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="prenom">Votre prénom</label>
+                    <label class="labelAligne " for="prenomCreer">Votre prénom</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="prenom" id="prenomCreer"
+                        <input class="inputAligne" type="text" name="prenomCreer" id="prenomCreer"
                             placeholder="Entrer votre prénom" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['prenom'];} ?>">
                         <span id="erreurPrenomCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="email">Votre email</label>
+                    <label class="labelAligne " for="emailCreer">Votre email</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="email" name="email" id="emailCreer"
+                        <input class="inputAligne" type="email" name="emailCreer" id="emailCreer"
                             placeholder="Entrer votre email" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['email'];} ?>">
                         <span id="erreurMailCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="mobile">Votre Mobile</label>
+                    <label class="labelAligne " for="mobileCreer">Votre Mobile</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="tel" name="mobile" id="mobileCreer"
+                        <input class="inputAligne" type="tel" name="mobileCreer" id="mobileCreer"
                             placeholder="Entrer votre numéro" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['mobile'];} ?>">
                         <span id="erreurMobileCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="mobile">Votre Fixe</label>
+                    <label class="labelAligne " for="telephoneCreer">Votre Fixe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="tel" name="telephone" id="telephoneCreer"
+                        <input class="inputAligne" type="tel" name="telephoneCreer" id="telephoneCreer"
                             placeholder="Entrer votre numéro" value="<?php if($this->erreurCreationCompte == true){echo $_POST['telephone'];} ?>">
                         <span id="erreurTelephoneCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne "for="adresse"> Votre adresse</label>
+                    <label class="labelAligne "for="adresseCreer"> Votre adresse</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="adresse" id="adresseCreer"  
+                        <input class="inputAligne" type="text" name="adresseCreer" id="adresseCreer"  
                         placeholder="Entrer votre adresse" onkeyup="search()" required value="<?php if($this->erreurCreationCompte == true){echo $_POST['adresse'];} ?>">
                         <span id="erreurAdresseCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="date">Votre date de naissance</label>
+                    <label class="labelAligne " for="dateCreer">Votre date de naissance</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="text" name="date" id="dateCreer" 
+                        <input class="inputAligne" type="text" name="dateCreer" id="dateCreer" 
                         placeholder="Ex: 31/06/2019" required>
                         <span id="erreurDateCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="motDePasse">Votre mot de passe</label>
+                    <label class="labelAligne " for="motDePasseCreer">Votre mot de passe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasse" id="motDePasseCreer"
+                        <input class="inputAligne" type="password" name="motDePasseCreer" id="motDePasseCreer"
                             placeholder="Mot de passe" required>
                         <span id="erreurMotDePasseCreer"></span>
                     </div>
                 </div>
                 <div class="identifier">
-                    <label class="labelAligne " for="motDePasseConfirm">Confirmer votre mot de passe</label>
+                    <label class="labelAligne " for="motDePasseCreerConfirm">Confirmer votre mot de passe</label>
                     <div class="blocinput">
-                        <input class="inputAligne" type="password" name="motDePasseConfirm" id="motDePasseCreerConfirm"
+                        <input class="inputAligne" type="password" name="motDePasseCreerConfirm" id="motDePasseCreerConfirm"
                             placeholder=" Confirmation du mot de passe" required>
                         <span id="erreurMotDePasseCreerConfirm"></span>
                     </div>

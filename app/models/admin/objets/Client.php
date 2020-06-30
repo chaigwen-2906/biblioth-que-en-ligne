@@ -167,32 +167,19 @@ class Client extends Manager{
       public function Create(){
         //Préparation de la requête
         $sql = "INSERT INTO client(numeroAbonne,civilite,nom,prenom,email,telephoneMobile,telephoneFixe,adresse,dateDeNaissance,motDePasse) 
-        VALUES (";
-
-        $sql = $sql."'".addslashes($this->getNumeroAbonne())."',";
-        $sql = $sql."'".addslashes($this->getCivilite())."',";
-        $sql = $sql."'".addslashes($this->getNom())."',";
-        $sql = $sql."'".addslashes($this->getprenom())."',";
-        $sql = $sql."'".addslashes($this->getEmail())."',";
-        $sql = $sql."'".addslashes($this->getTelephoneMobile())."',";
-        $sql = $sql."'".addslashes($this->getTelephoneFixe())."',";
-        $sql = $sql."'".addslashes($this->getAdresse())."',";
+        VALUES (?,?,?,?,?,?,?,?,?,?)";
         
         if($this->getDateDeNaissance() == ''){
-          $sql = $sql."null,";
+          $dateNaissance = "NULL";
         }
         else{
-            $sql = $sql."'".$this->getDateDeNaissance()."',";
+            $dateNaissance = $this->getDateDeNaissance();
         }
 
-        $sql = $sql."'".addslashes($this->getMotDePasse())."'";
-
-        $sql = $sql.")";
-
         $requete = $this->connectBdd->prepare($sql);
-           
+
         //Execution de la requete
-        $requete->execute([$this->getNumeroAbonne(),$this->getCivilite(), $this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getMotDePasse()]);
+        $requete->execute([addslashes($this->getNumeroAbonne()),addslashes($this->getCivilite()), addslashes($this->getNom()), addslashes($this->getprenom()), addslashes($this->getEmail()), addslashes($this->getTelephoneMobile()), addslashes($this->getTelephoneFixe()), addslashes($this->getAdresse()), $dateNaissance, addslashes($this->getMotDePasse())]);
 
         //on recupère l'id de la ligne insérée 
         //et on le stocke dans l'attribut idClient de notre objet      
@@ -244,8 +231,8 @@ class Client extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         ///Execution de la requete
-        $requete->execute([$this->getNumeroAbonne(),$this->getCivilite(),$this->getNom(), $this->getPrenom(), $this->getEmail(), $this->getTelephoneMobile(), $this->getTelephoneFixe(), $this->getAdresse(), $this->getDateDeNaissance(), 
-        $this->getMotDePasse(),$this->getIdClient()]);
+        $requete->execute([addslashes($this->getNumeroAbonne()),addslashes($this->getCivilite()),addslashes($this->getNom()), addslashes($this->getPrenom()), addslashes($this->getEmail()), addslashes($this->getTelephoneMobile()), addslashes($this->getTelephoneFixe()), addslashes($this->getAdresse()), addslashes($this->getDateDeNaissance()), 
+        addslashes($this->getMotDePasse()),$this->getIdClient()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

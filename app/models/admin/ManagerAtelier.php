@@ -9,7 +9,7 @@ class ManagerAtelier extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT * FROM atelier ";  
+        $sql = "SELECT * FROM atelier";  
         
 
         $requete = $bdd->prepare($sql);

@@ -9,7 +9,7 @@ class ManagerMeta extends Manager{
     {
         $bdd = $this->bddConnection();
       
-        $sql = "SELECT * FROM meta ";  
+        $sql = "SELECT * FROM meta";  
         
 
         $requete = $bdd->prepare($sql);

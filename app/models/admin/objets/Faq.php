@@ -65,16 +65,12 @@ class Faq extends Manager{
         //Préparation de la requête
         //dans la bdd INSERT la ligne dans la table faq et je passe les valeur des colonne = 
         //(idlivre,nom,commentaire,dateDePublication)
-       $sql= "INSERT INTO faq(question,reponse) VALUES (";
-
-       $sql = $sql."'".addslashes($this->getQuestion())."',";
-       $sql =$sql."'".addslashes($this->getReponse())."'";
-       $sql =$sql.")";
+       $sql= "INSERT INTO faq(question,reponse) VALUES (?,?)";
 
        $requete = $this->connectBdd->prepare($sql);
 
        //Execution de la requete
-       $requete->execute([$this->getQuestion(), $this->getReponse()]);
+       $requete->execute([addslashes($this->getQuestion()), addslashes($this->getReponse())]);
 
        //on recupère l'id de la ligne insérée 
        //et on le stocke dans l'attribut idFaq de notre objet
@@ -116,7 +112,7 @@ class Faq extends Manager{
         $requete = $this->connectBdd->prepare($sql);
 
         //Execution de la requete
-        $requete->execute([$this->getQuestion(), $this->getReponse(), $this->getIdFaq()]);
+        $requete->execute([addslashes($this->getQuestion()), addslashes($this->getReponse()), $this->getIdFaq()]);
 
         //Fermeture de la requete
         $requete->closeCursor();

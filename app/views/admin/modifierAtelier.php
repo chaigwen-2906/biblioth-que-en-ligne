@@ -36,38 +36,38 @@
 
                  <!-- NOM  -->
                  <section class="conteneurSection">
-                    <label class="conteneurLabel" for="nom"> Nom de l'atelier :</label>
-                    <input class=conteneurInputAjout type="text" name="nom"  value="<?= $unAtelier->getNom(); ?>" required>             
+                    <label class="conteneurLabel" for="nomAtelier"> Nom de l'atelier :</label>
+                    <input class=conteneurInputAjout type="text" id="nomAtelier" name="nomAtelier"  value="<?= $unAtelier->getNom(); ?>" required>             
                 </section>
 
                 <!-- DATE DU JOUR  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="date"> Date du jour de l'atelier :</label>
-                    <input class=conteneurInputAjout type="date" name="date" value="<?= substr($unAtelier->getDate(),0,10); ?>" required>             
+                    <label class="conteneurLabel" for="dateAtelier"> Date du jour de l'atelier :</label>
+                    <input class=conteneurInputAjout type="date" id="dateAtelier" name="dateAtelier" value="<?= substr($unAtelier->getDate(),0,10); ?>" required>             
                 </section>
 
                 <!-- DESCRIPTION  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="description">Description de l'atelier  :</label>
-                    <textarea class=conteneurInputAjout name="description"><?= $unAtelier->getDescription(); ?></textarea required>            
+                    <label class="conteneurLabel" for="descriptionAtelier">Description de l'atelier  :</label>
+                    <textarea class=conteneurInputAjout id="descriptionAtelier" name="descriptionAtelier"><?= $unAtelier->getDescription(); ?></textarea required>            
                 </section>
 
                 <!-- HORAIRE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="horaire">  Horaire de l'atelier  :</label>
-                    <input class=conteneurInputAjout type="time" name="horaire" value="<?= substr($unAtelier->getHeure(),0,5); ?>" required>             
+                    <label class="conteneurLabel" for="horaireAtelier">  Horaire de l'atelier  :</label>
+                    <input class=conteneurInputAjout type="time" id="horaireAtelier" name="horaireAtelier" value="<?= substr($unAtelier->getHeure(),0,5); ?>" required>             
                 </section>
 
                 <!-- AGE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="age"> Age pour l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="age" value="<?= $unAtelier->getAge(); ?>" required>             
+                    <label class="conteneurLabel" for="ageAtelier"> Age pour l'atelier :</label>
+                    <input class=conteneurInputAjout type="number" id="ageAtelier" name="ageAtelier" value="<?= $unAtelier->getAge(); ?>" required>             
                 </section>
 
                 <!-- CAPACITE  -->
                 <section class="conteneurSection">
-                    <label class="conteneurLabel" for="capacite"> Capacité de l'atelier :</label>
-                    <input class=conteneurInputAjout type="number" name="capacite" value="<?= $unAtelier->getCapacite(); ?>" required>             
+                    <label class="conteneurLabel" for="capaciteAtelier"> Capacité de l'atelier :</label>
+                    <input class=conteneurInputAjout type="number" id="capaciteAtelier" name="capaciteAtelier" value="<?= $unAtelier->getCapacite(); ?>" required>             
                 </section>
 
 

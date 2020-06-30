@@ -134,58 +134,58 @@
                     </h2>
                     <!-- CIVILITE  -->
                     <article class="compteCivilite">
-                        <input type="radio" name="Civilite" value="monsieur" id="civiliteMonsieur" <?php if($monCompte['civilite'] == "monsieur"){echo "checked";} ?>>
-                        <label for="monsieur" class="petit">M</label>
-                        <input type="radio" name="Civilite" value="madame" id="civiliteMadame" <?php if($monCompte['civilite'] == "madame"){echo "checked";} ?>>
-                        <label for="madame" class="petit">Mme</label>
+                        <input type="radio" name="Civilite" value="monsieur" id="civiliteMonsieurCompte" <?php if($monCompte['civilite'] == "monsieur"){echo "checked";} ?>>
+                        <label for="civiliteMonsieurCompte" class="petit">M</label>
+                        <input type="radio" name="Civilite" value="madame" id="civiliteMadameCompte" <?php if($monCompte['civilite'] == "madame"){echo "checked";} ?>>
+                        <label for="civiliteMadameCompte" class="petit">Mme</label>
                         <span id="erreurCiviliteCompte"></span>
                     </article> 
                     <!-- NOM  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="nom">Votre nom</label>
-                        <input type="text" name="nom" id="nomCompte"  class="champsCompteModifier" value="<?= $monCompte['nom']; ?>" required="required"> 
+                        <label class="labelAdresse" for="nomCompte">Votre nom</label>
+                        <input type="text" name="nomCompte" id="nomCompte"  class="champsCompteModifier" value="<?= $monCompte['nom']; ?>" required="required"> 
                         <span id="erreurNomCompte"></span>
                     </article>
 
                     <!-- PRENOM  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="prenom">Votre prénom</label>
-                        <input type="text" name="prenom" id="prenomCompte" class="champsCompteModifier" value="<?= $monCompte['prenom']; ?>" required="required"><br>
+                        <label class="labelAdresse" for="prenomCompte">Votre prénom</label>
+                        <input type="text" name="prenomCompte" id="prenomCompte" class="champsCompteModifier" value="<?= $monCompte['prenom']; ?>" required="required"><br>
                         <span id="erreurPrenomCompte"></span> 
                     </article>
 
                     <!-- E-MAIL  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="email">Votre email</label>
-                        <input type="email" name="email" id="emailCompte"  class="champsCompteModifier" value="<?= $monCompte['email']; ?>"  required="required"><br> 
+                        <label class="labelAdresse" for="emailCompte">Votre email</label>
+                        <input type="email" name="emailCompte" id="emailCompte"  class="champsCompteModifier" value="<?= $monCompte['email']; ?>"  required="required"><br> 
                         <span id="erreurEmailCompte"></span>
                     </article>
 
                     <!-- TELEPHONE MOBILE  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="mobile">Votre téléphone mobile</label>
-                        <input type="tel" name="mobile" id="mobileCompte" class="champsCompteModifier" value="<?= $monCompte['telephoneMobile']; ?>" required="required" /><br> 
+                        <label class="labelAdresse" for="mobileCompte">Votre téléphone mobile</label>
+                        <input type="tel" name="mobileCompte" id="mobileCompte" class="champsCompteModifier" value="<?= $monCompte['telephoneMobile']; ?>" required="required" /><br> 
                         <span id="erreurMobileCompte"></span>
                     </article>
 
                     <!-- TELEPHONE FIXE  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="fixe">Votre téléphone fixe</label>
-                        <input type="tel" name="fixe" id="telephoneCompte"  class="champsCompteModifier" value="<?= $monCompte['telephoneFixe']; ?>" required="required"/><br> 
+                        <label class="labelAdresse" for="telephoneCompte">Votre téléphone fixe</label>
+                        <input type="tel" name="telephoneCompte" id="telephoneCompte"  class="champsCompteModifier" value="<?= $monCompte['telephoneFixe']; ?>" required="required"/><br> 
                         <span id="erreurFixeCompte"></span>
                     </article>
 
                     <!-- ADRESSE  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="adresse">Votre adresse</label>
-                        <input type="text" name="adresse" id="adresseCompte" class="champsCompteModifier" value="<?= $monCompte['adresse']; ?>" required="required" />
+                        <label class="labelAdresse" for="adresseCompte">Votre adresse</label>
+                        <input type="text" name="adresseCompte" id="adresseCompte" class="champsCompteModifier" value="<?= $monCompte['adresse']; ?>" required="required" />
                         <span id="erreurAdresseCompte"></span>
                     </article>
 
                     <!-- DATE DE NAISSANCE  -->
                     <article class="divContenuCompte">
-                        <label class="labelAdresse" for="date">Votre date de naissance</label>
-                        <input type="text" name="dateNaissance" id="dateNaissanceCompte" class="champsCompteModifier" value="<?= $monCompte['dateDeNaissance']; ?>" required="required"/>
+                        <label class="labelAdresse" for="dateNaissanceCompte">Votre date de naissance</label>
+                        <input type="text" name="dateNaissanceCompte" id="dateNaissanceCompte" class="champsCompteModifier" value="<?= $monCompte['dateDeNaissance']; ?>" required="required"/>
                         <span id="erreurDateNaissanceCompte"></span>
                     </article>
 
